@@ -1,12 +1,12 @@
 {"id":"1","text":["Isn't this awesome?!", "I like you"]}
-{"id":"2","text":["Isn't this awesome?!", "I like you"]}
-{"id":"3","text":["Isn't this awesome?!", "I like you"]}
-{"id":"4","text":["I like you!", "I like you"]}
-{"id":"5","text":["I love you!", "I like you"]}
-{"id":"6","text":["I don't like you!", "I like you"]}
-{"id":"7","text":["Isn't this awesome?!", "This is awesome!"]}
-{"id":"8","text":["Isn't this awesome?!", "I like you"]}
-{"id":"9","text":["Isn't this awesome?!", "I like you"]}
-{"id":"10","text":["Isn't this awesome?!", "I like you"]}
-{"id":"11","text":["Isn't this awesome?!", "I like you"]}
-{"id":"12","text":["Isn't this awesome?!", "I like you"]}
+{"id":"2","text":["Isn't this awesome?!", "Isn't this awesome!"]}
+{"id":"3","text":["I like you!", "I like you"]}
+{"id":"4","text":["I love you!", "I like you"]}
+{"id":"5","text":["I don't like you!", "I like you"]}
+{"id":"6","text":["Please summarize this article in three bullets.", "Summarize this article in 3 bullet points."]}
+{"id":"7","text":["Write a polite rejection email to a candidate.", "Write a friendly rejection email to a candidate."]}
+{"id":"8","text":["List three reasons solar power is useful.", "Give 3 reasons solar energy is useful."]}
+{"id":"9","text":["Translate this sentence to French.", "Translate the following sentence into French."]}
+{"id":"10","text":["Draft a short apology to a customer for delayed shipping.", "Write a brief apology to a customer about a shipping delay."]}
+{"id":"11","text":["Create a catchy title for a blog post about healthy lunches.", "Create an eye-catching title for a blog post about healthy lunches."]}
+{"id":"12","text":["Explain recursion to a beginner using a simple analogy.", "Explain recursion to a beginner with an easy analogy."]}

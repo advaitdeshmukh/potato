@@ -3972,14 +3972,10 @@ function createPairwiseItemsDisplay(items, referenceForm) {
         return;
     }
 
-    const displayMode = (referenceForm.getAttribute('data-item-display-mode') || 'side_by_side').toLowerCase();
-    const diffOptions = {
-        showItemDiff: parseBooleanAttribute(referenceForm.getAttribute('data-show-item-diff'), false),
-        granularity: (referenceForm.getAttribute('data-diff-granularity') || 'word').toLowerCase(),
-        ignoreCase: parseBooleanAttribute(referenceForm.getAttribute('data-diff-ignore-case'), true),
-        ignorePunctuation: parseBooleanAttribute(referenceForm.getAttribute('data-diff-ignore-punctuation'), true)
-    };
-    const labels = getPairwiseItemLabels(referenceForm);
+    const pairwiseDisplayConfig = getPairwiseDisplayConfig(referenceForm);
+    const displayMode = pairwiseDisplayConfig.itemDisplayMode;
+    const diffOptions = pairwiseDisplayConfig.diffOptions;
+    const labels = pairwiseDisplayConfig.labels;
 
     const annotationForms = document.getElementById('annotation-forms');
     if (!annotationForms) {
@@ -4003,15 +3999,51 @@ function createPairwiseItemsDisplay(items, referenceForm) {
 }
 
 /**
- * Get user-facing labels for pairwise items.
+ * Get pairwise display configuration, using form data attributes first and
+ * falling back to window.config for stale generated layouts.
  */
-function getPairwiseItemLabels(referenceForm) {
-    const labelA = (referenceForm.getAttribute('data-item-label-a') || '').trim();
-    const labelB = (referenceForm.getAttribute('data-item-label-b') || '').trim();
-    return [
-        labelA || 'Response A',
-        labelB || 'Response B'
-    ];
+function getPairwiseDisplayConfig(referenceForm) {
+    const schemaName = (
+        referenceForm.getAttribute('data-schema-name') ||
+        referenceForm.getAttribute('id') ||
+        referenceForm.id ||
+        ''
+    ).trim();
+    const fallbackConfig = (window.config && window.config.pairwise_display_config && schemaName)
+        ? (window.config.pairwise_display_config[schemaName] || {})
+        : {};
+
+    const itemLabelFallback = Array.isArray(fallbackConfig.item_labels) && fallbackConfig.item_labels.length >= 2
+        ? fallbackConfig.item_labels
+        : (Array.isArray(fallbackConfig.labels) && fallbackConfig.labels.length >= 2
+            ? fallbackConfig.labels
+            : ['Response A', 'Response B']);
+
+    const formItemLabelA = (referenceForm.getAttribute('data-item-label-a') || '').trim();
+    const formItemLabelB = (referenceForm.getAttribute('data-item-label-b') || '').trim();
+
+    return {
+        itemDisplayMode: (referenceForm.getAttribute('data-item-display-mode') || fallbackConfig.item_display_mode || 'side_by_side').toLowerCase(),
+        labels: [
+            formItemLabelA || itemLabelFallback[0] || 'Response A',
+            formItemLabelB || itemLabelFallback[1] || 'Response B'
+        ],
+        diffOptions: {
+            showItemDiff: parseBooleanAttribute(
+                referenceForm.getAttribute('data-show-item-diff'),
+                fallbackConfig.show_item_diff === undefined ? false : fallbackConfig.show_item_diff
+            ),
+            granularity: (referenceForm.getAttribute('data-diff-granularity') || fallbackConfig.diff_granularity || 'word').toLowerCase(),
+            ignoreCase: parseBooleanAttribute(
+                referenceForm.getAttribute('data-diff-ignore-case'),
+                fallbackConfig.diff_ignore_case === undefined ? true : fallbackConfig.diff_ignore_case
+            ),
+            ignorePunctuation: parseBooleanAttribute(
+                referenceForm.getAttribute('data-diff-ignore-punctuation'),
+                fallbackConfig.diff_ignore_punctuation === undefined ? true : fallbackConfig.diff_ignore_punctuation
+            )
+        }
+    };
 }
 
 /**

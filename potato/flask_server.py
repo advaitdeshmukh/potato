@@ -2567,6 +2567,29 @@ def create_app():
     # Configure the app
     configure_app(app)
 
+    def get_pairwise_display_config() -> dict:
+        """
+        Extract frontend display settings for pairwise schemas.
+        """
+        pairwise_config = {}
+        for scheme in config.get("annotation_schemes", []):
+            if scheme.get("annotation_type") != "pairwise":
+                continue
+            name = scheme.get("name")
+            if not name:
+                continue
+            pairwise_config[name] = {
+                "items_key": scheme.get("items_key", "text"),
+                "item_display_mode": scheme.get("item_display_mode", "side_by_side"),
+                "show_item_diff": scheme.get("show_item_diff", False),
+                "diff_granularity": scheme.get("diff_granularity", "word"),
+                "diff_ignore_case": scheme.get("diff_ignore_case", True),
+                "diff_ignore_punctuation": scheme.get("diff_ignore_punctuation", True),
+                "item_labels": scheme.get("item_labels"),
+                "labels": scheme.get("labels", ["A", "B"]),
+            }
+        return pairwise_config
+
     def static_asset(filename: str) -> str:
         """
         Generate a cache-busted static asset URL using the file modification time.
@@ -2588,6 +2611,7 @@ def create_app():
             'server_debug': is_server_debug_enabled(),
             'debug_mode': config.get('debug', False),
             'debug_phase': config.get('debug_phase'),
+            'pairwise_display_config': get_pairwise_display_config(),
             'static_asset': static_asset,
             # Add common config values needed by templates
             'annotation_task_name': config.get('annotation_task_name', 'Annotation Task'),
