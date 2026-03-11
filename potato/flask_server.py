@@ -2567,6 +2567,17 @@ def create_app():
     # Configure the app
     configure_app(app)
 
+    def static_asset(filename: str) -> str:
+        """
+        Generate a cache-busted static asset URL using the file modification time.
+        """
+        static_path = os.path.join(app.static_folder, filename.replace('/', os.sep))
+        try:
+            version = int(os.path.getmtime(static_path))
+            return url_for('static', filename=filename, v=version)
+        except OSError:
+            return url_for('static', filename=filename)
+
     # Add context processor for debug settings and common config values
     @app.context_processor
     def inject_template_context():
@@ -2577,6 +2588,7 @@ def create_app():
             'server_debug': is_server_debug_enabled(),
             'debug_mode': config.get('debug', False),
             'debug_phase': config.get('debug_phase'),
+            'static_asset': static_asset,
             # Add common config values needed by templates
             'annotation_task_name': config.get('annotation_task_name', 'Annotation Task'),
         }

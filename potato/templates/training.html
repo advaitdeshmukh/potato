@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ static_asset('styles.css') }}">
 
     <!-- Training-specific styles -->
     <style>
@@ -218,7 +218,7 @@
     <!-- Load annotation JavaScript -->
     <script src="{{ url_for('static', filename='interaction_tracker.js') }}?v=1"></script>
     <script src="{{ url_for('static', filename='ai_assistant_manager.js') }}?v=1"></script>
-    <script src="{{ url_for('static', filename='annotation.js') }}?v=11"></script>
+    <script src="{{ static_asset('annotation.js') }}"></script>
 
     <!-- Training-specific JavaScript -->
     <script>
