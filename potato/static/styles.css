@@ -3112,6 +3112,101 @@ body.has-pairwise-display #instance-text {
   word-wrap: break-word;
 }
 
+/* GitHub-style diff display for pairwise items */
+.pairwise-items-display-container.pairwise-items-display-diff-mode .pairwise-items-display {
+  display: block;
+}
+
+.pairwise-diff-display {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.pairwise-diff-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  background: #f6f8fa;
+  border-bottom: 1px solid #d0d7de;
+  color: #57606a;
+  font-size: 0.82rem;
+}
+
+.pairwise-diff-title {
+  font-weight: 700;
+  color: #24292f;
+}
+
+.pairwise-diff-meta {
+  font-size: 0.78rem;
+}
+
+.pairwise-diff-row {
+  display: grid;
+  grid-template-columns: minmax(160px, auto) 1fr;
+  align-items: start;
+  border-top: 1px solid rgba(27, 31, 36, 0.1);
+}
+
+.pairwise-diff-row:first-of-type {
+  border-top: none;
+}
+
+.pairwise-diff-row-delete {
+  background: #ffebe9;
+}
+
+.pairwise-diff-row-add {
+  background: #dafbe1;
+}
+
+.pairwise-diff-row-label {
+  padding: 0.65rem 0.75rem;
+  font-weight: 700;
+  border-right: 1px solid rgba(27, 31, 36, 0.12);
+  color: #24292f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pairwise-diff-row-content {
+  padding: 0.65rem 0.75rem;
+  line-height: 1.65;
+}
+
+.pairwise-diff-token {
+  display: inline;
+  border-radius: 0.2rem;
+  padding: 0 0.15rem;
+  word-break: break-word;
+}
+
+.pairwise-diff-token-context {
+  color: #24292f;
+}
+
+.pairwise-diff-token-delete {
+  background: #ff818266;
+  color: #82071e;
+  text-decoration: line-through;
+}
+
+.pairwise-diff-token-add {
+  background: #2da44e4d;
+  color: #116329;
+}
+
+.pairwise-diff-empty {
+  color: #57606a;
+  font-style: italic;
+}
+
 /* Binary mode: Compact selection tiles */
 .pairwise-selection-container {
   display: inline-flex;
@@ -3385,6 +3480,15 @@ body.has-pairwise-display #instance-text {
 
   .pairwise-items-display {
     flex-direction: column;
+  }
+
+  .pairwise-diff-row {
+    grid-template-columns: 1fr;
+  }
+
+  .pairwise-diff-row-label {
+    border-right: none;
+    border-bottom: 1px solid rgba(27, 31, 36, 0.12);
   }
 
   .pairwise-selection-container {
@@ -4113,4 +4217,3 @@ body.has-pairwise-display #instance-text {
     height: 2.25rem;
   }
 }
-

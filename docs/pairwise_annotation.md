@@ -82,6 +82,48 @@ annotation_schemes:
       required: true
 ```
 
+### Diff Item View (GitHub-style)
+
+You can switch the pairwise item display from side-by-side boxes to a GitHub-style diff block.  
+Diff mode supports word-level matching and can ignore case and punctuation differences.
+
+```yaml
+annotation_schemes:
+  - annotation_type: pairwise
+    name: preference
+    description: "Which response is better?"
+    mode: binary
+    items_key: "responses"
+    labels: ["Response A", "Response B"]
+
+    # Item rendering options
+    item_display_mode: diff         # "side_by_side" (default) or "diff"
+    diff_granularity: word          # currently supports "word"
+    diff_ignore_case: true          # treat "This" and "this" as equal
+    diff_ignore_punctuation: true   # treat "great" and "great." as equal
+```
+
+### Diff In Side-by-Side Cards
+
+If you want to keep the original two-card layout and only highlight changed words inside each card:
+
+```yaml
+annotation_schemes:
+  - annotation_type: pairwise
+    name: preference
+    description: "Which response is better?"
+    mode: binary
+    items_key: "responses"
+    item_labels: ["Prompt A", "Prompt B"]   # card titles
+    labels: ["Response A", "Response B"]
+
+    item_display_mode: side_by_side
+    show_item_diff: true
+    diff_granularity: word
+    diff_ignore_case: true
+    diff_ignore_punctuation: true
+```
+
 ## Data Format
 
 The schema expects instance data with a list of items to compare:

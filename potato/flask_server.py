@@ -70,6 +70,9 @@ base_html_dir = os.path.join(cur_program_dir,'base_htmls') #get the dir where th
 
 #insert the current program dir into sys path
 sys.path.insert(0, cur_program_dir)
+cur_program_parent_dir = os.path.dirname(cur_program_dir)
+if cur_program_parent_dir not in sys.path:
+    sys.path.insert(0, cur_program_parent_dir)
 
 from potato.item_state_management import ItemStateManager, Item, Label, SpanAnnotation
 from potato.item_state_management import get_item_state_manager, init_item_state_manager

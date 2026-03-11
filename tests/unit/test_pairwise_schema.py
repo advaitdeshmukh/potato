@@ -143,6 +143,71 @@ class TestPairwiseBinaryMode:
 
         assert 'validation="required"' in html
 
+    def test_generate_binary_layout_with_diff_display_options(self):
+        """Test binary mode exposes diff display options as data attributes."""
+        from potato.server_utils.schemas.pairwise import generate_pairwise_layout
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test_diff_options",
+            "description": "Compare with diff",
+            "mode": "binary",
+            "labels": ["Candidate A", "Candidate B"],
+            "item_labels": ["Prompt A", "Prompt B"],
+            "item_display_mode": "diff",
+            "diff_granularity": "word",
+            "diff_ignore_case": True,
+            "diff_ignore_punctuation": True,
+            "annotation_id": "test_6b"
+        }
+
+        html, keybindings = generate_pairwise_layout(scheme)
+
+        assert 'data-item-display-mode="diff"' in html
+        assert 'data-show-item-diff="false"' in html
+        assert 'data-diff-granularity="word"' in html
+        assert 'data-diff-ignore-case="true"' in html
+        assert 'data-diff-ignore-punctuation="true"' in html
+        assert 'data-item-label-a="Prompt A"' in html
+        assert 'data-item-label-b="Prompt B"' in html
+
+    def test_generate_binary_layout_with_side_by_side_diff_highlighting(self):
+        """Test side-by-side layout can enable diff highlighting inside cards."""
+        from potato.server_utils.schemas.pairwise import generate_pairwise_layout
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test_side_by_side_diff",
+            "description": "Compare in cards",
+            "mode": "binary",
+            "item_display_mode": "side_by_side",
+            "show_item_diff": True,
+            "annotation_id": "test_6c"
+        }
+
+        html, keybindings = generate_pairwise_layout(scheme)
+
+        assert 'data-item-display-mode="side_by_side"' in html
+        assert 'data-show-item-diff="true"' in html
+
+    def test_generate_binary_layout_item_labels_fall_back_to_choice_labels(self):
+        """Test card titles fall back to labels when item_labels are omitted."""
+        from potato.server_utils.schemas.pairwise import generate_pairwise_layout
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test_item_label_fallback",
+            "description": "Compare",
+            "mode": "binary",
+            "labels": ["Left Choice", "Right Choice"],
+            "annotation_id": "test_6d"
+        }
+
+        html, keybindings = generate_pairwise_layout(scheme)
+
+        assert 'data-item-label-a="Left Choice"' in html
+        assert 'data-item-label-b="Right Choice"' in html
+
 
 class TestPairwiseScaleMode:
     """Tests for pairwise scale mode (slider between items)."""
@@ -273,6 +338,32 @@ class TestPairwiseScaleMode:
 
         # Should have tick marks for each value
         assert 'pairwise-scale-tick' in html
+
+    def test_generate_scale_layout_includes_item_display_data_attributes(self):
+        """Test scale mode includes item display data attributes."""
+        from potato.server_utils.schemas.pairwise import generate_pairwise_layout
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test_scale_diff_attrs",
+            "description": "Scale with custom item display",
+            "mode": "scale",
+            "labels": ["Left", "Right"],
+            "item_labels": ["Prompt A", "Prompt B"],
+            "item_display_mode": "diff",
+            "diff_ignore_case": False,
+            "diff_ignore_punctuation": True,
+            "annotation_id": "test_11b"
+        }
+
+        html, keybindings = generate_pairwise_layout(scheme)
+
+        assert 'data-item-display-mode="diff"' in html
+        assert 'data-show-item-diff="false"' in html
+        assert 'data-diff-ignore-case="false"' in html
+        assert 'data-diff-ignore-punctuation="true"' in html
+        assert 'data-item-label-a="Prompt A"' in html
+        assert 'data-item-label-b="Prompt B"' in html
 
 
 class TestPairwiseSchemaValidation:
@@ -444,3 +535,83 @@ class TestPairwiseConfigValidation:
             validate_single_annotation_scheme(scheme, "test_path")
 
         assert "at least 2" in str(exc_info.value).lower()
+
+    def test_item_display_mode_validation(self):
+        """Test that invalid item_display_mode raises validation error."""
+        from potato.server_utils.config_module import validate_single_annotation_scheme, ConfigValidationError
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test",
+            "description": "test",
+            "item_display_mode": "invalid_mode"
+        }
+
+        with pytest.raises(ConfigValidationError) as exc_info:
+            validate_single_annotation_scheme(scheme, "test_path")
+
+        assert "item_display_mode must be one of" in str(exc_info.value).lower()
+
+    def test_diff_granularity_validation(self):
+        """Test that invalid diff_granularity raises validation error."""
+        from potato.server_utils.config_module import validate_single_annotation_scheme, ConfigValidationError
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test",
+            "description": "test",
+            "diff_granularity": "character"
+        }
+
+        with pytest.raises(ConfigValidationError) as exc_info:
+            validate_single_annotation_scheme(scheme, "test_path")
+
+        assert "diff_granularity must be one of" in str(exc_info.value).lower()
+
+    def test_diff_ignore_case_must_be_boolean(self):
+        """Test that diff_ignore_case must be boolean."""
+        from potato.server_utils.config_module import validate_single_annotation_scheme, ConfigValidationError
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test",
+            "description": "test",
+            "diff_ignore_case": "yes"
+        }
+
+        with pytest.raises(ConfigValidationError) as exc_info:
+            validate_single_annotation_scheme(scheme, "test_path")
+
+        assert "diff_ignore_case must be a boolean" in str(exc_info.value).lower()
+
+    def test_show_item_diff_must_be_boolean(self):
+        """Test that show_item_diff must be boolean."""
+        from potato.server_utils.config_module import validate_single_annotation_scheme, ConfigValidationError
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test",
+            "description": "test",
+            "show_item_diff": "yes"
+        }
+
+        with pytest.raises(ConfigValidationError) as exc_info:
+            validate_single_annotation_scheme(scheme, "test_path")
+
+        assert "show_item_diff must be a boolean" in str(exc_info.value).lower()
+
+    def test_item_labels_must_have_two_items(self):
+        """Test that item_labels must have at least 2 items."""
+        from potato.server_utils.config_module import validate_single_annotation_scheme, ConfigValidationError
+
+        scheme = {
+            "annotation_type": "pairwise",
+            "name": "test",
+            "description": "test",
+            "item_labels": ["Only one"]
+        }
+
+        with pytest.raises(ConfigValidationError) as exc_info:
+            validate_single_annotation_scheme(scheme, "test_path")
+
+        assert "item_labels must have at least 2 items" in str(exc_info.value).lower()

@@ -821,12 +821,38 @@ def validate_single_annotation_scheme(scheme: Dict[str, Any], path: str) -> None
         if mode not in valid_modes:
             raise ConfigValidationError(f"{path}.mode must be one of: {valid_modes}")
 
+        # Validate item display mode (annotation UI rendering)
+        if 'item_display_mode' in scheme:
+            valid_item_display_modes = ['side_by_side', 'diff']
+            if scheme['item_display_mode'] not in valid_item_display_modes:
+                raise ConfigValidationError(
+                    f"{path}.item_display_mode must be one of: {valid_item_display_modes}"
+                )
+
+        # Validate diff configuration options
+        if 'diff_granularity' in scheme:
+            valid_diff_granularity = ['word']
+            if scheme['diff_granularity'] not in valid_diff_granularity:
+                raise ConfigValidationError(
+                    f"{path}.diff_granularity must be one of: {valid_diff_granularity}"
+                )
+
+        for bool_opt in ['show_item_diff', 'diff_ignore_case', 'diff_ignore_punctuation']:
+            if bool_opt in scheme and not isinstance(scheme[bool_opt], bool):
+                raise ConfigValidationError(f"{path}.{bool_opt} must be a boolean")
+
         # Validate labels if provided
         if 'labels' in scheme:
             if not isinstance(scheme['labels'], list):
                 raise ConfigValidationError(f"{path}.labels must be a list")
             if len(scheme['labels']) < 2:
                 raise ConfigValidationError(f"{path}.labels must have at least 2 items (for A and B)")
+
+        if 'item_labels' in scheme:
+            if not isinstance(scheme['item_labels'], list):
+                raise ConfigValidationError(f"{path}.item_labels must be a list")
+            if len(scheme['item_labels']) < 2:
+                raise ConfigValidationError(f"{path}.item_labels must have at least 2 items")
 
         # Validate scale configuration for scale mode
         if mode == 'scale':

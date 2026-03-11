@@ -1,6 +1,6 @@
 port: 9001
 server_name: potato annotator
-annotation_task_name: Simple Pairwise Comparison Example
+annotation_task_name: Prompt Edit Validation
 task_dir: .
 output_annotation_dir: annotation_output/simple-pairwise/
 output_annotation_format: tsv
@@ -40,13 +40,21 @@ annotation_schemes:
 # Binary mode pairwise comparison with clickable tiles
 - annotation_type: pairwise
   name: preference
-  description: Which tweet is more intimate?
+  description: Are these prompts edited from each other?
   mode: binary
   items_key: text
+  item_display_mode: side_by_side
+  show_item_diff: true
+  diff_granularity: word
+  diff_ignore_case: true
+  diff_ignore_punctuation: true
   show_labels: true
+  item_labels:
+    - "Prompt A"
+    - "Prompt B"
   labels:
-    - "Option A"
-    - "Option B"
+    - "Yes"
+    - "No"
   allow_tie: true
   tie_label: "Hard to tell"
   sequential_key_binding: true

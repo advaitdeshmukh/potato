@@ -15,9 +15,9 @@ import sys
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
 
-from potato.server_utils.config_module import config
-from potato.server_utils.schemas.registry import schema_registry
-from potato.server_utils.schemas.keybinding_allocator import allocate_keybindings
+from .config_module import config
+from .schemas.registry import schema_registry
+from .schemas.keybinding_allocator import allocate_keybindings
 
 logger = logging.getLogger(__name__)
 

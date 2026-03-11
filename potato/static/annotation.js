@@ -3968,40 +3968,224 @@ function wrapPairwiseFormsInFlexContainer(pairwiseForms) {
  * Create a single pairwise items display at the top of the annotation forms.
  */
 function createPairwiseItemsDisplay(items, referenceForm) {
-    // Check if display already exists
-    if (document.querySelector('.pairwise-items-display-container')) {
-        // Just update the content
-        const boxes = document.querySelectorAll('.pairwise-items-display-container .pairwise-item-box');
-        boxes.forEach((box, index) => {
-            if (index < items.length) box.textContent = items[index];
-        });
+    if (!Array.isArray(items) || items.length < 2 || !referenceForm) {
         return;
     }
 
-    // Get labels from the first pairwise form
-    const labels = ['Response A', 'Response B'];
+    const displayMode = (referenceForm.getAttribute('data-item-display-mode') || 'side_by_side').toLowerCase();
+    const diffOptions = {
+        showItemDiff: parseBooleanAttribute(referenceForm.getAttribute('data-show-item-diff'), false),
+        granularity: (referenceForm.getAttribute('data-diff-granularity') || 'word').toLowerCase(),
+        ignoreCase: parseBooleanAttribute(referenceForm.getAttribute('data-diff-ignore-case'), true),
+        ignorePunctuation: parseBooleanAttribute(referenceForm.getAttribute('data-diff-ignore-punctuation'), true)
+    };
+    const labels = getPairwiseItemLabels(referenceForm);
 
-    // Create the display container
-    const displayContainer = document.createElement('div');
-    displayContainer.className = 'pairwise-items-display-container';
-    displayContainer.innerHTML = `
+    const annotationForms = document.getElementById('annotation-forms');
+    if (!annotationForms) {
+        return;
+    }
+
+    let displayContainer = document.querySelector('.pairwise-items-display-container');
+    if (!displayContainer) {
+        displayContainer = document.createElement('div');
+        displayContainer.className = 'pairwise-items-display-container';
+        annotationForms.insertBefore(displayContainer, annotationForms.firstChild);
+    }
+
+    if (displayMode === 'diff') {
+        displayContainer.classList.add('pairwise-items-display-diff-mode');
+        displayContainer.innerHTML = buildPairwiseDiffDisplayHtml(items[0], items[1], labels, diffOptions);
+    } else {
+        displayContainer.classList.remove('pairwise-items-display-diff-mode');
+        displayContainer.innerHTML = buildPairwiseSideBySideDisplayHtml(items[0], items[1], labels, diffOptions);
+    }
+}
+
+/**
+ * Get user-facing labels for pairwise items.
+ */
+function getPairwiseItemLabels(referenceForm) {
+    const labelA = (referenceForm.getAttribute('data-item-label-a') || '').trim();
+    const labelB = (referenceForm.getAttribute('data-item-label-b') || '').trim();
+    return [
+        labelA || 'Response A',
+        labelB || 'Response B'
+    ];
+}
+
+/**
+ * Parse a boolean data attribute safely.
+ */
+function parseBooleanAttribute(value, defaultValue) {
+    if (value === null || value === undefined || value === '') {
+        return defaultValue;
+    }
+
+    const normalized = String(value).trim().toLowerCase();
+    if (normalized === 'true') return true;
+    if (normalized === 'false') return false;
+    return defaultValue;
+}
+
+/**
+ * Build the legacy side-by-side pairwise content display.
+ */
+function buildPairwiseSideBySideDisplayHtml(itemA, itemB, labels, diffOptions) {
+    let contentA = escapeHtml(itemA);
+    let contentB = escapeHtml(itemB);
+
+    if (diffOptions && diffOptions.showItemDiff) {
+        const diff = computePairwiseWordDiff(itemA, itemB, diffOptions);
+        contentA = renderPairwiseDiffTokens(diff.leftLineTokens);
+        contentB = renderPairwiseDiffTokens(diff.rightLineTokens);
+    }
+
+    return `
         <div class="pairwise-items-display">
             <div class="pairwise-item-wrapper">
-                <div class="pairwise-item-title">${labels[0]}</div>
-                <div class="pairwise-item-box">${escapeHtml(items[0])}</div>
+                <div class="pairwise-item-title">${escapeHtml(labels[0])}</div>
+                <div class="pairwise-item-box">${contentA}</div>
             </div>
             <div class="pairwise-item-wrapper">
-                <div class="pairwise-item-title">${labels[1]}</div>
-                <div class="pairwise-item-box">${escapeHtml(items[1])}</div>
+                <div class="pairwise-item-title">${escapeHtml(labels[1])}</div>
+                <div class="pairwise-item-box">${contentB}</div>
             </div>
         </div>
     `;
+}
 
-    // Insert before the first pairwise form
-    const annotationForms = document.getElementById('annotation-forms');
-    if (annotationForms) {
-        annotationForms.insertBefore(displayContainer, annotationForms.firstChild);
+/**
+ * Build a GitHub-style word diff display for pairwise content.
+ */
+function buildPairwiseDiffDisplayHtml(itemA, itemB, labels, diffOptions) {
+    const granularity = (diffOptions.granularity || 'word').toLowerCase();
+    const diff = computePairwiseWordDiff(itemA, itemB, diffOptions);
+    const modeNoteParts = [`${granularity}-level`];
+    if (diffOptions.ignoreCase) modeNoteParts.push('ignores case');
+    if (diffOptions.ignorePunctuation) modeNoteParts.push('ignores punctuation');
+    const modeNote = modeNoteParts.length > 0 ? modeNoteParts.join(' | ') : 'strict matching';
+
+    return `
+        <div class="pairwise-diff-display">
+            <div class="pairwise-diff-header">
+                <span class="pairwise-diff-title">Word Diff</span>
+                <span class="pairwise-diff-meta">${escapeHtml(modeNote)}</span>
+            </div>
+            <div class="pairwise-diff-row pairwise-diff-row-delete">
+                <div class="pairwise-diff-row-label">- ${escapeHtml(labels[0])}</div>
+                <div class="pairwise-diff-row-content">${renderPairwiseDiffTokens(diff.leftLineTokens)}</div>
+            </div>
+            <div class="pairwise-diff-row pairwise-diff-row-add">
+                <div class="pairwise-diff-row-label">+ ${escapeHtml(labels[1])}</div>
+                <div class="pairwise-diff-row-content">${renderPairwiseDiffTokens(diff.rightLineTokens)}</div>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Compute a word-level diff between two texts.
+ * Unchanged words appear in both lines, removals only in A, additions only in B.
+ */
+function computePairwiseWordDiff(leftText, rightText, options) {
+    const leftTokens = tokenizeForPairwiseDiff(leftText, options);
+    const rightTokens = tokenizeForPairwiseDiff(rightText, options);
+
+    const dp = Array.from({ length: leftTokens.length + 1 }, () => Array(rightTokens.length + 1).fill(0));
+
+    for (let i = leftTokens.length - 1; i >= 0; i -= 1) {
+        for (let j = rightTokens.length - 1; j >= 0; j -= 1) {
+            if (leftTokens[i].normalized === rightTokens[j].normalized) {
+                dp[i][j] = dp[i + 1][j + 1] + 1;
+            } else {
+                dp[i][j] = Math.max(dp[i + 1][j], dp[i][j + 1]);
+            }
+        }
     }
+
+    const leftLineTokens = [];
+    const rightLineTokens = [];
+    let i = 0;
+    let j = 0;
+
+    while (i < leftTokens.length && j < rightTokens.length) {
+        if (leftTokens[i].normalized === rightTokens[j].normalized) {
+            leftLineTokens.push({ text: leftTokens[i].original, className: 'pairwise-diff-token-context' });
+            rightLineTokens.push({ text: rightTokens[j].original, className: 'pairwise-diff-token-context' });
+            i += 1;
+            j += 1;
+        } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+            leftLineTokens.push({ text: leftTokens[i].original, className: 'pairwise-diff-token-delete' });
+            i += 1;
+        } else {
+            rightLineTokens.push({ text: rightTokens[j].original, className: 'pairwise-diff-token-add' });
+            j += 1;
+        }
+    }
+
+    while (i < leftTokens.length) {
+        leftLineTokens.push({ text: leftTokens[i].original, className: 'pairwise-diff-token-delete' });
+        i += 1;
+    }
+
+    while (j < rightTokens.length) {
+        rightLineTokens.push({ text: rightTokens[j].original, className: 'pairwise-diff-token-add' });
+        j += 1;
+    }
+
+    return { leftLineTokens, rightLineTokens };
+}
+
+/**
+ * Split text into tokens for word diff and normalize for matching.
+ */
+function tokenizeForPairwiseDiff(text, options) {
+    const rawTokens = String(text || '').match(/\S+/g) || [];
+    const tokens = [];
+
+    rawTokens.forEach(rawToken => {
+        const normalized = normalizePairwiseDiffToken(rawToken, options);
+        if (!normalized) {
+            return;
+        }
+        tokens.push({
+            original: rawToken,
+            normalized
+        });
+    });
+
+    return tokens;
+}
+
+/**
+ * Normalize a token for comparison.
+ */
+function normalizePairwiseDiffToken(token, options) {
+    let normalized = String(token || '');
+
+    if (options && options.ignoreCase) {
+        normalized = normalized.toLowerCase();
+    }
+
+    if (options && options.ignorePunctuation) {
+        normalized = normalized.replace(/[^\w]|_/g, '');
+    }
+
+    return normalized.trim();
+}
+
+/**
+ * Render a sequence of diff tokens as inline spans.
+ */
+function renderPairwiseDiffTokens(tokens) {
+    if (!tokens || tokens.length === 0) {
+        return '<span class="pairwise-diff-empty">(empty)</span>';
+    }
+
+    return tokens
+        .map(token => `<span class="pairwise-diff-token ${token.className}">${escapeHtml(token.text)}</span>`)
+        .join(' ');
 }
 
 /**

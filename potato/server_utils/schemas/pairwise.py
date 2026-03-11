@@ -25,6 +25,36 @@ from .identifier_utils import (
 logger = logging.getLogger(__name__)
 
 
+def _get_item_display_options(annotation_scheme: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Get pairwise item display options for frontend rendering.
+
+    The frontend consumes these values via data attributes on pairwise forms.
+    Defaults preserve existing side-by-side rendering.
+    """
+    return {
+        "item_display_mode": annotation_scheme.get("item_display_mode", "side_by_side"),
+        "show_item_diff": annotation_scheme.get("show_item_diff", False),
+        "diff_granularity": annotation_scheme.get("diff_granularity", "word"),
+        "diff_ignore_case": annotation_scheme.get("diff_ignore_case", True),
+        "diff_ignore_punctuation": annotation_scheme.get("diff_ignore_punctuation", True),
+    }
+
+
+def _get_item_labels(annotation_scheme: Dict[str, Any], fallback_labels: List[str]) -> List[str]:
+    """
+    Get display labels for the compared items.
+
+    These are separate from the annotation choice labels so the UI can show
+    card titles like "Prompt A" / "Prompt B" while the decision buttons use
+    "Yes" / "No" or similar task-specific answers.
+    """
+    item_labels = annotation_scheme.get("item_labels")
+    if isinstance(item_labels, list) and len(item_labels) >= 2:
+        return item_labels[:2]
+    return fallback_labels[:2]
+
+
 def generate_pairwise_layout(annotation_scheme: Dict[str, Any]) -> Tuple[str, List[Tuple[str, str]]]:
     """
     Generate HTML for a pairwise comparison interface.
@@ -86,12 +116,14 @@ def _generate_binary_mode(annotation_scheme: Dict[str, Any]) -> Tuple[str, List[
     labels = annotation_scheme.get("labels", ["A", "B"])
     if len(labels) < 2:
         labels = ["A", "B"]
+    item_labels = _get_item_labels(annotation_scheme, labels)
 
     allow_tie = annotation_scheme.get("allow_tie", False)
     tie_label = annotation_scheme.get("tie_label", "No preference")
 
     # Get items config
     items_key = annotation_scheme.get("items_key", "text")
+    item_display_options = _get_item_display_options(annotation_scheme)
 
     # Validation attribute
     validation = generate_validation_attribute(annotation_scheme)
@@ -104,20 +136,36 @@ def _generate_binary_mode(annotation_scheme: Dict[str, Any]) -> Tuple[str, List[
     escaped_schema = escape_html_content(schema_name)
     escaped_description = escape_html_content(description)
     escaped_items_key = escape_html_content(items_key)
-
-    # Data attributes for JavaScript initialization
-    data_attrs = f'data-annotation-type="pairwise" data-schema-name="{escaped_schema}" data-mode="binary" data-items-key="{escaped_items_key}"'
-
-    # Layout attributes for grid positioning
-    layout_attrs = generate_layout_attributes(annotation_scheme)
+    escaped_item_display_mode = escape_html_content(item_display_options["item_display_mode"])
+    escaped_diff_granularity = escape_html_content(item_display_options["diff_granularity"])
 
     # Tile labels
     label_a = escape_html_content(labels[0])
     label_b = escape_html_content(labels[1])
+    item_label_a = escape_html_content(item_labels[0])
+    item_label_b = escape_html_content(item_labels[1])
     shortcut_a = "[1]" if enable_keybindings else ""
     shortcut_b = "[2]" if enable_keybindings else ""
     data_key_a = 'data-key="1"' if enable_keybindings else ""
     data_key_b = 'data-key="2"' if enable_keybindings else ""
+
+    # Data attributes for JavaScript initialization
+    data_attrs = (
+        f'data-annotation-type="pairwise" '
+        f'data-schema-name="{escaped_schema}" '
+        f'data-mode="binary" '
+        f'data-items-key="{escaped_items_key}" '
+        f'data-item-display-mode="{escaped_item_display_mode}" '
+        f'data-show-item-diff="{str(item_display_options["show_item_diff"]).lower()}" '
+        f'data-diff-granularity="{escaped_diff_granularity}" '
+        f'data-diff-ignore-case="{str(item_display_options["diff_ignore_case"]).lower()}" '
+        f'data-diff-ignore-punctuation="{str(item_display_options["diff_ignore_punctuation"]).lower()}" '
+        f'data-item-label-a="{item_label_a}" '
+        f'data-item-label-b="{item_label_b}"'
+    )
+
+    # Layout attributes for grid positioning
+    layout_attrs = generate_layout_attributes(annotation_scheme)
 
     schematic = f"""
     <form id="{escaped_schema}" class="annotation-form pairwise pairwise-binary" action="/action_page.php" data-annotation-id="{escape_html_content(str(annotation_scheme.get('annotation_id', '')))}" {data_attrs} {layout_attrs}>
@@ -187,6 +235,7 @@ def _generate_scale_mode(annotation_scheme: Dict[str, Any]) -> Tuple[str, List[T
     labels = annotation_scheme.get("labels", ["A", "B"])
     if len(labels) < 2:
         labels = ["A", "B"]
+    item_labels = _get_item_labels(annotation_scheme, labels)
 
     # Get scale configuration
     scale_config = annotation_scheme.get("scale", {})
@@ -203,6 +252,7 @@ def _generate_scale_mode(annotation_scheme: Dict[str, Any]) -> Tuple[str, List[T
 
     # Get items config
     items_key = annotation_scheme.get("items_key", "text")
+    item_display_options = _get_item_display_options(annotation_scheme)
 
     # Validation attribute
     validation = generate_validation_attribute(annotation_scheme)
@@ -214,16 +264,32 @@ def _generate_scale_mode(annotation_scheme: Dict[str, Any]) -> Tuple[str, List[T
     escaped_schema = escape_html_content(schema_name)
     escaped_description = escape_html_content(description)
     escaped_items_key = escape_html_content(items_key)
-
-    # Data attributes for JavaScript initialization
-    data_attrs = f'data-annotation-type="pairwise" data-schema-name="{escaped_schema}" data-mode="scale" data-items-key="{escaped_items_key}"'
-
-    # Layout attributes for grid positioning
-    layout_attrs = generate_layout_attributes(annotation_scheme)
+    escaped_item_display_mode = escape_html_content(item_display_options["item_display_mode"])
+    escaped_diff_granularity = escape_html_content(item_display_options["diff_granularity"])
 
     # Escaped labels
     label_a = escape_html_content(labels[0])
     label_b = escape_html_content(labels[1])
+    item_label_a = escape_html_content(item_labels[0])
+    item_label_b = escape_html_content(item_labels[1])
+
+    # Data attributes for JavaScript initialization
+    data_attrs = (
+        f'data-annotation-type="pairwise" '
+        f'data-schema-name="{escaped_schema}" '
+        f'data-mode="scale" '
+        f'data-items-key="{escaped_items_key}" '
+        f'data-item-display-mode="{escaped_item_display_mode}" '
+        f'data-show-item-diff="{str(item_display_options["show_item_diff"]).lower()}" '
+        f'data-diff-granularity="{escaped_diff_granularity}" '
+        f'data-diff-ignore-case="{str(item_display_options["diff_ignore_case"]).lower()}" '
+        f'data-diff-ignore-punctuation="{str(item_display_options["diff_ignore_punctuation"]).lower()}" '
+        f'data-item-label-a="{item_label_a}" '
+        f'data-item-label-b="{item_label_b}"'
+    )
+
+    # Layout attributes for grid positioning
+    layout_attrs = generate_layout_attributes(annotation_scheme)
 
     schematic = f"""
     <form id="{escaped_schema}" class="annotation-form pairwise pairwise-scale" action="/action_page.php" data-annotation-id="{escape_html_content(str(annotation_scheme.get('annotation_id', '')))}" {data_attrs} {layout_attrs}>

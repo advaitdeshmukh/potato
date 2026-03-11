@@ -371,7 +371,7 @@ def _register_builtin_schemas():
             name="pairwise",
             generator=generate_pairwise_layout,
             required_fields=["name", "description"],
-            optional_fields=["mode", "items_key", "items", "show_labels", "labels", "allow_tie", "tie_label", "sequential_key_binding", "scale", "label_requirement"],
+            optional_fields=["mode", "items_key", "items", "show_labels", "labels", "item_labels", "allow_tie", "tie_label", "sequential_key_binding", "scale", "label_requirement"],
             supports_keybindings=True,
             description="Pairwise comparison of two items (binary selection or scale rating)"
         ),
