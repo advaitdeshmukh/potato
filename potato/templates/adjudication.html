@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-base-path="{{ base_path }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +26,13 @@
                 <span class="task-name">{{ annotation_task_name }} — Adjudication</span>
             </div>
             <div class="navbar-end" style="margin-left: auto;">
-                <a href="/annotate" class="adjudicate-btn">
+                <a href="{{ url_for('annotate') }}" class="adjudicate-btn">
                     <i class="fas fa-edit"></i> Annotate
                 </a>
                 <div class="user-pill">
                     <i class="fas fa-gavel" style="font-size: 0.7rem;"></i>
                     <span class="username">{{ username }}</span>
-                    <a href="/logout" class="logout-btn">Logout</a>
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
                 </div>
             </div>
         </div>
@@ -178,11 +178,13 @@
 
     <!-- Pass config to JS -->
     <script>
+        window.config = { base_path: {{ base_path | tojson }} };
         window.ADJ_CONFIG = {{ adj_config | tojson }};
         window.ANNOTATION_SCHEMES = {{ annotation_schemes | tojson }};
     </script>
 
     <!-- Adjudication JS -->
+    <script src="{{ static_asset('base-path.js') }}"></script>
     <script src="{{ url_for('static', filename='adjudication-forms.js') }}?v=3"></script>
     <script src="{{ url_for('static', filename='adjudication.js') }}?v=3"></script>
 </body>

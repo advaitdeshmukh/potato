@@ -720,6 +720,10 @@ class TestServerConfigValidation:
         config = {"server": {"debug": True}}
         validate_server_config(config)
 
+        # Only base path specified
+        config = {"server": {"base_path": "/app1"}}
+        validate_server_config(config)
+
     def test_no_server_config(self):
         """Test that missing server config is fine (optional)."""
         from potato.server_utils.config_module import validate_server_config
@@ -793,6 +797,33 @@ class TestServerConfigValidation:
         config = {"server": {"debug": "true"}}
 
         with pytest.raises(ConfigValidationError, match="server.debug must be a boolean"):
+            validate_server_config(config)
+
+    def test_invalid_base_path_type(self):
+        """Test that non-string base_path is rejected."""
+        from potato.server_utils.config_module import validate_server_config, ConfigValidationError
+
+        config = {"server": {"base_path": 123}}
+
+        with pytest.raises(ConfigValidationError, match="server.base_path must be a string"):
+            validate_server_config(config)
+
+    def test_invalid_base_path_url(self):
+        """Test that full URLs are rejected for base_path."""
+        from potato.server_utils.config_module import validate_server_config, ConfigValidationError
+
+        config = {"server": {"base_path": "https://example.com/app1"}}
+
+        with pytest.raises(ConfigValidationError, match="server.base_path must be a path prefix"):
+            validate_server_config(config)
+
+    def test_invalid_base_path_query_fragment(self):
+        """Test that query strings and fragments are rejected for base_path."""
+        from potato.server_utils.config_module import validate_server_config, ConfigValidationError
+
+        config = {"server": {"base_path": "/app1?foo=bar"}}
+
+        with pytest.raises(ConfigValidationError, match="server.base_path cannot contain query strings or fragments"):
             validate_server_config(config)
 
 

@@ -96,7 +96,7 @@ from potato.solo_mode.routes import solo_mode_bp
 
 from potato.create_task_cli import create_task_cli, yes_or_no
 from potato.server_utils.arg_utils import arguments
-from potato.server_utils.config_module import init_config, config
+from potato.server_utils.config_module import init_config, config, normalize_base_path
 from potato.server_utils.schemas.span import render_span_annotations
 from potato.server_utils.cli_utlis import get_project_from_hub, show_project_hub
 from potato.server_utils.prolific_apis import ProlificStudy
@@ -2462,6 +2462,41 @@ def validate_annotation(annotation):
     return isinstance(annotation, dict)
 
 # Configure the Flask application
+class BasePathMiddleware:
+    """
+    Support serving the app under a configured URL prefix like /app1.
+
+    This handles both common proxy setups:
+    - the proxy forwards /app1/... unchanged
+    - the proxy strips /app1 before forwarding to Flask
+    """
+
+    def __init__(self, wsgi_app, base_path: str):
+        self.wsgi_app = wsgi_app
+        self.base_path = normalize_base_path(base_path)
+
+    def __call__(self, environ, start_response):
+        if not self.base_path:
+            return self.wsgi_app(environ, start_response)
+
+        path_info = environ.get("PATH_INFO", "") or "/"
+        script_name = environ.get("SCRIPT_NAME", "") or ""
+
+        if path_info == self.base_path:
+            environ["PATH_INFO"] = "/"
+            if not script_name.endswith(self.base_path):
+                environ["SCRIPT_NAME"] = f"{script_name}{self.base_path}"
+        elif path_info.startswith(f"{self.base_path}/"):
+            environ["PATH_INFO"] = path_info[len(self.base_path):] or "/"
+            if not script_name.endswith(self.base_path):
+                environ["SCRIPT_NAME"] = f"{script_name}{self.base_path}"
+        elif not script_name.endswith(self.base_path):
+            # Also support proxies that strip the prefix before forwarding.
+            environ["SCRIPT_NAME"] = f"{script_name}{self.base_path}"
+
+        return self.wsgi_app(environ, start_response)
+
+
 def configure_app(flask_app):
     """
     Configure the Flask application instance
@@ -2474,6 +2509,15 @@ def configure_app(flask_app):
     """
     global app
     app = flask_app
+
+    base_path = normalize_base_path(
+        config.get("base_path", config.get("server", {}).get("base_path"))
+    )
+    app.config["APPLICATION_ROOT"] = base_path or "/"
+    app.config["SESSION_COOKIE_PATH"] = base_path or "/"
+    original_wsgi_app = getattr(app, "_potato_base_path_root_wsgi_app", app.wsgi_app)
+    app._potato_base_path_root_wsgi_app = original_wsgi_app
+    app.wsgi_app = BasePathMiddleware(original_wsgi_app, base_path)
 
     # Set application configuration
     # Use a random secret key if sessions shouldn't persist, otherwise use the configured one
@@ -2601,6 +2645,9 @@ def create_app():
             'server_debug': is_server_debug_enabled(),
             'debug_mode': config.get('debug', False),
             'debug_phase': config.get('debug_phase'),
+            'base_path': normalize_base_path(
+                config.get('base_path', config.get('server', {}).get('base_path'))
+            ),
             'pairwise_display_config': get_pairwise_display_config(),
             'static_asset': static_asset,
             # Add common config values needed by templates

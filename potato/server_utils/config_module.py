@@ -35,6 +35,44 @@ class ConfigSecurityError(Exception):
     pass
 
 
+def normalize_base_path(base_path: str | None) -> str:
+    """
+    Normalize a configured server base path.
+
+    Examples:
+    - None -> ""
+    - "" -> ""
+    - "/" -> ""
+    - "app1" -> "/app1"
+    - "/app1/" -> "/app1"
+    """
+    if base_path is None:
+        return ""
+
+    if not isinstance(base_path, str):
+        raise ConfigValidationError("server.base_path must be a string")
+
+    normalized = base_path.strip()
+    if not normalized or normalized == "/":
+        return ""
+
+    if "://" in normalized:
+        raise ConfigValidationError("server.base_path must be a path prefix like /app1, not a full URL")
+
+    if "?" in normalized or "#" in normalized:
+        raise ConfigValidationError("server.base_path cannot contain query strings or fragments")
+
+    if not normalized.startswith("/"):
+        normalized = f"/{normalized}"
+
+    normalized = normalized.rstrip("/")
+
+    if "//" in normalized:
+        raise ConfigValidationError("server.base_path cannot contain empty path segments")
+
+    return normalized
+
+
 def validate_path_security(path: str, base_dir: str, project_dir: str = None) -> str:
     """
     Validate that a path is secure and contained within the base directory.
@@ -1032,6 +1070,7 @@ def validate_server_config(config_data: Dict[str, Any]) -> None:
     - port: Port number to run on (1-65535)
     - host: Host address to bind to (default: localhost)
     - debug: Enable Flask debug mode (default: false)
+    - base_path: URL prefix to serve the app under, e.g. /app1
 
     Args:
         config_data: The configuration data
@@ -1067,6 +1106,10 @@ def validate_server_config(config_data: Dict[str, Any]) -> None:
     if "debug" in server_config:
         if not isinstance(server_config["debug"], bool):
             raise ConfigValidationError("server.debug must be a boolean")
+
+    # Validate base path
+    if "base_path" in server_config:
+        normalize_base_path(server_config["base_path"])
 
 
 def validate_authentication_config(config_data: Dict[str, Any]) -> None:
@@ -2535,6 +2578,11 @@ def init_config(args):
             if "debug" in server_config and not args.debug:
                 config["debug"] = server_config["debug"]
                 logger.debug(f"Debug mode set from config file: {server_config['debug']}")
+
+            # Apply base path from server config
+            if "base_path" in server_config:
+                config["base_path"] = normalize_base_path(server_config["base_path"])
+                logger.debug(f"Base path set from config file: {config['base_path'] or '/'}")
 
         # update the current working dir for the server
         os.chdir(project_dir)

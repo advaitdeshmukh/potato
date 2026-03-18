@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-base-path="{{ base_path }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,7 +113,7 @@
             <div class="navbar-end">
                 <div class="user-pill">
                     <span class="username">{{username}}</span>
-                    <a href="/logout" class="logout-btn">Logout</a>
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
                 </div>
             </div>
         </div>
@@ -204,6 +204,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ static_asset('base-path.js') }}"></script>
 
     <!-- Configuration from server -->
     <script type="text/javascript">
@@ -212,6 +213,7 @@
             debug: false,
             api_key: "test_api_key",
             username: "{{ username }}",
+            base_path: {{ base_path | tojson }},
             pairwise_display_config: {{ pairwise_display_config | tojson | safe }}
         };
     </script>
