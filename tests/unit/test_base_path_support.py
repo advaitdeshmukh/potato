@@ -86,3 +86,47 @@ def test_home_page_supports_proxy_stripping_base_path():
     finally:
         clear_config()
         config.update(original_config)
+
+
+def test_home_page_uses_forwarded_prefix_header_without_configured_base_path():
+    original_config = dict(config)
+    clear_config()
+    config.update(_build_test_config(""))
+
+    try:
+        app = create_app()
+        app.config["TESTING"] = True
+        client = app.test_client()
+
+        response = client.get("/", headers={"X-Forwarded-Prefix": "/editdesc"})
+
+        assert response.status_code == 200
+        assert b'data-base-path="/editdesc"' in response.data
+        assert b'action="/editdesc/auth"' in response.data
+        assert b'/editdesc/static/styles.css' in response.data
+    finally:
+        clear_config()
+        config.update(original_config)
+
+
+def test_redirects_respect_forwarded_prefix_header():
+    original_config = dict(config)
+    clear_config()
+    config.update(_build_test_config(""))
+
+    try:
+        app = create_app()
+        app.config["TESTING"] = True
+        client = app.test_client()
+
+        response = client.get(
+            "/passwordless-login",
+            headers={"X-Forwarded-Prefix": "/editdesc"},
+            follow_redirects=False,
+        )
+
+        assert response.status_code == 302
+        assert response.headers["Location"].endswith("/editdesc/")
+    finally:
+        clear_config()
+        config.update(original_config)

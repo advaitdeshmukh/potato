@@ -2475,24 +2475,41 @@ class BasePathMiddleware:
         self.wsgi_app = wsgi_app
         self.base_path = normalize_base_path(base_path)
 
+    @staticmethod
+    def _normalize_forwarded_prefix(value: str | None) -> str:
+        if not value:
+            return ""
+
+        # If multiple proxies append values, use the first advertised prefix.
+        candidate = value.split(",", 1)[0].strip()
+        if not candidate:
+            return ""
+
+        return normalize_base_path(candidate)
+
     def __call__(self, environ, start_response):
-        if not self.base_path:
+        forwarded_prefix = self._normalize_forwarded_prefix(
+            environ.get("HTTP_X_FORWARDED_PREFIX") or environ.get("HTTP_X_SCRIPT_NAME")
+        )
+        effective_base_path = forwarded_prefix or self.base_path
+
+        if not effective_base_path:
             return self.wsgi_app(environ, start_response)
 
         path_info = environ.get("PATH_INFO", "") or "/"
         script_name = environ.get("SCRIPT_NAME", "") or ""
 
-        if path_info == self.base_path:
+        if path_info == effective_base_path:
             environ["PATH_INFO"] = "/"
-            if not script_name.endswith(self.base_path):
-                environ["SCRIPT_NAME"] = f"{script_name}{self.base_path}"
-        elif path_info.startswith(f"{self.base_path}/"):
-            environ["PATH_INFO"] = path_info[len(self.base_path):] or "/"
-            if not script_name.endswith(self.base_path):
-                environ["SCRIPT_NAME"] = f"{script_name}{self.base_path}"
-        elif not script_name.endswith(self.base_path):
+            if not script_name.endswith(effective_base_path):
+                environ["SCRIPT_NAME"] = f"{script_name}{effective_base_path}"
+        elif path_info.startswith(f"{effective_base_path}/"):
+            environ["PATH_INFO"] = path_info[len(effective_base_path):] or "/"
+            if not script_name.endswith(effective_base_path):
+                environ["SCRIPT_NAME"] = f"{script_name}{effective_base_path}"
+        elif not script_name.endswith(effective_base_path):
             # Also support proxies that strip the prefix before forwarding.
-            environ["SCRIPT_NAME"] = f"{script_name}{self.base_path}"
+            environ["SCRIPT_NAME"] = f"{script_name}{effective_base_path}"
 
         return self.wsgi_app(environ, start_response)
 
@@ -2640,14 +2657,16 @@ def create_app():
     def inject_template_context():
         """Inject debug settings and common config values into all templates."""
         from potato.logging_config import is_ui_debug_enabled, is_server_debug_enabled
+        request_base_path = normalize_base_path(request.script_root) if request and request.script_root else ""
+        configured_base_path = normalize_base_path(
+            config.get('base_path', config.get('server', {}).get('base_path'))
+        )
         return {
             'ui_debug': is_ui_debug_enabled(),
             'server_debug': is_server_debug_enabled(),
             'debug_mode': config.get('debug', False),
             'debug_phase': config.get('debug_phase'),
-            'base_path': normalize_base_path(
-                config.get('base_path', config.get('server', {}).get('base_path'))
-            ),
+            'base_path': request_base_path or configured_base_path,
             'pairwise_display_config': get_pairwise_display_config(),
             'static_asset': static_asset,
             # Add common config values needed by templates
