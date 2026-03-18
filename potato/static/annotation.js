@@ -1654,8 +1654,10 @@ async function navigateToInstance(instanceIndex) {
 }
 
 function validateRequiredFields() {
-    // Check all inputs with validation="required"
-    const requiredInputs = document.querySelectorAll('input[validation="required"]');
+    // Check all form controls with validation="required"
+    const requiredInputs = document.querySelectorAll(
+        'input[validation="required"], textarea[validation="required"], select[validation="required"]'
+    );
     let allRequiredFilled = true;
 
     // Group inputs by their name (for radio buttons) or individual inputs

@@ -1177,6 +1177,46 @@ class TestTaskDirResolution:
         finally:
             os.chdir(original_cwd)
 
+    def test_output_annotation_dir_resolves_relative_to_task_dir(self, temp_project):
+        """Test that output_annotation_dir resolves relative to task_dir, not CWD."""
+        project_dir = os.path.join(temp_project, "projects", "my_project")
+        config_dir = os.path.join(project_dir, "configs")
+
+        config_content = {
+            "annotation_task_name": "Test Task",
+            "task_dir": "..",
+            "output_annotation_dir": "data/annotations",
+            "data_files": ["data/test.json"],
+            "item_properties": {
+                "id_key": "id",
+                "text_key": "text"
+            },
+            "annotation_schemes": [
+                {
+                    "name": "sentiment",
+                    "annotation_type": "radio",
+                    "labels": ["positive", "negative"],
+                    "description": "Sentiment"
+                }
+            ]
+        }
+
+        config_file = os.path.join(config_dir, "config.yaml")
+        with open(config_file, 'w') as f:
+            yaml.dump(config_content, f)
+
+        original_cwd = os.getcwd()
+        try:
+            os.chdir(temp_project)
+
+            config_data = load_and_validate_config(config_file, temp_project)
+
+            expected_output_dir = os.path.join(project_dir, "data", "annotations")
+            assert config_data['output_annotation_dir'] == expected_output_dir, \
+                f"output_annotation_dir should be '{expected_output_dir}' but got '{config_data['output_annotation_dir']}'"
+        finally:
+            os.chdir(original_cwd)
+
     def test_absolute_task_dir_unchanged(self, temp_project):
         """Test that absolute task_dir is not modified."""
         project_dir = os.path.join(temp_project, "projects", "my_project")

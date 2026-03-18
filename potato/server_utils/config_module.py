@@ -2370,6 +2370,19 @@ def load_and_validate_config(config_file: str, project_dir: str) -> Dict[str, An
             config_data['task_dir'] = task_dir
             logger.debug(f"Resolved task_dir to: {task_dir}")
 
+    # Resolve annotation output relative to task_dir so loading/saving prior
+    # annotations does not depend on the process working directory.
+    output_annotation_dir = config_data.get('output_annotation_dir')
+    task_dir = config_data.get('task_dir')
+    if (
+        task_dir
+        and output_annotation_dir not in [None, "null", "default"]
+        and not os.path.isabs(output_annotation_dir)
+    ):
+        resolved_output_dir = os.path.normpath(os.path.join(task_dir, output_annotation_dir))
+        config_data['output_annotation_dir'] = resolved_output_dir
+        logger.debug(f"Resolved output_annotation_dir to: {resolved_output_dir}")
+
     # Validate the configuration structure
     validate_yaml_structure(config_data, project_dir, config_file_dir)
 

@@ -9,14 +9,15 @@ annotation_task_name: Prompt Edit Validation
 
 task_dir: .
 site_dir: default
+task_layout: layouts/task_layout.html
 
-output_annotation_dir: annotation_output/simple-pairwise/
+output_annotation_dir: data/annotations/simple-pairwise/
 output_annotation_format: tsv
 
 annotation_codebook_url: ""
 
 data_files:
-  - data/pairwise-example.json
+  - data/pairwise-prompt-clusters.jsonl
 
 item_properties:
   id_key: id

@@ -1,0 +1,142 @@
+<style>
+  #annotation-forms {
+    --edit-sidebar-width: clamp(320px, 30vw, 440px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--edit-sidebar-width);
+    gap: 1.5rem 1.75rem;
+    align-items: start;
+  }
+
+  #annotation-forms > .annotation_schema {
+    display: contents;
+  }
+
+  #annotation-forms > .pairwise-items-display-container {
+    grid-column: 1;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+
+  #annotation-forms > .pairwise-forms-wrapper {
+    grid-column: 2;
+    display: block;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+  }
+
+  #pair_display {
+    display: none !important;
+  }
+
+  #edit_description {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.98) 100%);
+    border: 1px solid #d9e0ea;
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+  }
+
+  #edit_description fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #edit_description .shadcn-textbox-title {
+    margin-bottom: 0.35rem;
+    font-size: 1.05rem;
+  }
+
+  .edit-description-help {
+    margin: 0 0 0.85rem;
+    color: #51606f;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .pairwise-items-display-container .pairwise-item-box {
+    max-height: none;
+    overflow: visible;
+  }
+
+  #edit_description .shadcn-textbox-textarea {
+    width: 100%;
+    min-height: 180px;
+    resize: vertical;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 1100px) {
+    #annotation-forms {
+      display: block;
+    }
+
+    #annotation-forms > .pairwise-items-display-container {
+      margin-bottom: 1.25rem;
+    }
+
+    #annotation-forms > .pairwise-forms-wrapper {
+      position: static;
+      display: block;
+      margin-top: 0;
+    }
+
+    #edit_description {
+      max-height: none;
+      overflow: visible;
+      margin-top: 1rem;
+    }
+  }
+</style>
+
+<div class="annotation_schema">
+  <form
+    id="pair_display"
+    class="annotation-form pairwise pairwise-binary"
+    action="/action_page.php"
+    data-annotation-id="0"
+    data-annotation-type="pairwise"
+    data-schema-name="pair_display"
+    data-mode="binary"
+    data-items-key="text"
+    data-item-display-mode="side_by_side"
+    data-show-item-diff="true"
+    data-diff-granularity="word"
+    data-diff-ignore-case="true"
+    data-diff-ignore-punctuation="true"
+    data-item-label-a="Prompt A"
+    data-item-label-b="Prompt B"
+    data-grid-columns="1"></form>
+
+  <form
+    id="edit_description"
+    class="annotation-form textbox shadcn-textbox-container"
+    action="/action_page.php"
+    data-annotation-id="1"
+    data-annotation-type="text"
+    data-schema-name="edit_description"
+    data-grid-columns="2">
+    <fieldset schema="edit_description">
+      <legend class="shadcn-textbox-title">Description of edits</legend>
+      <p class="edit-description-help">
+        Describe the substantive edits between Prompt A and Prompt B. Focus on additions,
+        deletions, rewrites, or changed constraints.
+      </p>
+      <div class="shadcn-textbox-item">
+        <textarea
+          class="edit_description shadcn-textbox-input shadcn-textbox-textarea annotation-input"
+          id="edit_description_text_box_text"
+          name="edit_description:::text_box"
+          validation="required"
+          schema="edit_description"
+          label_name="text_box"
+          rows="6"
+          cols="60"
+          placeholder="Example: Prompt B adds a pool setting, makes conception accidental, and asks for more specific details."></textarea>
+      </div>
+    </fieldset>
+  </form>
+</div>

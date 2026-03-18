@@ -1,0 +1,90 @@
+<!-- CONFIG_HASH: 66b29f6b6faea8caf05035318f94a732_f12a1020bf8616939ffbec876491011b -->
+<!-- Generated annotation layout file -->
+<!-- This file was automatically generated based on the annotation schemes in your config -->
+<!-- You can customize this file to modify the layout of your annotation interface -->
+<!-- Changes to this file will be preserved across server restarts -->
+
+<style>
+  #annotation-forms {
+    --pairwise-sidebar-width: clamp(280px, 28vw, 380px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--pairwise-sidebar-width);
+    gap: 1.5rem 1.75rem;
+    align-items: start;
+  }
+
+  #annotation-forms > .annotation_schema {
+    display: contents;
+  }
+
+  #annotation-forms > .pairwise-items-display-container {
+    grid-column: 1;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+
+  #preference {
+    grid-column: 2;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+    margin-bottom: 0;
+  }
+
+  .pairwise-items-display-container .pairwise-item-box {
+    max-height: none;
+    overflow: visible;
+  }
+
+  @media (max-width: 1100px) {
+    #annotation-forms {
+      display: block;
+    }
+
+    #annotation-forms > .pairwise-items-display-container {
+      margin-bottom: 1.25rem;
+    }
+
+    #preference {
+      position: static;
+      margin-bottom: 0;
+    }
+  }
+</style>
+
+<div class="annotation_schema">
+
+    <form id="preference" class="annotation-form pairwise pairwise-binary" action="/action_page.php" data-annotation-id="0" data-annotation-type="pairwise" data-schema-name="preference" data-mode="binary" data-items-key="text" data-item-display-mode="side_by_side" data-show-item-diff="true" data-diff-granularity="word" data-diff-ignore-case="true" data-diff-ignore-punctuation="true" data-item-label-a="Prompt A" data-item-label-b="Prompt B" data-grid-columns="1">
+        
+        <fieldset schema="preference">
+            <legend class="pairwise-question">Are these prompts edited from each other?</legend>
+
+            <!-- Compact selection tiles -->
+            <div class="pairwise-selection-container">
+                <div class="pairwise-tile" data-value="A" data-schema="preference" tabindex="0" data-key="1">
+                    <span class="pairwise-tile-label">Yes</span>
+                    <span class="pairwise-tile-shortcut">[1]</span>
+                </div>
+                <div class="pairwise-tile" data-value="B" data-schema="preference" tabindex="0" data-key="2">
+                    <span class="pairwise-tile-label">No</span>
+                    <span class="pairwise-tile-shortcut">[2]</span>
+                </div>
+            </div>
+    
+            <div class="pairwise-extra-options">
+                <button type="button" class="pairwise-tie-btn" data-value="tie" data-schema="preference" data-key="0">
+                    Hard to tell [0]
+                </button>
+            </div>
+        
+            <input type="hidden" class="pairwise-value annotation-input"
+                   name="preference"
+                   schema="preference"
+                   label_name="selection"
+                   validation="required"
+                   value="">
+        </fieldset>
+    </form>
+    
+
+</div>

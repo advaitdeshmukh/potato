@@ -1,0 +1,70 @@
+server:
+  host: 0.0.0.0
+  port: 9002
+  workers: 2
+  timeout: 120
+
+server_name: potato annotator
+annotation_task_name: Prompt Edit Description
+
+task_dir: .
+site_dir: default
+task_layout: layouts/task_layout.html
+
+output_annotation_dir: data/annotations/pairwise-edit-description/
+output_annotation_format: jsonl
+
+annotation_codebook_url: ""
+
+data_files:
+  - ../pairwise-comparison/data/pairwise-prompt-clusters.jsonl
+
+item_properties:
+  id_key: id
+  text_key: text
+
+list_as_text:
+  text_list_prefix_type: alphabet
+
+user_config:
+  allow_all_users: true
+  users: []
+
+jumping_to_id_disabled: true
+
+alert_time_each_instance: 10000000
+horizontal_key_bindings: true
+
+annotation_schemes:
+  - annotation_type: pairwise
+    name: pair_display
+    description: Prompt pair display
+    mode: binary
+    items_key: text
+    item_display_mode: side_by_side
+    show_item_diff: true
+    diff_granularity: word
+    diff_ignore_case: true
+    diff_ignore_punctuation: true
+    item_labels:
+      - "Prompt A"
+      - "Prompt B"
+    labels:
+      - "A"
+      - "B"
+    sequential_key_binding: false
+    label_requirement:
+      required: false
+
+  - annotation_type: text
+    name: edit_description
+    description: Description of edits
+    multiline: true
+    rows: 6
+    cols: 60
+    label_requirement:
+      required: true
+    layout:
+      columns: 2
+
+admin_api_key: "test"

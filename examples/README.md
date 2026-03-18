@@ -35,6 +35,7 @@ python potato/flask_server.py start examples/classification/check-box/config.yam
 | `text-box/` | Free text input |
 | `best-worst-scaling/` | Best-worst scaling comparison |
 | `pairwise-comparison/` | Side-by-side pairwise comparison |
+| `pairwise-edit-description/` | Pairwise diff with freeform edit descriptions |
 | `pairwise-scale/` | Pairwise comparison with scale rating |
 | `llm-preference/` | LLM output preference comparison |
 | `dialogue-classification/` | Dialogue-level classification |

@@ -101,7 +101,7 @@ from potato.server_utils.schemas.span import render_span_annotations
 from potato.server_utils.cli_utlis import get_project_from_hub, show_project_hub
 from potato.server_utils.prolific_apis import ProlificStudy
 from potato.server_utils.mturk_apis import init_mturk_hit, get_mturk_hit
-from potato.server_utils.json import easy_json
+from potato.server_utils.json import easy_json, parse_jsonl_records
 from potato.server_utils.instance_display import InstanceDisplayRenderer, get_instance_display_renderer
 
 # This allows us to create an AI endpoint for the system to interact with as needed (if configured)
@@ -415,17 +415,7 @@ def load_instance_data(config: dict):
 
             if items is None:
                 # Parse as JSON Lines (one JSON object per line)
-                items = []
-                for line_no, line in enumerate(raw.splitlines()):
-                    line = line.strip()
-                    if not line:
-                        continue
-                    try:
-                        items.append(json.loads(line))
-                    except json.JSONDecodeError as e:
-                        raise ValueError(
-                            f"Invalid JSON at line {line_no+1} in {data_fname}: {e}"
-                        ) from e
+                items = parse_jsonl_records(raw, data_fname)
 
             # Apply filter_by_prior_annotation if configured
             if filter_config:
