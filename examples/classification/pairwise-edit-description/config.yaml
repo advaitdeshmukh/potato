@@ -1,6 +1,7 @@
 server:
   host: 0.0.0.0
   port: 9002
+  base_path: /editdesc
   workers: 2
   timeout: 120
 
