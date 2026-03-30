@@ -1,0 +1,825 @@
+<style>
+  #annotation-forms {
+    --edit-sidebar-width: clamp(380px, 34vw, 560px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--edit-sidebar-width);
+    gap: 1.5rem 1.75rem;
+    align-items: start;
+  }
+
+  #annotation-forms > .annotation_schema {
+    display: contents;
+  }
+
+  #annotation-forms > .pairwise-items-display-container {
+    grid-column: 1;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+
+  #annotation-forms > .pairwise-forms-wrapper {
+    grid-column: 2;
+    display: block;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+  }
+
+  #pair_display {
+    display: none !important;
+  }
+
+  .pairwise-items-display-container .pairwise-item-box {
+    max-height: none;
+    overflow: visible;
+  }
+
+  #edit_classification {
+    background:
+      radial-gradient(circle at top right, rgba(223, 239, 255, 0.85), transparent 38%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.98) 100%);
+    border: 1px solid #d8e1eb;
+    border-radius: 16px;
+    padding: 1.1rem 1.2rem 1.2rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+  }
+
+  #edit_classification fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .edit-classification-title {
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #102033;
+  }
+
+  .edit-classification-help {
+    margin: 0 0 0.7rem;
+    color: #526273;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .edit-classification-reference-note {
+    margin: 0 0 0.95rem;
+    color: #688097;
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+
+  .edit-classification-reference-stack {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 1rem;
+  }
+
+  .edit-classification-reference {
+    background: rgba(247, 250, 253, 0.86);
+    border: 1px solid #dce5ef;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .edit-classification-reference summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.8rem 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .edit-classification-reference summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .edit-classification-reference summary::after {
+    content: "+";
+    flex: 0 0 auto;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: #5a7087;
+  }
+
+  .edit-classification-reference[open] summary::after {
+    content: "-";
+  }
+
+  .edit-classification-reference-body {
+    border-top: 1px solid #e3ebf3;
+    padding: 0.2rem 0.95rem 0.9rem;
+  }
+
+  .edit-classification-definition-card + .edit-classification-definition-card {
+    margin-top: 0.7rem;
+  }
+
+  .edit-classification-definition-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.93rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #334155;
+  }
+
+  .edit-classification-definition-card ul {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.45rem;
+    color: #455467;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .edit-classification-builder {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .edit-classification-select-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .edit-classification-field label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  .edit-classification-field select {
+    width: 100%;
+    border: 1px solid #c5d1df;
+    border-radius: 10px;
+    background: #fff;
+    color: #102033;
+    font-size: 0.94rem;
+    line-height: 1.4;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .edit-classification-field select:disabled {
+    background: #eef3f8;
+    color: #7b8897;
+    cursor: not-allowed;
+  }
+
+  .edit-classification-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  .edit-classification-add-btn,
+  .edit-classification-na-btn,
+  .edit-classification-remove-btn {
+    border: 1px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+  }
+
+  .edit-classification-add-btn {
+    background: #0f4c81;
+    color: #fff;
+    padding: 0.68rem 1rem;
+    box-shadow: 0 8px 16px rgba(15, 76, 129, 0.16);
+  }
+
+  .edit-classification-add-btn:hover:not(:disabled),
+  .edit-classification-na-btn:hover,
+  .edit-classification-remove-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .edit-classification-add-btn:disabled {
+    background: #c6d2de;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  .edit-classification-na-btn {
+    background: #f8fbff;
+    border-color: #cad6e2;
+    color: #26415e;
+    padding: 0.68rem 0.95rem;
+  }
+
+  .edit-classification-na-btn.is-active {
+    background: #163d68;
+    border-color: #163d68;
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(22, 61, 104, 0.18);
+  }
+
+  .edit-classification-na-btn:disabled {
+    opacity: 0.72;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .edit-classification-status {
+    min-height: 1.2rem;
+    margin: 0;
+    color: #5b6c7f;
+    font-size: 0.84rem;
+  }
+
+  .edit-classification-selected {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .edit-classification-selected h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  .edit-classification-empty {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    border: 1px dashed #cbd6e2;
+    border-radius: 12px;
+    color: #607083;
+    background: rgba(255, 255, 255, 0.72);
+    font-size: 0.9rem;
+  }
+
+  .edit-classification-chip-list {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .edit-classification-chip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 12px;
+    background: #f6faff;
+    border: 1px solid #d5e2ef;
+  }
+
+  .edit-classification-chip-label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .edit-classification-chip-direction,
+  .edit-classification-chip-target,
+  .edit-classification-na-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    font-size: 0.79rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    padding: 0.42rem 0.58rem;
+  }
+
+  .edit-classification-chip-direction {
+    background: #dfefff;
+    color: #0f4c81;
+  }
+
+  .edit-classification-chip-target {
+    background: #edf4ea;
+    color: #35613a;
+  }
+
+  .edit-classification-na-pill {
+    background: #163d68;
+    color: #fff;
+    justify-content: center;
+  }
+
+  .edit-classification-remove-btn {
+    background: #fff;
+    border-color: #d0d9e4;
+    color: #4f5d6c;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1100px) {
+    #annotation-forms {
+      display: block;
+    }
+
+    #annotation-forms > .pairwise-items-display-container {
+      margin-bottom: 1.25rem;
+    }
+
+    #annotation-forms > .pairwise-forms-wrapper {
+      position: static;
+      display: block;
+      margin-top: 0;
+    }
+
+    #edit_classification {
+      max-height: none;
+      overflow: visible;
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .edit-classification-select-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .edit-classification-chip {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .edit-classification-remove-btn {
+      align-self: flex-end;
+    }
+  }
+</style>
+
+<div class="annotation_schema">
+  <form
+    id="pair_display"
+    class="annotation-form pairwise pairwise-binary"
+    action="/action_page.php"
+    data-annotation-id="0"
+    data-annotation-type="pairwise"
+    data-schema-name="pair_display"
+    data-mode="binary"
+    data-items-key="text"
+    data-item-display-mode="side_by_side"
+    data-show-item-diff="true"
+    data-diff-granularity="word"
+    data-diff-ignore-case="true"
+    data-diff-ignore-punctuation="true"
+    data-item-label-a="Prompt A"
+    data-item-label-b="Prompt B"
+    data-grid-columns="1"></form>
+
+  <form
+    id="edit_classification"
+    class="annotation-form edit-classification-form"
+    action="/action_page.php"
+    data-annotation-id="1"
+    data-annotation-type="text"
+    data-schema-name="edit_classification"
+    data-grid-columns="2">
+    <fieldset schema="edit_classification">
+      <legend class="edit-classification-title">Classify the edit</legend>
+      <p class="edit-classification-help">
+        Pick one <strong>direction</strong> and one <strong>target</strong>, then add that pair.
+        You can add multiple direction/target combinations, remove them, or mark the example as <strong>N/A</strong>.
+      </p>
+      <p class="edit-classification-reference-note">
+        Need the full label legend? Open the reference sections below.
+      </p>
+
+      <div class="edit-classification-builder">
+        <div class="edit-classification-select-grid">
+          <div class="edit-classification-field">
+            <label for="edit-direction-select">Direction</label>
+            <select id="edit-direction-select" class="edit-classification-select">
+              <option value="">Choose a direction</option>
+              <option value="ADD">ADD</option>
+              <option value="REMOVE">REMOVE</option>
+              <option value="CHANGE">CHANGE</option>
+              <option value="EXTEND">EXTEND</option>
+            </select>
+          </div>
+
+          <div class="edit-classification-field">
+            <label for="edit-target-select">Target</label>
+            <select id="edit-target-select" class="edit-classification-select">
+              <option value="">Choose a target</option>
+              <option value="plot">plot</option>
+              <option value="dialogue">dialogue</option>
+              <option value="setting">setting</option>
+              <option value="character description">character description</option>
+              <option value="character name">character name</option>
+              <option value="character gender">character gender</option>
+              <option value="character culture">character culture</option>
+              <option value="character substitution">character substitution</option>
+              <option value="backstory">backstory</option>
+              <option value="fandom">fandom</option>
+              <option value="wording">wording</option>
+              <option value="genre/style">genre/style</option>
+              <option value="system prompt">system prompt</option>
+              <option value="structure">structure</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="edit-classification-actions">
+          <button type="button" class="edit-classification-add-btn" id="edit-classification-add" disabled>
+            Add annotation
+          </button>
+          <button type="button" class="edit-classification-na-btn" id="edit-classification-na">
+            Add N/A
+          </button>
+        </div>
+
+        <p class="edit-classification-status" id="edit-classification-status"></p>
+      </div>
+
+      <section class="edit-classification-selected">
+        <h4>Selected annotations</h4>
+        <div class="edit-classification-chip-list" id="edit-classification-list">
+          <p class="edit-classification-empty">No annotations added yet.</p>
+        </div>
+      </section>
+
+      <div class="edit-classification-reference-stack">
+        <details class="edit-classification-reference">
+          <summary>Directions reference</summary>
+          <div class="edit-classification-reference-body">
+            <section class="edit-classification-definition-card">
+              <h4>Directions</h4>
+              <ul>
+                <li><strong>ADD</strong>: new content is introduced without replacing old content.</li>
+                <li><strong>REMOVE</strong>: existing content is deleted without replacement.</li>
+                <li><strong>CHANGE</strong>: existing content is replaced or revised.</li>
+                <li><strong>EXTEND</strong>: new content is appended to continue the story forward.</li>
+              </ul>
+            </section>
+          </div>
+        </details>
+
+        <details class="edit-classification-reference">
+          <summary>Targets reference</summary>
+          <div class="edit-classification-reference-body">
+            <section class="edit-classification-definition-card">
+              <h4>Targets</h4>
+              <ul>
+                <li><strong>plot</strong>: events, actions, or what happens in the story.</li>
+                <li><strong>dialogue</strong>: rewriting existing spoken lines.</li>
+                <li><strong>setting</strong>: time, place, or environment.</li>
+                <li><strong>character description</strong>: appearance, personality, abilities, or other attributes.</li>
+                <li><strong>character name</strong>: a character's name only.</li>
+                <li><strong>character gender</strong>: a character's gender.</li>
+                <li><strong>character culture</strong>: ethnicity, nationality, or cultural context.</li>
+                <li><strong>character substitution</strong>: one character is replaced by another while the surrounding story structure stays largely the same.</li>
+                <li><strong>backstory</strong>: background information, motivations, or relational history.</li>
+                <li><strong>fandom</strong>: the fictional universe, world, or cast is swapped while preserving the plot skeleton.</li>
+                <li><strong>wording</strong>: lexical or phrasing changes with no substantial narrative-semantic change.</li>
+                <li><strong>genre/style</strong>: tone, genre, register, framing, or title.</li>
+                <li><strong>system prompt</strong>: persona, role instructions, behavioral constraints, output format, or other model-directed instructions.</li>
+                <li><strong>structure</strong>: reordering or rearranging prompt content without changing content.</li>
+              </ul>
+            </section>
+          </div>
+        </details>
+      </div>
+
+      <input
+        type="hidden"
+        class="annotation-input edit-classification-value"
+        id="edit_classification_selection"
+        name="edit_classification:::selection"
+        validation="required"
+        schema="edit_classification"
+        label_name="selection"
+        value="">
+    </fieldset>
+  </form>
+</div>
+
+<script>
+  (function () {
+    const EMPTY_STATE = { na: false, pairs: [] };
+
+    function normalizeState(state) {
+      const pairs = Array.isArray(state && state.pairs) ? state.pairs : [];
+      return {
+        na: Boolean(state && state.na),
+        pairs: pairs
+          .filter(pair => pair && pair.direction && pair.target)
+          .map(pair => ({
+            direction: String(pair.direction),
+            target: String(pair.target)
+          }))
+      };
+    }
+
+    function parseState(rawValue) {
+      if (!rawValue) {
+        return { ...EMPTY_STATE };
+      }
+
+      try {
+        return normalizeState(JSON.parse(rawValue));
+      } catch (error) {
+        return { ...EMPTY_STATE };
+      }
+    }
+
+    function serializeState(state) {
+      const normalized = normalizeState(state);
+      if (!normalized.na && normalized.pairs.length === 0) {
+        return "";
+      }
+      return JSON.stringify(normalized);
+    }
+
+    function initEditClassification() {
+      if (window.__pairwiseEditClassificationInitialized) {
+        return;
+      }
+
+      const form = document.getElementById("edit_classification");
+      if (!form) {
+        return;
+      }
+
+      const hiddenInput = document.getElementById("edit_classification_selection");
+      const directionSelect = document.getElementById("edit-direction-select");
+      const targetSelect = document.getElementById("edit-target-select");
+      const addButton = document.getElementById("edit-classification-add");
+      const naButton = document.getElementById("edit-classification-na");
+      const list = document.getElementById("edit-classification-list");
+      const status = document.getElementById("edit-classification-status");
+
+      if (!hiddenInput || !directionSelect || !targetSelect || !addButton || !naButton || !list || !status) {
+        return;
+      }
+
+      let widgetState = parseState(hiddenInput.value);
+      let widgetSaveTimer = null;
+
+      function setStatus(message) {
+        status.textContent = message || "";
+      }
+
+      function getState() {
+        return {
+          na: widgetState.na,
+          pairs: widgetState.pairs.map(pair => ({
+            direction: pair.direction,
+            target: pair.target
+          }))
+        };
+      }
+
+      function syncStateFromInput() {
+        widgetState = parseState(hiddenInput.value || hiddenInput.getAttribute("value") || "");
+      }
+
+      function syncCurrentAnnotations(serializedState) {
+        if (typeof currentAnnotations === "undefined") {
+          return;
+        }
+
+        if (serializedState) {
+          if (!currentAnnotations.edit_classification) {
+            currentAnnotations.edit_classification = {};
+          }
+          currentAnnotations.edit_classification.selection = serializedState;
+          return;
+        }
+
+        if (!currentAnnotations.edit_classification) {
+          return;
+        }
+
+        delete currentAnnotations.edit_classification.selection;
+        if (Object.keys(currentAnnotations.edit_classification).length === 0) {
+          delete currentAnnotations.edit_classification;
+        }
+      }
+
+      function scheduleWidgetSave() {
+        if (typeof validateRequiredFields === "function") {
+          validateRequiredFields();
+        }
+
+        if (typeof saveAnnotations !== "function") {
+          return;
+        }
+
+        window.clearTimeout(widgetSaveTimer);
+        widgetSaveTimer = window.setTimeout(function () {
+          saveAnnotations();
+        }, 200);
+      }
+
+      function writeState(state) {
+        widgetState = normalizeState(state);
+        const serializedState = serializeState(widgetState);
+        hiddenInput.value = serializedState;
+        hiddenInput.defaultValue = serializedState;
+        if (serializedState) {
+          hiddenInput.setAttribute("value", serializedState);
+        } else {
+          hiddenInput.removeAttribute("value");
+        }
+        hiddenInput.setAttribute("data-modified", "true");
+        hiddenInput.removeAttribute("data-server-set");
+        syncCurrentAnnotations(serializedState);
+        scheduleWidgetSave();
+      }
+
+      function updateAddButton() {
+        const state = getState();
+        addButton.disabled = state.na || !directionSelect.value || !targetSelect.value;
+        directionSelect.disabled = state.na;
+        targetSelect.disabled = state.na;
+        naButton.classList.toggle("is-active", state.na);
+        naButton.disabled = state.na;
+      }
+
+      function renderSelectedPairs(syncFromInput) {
+        if (syncFromInput) {
+          syncStateFromInput();
+        }
+
+        const state = getState();
+        updateAddButton();
+
+        if (state.na) {
+          list.innerHTML = `
+            <div class="edit-classification-chip">
+              <div class="edit-classification-chip-label">
+                <span class="edit-classification-na-pill">N/A</span>
+              </div>
+              <button type="button" class="edit-classification-remove-btn" data-action="clear-na">Clear</button>
+            </div>
+          `;
+          setStatus("N/A is selected.");
+          return;
+        }
+
+        if (state.pairs.length === 0) {
+          list.innerHTML = '<p class="edit-classification-empty">No annotations added yet.</p>';
+          setStatus("");
+          return;
+        }
+
+        list.innerHTML = state.pairs
+          .map((pair) => `
+            <div class="edit-classification-chip">
+              <div class="edit-classification-chip-label">
+                <span class="edit-classification-chip-direction">${escapeHtml(pair.direction)}</span>
+                <span class="edit-classification-chip-target">${escapeHtml(pair.target)}</span>
+              </div>
+              <button
+                type="button"
+                class="edit-classification-remove-btn"
+                data-direction="${escapeHtml(pair.direction)}"
+                data-target="${escapeHtml(pair.target)}">Remove</button>
+            </div>
+          `)
+          .join("");
+
+        setStatus(`${state.pairs.length} annotation${state.pairs.length === 1 ? "" : "s"} added.`);
+      }
+
+      function bindChipActions() {
+        list.querySelectorAll(".edit-classification-remove-btn").forEach(button => {
+          button.onclick = function () {
+            if (button.getAttribute("data-action") === "clear-na") {
+              clearNa();
+              return;
+            }
+
+            const direction = button.getAttribute("data-direction");
+            const target = button.getAttribute("data-target");
+            if (direction && target) {
+              removePair(direction, target);
+            }
+          };
+        });
+      }
+
+      function addPair() {
+        const direction = directionSelect.value;
+        const target = targetSelect.value;
+        if (!direction || !target) {
+          return;
+        }
+
+        const state = getState();
+        const exists = state.pairs.some(pair => pair.direction === direction && pair.target === target);
+        if (exists) {
+          setStatus("That direction/target pair is already added.");
+          return;
+        }
+
+        state.na = false;
+        state.pairs.push({ direction: direction, target: target });
+        writeState(state);
+
+        directionSelect.value = "";
+        targetSelect.value = "";
+        renderSelectedPairs();
+        bindChipActions();
+      }
+
+      function removePair(direction, target) {
+        const state = getState();
+        state.pairs = state.pairs.filter(pair => !(pair.direction === direction && pair.target === target));
+        writeState(state);
+        renderSelectedPairs();
+        bindChipActions();
+      }
+
+      function setNa() {
+        const state = getState();
+        if (state.na) {
+          return;
+        }
+
+        writeState({ na: true, pairs: [] });
+        directionSelect.value = "";
+        targetSelect.value = "";
+        renderSelectedPairs();
+        bindChipActions();
+      }
+
+      function clearNa() {
+        writeState({ ...EMPTY_STATE });
+        renderSelectedPairs();
+        bindChipActions();
+      }
+
+      addButton.addEventListener("click", addPair);
+      directionSelect.addEventListener("change", updateAddButton);
+      targetSelect.addEventListener("change", updateAddButton);
+      naButton.addEventListener("click", setNa);
+
+      window.__pairwiseEditClassificationRender = renderSelectedPairs;
+      window.__pairwiseEditClassificationInitialized = true;
+      renderSelectedPairs(true);
+      bindChipActions();
+    }
+
+    function patchLoadCurrentInstance() {
+      if (window.__pairwiseEditClassificationPatched) {
+        return;
+      }
+
+      if (typeof window.loadCurrentInstance !== "function") {
+        window.setTimeout(patchLoadCurrentInstance, 25);
+        return;
+      }
+
+      const originalLoadCurrentInstance = window.loadCurrentInstance;
+      window.loadCurrentInstance = async function () {
+        const result = await originalLoadCurrentInstance.apply(this, arguments);
+        window.setTimeout(function () {
+          if (typeof window.__pairwiseEditClassificationRender === "function") {
+            window.__pairwiseEditClassificationRender(true);
+          }
+        }, 0);
+        return result;
+      };
+
+      window.__pairwiseEditClassificationPatched = true;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setTimeout(function () {
+        initEditClassification();
+        patchLoadCurrentInstance();
+        window.setTimeout(function () {
+          if (typeof window.__pairwiseEditClassificationRender === "function") {
+            window.__pairwiseEditClassificationRender(true);
+          }
+        }, 50);
+      }, 0);
+    });
+  })();
+</script>

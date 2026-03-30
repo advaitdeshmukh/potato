@@ -3679,6 +3679,25 @@ def update_instance():
                 if instance_id in user_state.instance_id_to_label_to_value:
                     old_value = user_state.instance_id_to_label_to_value[instance_id].get(label)
 
+                if value == "" or value is None:
+                    if old_value is not None:
+                        action = AnnotationHistoryManager.create_action(
+                            user_id=username,
+                            instance_id=instance_id,
+                            action_type="delete_label",
+                            schema_name=schema_name,
+                            label_name=label_name,
+                            old_value=old_value,
+                            new_value=None,
+                            session_id=user_state.current_session_id,
+                            client_timestamp=client_timestamp,
+                            metadata=metadata
+                        )
+                        user_state.add_annotation_action(action)
+                        user_state.remove_label_annotation(instance_id, label)
+                        logger.debug(f"Removed label annotation: {schema_name}:{label_name}")
+                    continue
+
                 # Determine action type
                 action_type = "add_label" if old_value is None else "update_label"
 
@@ -7023,4 +7042,3 @@ def shutdown():
     logger.info('Shutting down server via /shutdown')
     func()
     return jsonify({'status': 'Server shutting down...'})
-

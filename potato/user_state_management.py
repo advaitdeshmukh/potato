@@ -1680,6 +1680,33 @@ class InMemoryUserState(UserState):
             self.phase_to_page_to_label_to_value[self.current_phase_and_page[0]][self.current_phase_and_page[1]][label] = value
         #print('add_labels ->', self.instance_id_to_label_to_value)
 
+    def remove_label_annotation(self, instance_id: str, label: Label) -> None:
+        if self.current_phase_and_page[0] == UserPhase.ANNOTATION:
+            if instance_id not in self.instance_id_to_label_to_value:
+                return
+
+            if label in self.instance_id_to_label_to_value[instance_id]:
+                del self.instance_id_to_label_to_value[instance_id][label]
+
+            if len(self.instance_id_to_label_to_value[instance_id]) == 0:
+                del self.instance_id_to_label_to_value[instance_id]
+        else:
+            phase = self.current_phase_and_page[0]
+            page = self.current_phase_and_page[1]
+
+            if phase not in self.phase_to_page_to_label_to_value:
+                return
+            if page not in self.phase_to_page_to_label_to_value[phase]:
+                return
+
+            if label in self.phase_to_page_to_label_to_value[phase][page]:
+                del self.phase_to_page_to_label_to_value[phase][page][label]
+
+            if len(self.phase_to_page_to_label_to_value[phase][page]) == 0:
+                del self.phase_to_page_to_label_to_value[phase][page]
+            if len(self.phase_to_page_to_label_to_value[phase]) == 0:
+                del self.phase_to_page_to_label_to_value[phase]
+
     def add_span_annotation(self, instance_id: str, label: SpanAnnotation, value: any) -> None:
         '''Adds a set of span annotations to the instance or if the user is not
            in the annotation phase, to the page associated with the current phase'''
@@ -2528,5 +2555,4 @@ class InMemoryUserState(UserState):
                 }
 
         return user_state
-
 

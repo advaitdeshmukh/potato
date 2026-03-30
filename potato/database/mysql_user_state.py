@@ -377,6 +377,27 @@ class MysqlUserState(UserState):
                       label.get_name(), str(value)))
                 conn.commit()
 
+    def remove_label_annotation(self, instance_id: str, label: Label) -> None:
+        """Remove a label annotation."""
+        phase, page = self.get_current_phase_and_page()
+
+        if phase == UserPhase.ANNOTATION:
+            with self.db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("""
+                    DELETE FROM label_annotations
+                    WHERE user_id = %s AND instance_id = %s AND schema_name = %s AND label_name = %s
+                """, (self.user_id, instance_id, label.get_schema(), label.get_name()))
+                conn.commit()
+        else:
+            with self.db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("""
+                    DELETE FROM phase_annotations
+                    WHERE user_id = %s AND phase_name = %s AND page_name = %s AND schema_name = %s AND label_name = %s
+                """, (self.user_id, str(phase), page, label.get_schema(), label.get_name()))
+                conn.commit()
+
     def add_span_annotation(self, instance_id: str, span: SpanAnnotation, value: Any) -> None:
         """Add a span annotation."""
         phase, page = self.get_current_phase_and_page()
@@ -552,4 +573,3 @@ class MysqlUserState(UserState):
         for instance_id, data in annotations.items():
             labels[instance_id] = data.get("labels", {})
         return labels
-

@@ -1848,11 +1848,22 @@ function syncAnnotationsFromDOM() {
         const schema = input.getAttribute('schema');
         const labelName = input.getAttribute('label_name');
         const isModified = input.hasAttribute('data-modified') || input.hasAttribute('data-server-set');
-        if (schema && labelName && input.value && isModified) {
+        if (!schema || !labelName || !isModified) {
+            return;
+        }
+
+        if (input.value) {
             if (!currentAnnotations[schema]) {
                 currentAnnotations[schema] = {};
             }
             currentAnnotations[schema][labelName] = input.value;
+        } else {
+            // Preserve an explicit empty string for modified hidden inputs so
+            // custom widgets can signal deletions to the backend.
+            if (!currentAnnotations[schema]) {
+                currentAnnotations[schema] = {};
+            }
+            currentAnnotations[schema][labelName] = '';
         }
     });
 
@@ -1994,6 +2005,28 @@ function handleInputChange(element) {
             }, 500);
             return;
         }
+    } else if (inputType === 'hidden' && element.value === '') {
+        const oldValue = currentAnnotations[schema] ? currentAnnotations[schema][labelName] : null;
+        if (!currentAnnotations[schema]) {
+            currentAnnotations[schema] = {};
+        }
+        currentAnnotations[schema][labelName] = '';
+
+        debugLog(`Removed hidden annotation: ${schema}.${labelName}`);
+
+        if (window.interactionTracker) {
+            window.interactionTracker.trackAnnotationChange(schema, labelName, 'deselect', oldValue, null, 'user');
+        }
+
+        if (displayLogicManager) {
+            displayLogicManager.evaluateForSchema(schema);
+        }
+
+        clearTimeout(textSaveTimer);
+        textSaveTimer = setTimeout(() => {
+            saveAnnotations();
+        }, 500);
+        return;
     } else {
         // For text inputs, save the value
         const oldValue = currentAnnotations[schema] ? currentAnnotations[schema][labelName] : null;
