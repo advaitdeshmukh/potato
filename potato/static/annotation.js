@@ -54,6 +54,22 @@ const boundEventHandlers = {
 
 let aiAssistantManger = new AIAssistantManager();
 
+function scheduleAnnotationSave(delay = 500) {
+    clearTimeout(textSaveTimer);
+    textSaveTimer = setTimeout(() => {
+        saveAnnotations();
+    }, delay);
+}
+
+function notifyInstanceLoaded() {
+    const detail = {
+        instanceId: currentInstance?.id || null,
+        timestamp: Date.now()
+    };
+    window.__potatoLastInstanceLoad = detail;
+    document.dispatchEvent(new CustomEvent('potato:instance-loaded', { detail }));
+}
+
 /**
  * Flush any pending debounced save synchronously using navigator.sendBeacon().
  * Called from beforeunload and visibilitychange so annotations are not lost
@@ -84,6 +100,8 @@ function flushPendingSave() {
     navigator.sendBeacon('/updateinstance',
         new Blob([payload], {type: 'application/json'}));
 }
+
+window.scheduleAnnotationSave = scheduleAnnotationSave;
 
 window.addEventListener('beforeunload', flushPendingSave);
 document.addEventListener('visibilitychange', function() {
@@ -963,9 +981,11 @@ async function loadCurrentInstance() {
         await loadSpanAnnotations();
         debugLog('🔍 [DEBUG] loadCurrentInstance() - loadSpanAnnotations() completed');
 
-        // Populate input values with existing annotations AFTER forms are generated
+        // Populate input values with existing annotations AFTER forms are generated,
+        // then notify custom widgets that canonical server state is ready.
         setTimeout(() => {
             populateInputValues();
+            notifyInstanceLoaded();
         }, 0);
 
     } catch (error) {
@@ -1066,6 +1086,7 @@ function clearAllFormInputs() {
     hiddenAnnotationInputs.forEach(input => {
         if (input.getAttribute('data-server-set') !== 'true') {
             input.value = '';
+            input.removeAttribute('value');
             input.removeAttribute('data-modified');
             debugLog('🔍 Cleared hidden annotation input (browser-cached):', input.getAttribute('name'));
         } else {
@@ -1234,22 +1255,24 @@ async function loadAnnotations() {
         hiddenInputs.forEach(input => {
             const schema = input.getAttribute('schema');
             const labelName = input.getAttribute('label_name');
-            const isServerSet = input.hasAttribute('data-server-set');
-            if (isServerSet) {
-                // Server explicitly set this value — trust it
-                const serverValue = input.getAttribute('value') || '';
-                input.value = serverValue;
+        const isServerSet = input.hasAttribute('data-server-set');
+        if (isServerSet) {
+            // Server explicitly set this value — trust it
+            const serverValue = input.getAttribute('value') || '';
+            input.value = serverValue;
                 if (schema && labelName && serverValue) {
                     if (!currentAnnotations[schema]) {
                         currentAnnotations[schema] = {};
                     }
                     currentAnnotations[schema][labelName] = serverValue;
                 }
-            } else {
-                // No server-set flag — clear any browser-cached value
-                input.value = '';
-            }
-        });
+        } else {
+            // No server-set flag — clear any browser-cached value
+            input.value = '';
+            input.removeAttribute('value');
+            input.removeAttribute('data-server-set');
+        }
+    });
 
         debugLog('🔍 Annotations loaded from DOM:', currentAnnotations);
     } catch (error) {

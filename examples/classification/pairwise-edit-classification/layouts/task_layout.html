@@ -566,13 +566,17 @@
       const naButton = document.getElementById("edit-classification-na");
       const list = document.getElementById("edit-classification-list");
       const status = document.getElementById("edit-classification-status");
+      const localStateByInstance =
+        window.__pairwiseEditClassificationLocalStateByInstance ||
+        (window.__pairwiseEditClassificationLocalStateByInstance = {});
 
       if (!hiddenInput || !directionSelect || !targetSelect || !addButton || !naButton || !list || !status) {
         return;
       }
 
-      let widgetState = parseState(hiddenInput.value);
+      let widgetState = { ...EMPTY_STATE };
       let widgetSaveTimer = null;
+      let hasHydratedFromInstance = false;
 
       function setStatus(message) {
         status.textContent = message || "";
@@ -588,8 +592,38 @@
         };
       }
 
+      function getCurrentInstanceId() {
+        if (typeof currentInstance !== "undefined" && currentInstance && currentInstance.id != null) {
+          return String(currentInstance.id);
+        }
+
+        const instanceIdInput = document.getElementById("instance_id");
+        return instanceIdInput ? String(instanceIdInput.value || "") : "";
+      }
+
+      function getServerSerializedState() {
+        if (
+          typeof currentAnnotations !== "undefined" &&
+          currentAnnotations.edit_classification &&
+          Object.prototype.hasOwnProperty.call(currentAnnotations.edit_classification, "selection")
+        ) {
+          return currentAnnotations.edit_classification.selection || "";
+        }
+
+        return hiddenInput.value || "";
+      }
+
+      function getSerializedState() {
+        const instanceId = getCurrentInstanceId();
+        if (instanceId && Object.prototype.hasOwnProperty.call(localStateByInstance, instanceId)) {
+          return localStateByInstance[instanceId] || "";
+        }
+
+        return getServerSerializedState();
+      }
+
       function syncStateFromInput() {
-        widgetState = parseState(hiddenInput.value || hiddenInput.getAttribute("value") || "");
+        widgetState = parseState(getSerializedState());
       }
 
       function syncCurrentAnnotations(serializedState) {
@@ -597,27 +631,31 @@
           return;
         }
 
-        if (serializedState) {
-          if (!currentAnnotations.edit_classification) {
-            currentAnnotations.edit_classification = {};
-          }
-          currentAnnotations.edit_classification.selection = serializedState;
-          return;
-        }
-
         if (!currentAnnotations.edit_classification) {
-          return;
+          currentAnnotations.edit_classification = {};
         }
 
-        delete currentAnnotations.edit_classification.selection;
-        if (Object.keys(currentAnnotations.edit_classification).length === 0) {
-          delete currentAnnotations.edit_classification;
+        currentAnnotations.edit_classification.selection = serializedState || "";
+      }
+
+      function mirrorSerializedState(serializedState) {
+        hiddenInput.value = serializedState;
+        hiddenInput.defaultValue = serializedState;
+        if (serializedState) {
+          hiddenInput.setAttribute("value", serializedState);
+        } else {
+          hiddenInput.removeAttribute("value");
         }
       }
 
       function scheduleWidgetSave() {
         if (typeof validateRequiredFields === "function") {
           validateRequiredFields();
+        }
+
+        if (typeof scheduleAnnotationSave === "function") {
+          scheduleAnnotationSave(200);
+          return;
         }
 
         if (typeof saveAnnotations !== "function") {
@@ -633,13 +671,11 @@
       function writeState(state) {
         widgetState = normalizeState(state);
         const serializedState = serializeState(widgetState);
-        hiddenInput.value = serializedState;
-        hiddenInput.defaultValue = serializedState;
-        if (serializedState) {
-          hiddenInput.setAttribute("value", serializedState);
-        } else {
-          hiddenInput.removeAttribute("value");
+        const instanceId = getCurrentInstanceId();
+        if (instanceId) {
+          localStateByInstance[instanceId] = serializedState || "";
         }
+        mirrorSerializedState(serializedState);
         hiddenInput.setAttribute("data-modified", "true");
         hiddenInput.removeAttribute("data-server-set");
         syncCurrentAnnotations(serializedState);
@@ -648,11 +684,12 @@
 
       function updateAddButton() {
         const state = getState();
-        addButton.disabled = state.na || !directionSelect.value || !targetSelect.value;
-        directionSelect.disabled = state.na;
-        targetSelect.disabled = state.na;
+        const isReady = hasHydratedFromInstance;
+        addButton.disabled = !isReady || state.na || !directionSelect.value || !targetSelect.value;
+        directionSelect.disabled = !isReady || state.na;
+        targetSelect.disabled = !isReady || state.na;
         naButton.classList.toggle("is-active", state.na);
-        naButton.disabled = state.na;
+        naButton.disabled = !isReady || state.na;
       }
 
       function renderSelectedPairs(syncFromInput) {
@@ -662,6 +699,12 @@
 
         const state = getState();
         updateAddButton();
+
+        if (!hasHydratedFromInstance) {
+          list.innerHTML = '<p class="edit-classification-empty">Loading saved annotation...</p>';
+          setStatus("");
+          return;
+        }
 
         if (state.na) {
           list.innerHTML = `
@@ -704,6 +747,10 @@
       function bindChipActions() {
         list.querySelectorAll(".edit-classification-remove-btn").forEach(button => {
           button.onclick = function () {
+            if (!hasHydratedFromInstance) {
+              return;
+            }
+
             if (button.getAttribute("data-action") === "clear-na") {
               clearNa();
               return;
@@ -719,6 +766,10 @@
       }
 
       function addPair() {
+        if (!hasHydratedFromInstance) {
+          return;
+        }
+
         const direction = directionSelect.value;
         const target = targetSelect.value;
         if (!direction || !target) {
@@ -743,6 +794,10 @@
       }
 
       function removePair(direction, target) {
+        if (!hasHydratedFromInstance) {
+          return;
+        }
+
         const state = getState();
         state.pairs = state.pairs.filter(pair => !(pair.direction === direction && pair.target === target));
         writeState(state);
@@ -751,6 +806,10 @@
       }
 
       function setNa() {
+        if (!hasHydratedFromInstance) {
+          return;
+        }
+
         const state = getState();
         if (state.na) {
           return;
@@ -764,8 +823,31 @@
       }
 
       function clearNa() {
+        if (!hasHydratedFromInstance) {
+          return;
+        }
+
         writeState({ ...EMPTY_STATE });
         renderSelectedPairs();
+        bindChipActions();
+      }
+
+      function handleInstanceLoaded() {
+        const instanceId = getCurrentInstanceId();
+        const serverSerializedState = getServerSerializedState();
+        if (instanceId && !Object.prototype.hasOwnProperty.call(localStateByInstance, instanceId)) {
+          localStateByInstance[instanceId] = serverSerializedState || "";
+        }
+
+        const serializedState = instanceId && Object.prototype.hasOwnProperty.call(localStateByInstance, instanceId)
+          ? (localStateByInstance[instanceId] || "")
+          : (serverSerializedState || "");
+
+        widgetState = parseState(serializedState);
+        mirrorSerializedState(serializedState);
+        syncCurrentAnnotations(serializedState);
+        hasHydratedFromInstance = true;
+        renderSelectedPairs(false);
         bindChipActions();
       }
 
@@ -773,35 +855,17 @@
       directionSelect.addEventListener("change", updateAddButton);
       targetSelect.addEventListener("change", updateAddButton);
       naButton.addEventListener("click", setNa);
+      document.addEventListener("potato:instance-loaded", handleInstanceLoaded);
 
       window.__pairwiseEditClassificationRender = renderSelectedPairs;
+      window.__pairwiseEditClassificationBind = bindChipActions;
+      window.__pairwiseEditClassificationHandleInstanceLoaded = handleInstanceLoaded;
       window.__pairwiseEditClassificationInitialized = true;
-      renderSelectedPairs(true);
-      bindChipActions();
-    }
+      renderSelectedPairs(false);
 
-    function patchLoadCurrentInstance() {
-      if (window.__pairwiseEditClassificationPatched) {
-        return;
+      if (window.__potatoLastInstanceLoad && window.__potatoLastInstanceLoad.instanceId) {
+        handleInstanceLoaded();
       }
-
-      if (typeof window.loadCurrentInstance !== "function") {
-        window.setTimeout(patchLoadCurrentInstance, 25);
-        return;
-      }
-
-      const originalLoadCurrentInstance = window.loadCurrentInstance;
-      window.loadCurrentInstance = async function () {
-        const result = await originalLoadCurrentInstance.apply(this, arguments);
-        window.setTimeout(function () {
-          if (typeof window.__pairwiseEditClassificationRender === "function") {
-            window.__pairwiseEditClassificationRender(true);
-          }
-        }, 0);
-        return result;
-      };
-
-      window.__pairwiseEditClassificationPatched = true;
     }
 
     function escapeHtml(text) {
@@ -813,12 +877,6 @@
     document.addEventListener("DOMContentLoaded", function () {
       window.setTimeout(function () {
         initEditClassification();
-        patchLoadCurrentInstance();
-        window.setTimeout(function () {
-          if (typeof window.__pairwiseEditClassificationRender === "function") {
-            window.__pairwiseEditClassificationRender(true);
-          }
-        }, 50);
       }, 0);
     });
   })();

@@ -158,6 +158,7 @@ annotation_schemes:
         username_field.send_keys(self.test_user)
         self.driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
         self.wait.until(EC.presence_of_element_located((By.ID, "edit_classification")))
+        self.wait.until(lambda driver: driver.find_element(By.ID, "edit-classification-na").is_enabled())
 
     def _get_hidden_state(self):
         hidden_input = self.driver.find_element(By.ID, "edit_classification_selection")
@@ -257,3 +258,105 @@ annotation_schemes:
 
         na_button = self.driver.find_element(By.ID, "edit-classification-na")
         assert "is-active" in na_button.get_attribute("class")
+
+    def test_clearing_na_does_not_return_after_navigation(self):
+        na_button = self.driver.find_element(By.ID, "edit-classification-na")
+        na_button.click()
+        self.wait.until(lambda driver: json.loads(driver.find_element(By.ID, "edit_classification_selection").get_attribute("value"))["na"] is True)
+
+        clear_button = self.driver.find_element(By.CSS_SELECTOR, ".edit-classification-remove-btn[data-action='clear-na']")
+        clear_button.click()
+        self.wait.until(lambda driver: driver.find_element(By.ID, "edit_classification_selection").get_attribute("value") == "")
+
+        self._add_pair("CHANGE", "dialogue")
+        _, state = self._get_hidden_state()
+        assert state == {
+            "na": False,
+            "pairs": [{"direction": "CHANGE", "target": "dialogue"}],
+        }
+
+    def test_saved_na_can_be_cleared_after_reload(self):
+        na_button = self.driver.find_element(By.ID, "edit-classification-na")
+        na_button.click()
+        self.wait.until(lambda driver: json.loads(driver.find_element(By.ID, "edit_classification_selection").get_attribute("value"))["na"] is True)
+
+        time.sleep(1.0)
+        self.driver.refresh()
+
+        self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".edit-classification-remove-btn[data-action='clear-na']")))
+        clear_button = self.driver.find_element(By.CSS_SELECTOR, ".edit-classification-remove-btn[data-action='clear-na']")
+        clear_button.click()
+
+        self.wait.until(lambda driver: driver.find_element(By.ID, "edit_classification_selection").get_attribute("value") == "")
+        time.sleep(0.5)
+        raw_value, state = self._get_hidden_state()
+        assert raw_value == ""
+        assert state == {"na": False, "pairs": []}
+        self._add_pair("CHANGE", "dialogue")
+        _, state = self._get_hidden_state()
+        assert state == {
+            "na": False,
+            "pairs": [{"direction": "CHANGE", "target": "dialogue"}],
+        }
+
+    def test_rerender_does_not_restore_cleared_na(self):
+        na_button = self.driver.find_element(By.ID, "edit-classification-na")
+        na_button.click()
+        self.wait.until(lambda driver: json.loads(driver.find_element(By.ID, "edit_classification_selection").get_attribute("value"))["na"] is True)
+
+        clear_button = self.driver.find_element(By.CSS_SELECTOR, ".edit-classification-remove-btn[data-action='clear-na']")
+        clear_button.click()
+        self.wait.until(lambda driver: driver.find_element(By.ID, "edit_classification_selection").get_attribute("value") == "")
+
+        self.driver.execute_script("""
+            if (typeof window.__pairwiseEditClassificationRender === 'function') {
+                window.__pairwiseEditClassificationRender(true);
+            }
+        """)
+
+        self.wait.until(lambda driver: "No annotations added yet." in driver.find_element(By.ID, "edit-classification-list").text)
+        self._add_pair("CHANGE", "dialogue")
+        _, state = self._get_hidden_state()
+        assert state == {
+            "na": False,
+            "pairs": [{"direction": "CHANGE", "target": "dialogue"}],
+        }
+
+    def test_stale_instance_loaded_event_does_not_restore_cleared_na(self):
+        na_button = self.driver.find_element(By.ID, "edit-classification-na")
+        na_button.click()
+        self.wait.until(lambda driver: json.loads(driver.find_element(By.ID, "edit_classification_selection").get_attribute("value"))["na"] is True)
+
+        clear_button = self.driver.find_element(By.CSS_SELECTOR, ".edit-classification-remove-btn[data-action='clear-na']")
+        clear_button.click()
+        self.wait.until(lambda driver: driver.find_element(By.ID, "edit_classification_selection").get_attribute("value") == "")
+
+        self.driver.execute_script("""
+            currentAnnotations.edit_classification = {
+                selection: JSON.stringify({ na: true, pairs: [] })
+            };
+            document.dispatchEvent(new CustomEvent('potato:instance-loaded', {
+                detail: {
+                    instanceId: document.getElementById('instance_id').value,
+                    timestamp: Date.now()
+                }
+            }));
+        """)
+
+        time.sleep(0.25)
+        raw_value, state = self._get_hidden_state()
+        assert raw_value == ""
+        assert state == {"na": False, "pairs": []}
+
+        first_instance_text = self.driver.find_element(By.ID, "instance-text").text
+        self.driver.find_element(By.ID, "next-btn").click()
+        self.wait.until(lambda driver: driver.find_element(By.ID, "instance-text").text != first_instance_text)
+
+        self.driver.find_element(By.ID, "prev-btn").click()
+        self.wait.until(lambda driver: driver.find_element(By.ID, "instance-text").text == first_instance_text)
+
+        _, state = self._get_hidden_state()
+        assert state == {
+            "na": False,
+            "pairs": [{"direction": "CHANGE", "target": "dialogue"}],
+        }
