@@ -1,0 +1,216 @@
+<style>
+  #annotation-forms {
+    --validation-sidebar-width: clamp(320px, 30vw, 420px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--validation-sidebar-width);
+    gap: 1.5rem 1.75rem;
+    align-items: start;
+  }
+
+  #annotation-forms > .annotation_schema {
+    display: contents;
+  }
+
+  #annotation-forms > .pairwise-items-display-container {
+    grid-column: 1;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+
+  #annotation-forms > .validation-sidebar {
+    grid-column: 2;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+    display: grid;
+    gap: 1rem;
+  }
+
+  #pair_display {
+    display: none !important;
+  }
+
+  .pairwise-items-display-container .pairwise-item-box {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .validation-card,
+  #model_label_correct {
+    background:
+      radial-gradient(circle at top right, rgba(223, 239, 255, 0.85), transparent 38%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.98) 100%);
+    border: 1px solid #d8e1eb;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+  }
+
+  .validation-card {
+    padding: 1rem 1.05rem;
+  }
+
+  .validation-eyebrow {
+    margin: 0 0 0.45rem;
+    color: #526273;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .validation-label {
+    margin: 0;
+    color: #102033;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .validation-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.75rem;
+  }
+
+  .validation-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    background: #edf4fb;
+    border: 1px solid #d4e2f0;
+    color: #274158;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .validation-meta {
+    margin: 0.8rem 0 0;
+    color: #607387;
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  #model_label_correct {
+    padding: 1rem 1.05rem 1.05rem;
+  }
+
+  #model_label_correct fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #model_label_correct .shadcn-radio-title {
+    margin: 0 0 0.35rem;
+    color: #102033;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .validation-help {
+    margin: 0 0 0.9rem;
+    color: #526273;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  #model_label_correct .shadcn-radio-options {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  #model_label_correct .shadcn-radio-option {
+    margin: 0;
+  }
+
+  #model_label_correct .shadcn-radio-label {
+    display: block;
+    border: 1px solid #d4deea;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+    background: #fff;
+    color: #102033;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+  }
+
+  #model_label_correct .shadcn-radio-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #model_label_correct .shadcn-radio-input:checked + .shadcn-radio-label {
+    border-color: #2563eb;
+    background: #eff6ff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  }
+
+  @media (max-width: 1100px) {
+    #annotation-forms {
+      display: block;
+    }
+
+    #annotation-forms > .pairwise-items-display-container {
+      margin-bottom: 1.25rem;
+    }
+
+    #annotation-forms > .validation-sidebar {
+      position: static;
+    }
+  }
+</style>
+
+<div class="annotation_schema">
+  <form id="pair_display" class="annotation-form pairwise pairwise-binary" action="/action_page.php" data-annotation-id="0" data-annotation-type="pairwise" data-schema-name="pair_display" data-mode="binary" data-items-key="text" data-item-display-mode="side_by_side" data-show-item-diff="true" data-diff-granularity="word" data-diff-ignore-case="true" data-diff-ignore-punctuation="true" data-item-label-a="Prompt A" data-item-label-b="Prompt B">
+    <fieldset schema="pair_display">
+      <legend class="pairwise-question">Prompt pair display</legend>
+      <div class="pairwise-selection-container">
+        <div class="pairwise-tile" data-value="A" data-schema="pair_display" tabindex="0">
+          <span class="pairwise-tile-label">A</span>
+        </div>
+        <div class="pairwise-tile" data-value="B" data-schema="pair_display" tabindex="0">
+          <span class="pairwise-tile-label">B</span>
+        </div>
+      </div>
+      <input type="hidden" class="pairwise-value annotation-input" name="pair_display" schema="pair_display" label_name="selection" validation="" value="">
+    </fieldset>
+  </form>
+
+  <div class="validation-sidebar">
+    <section class="validation-card">
+      <p class="validation-eyebrow">Model Predicted Label</p>
+      <p class="validation-label">{{ predicted_label_text | e }}</p>
+      <div class="validation-chip-row">
+        <span class="validation-chip">{{ predicted_direction | e }}</span>
+        <span class="validation-chip">{{ predicted_target | e }}</span>
+      </div>
+      <p class="validation-meta">
+        Source example {{ source_example_id | e }}
+        {% if source_label_count and source_label_count|int > 1 %}
+          · label {{ predicted_label_rank | e }} of {{ source_label_count | e }}
+        {% endif %}
+      </p>
+    </section>
+
+    <form id="model_label_correct" class="annotation-form radio shadcn-radio-container" action="/action_page.php" data-annotation-id="1" data-annotation-type="radio" data-schema-name="model_label_correct">
+      <fieldset schema="model_label_correct">
+        <legend class="shadcn-radio-title">Is the model label correct for this prompt edit?</legend>
+        <p class="validation-help">Select <strong>Yes</strong> if the shown label fits the edit between Prompt A and Prompt B. Select <strong>No</strong> if it does not.</p>
+        <div class="shadcn-radio-options">
+          <div class="shadcn-radio-option">
+            <input class="model_label_correct shadcn-radio-input annotation-input" type="radio" id="model_label_correct_Yes_radio" name="model_label_correct" value="Yes" selection_constraint="single" schema="model_label_correct" label_name="Yes" onclick="onlyOne(this);registerAnnotation(this);" validation="required" data-key="1">
+            <label for="model_label_correct_Yes_radio" class="shadcn-radio-label">Yes <span class="keybinding-badge">1</span></label>
+          </div>
+          <div class="shadcn-radio-option">
+            <input class="model_label_correct shadcn-radio-input annotation-input" type="radio" id="model_label_correct_No_radio" name="model_label_correct" value="No" selection_constraint="single" schema="model_label_correct" label_name="No" onclick="onlyOne(this);registerAnnotation(this);" validation="required" data-key="2">
+            <label for="model_label_correct_No_radio" class="shadcn-radio-label">No <span class="keybinding-badge">2</span></label>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

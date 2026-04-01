@@ -37,6 +37,7 @@ python potato/flask_server.py start examples/classification/check-box/config.yam
 | `pairwise-comparison/` | Side-by-side pairwise comparison |
 | `pairwise-edit-description/` | Pairwise diff with freeform edit descriptions |
 | `pairwise-edit-classification/` | Pairwise diff with structured edit direction/target labels |
+| `pairwise-edit-label-validation/` | Pairwise diff with yes/no validation of a model-predicted edit label |
 | `pairwise-scale/` | Pairwise comparison with scale rating |
 | `llm-preference/` | LLM output preference comparison |
 | `dialogue-classification/` | Dialogue-level classification |

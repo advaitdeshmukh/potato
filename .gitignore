@@ -89,6 +89,8 @@ examples/**/waveform_cache/
 !examples/classification/pairwise-comparison/layouts/task_layout.html
 !examples/classification/pairwise-edit-description/layouts/
 !examples/classification/pairwise-edit-description/layouts/task_layout.html
+!examples/classification/pairwise-edit-label-validation/layouts/
+!examples/classification/pairwise-edit-label-validation/layouts/task_layout.html
 
 # Test results and debug files
 test_output.txt
@@ -126,6 +128,8 @@ layouts/
 !examples/classification/pairwise-comparison/layouts/task_layout.html
 !examples/classification/pairwise-edit-description/layouts/
 !examples/classification/pairwise-edit-description/layouts/task_layout.html
+!examples/classification/pairwise-edit-label-validation/layouts/
+!examples/classification/pairwise-edit-label-validation/layouts/task_layout.html
 
 # Duplicate/temp test directories
 tests/tests/
