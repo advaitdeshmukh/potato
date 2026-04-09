@@ -133,6 +133,7 @@ layouts/
 
 !event_relation_annotation_task/layouts/
 !event_relation_annotation_task/layouts/task_layout_custom.html
+!event_relation_annotation_task/annotation_output/
 # Duplicate/temp test directories
 tests/tests/
 
