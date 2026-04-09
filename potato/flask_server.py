@@ -46,7 +46,7 @@ import string
 import threading
 import yaml
 from datetime import datetime, timedelta
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 import numpy as np
 import pandas as pd
@@ -2476,7 +2476,7 @@ class BasePathMiddleware:
         self.base_path = normalize_base_path(base_path)
 
     @staticmethod
-    def _normalize_forwarded_prefix(value: str | None) -> str:
+    def _normalize_forwarded_prefix(value: Optional[str]) -> str:
         if not value:
             return ""
 

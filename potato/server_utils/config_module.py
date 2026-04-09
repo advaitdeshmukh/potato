@@ -35,7 +35,7 @@ class ConfigSecurityError(Exception):
     pass
 
 
-def normalize_base_path(base_path: str | None) -> str:
+def normalize_base_path(base_path: Optional[str]) -> str:
     """
     Normalize a configured server base path.
 
