@@ -1,7 +1,7 @@
 server:
   host: 0.0.0.0
   port: 4096
-  base_path: /eventrelation
+  base_path: /tejo9855/eventrelation
   workers: 2
   timeout: 120
 
@@ -51,8 +51,10 @@ event_helper:
   title: "What counts as an event?"
   description: >
     Events are singular, bounded occurrences where something happens at a particular point in time. 
+    The highlighted spans are event triggers. Event triggers are the smallest units that can be identified as events. 
+    When considering whether a span qualifies as an event, try to determine the full event indicated by the highlighted span.
     A span qualifies as an event if you can identify what happened AND 
-    who or what it happened to from the surrounding text.
+    who or what it happened to from the surrounding text. DO NOT consider hypothetical or future events that are not clearly indicated as having occurred in the text.
 
 pair_question_text:
   sequencing_title: "Event Sequentiality"
