@@ -131,6 +131,8 @@ layouts/
 !examples/classification/pairwise-edit-label-validation/layouts/
 !examples/classification/pairwise-edit-label-validation/layouts/task_layout.html
 
+!event_relation_annotation_task/layouts/
+!event_relation_annotation_task/layouts/task_layout_custom.html
 # Duplicate/temp test directories
 tests/tests/
 

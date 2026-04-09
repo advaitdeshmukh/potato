@@ -1,0 +1,1301 @@
+<!-- CONFIG_HASH: 5c738423f4d3a0f4df8e88d2adb5f868_9fd137b3ba57f71ba2f6a238a8375a89 -->
+<!-- Generated annotation layout file -->
+<!-- This file was automatically generated based on the annotation schemes in your config -->
+<!-- You can customize this file to modify the layout of your annotation interface -->
+<!-- Changes to this file will be preserved across server restarts -->
+
+<style>
+  /* ── Two-column layout ───────────────────────────────────── */
+  #two-col-wrapper  { display: flex; gap: 1.5rem; align-items: start; }
+  #two-col-left     { flex: 1; min-width: 0; }
+  #two-col-right    { flex: 0 0 520px; width: 520px; min-width: 520px; max-width: 520px; overflow: hidden; }
+
+  /* ── Collapse instance-display gap ──────────────────────── */
+  .instance-display-container { gap: 0 !important; }
+
+  /* ── Metadata labels & fields ────────────────────────────── */
+  .potato-meta-label {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #9ca3af; margin: 0 0 2px 0; line-height: 1;
+  }
+  .potato-meta-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+    padding: 6px 9px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .potato-meta-row {
+    border-bottom: 1px solid #f3f4f6;
+    padding: 1px 0 2px 0;
+  }
+  .potato-meta-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .potato-meta-row > * {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    min-height: 0 !important;
+  }
+  .potato-meta-row .text-display-content {
+    font-size: 0.8rem;
+    color: #6b7280;
+    line-height: 1.22;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+  .potato-meta-row .potato-meta-label { margin: 0 0 1px 0; }
+  .potato-meta-row :not(.potato-meta-label) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .potato-meta-row .text-display,
+  .potato-meta-row .instance-display-field,
+  .potato-meta-row .field-value {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+  }
+  .potato-main-text-block {
+    border-top: 1px solid #e5e7eb; margin-top: 8px; padding-top: 8px;
+  }
+  .potato-main-text-block .text-display-content {
+    font-size: 1rem; color: #111827; line-height: 1.75;
+  }
+
+  /* ── Span highlights ─────────────────────────────────────── */
+  mark {
+    background: none; padding: 0 1px; border-radius: 2px;
+    cursor: default; transition: background-color 0.1s;
+  }
+  mark.span-dim-event {
+    background-color: rgba(251, 146, 60, 0.22);
+    border-bottom: 1.5px solid rgba(234, 88, 12, 0.3);
+  }
+  mark.span-dim-verb {
+    background-color: rgba(96, 165, 250, 0.22);
+    border-bottom: 1.5px solid rgba(59, 130, 246, 0.3);
+  }
+  mark.span-sel-first-event {
+    background-color: rgba(251, 146, 60, 0.55);
+    border-bottom: 2.5px solid rgba(234, 88, 12, 0.9);
+    font-weight: 600; outline: 2px solid rgba(234, 88, 12, 0.45);
+    outline-offset: 1px; border-radius: 3px;
+  }
+  mark.span-sel-first-verb {
+    background-color: rgba(96, 165, 250, 0.55);
+    border-bottom: 2.5px solid rgba(59, 130, 246, 0.9);
+    font-weight: 600; outline: 2px solid rgba(59, 130, 246, 0.45);
+    outline-offset: 1px; border-radius: 3px;
+  }
+  mark.span-sel-second-event {
+    background-color: rgba(251, 146, 60, 0.75);
+    border-bottom: 2.5px solid rgba(180, 60, 5, 1);
+    font-weight: 700; outline: 2.5px solid rgba(180, 60, 5, 0.6);
+    outline-offset: 1px; border-radius: 3px;
+  }
+  mark.span-sel-second-verb {
+    background-color: rgba(96, 165, 250, 0.75);
+    border-bottom: 2.5px solid rgba(29, 78, 216, 1);
+    font-weight: 700; outline: 2.5px solid rgba(29, 78, 216, 0.6);
+    outline-offset: 1px; border-radius: 3px;
+  }
+
+  /* ── Span legend ─────────────────────────────────────────── */
+  .span-legend {
+    display: flex; gap: 14px; margin-bottom: 6px;
+    font-size: 0.68rem; color: #6b7280;
+  }
+  .span-legend-item { display: flex; align-items: center; gap: 4px; }
+  .swatch { display: inline-block; width: 22px; height: 9px; border-radius: 2px; }
+  .swatch-verb  { background: rgba(96,  165, 250, 0.35); border-bottom: 2px solid rgba(59,  130, 246, 0.7); }
+  .swatch-event { background: rgba(251, 146, 60,  0.35); border-bottom: 2px solid rgba(234, 88,  12,  0.7); }
+
+  /* ── Main panel ──────────────────────────────────────────── */
+  #event-seq-panel {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+    padding: 20px; display: flex; flex-direction: column; gap: 16px;
+  }
+
+  .seq-top-row { display: flex; justify-content: space-between; align-items: center; }
+  .seq-title {
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #374151; margin: 0;
+  }
+  #seq-progress { font-size: 0.72rem; color: #9ca3af; font-variant-numeric: tabular-nums; }
+
+  /* ── Instructions ────────────────────────────────────────── */
+  .seq-instructions {
+    font-size: 0.82rem; color: #6b7280; line-height: 1.5;
+    background: #f9fafb; border-radius: 7px; padding: 10px 14px;
+  }
+  .seq-instructions strong { color: #374151; }
+
+  /* ── Rating UI ───────────────────────────────────────────── */
+  #seq-rating-ui { display: flex; flex-direction: column; gap: 14px; }
+
+  .selected-pair-display {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .sel-span-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px; border-radius: 6px; font-size: 0.88rem;
+  }
+  .sel-span-row.type-event { background: rgba(251, 146, 60, 0.1); }
+  .sel-span-row.type-verb  { background: rgba(96, 165, 250, 0.1); }
+  .sel-order-badge {
+    font-size: 0.6rem; font-weight: 700; color: #9ca3af;
+    width: 16px; flex-shrink: 0; text-align: center;
+  }
+  .sel-order-badge.first  { color: #6b7280; }
+  .sel-order-badge.second { color: #374151; }
+  .span-badge {
+    font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px; flex-shrink: 0;
+  }
+  .span-badge.event { background: rgba(234, 88, 12, 0.15); color: rgba(180, 60, 5, 1); }
+  .span-badge.verb  { background: rgba(59, 130, 246, 0.15); color: rgba(29, 78, 216, 1); }
+  .sel-token { font-weight: 700; color: #111827; }
+
+  .pair-connector { text-align: center; color: #d1d5db; font-size: 0.9rem; line-height: 1; }
+  .order-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
+  .btn-swap-order {
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #374151;
+    font-weight: 600;
+  }
+  .btn-swap-order:hover { border-color: #9ca3af; background: #f9fafb; }
+
+  /* ── Ordering question ───────────────────────────────────── */
+  .ordering-question-panel {
+    background: #f0f4ff; border: 1px solid #c7d7ff; border-radius: 8px;
+    padding: 12px; margin-top: 8px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .ordering-question-title {
+    font-size: 0.8rem; font-weight: 700; color: #374151; margin: 0;
+  }
+  .ordering-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ordering-btn {
+    flex: 1; padding: 8px 10px; border: 1.5px solid #6366f1; border-radius: 6px;
+    background: #fff; color: #4338ca; font-size: 0.8rem; font-weight: 600;
+    cursor: pointer; transition: all 0.12s ease;
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .ordering-btn:hover { background: #eef2ff; }
+  .ordering-btn-hard {
+    flex: 0 0 auto; border-color: #d1d5db; color: #6b7280; font-weight: 500;
+  }
+  .ordering-btn-hard:hover { background: #f9fafb; border-color: #9ca3af; }
+  .ordering-confirmed {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px;
+    padding: 10px 12px; margin-top: 8px;
+  }
+  .ordering-confirmed-label { font-size: 0.8rem; color: #166534; margin: 0; }
+  .ordering-change-btn {
+    font-size: 0.72rem; padding: 3px 8px; border: 1px solid #86efac;
+    border-radius: 5px; background: #dcfce7; color: #166534; cursor: pointer; font-weight: 600;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .ordering-change-btn:hover { background: #bbf7d0; }
+  .ordering-confirmed.too-hard {
+    background: #fefce8; border-color: #fde047;
+  }
+  .ordering-confirmed.too-hard .ordering-confirmed-label { color: #854d0e; }
+  .ordering-confirmed.too-hard .ordering-change-btn {
+    border-color: #fde047; background: #fef9c3; color: #854d0e;
+  }
+  .ordering-confirmed.too-hard .ordering-change-btn:hover { background: #fef08a; }
+
+  .likert-divider { border: none; border-top: 1px solid #f3f4f6; margin: 0; }
+  .event-check-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .event-check-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #4b5563;
+    margin: 0;
+  }
+  .event-check-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .event-check-label {
+    font-size: 0.8rem;
+    color: #374151;
+    margin: 0;
+  }
+  .event-check-options {
+    display: flex;
+    gap: 6px;
+  }
+  .event-check-btn {
+    border: 1.5px solid #d1d5db;
+    border-radius: 6px;
+    padding: 4px 10px;
+    background: #fff;
+    color: #4b5563;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .event-check-btn:hover {
+    border-color: #9ca3af;
+    color: #1f2937;
+  }
+  .event-check-btn.selected {
+    border-color: #374151;
+    background: #374151;
+    color: #fff;
+  }
+  .event-check-hint {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+  }
+  #likert-section.hidden { display: none; }
+  .likert-question {
+    font-size: 1rem; font-weight: 500; color: #111827; line-height: 1.4; margin: 0;
+  }
+  .likert-group  { display: flex; flex-direction: column; gap: 5px; }
+  .likert-row    { display: flex; gap: 6px; }
+  .likert-btn {
+    flex: 1; padding: 10px 0; border: 1.5px solid #d1d5db; border-radius: 7px;
+    background: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 600;
+    color: #6b7280; transition: all 0.12s ease;
+  }
+  .likert-btn:hover { border-color: #9ca3af; color: #374151; background: #f9fafb; }
+  .likert-btn.selected { border-color: #7c3aed; background: #7c3aed; color: #fff; }
+  .likert-labels {
+    display: flex; justify-content: space-between;
+    font-size: 0.62rem; color: #9ca3af; padding: 0 2px;
+  }
+
+  /* ── No spans state ──────────────────────────────────────── */
+  .seq-empty { font-size: 0.82rem; color: #9ca3af; text-align: center; padding: 8px 0; }
+
+  /* ── Next button blocked state ───────────────────────────── */
+  #next-btn.annotation-nav-blocked {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  }
+
+  /* ── Event helper header ─────────────────────────────────── */
+  .event-helper-details {
+    border: 1px solid #e5e7eb; border-radius: 7px;
+    background: #fafafa; margin-bottom: 12px; overflow: hidden;
+  }
+  .event-helper-details summary {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 12px; cursor: pointer; list-style: none;
+    font-size: 0.78rem; font-weight: 600; color: #6b7280;
+    user-select: none;
+  }
+  .event-helper-details summary::-webkit-details-marker { display: none; }
+  .event-helper-details summary .helper-chevron {
+    font-size: 0.7rem; transition: transform 0.15s ease; color: #9ca3af;
+  }
+  .event-helper-details[open] summary .helper-chevron { transform: rotate(90deg); }
+  .event-helper-body {
+    padding: 0 12px 10px; font-size: 0.78rem; color: #6b7280; line-height: 1.5;
+  }
+
+  /* ── Likert question block ───────────────────────────────── */
+  .likert-question-block { margin-bottom: 8px; }
+  .likert-title {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #7c3aed; margin: 0 0 4px;
+  }
+  .likert-description-details {
+    margin-top: 4px;
+  }
+  .likert-description-details summary {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 0.7rem; color: #9ca3af; cursor: pointer; list-style: none;
+    user-select: none;
+  }
+  .likert-description-details summary::-webkit-details-marker { display: none; }
+  .likert-description-details summary .desc-chevron {
+    font-size: 0.65rem; transition: transform 0.15s ease;
+  }
+  .likert-description-details[open] summary .desc-chevron { transform: rotate(90deg); }
+  .likert-description {
+    font-size: 0.75rem; color: #6b7280; line-height: 1.5;
+    margin: 6px 0 0; padding: 8px 10px;
+    background: #f9fafb; border-left: 3px solid #e5e7eb; border-radius: 0 4px 4px 0;
+  }
+</style>
+
+<script>
+  /* PAIR_POLICY_START */
+  var _rawPairPolicyFromConfig = {
+  "mode_definitions": {
+    "mix": {
+      "span_types": [
+        "event",
+        "verb"
+      ]
+    },
+    "sim": {
+      "span_types": [
+        "event"
+      ]
+    },
+    "spacy": {
+      "span_types": [
+        "verb"
+      ]
+    }
+  },
+  "schedule": [
+    {
+      "mode": "sim",
+      "weight": 2
+    },
+    {
+      "mode": "mix",
+      "weight": 1
+    }
+  ]
+};
+  /* PAIR_POLICY_END */
+
+  /* EVENT_HELPER_START */
+  var _eventHelperFromConfig = {
+  "description": "Events are singular, bounded occurrences where something happens at a particular point in time.  A span qualifies as an event if you can identify what happened AND  who or what it happened to from the surrounding text.\n",
+  "title": "What counts as an event?"
+};
+  /* EVENT_HELPER_END */
+
+  /* QUESTION_TEXT_START */
+  var _questionTextFromConfig = {
+  "causality_description": "Rate how strongly the text supports a causal relationship between the two highlighted events.  Causality includes both direct cause (Event 1 actively produces Event 2;  e.g. \"the pipe burst\" -> \"the basement flooded\")  and enablement (Event 1 creates the conditions that make Event 2 possible;  e.g. \"she bought a ticket\" -> \"she boarded the train\"). Use your world knowledge.  If the causal link is obvious even without explicit markers, score it accordingly.  Explicit causal language (\"because,\" \"so,\" \"as a result\") should typically receive the highest scores.\n",
+  "causality_left_label": "No causal link",
+  "causality_question": "How strongly does the text support that Event 1 was necessary for Event 2 to occur?",
+  "causality_right_label": "Very strong, explicit causality",
+  "causality_title": "Event Causality",
+  "sequencing_description": "Rate the strength of the temporal ordering between the two highlighted events.  A high score means the text clearly establishes that one event precedes the other either through  explicit markers (\"then,\" \"afterward,\" \"the next day\") or strong narrative implication.  A low score means the events feel temporally unordered, simultaneous, or ambiguous in sequence.\n",
+  "sequencing_left_label": "No clear sequence",
+  "sequencing_question": "How clearly does the text establish that Event 1 comes before Event 2?",
+  "sequencing_right_label": "Very strong sequence",
+  "sequencing_title": "Event Sequentiality"
+};
+  /* QUESTION_TEXT_END */
+
+  /* ═══════════════════════════════════════════════════════════
+     State
+  ═══════════════════════════════════════════════════════════ */
+  var _seqText           = '';
+  var _allSpans          = [];
+  var _selectedSpans     = [];       // fixed assigned pair: [first, second]
+  var _spanIsEventByIdx  = {};       // { [spanIdx]: true|false }
+  var _orderingDecision  = null;     // null | 'decided' | 'too_hard'
+  var _pendingSeqRating  = null;
+  var _pendingCausRating = null;
+  var _ratedPairs               = [];    // exactly one item when rated
+  var _assignedPair             = null;  // [si1, si2]
+  var _pairPolicy               = null;
+  var _instanceKey              = null;
+  var _skipAnnotationRequired   = false; // true when no spans to annotate
+
+  /* ═══════════════════════════════════════════════════════════
+     Helpers
+  ═══════════════════════════════════════════════════════════ */
+  function safeParseJSON(s) {
+    if (!s || s === 'null' || s === 'None') return [];
+    try { return JSON.parse(s); } catch(e) { return []; }
+  }
+
+  function normalizePolicy(raw) {
+    var fallback = {
+      schedule: [
+        { mode: 'sim', weight: 2 },
+        { mode: 'mix', weight: 1 }
+      ],
+      mode_definitions: {
+        sim:   { span_types: ['event'] },
+        spacy: { span_types: ['verb'] },
+        mix:   { span_types: ['event', 'verb'] }
+      }
+    };
+
+    if (!raw || typeof raw !== 'object') return fallback;
+    var policy = {
+      schedule: Array.isArray(raw.schedule) ? raw.schedule : [],
+      mode_definitions: (raw.mode_definitions && typeof raw.mode_definitions === 'object')
+        ? raw.mode_definitions : {}
+    };
+
+    var cleanSchedule = policy.schedule
+      .map(function(item) {
+        if (!item || typeof item !== 'object') return null;
+        var mode = String(item.mode || '').trim();
+        var weight = parseInt(item.weight, 10);
+        if (!mode || !isFinite(weight) || weight <= 0) return null;
+        return { mode: mode, weight: weight };
+      })
+      .filter(Boolean);
+
+    if (cleanSchedule.length === 0) cleanSchedule = fallback.schedule;
+
+    var cleanModes = {};
+    Object.keys(policy.mode_definitions).forEach(function(k) {
+      var def = policy.mode_definitions[k];
+      if (!def || !Array.isArray(def.span_types)) return;
+      var allowed = def.span_types
+        .map(function(t) { return String(t || '').trim(); })
+        .filter(function(t) { return t === 'event' || t === 'verb'; });
+      if (allowed.length > 0) cleanModes[k] = { span_types: allowed };
+    });
+
+    if (Object.keys(cleanModes).length === 0) cleanModes = fallback.mode_definitions;
+
+    return { schedule: cleanSchedule, mode_definitions: cleanModes };
+  }
+
+  function normalizeQuestionText(raw) {
+    var fallback = {
+      sequencing_title: 'Event Sequentiality',
+      sequencing_question: 'How strongly are these events sequentially connected?',
+      sequencing_description: '',
+      sequencing_left_label: 'No clear sequence',
+      sequencing_right_label: 'Very strong sequence',
+      causality_title: 'Event Causality',
+      causality_question: 'How strongly is a causal relationship supported by the text?',
+      causality_description: '',
+      causality_left_label: 'No causal link',
+      causality_right_label: 'Very strong causality'
+    };
+    if (!raw || typeof raw !== 'object') return fallback;
+    var out = {};
+    Object.keys(fallback).forEach(function(k) {
+      var v = raw[k];
+      out[k] = (typeof v === 'string' && v.trim()) ? v : fallback[k];
+    });
+    return out;
+  }
+
+  function setTextById(id, text) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+
+  function applyQuestionText() {
+    var q = normalizeQuestionText(_questionTextFromConfig);
+    setTextById('seq-title', q.sequencing_title);
+    setTextById('seq-question-text', q.sequencing_question);
+    setTextById('seq-description', q.sequencing_description);
+    setTextById('seq-label-left', q.sequencing_left_label);
+    setTextById('seq-label-right', q.sequencing_right_label);
+    setTextById('caus-title', q.causality_title);
+    setTextById('caus-question-text', q.causality_question);
+    setTextById('caus-description', q.causality_description);
+    setTextById('caus-label-left', q.causality_left_label);
+    setTextById('caus-label-right', q.causality_right_label);
+  }
+
+  function applyEventHelper() {
+    var h = (_eventHelperFromConfig && typeof _eventHelperFromConfig === 'object') ? _eventHelperFromConfig : {};
+    var title = (typeof h.title === 'string' && h.title.trim()) ? h.title : 'What counts as an event?';
+    var desc  = (typeof h.description === 'string' && h.description.trim()) ? h.description : '';
+    setTextById('event-helper-title', title);
+    setTextById('event-helper-body', desc);
+    var el = document.getElementById('event-helper-details');
+    if (el) el.style.display = desc ? '' : 'none';
+  }
+
+  function getPairPolicy() {
+    if (_pairPolicy) return _pairPolicy;
+    _pairPolicy = normalizePolicy(_rawPairPolicyFromConfig);
+    return _pairPolicy;
+  }
+
+  function policyId(policy) {
+    return String(simpleHash(JSON.stringify(policy)));
+  }
+
+  function mergeAndSortSpans(eventSpans, verbSpans) {
+    var events = eventSpans.map(function(s) {
+      return { start: s[0], end: s[1], token: s[2], type: 'event' };
+    });
+    var verbs = verbSpans.filter(function(v) {
+      return !events.some(function(e) { return !(v[1] <= e.start || v[0] >= e.end); });
+    }).map(function(s) {
+      return { start: s[0], end: s[1], token: s[2], type: 'verb' };
+    });
+    var all = events.concat(verbs);
+    all.sort(function(a, b) { return a.start - b.start; });
+    return all;
+  }
+
+  /* Deterministic hash helper */
+  function simpleHash(s) {
+    var h = 0x9e3779b9 >>> 0;
+    for (var i = 0; i < s.length; i++) {
+      h = (Math.imul(h ^ s.charCodeAt(i), 0x9e3779b9)) >>> 0;
+    }
+    return h;
+  }
+
+  function pickOneNeighborPair(spanIndices, seed) {
+    var n = spanIndices.length;
+    if (n < 2) return null;
+    if (n === 2) return [spanIndices[0], spanIndices[1]];
+    var i = seed % (n - 1);
+    return [spanIndices[i], spanIndices[i + 1]];
+  }
+
+  function choosePairMode(instanceKey, policy) {
+    var pid = policyId(policy);
+    var mapKey = 'event_pair_mode_by_instance_' + pid;
+    var ctrKey = 'event_pair_mode_counter_' + pid;
+    var rawMap = localStorage.getItem(mapKey);
+    var modeMap = {};
+    try { modeMap = rawMap ? JSON.parse(rawMap) : {}; } catch (e) { modeMap = {}; }
+    if (modeMap[instanceKey]) return modeMap[instanceKey];
+
+    var counter = parseInt(localStorage.getItem(ctrKey) || '0', 10);
+    if (isNaN(counter)) counter = 0;
+    var totalWeight = policy.schedule.reduce(function(acc, item) { return acc + item.weight; }, 0);
+    if (totalWeight <= 0) totalWeight = 1;
+    var slot = counter % totalWeight;
+    var mode = policy.schedule[0].mode;
+    var running = 0;
+    for (var i = 0; i < policy.schedule.length; i++) {
+      running += policy.schedule[i].weight;
+      if (slot < running) {
+        mode = policy.schedule[i].mode;
+        break;
+      }
+    }
+    modeMap[instanceKey] = mode;
+    localStorage.setItem(mapKey, JSON.stringify(modeMap));
+    localStorage.setItem(ctrKey, String(counter + 1));
+    return mode;
+  }
+
+  function assignSinglePair(allSpans, instanceKey, seed) {
+    if (!allSpans || allSpans.length < 2) return { pair: null, mode: 'none' };
+    var policy = getPairPolicy();
+    var mode = choosePairMode(instanceKey, policy);
+    var allIdx = [];
+    var modeIdx = [];
+    allSpans.forEach(function(span, si) {
+      allIdx.push(si);
+      var def = policy.mode_definitions[mode];
+      var allowed = def && Array.isArray(def.span_types) ? def.span_types : [];
+      if (allowed.indexOf(span.type) !== -1) modeIdx.push(si);
+    });
+    var pair = pickOneNeighborPair(modeIdx, seed);
+    if (pair) return { pair: pair, mode: mode };
+    // Fallback when chosen mode has too few spans in this instance.
+    return { pair: pickOneNeighborPair(allIdx, seed), mode: mode + '_fallback' };
+  }
+
+  function esc(s) {
+    if (!s) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function getSpanDecision(spanIdx) {
+    return Object.prototype.hasOwnProperty.call(_spanIsEventByIdx, spanIdx)
+      ? _spanIsEventByIdx[spanIdx]
+      : null;
+  }
+
+  function bothDecisionsMade() {
+    if (_selectedSpans.length !== 2) return false;
+    return getSpanDecision(_selectedSpans[0]) !== null &&
+           getSpanDecision(_selectedSpans[1]) !== null;
+  }
+
+  function bothSpansMarkedEvent() {
+    if (_selectedSpans.length !== 2) return false;
+    return getSpanDecision(_selectedSpans[0]) === true &&
+           getSpanDecision(_selectedSpans[1]) === true;
+  }
+
+  function clearRatingsForCurrentPair() {
+    _orderingDecision  = null;
+    _pendingSeqRating  = null;
+    _pendingCausRating = null;
+    _ratedPairs        = [];
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Text highlighting
+  ═══════════════════════════════════════════════════════════ */
+  function buildHighlightedHTML(text, spans, selectedSpans) {
+    var charSpan = new Array(text.length).fill(null);
+    spans.forEach(function(span, si) {
+      for (var i = span.start; i < span.end && i < text.length; i++) {
+        charSpan[i] = si;
+      }
+    });
+
+    var html = '', curSpanIdx = undefined;
+    for (var i = 0; i <= text.length; i++) {
+      var si = i < text.length ? charSpan[i] : null;
+      if (si !== curSpanIdx) {
+        if (curSpanIdx !== null && curSpanIdx !== undefined) html += '</mark>';
+        if (si !== null) {
+          var span = spans[si];
+          var selPos = selectedSpans.indexOf(si);
+          var cls;
+          if (selPos === 0)      cls = 'span-sel-first-'  + span.type;
+          else if (selPos === 1) cls = 'span-sel-second-' + span.type;
+          else                   cls = 'span-dim-'        + span.type;
+          html += '<mark class="' + cls + '" data-span-idx="' + si + '">';
+        }
+        curSpanIdx = si;
+      }
+      if (i < text.length) {
+        var ch = text[i];
+        if      (ch === '&') html += '&amp;';
+        else if (ch === '<') html += '&lt;';
+        else if (ch === '>') html += '&gt;';
+        else                 html += ch;
+      }
+    }
+    return html;
+  }
+
+  function updateHighlights() {
+    var container = document.querySelector('.instance-display-container');
+    if (!container) return;
+    var blocks = container.querySelectorAll('.text-display-content');
+    var mainIdx = blocks.length - 1;
+    if (mainIdx >= 0 && blocks[mainIdx]) {
+      blocks[mainIdx].innerHTML = buildHighlightedHTML(_seqText, _allSpans, _selectedSpans);
+    }
+  }
+
+  function setAssignedPair(si1, si2) {
+    var prevDecisions = _spanIsEventByIdx || {};
+    _selectedSpans     = [si1, si2];
+    _pendingSeqRating  = null;
+    _pendingCausRating = null;
+    _spanIsEventByIdx = {};
+    _spanIsEventByIdx[si1] = Object.prototype.hasOwnProperty.call(prevDecisions, si1) ? prevDecisions[si1] : null;
+    _spanIsEventByIdx[si2] = Object.prototype.hasOwnProperty.call(prevDecisions, si2) ? prevDecisions[si2] : null;
+    updateHighlights();
+    updateSelectionPanel();
+    updateProgress();
+  }
+
+  function handleOrderingDecision(posOrTooHard) {
+    if (posOrTooHard === 'too_hard') {
+      _orderingDecision  = 'too_hard';
+      _pendingSeqRating  = null;
+      _pendingCausRating = null;
+      _ratedPairs = [{ span1Idx: _selectedSpans[0], span2Idx: _selectedSpans[1], seqRating: null, causRating: null }];
+    } else {
+      var pos = parseInt(posOrTooHard, 10);
+      if (pos === 1) {
+        // Chosen span is currently second — swap so it becomes first (①)
+        _selectedSpans = [_selectedSpans[1], _selectedSpans[0]];
+        updateHighlights();
+      }
+      _orderingDecision  = 'decided';
+      _pendingSeqRating  = null;
+      _pendingCausRating = null;
+      _ratedPairs        = [];
+    }
+    updateSelectionPanel();
+    updateProgress();
+    saveAnnotation();
+  }
+
+  function resetOrderingDecision() {
+    _orderingDecision  = null;
+    _pendingSeqRating  = null;
+    _pendingCausRating = null;
+    _ratedPairs        = [];
+    updateSelectionPanel();
+    updateProgress();
+    saveAnnotation();
+  }
+
+  function handleSpanDecision(selectedPos, isEvent) {
+    if (_selectedSpans.length !== 2) return;
+    var spanIdx = _selectedSpans[selectedPos];
+    if (spanIdx === undefined || spanIdx === null) return;
+
+    var prevValue = _spanIsEventByIdx[spanIdx];
+    _spanIsEventByIdx[spanIdx] = !!isEvent;
+
+    // Reset ordering and ratings whenever the event/not-event decision changes
+    if (prevValue !== !!isEvent) {
+      clearRatingsForCurrentPair();
+    }
+    if (!bothSpansMarkedEvent()) {
+      clearRatingsForCurrentPair();
+    }
+
+    updateSelectionPanel();
+    updateProgress();
+    saveAnnotation();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Likert interaction
+  ═══════════════════════════════════════════════════════════ */
+  function handleSeqClick(val) {
+    _pendingSeqRating = val;
+    document.querySelectorAll('.seq-likert-btn').forEach(function(btn) {
+      btn.classList.toggle('selected', parseInt(btn.dataset.val) === val);
+    });
+    addPair();
+  }
+
+  function handleCausClick(val) {
+    _pendingCausRating = val;
+    document.querySelectorAll('.caus-likert-btn').forEach(function(btn) {
+      btn.classList.toggle('selected', parseInt(btn.dataset.val) === val);
+    });
+    addPair();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Add / delete rated pairs
+  ═══════════════════════════════════════════════════════════ */
+  function addPair() {
+    if (_selectedSpans.length !== 2) return;
+    if (!bothSpansMarkedEvent()) return;
+    if (_orderingDecision !== 'decided') return;
+    if (_pendingSeqRating === null || _pendingCausRating === null) return;
+    _ratedPairs = [{
+      span1Idx:   _selectedSpans[0],
+      span2Idx:   _selectedSpans[1],
+      seqRating:  _pendingSeqRating,
+      causRating: _pendingCausRating
+    }];
+    updateSelectionPanel();
+    updateProgress();
+    saveAnnotation();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Selection panel
+  ═══════════════════════════════════════════════════════════ */
+  function updateSelectionPanel() {
+    var instrEl  = document.getElementById('seq-instructions');
+    var ratingEl = document.getElementById('seq-rating-ui');
+    var gateMsgEl = document.getElementById('likert-gate-message');
+    var likertEl = document.getElementById('likert-section');
+    if (!instrEl || !ratingEl) return;
+
+    if (_selectedSpans.length === 2) {
+      instrEl.style.display  = 'none';
+      ratingEl.style.display = 'flex';
+
+      var s1 = _allSpans[_selectedSpans[0]];
+      var s2 = _allSpans[_selectedSpans[1]];
+      var span1Decision = getSpanDecision(_selectedSpans[0]);
+      var span2Decision = getSpanDecision(_selectedSpans[1]);
+      var span1EventSelected = span1Decision === true ? ' selected' : '';
+      var span1NotEventSelected = span1Decision === false ? ' selected' : '';
+      var span2EventSelected = span2Decision === true ? ' selected' : '';
+      var span2NotEventSelected = span2Decision === false ? ' selected' : '';
+
+      // Build ordering section HTML (only when both spans are events)
+      var orderingHTML = '';
+      if (bothSpansMarkedEvent()) {
+        if (_orderingDecision === null) {
+          orderingHTML =
+            '<div class="ordering-question-panel">' +
+              '<p class="ordering-question-title">Which event comes first?</p>' +
+              '<div class="ordering-btn-row">' +
+                '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(0)">' + esc(s1.token) + '</button>' +
+                '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(1)">' + esc(s2.token) + '</button>' +
+                '<button class="ordering-btn ordering-btn-hard" type="button" onclick="handleOrderingDecision(\'too_hard\')">Too hard to tell</button>' +
+              '</div>' +
+            '</div>';
+        } else if (_orderingDecision === 'decided') {
+          orderingHTML =
+            '<div class="ordering-confirmed">' +
+              '<p class="ordering-confirmed-label"><strong>' + esc(s1.token) + '</strong> &rarr; <strong>' + esc(s2.token) + '</strong></p>' +
+              '<button class="ordering-change-btn" type="button" onclick="resetOrderingDecision()">Change</button>' +
+            '</div>';
+        } else if (_orderingDecision === 'too_hard') {
+          orderingHTML =
+            '<div class="ordering-confirmed too-hard">' +
+              '<p class="ordering-confirmed-label">Too hard to tell</p>' +
+              '<button class="ordering-change-btn" type="button" onclick="resetOrderingDecision()">Change</button>' +
+            '</div>';
+        }
+      }
+
+      document.getElementById('selected-spans-display').innerHTML =
+        '<div class="selected-pair-display">' +
+          '<div class="sel-span-row type-' + s1.type + '">' +
+            '<span class="sel-order-badge first">①</span>' +
+            '<span class="span-badge ' + s1.type + '">' + s1.type.toUpperCase() + '</span>' +
+            '<span class="sel-token">' + esc(s1.token) + '</span>' +
+          '</div>' +
+          '<div class="pair-connector">↓</div>' +
+          '<div class="sel-span-row type-' + s2.type + '">' +
+            '<span class="sel-order-badge second">②</span>' +
+            '<span class="span-badge ' + s2.type + '">' + s2.type.toUpperCase() + '</span>' +
+            '<span class="sel-token">' + esc(s2.token) + '</span>' +
+          '</div>' +
+          '<div class="event-check-panel">' +
+            '<p class="event-check-title">Event Confirmation</p>' +
+            '<div class="event-check-row">' +
+              '<p class="event-check-label">Is "' + esc(s1.token) + '" an event?</p>' +
+              '<div class="event-check-options">' +
+                '<button class="event-check-btn' + span1EventSelected + '" type="button" onclick="handleSpanDecision(0, true)">Event</button>' +
+                '<button class="event-check-btn' + span1NotEventSelected + '" type="button" onclick="handleSpanDecision(0, false)">Not an event</button>' +
+              '</div>' +
+            '</div>' +
+            '<div class="event-check-row">' +
+              '<p class="event-check-label">Is "' + esc(s2.token) + '" an event?</p>' +
+              '<div class="event-check-options">' +
+                '<button class="event-check-btn' + span2EventSelected + '" type="button" onclick="handleSpanDecision(1, true)">Event</button>' +
+                '<button class="event-check-btn' + span2NotEventSelected + '" type="button" onclick="handleSpanDecision(1, false)">Not an event</button>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          orderingHTML +
+        '</div>';
+
+      if (gateMsgEl) {
+        if (!bothDecisionsMade()) {
+          gateMsgEl.textContent = 'Choose Event or Not an event for both spans to continue.';
+          gateMsgEl.style.display = 'block';
+        } else if (!bothSpansMarkedEvent()) {
+          gateMsgEl.textContent = 'At least one span is marked Not an event, so sequencing and causality are hidden.';
+          gateMsgEl.style.display = 'block';
+        } else {
+          gateMsgEl.style.display = 'none';
+        }
+      }
+
+      if (likertEl) {
+        likertEl.classList.toggle('hidden', !(bothSpansMarkedEvent() && _orderingDecision === 'decided'));
+      }
+
+      document.querySelectorAll('.seq-likert-btn').forEach(function(btn) {
+        btn.classList.toggle('selected', parseInt(btn.dataset.val) === _pendingSeqRating);
+      });
+      document.querySelectorAll('.caus-likert-btn').forEach(function(btn) {
+        btn.classList.toggle('selected', parseInt(btn.dataset.val) === _pendingCausRating);
+      });
+    } else {
+      instrEl.style.display  = '';
+      ratingEl.style.display = 'none';
+      instrEl.innerHTML = 'No assignable pair available for this text.';
+      if (gateMsgEl) gateMsgEl.style.display = 'none';
+      if (likertEl) likertEl.classList.remove('hidden');
+    }
+    updateProgress();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Progress + Next-button gating
+  ═══════════════════════════════════════════════════════════ */
+  function isAnnotationComplete() {
+    if (_skipAnnotationRequired) return true;
+    if (_selectedSpans.length !== 2) return false;
+    var d1 = getSpanDecision(_selectedSpans[0]);
+    var d2 = getSpanDecision(_selectedSpans[1]);
+    if (d1 === null || d2 === null) return false;
+    if (d1 === true && d2 === true) {
+      // Both events: need ordering answer first
+      if (_orderingDecision === null) return false;
+      if (_orderingDecision === 'too_hard') return true;
+      // Ordering decided: need Likert ratings
+      return _pendingSeqRating !== null && _pendingCausRating !== null;
+    }
+    return true; // at least one span is not an event
+  }
+
+  function updateNextButtonState() {
+    var btn = document.getElementById('next-btn');
+    if (!btn) return;
+    var ok = isAnnotationComplete();
+    btn.classList.toggle('annotation-nav-blocked', !ok);
+    // Also set disabled so keyboard/screen-reader users can't activate it
+    btn.disabled = !ok;
+  }
+
+  function updateProgress() {
+    var prog = document.getElementById('seq-progress');
+    if (!prog) return;
+    prog.textContent = _ratedPairs.length + '/1 pair rated';
+    updateNextButtonState();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Annotation storage
+  ═══════════════════════════════════════════════════════════ */
+  function saveAnnotation() {
+    var input = document.getElementById('event_sequencing_input');
+    if (!input) return;
+
+    // Only non-empty when annotation is fully complete; empty value = not yet labeled.
+    var potatoValue = '';
+
+    if (_selectedSpans.length === 2) {
+      var si1 = _selectedSpans[0], si2 = _selectedSpans[1];
+      var s1 = _allSpans[si1], s2 = _allSpans[si2];
+      if (s1 && s2) {
+        var d1 = getSpanDecision(si1);
+        var d2 = getSpanDecision(si2);
+        var item = {
+          span1: { idx: si1, start: s1.start, end: s1.end, token: s1.token, type: s1.type },
+          span2: { idx: si2, start: s2.start, end: s2.end, token: s2.token, type: s2.type },
+          span1_is_event: d1,
+          span2_is_event: d2
+        };
+        var bothDecided = d1 !== null && d2 !== null;
+        var bothEvent   = d1 === true && d2 === true;
+        var isComplete  = false;
+        if (bothEvent) {
+          item.temporal_order = _orderingDecision === 'too_hard' ? 'too_hard_to_tell'
+                              : _orderingDecision === 'decided'  ? 'span1_first'
+                              : null;
+          if (_orderingDecision === 'too_hard') {
+            isComplete = true;
+          } else if (_orderingDecision === 'decided' &&
+                     _pendingSeqRating !== null && _pendingCausRating !== null) {
+            item.sequencing_rating = _pendingSeqRating;
+            item.causality_rating  = _pendingCausRating;
+            isComplete = true;
+          }
+        } else {
+          isComplete = bothDecided;
+        }
+        if (isComplete) potatoValue = JSON.stringify([item]);
+      }
+    }
+
+    input.value = potatoValue;
+    input.setAttribute('value', potatoValue);
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+    if (typeof registerAnnotation === 'function') registerAnnotation(input);
+  }
+
+  function registerAnnotationInput() {
+    var input = document.getElementById('event_sequencing_input');
+    if (input && typeof registerAnnotation === 'function') {
+      registerAnnotation(input);
+    }
+  }
+
+  function bindNavigationAutoSave() {
+    ['next-btn', 'prev-btn'].forEach(function(id) {
+      var btn = document.getElementById(id);
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        saveAnnotation();
+      });
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     DOM setup helpers
+  ═══════════════════════════════════════════════════════════ */
+  function labelFields() {
+    var container = document.querySelector('.instance-display-container');
+    if (!container) return;
+    var fields = Array.from(container.children);
+    if (fields.length === 0) return;
+
+    var metaLabels = ['ID', 'Source', 'Topic', 'LLM Summary'];
+    var metaCard = document.createElement('div');
+    metaCard.className = 'potato-meta-card';
+    container.insertBefore(metaCard, fields[0]);
+
+    for (var i = 0; i < 4 && fields[i]; i++) {
+      var row = document.createElement('div');
+      row.className = 'potato-meta-row';
+      var label = document.createElement('p');
+      label.className = 'potato-meta-label';
+      label.textContent = metaLabels[i];
+      row.appendChild(label);
+      row.appendChild(fields[i]);
+      metaCard.appendChild(row);
+    }
+
+    if (fields[4]) {
+      var mainWrap = document.createElement('div');
+      mainWrap.className = 'potato-main-text-block';
+      var mainLabel = document.createElement('p');
+      mainLabel.className = 'potato-meta-label';
+      mainLabel.textContent = 'Text to Annotate';
+      container.insertBefore(mainWrap, fields[4]);
+      mainWrap.appendChild(mainLabel);
+      mainWrap.appendChild(fields[4]);
+    }
+  }
+
+  function injectLegend() {
+    var container = document.querySelector('.instance-display-container');
+    if (!container) return;
+    var blocks = container.querySelectorAll('.text-display-content');
+    var mainIdx = blocks.length - 1;
+    if (mainIdx < 0 || !blocks[mainIdx]) return;
+    var legend = document.createElement('div');
+    legend.className = 'span-legend';
+    legend.innerHTML =
+      '<span class="span-legend-item"><span class="swatch swatch-verb"></span>spaCy non-stative non-helper verb</span>' +
+      '<span class="span-legend-item"><span class="swatch swatch-event"></span>Event span</span>';
+    blocks[mainIdx].parentNode.insertBefore(legend, blocks[mainIdx]);
+  }
+
+  function buildTwoColumns() {
+    var mainContent = document.getElementById('main-content');
+    if (!mainContent) return;
+    var textBlock       = mainContent.querySelector('.mb-4');
+    var annotationForms = document.getElementById('annotation-forms');
+    if (!textBlock || !annotationForms) return;
+    var wrapper  = document.createElement('div'); wrapper.id  = 'two-col-wrapper';
+    var leftCol  = document.createElement('div'); leftCol.id  = 'two-col-left';
+    var rightCol = document.createElement('div'); rightCol.id = 'two-col-right';
+    mainContent.insertBefore(wrapper, textBlock);
+    leftCol.appendChild(textBlock);
+    rightCol.appendChild(annotationForms);
+    wrapper.appendChild(leftCol);
+    wrapper.appendChild(rightCol);
+  }
+
+  function renameNextButton() {
+    var btn = document.getElementById('next-btn');
+    if (btn) btn.innerHTML = 'Next Text <i class="fas fa-arrow-right ms-2"></i>';
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Init
+  ═══════════════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', function() {
+    // Disable Next immediately; re-enabled once annotation is complete
+    var _earlyBtn = document.getElementById('next-btn');
+    if (_earlyBtn) { _earlyBtn.disabled = true; _earlyBtn.classList.add('annotation-nav-blocked'); }
+
+    registerAnnotationInput();
+    bindNavigationAutoSave();
+    applyQuestionText();
+    applyEventHelper();
+    labelFields();
+
+    var container = document.querySelector('.instance-display-container');
+    var rawAttr   = container ? container.getAttribute('data-instance-fields') : null;
+    var fields    = rawAttr ? safeParseJSON(rawAttr) : {};
+
+    if (fields && fields.sampled_text) {
+      _seqText  = fields.sampled_text;
+      _allSpans = mergeAndSortSpans(
+        safeParseJSON(fields.event_spans),
+        safeParseJSON(fields.verb_spans)
+      );
+
+      _instanceKey = String(fields.safe_instance_id || fields.id || _seqText.slice(0, 120));
+      var seed = simpleHash(_instanceKey + '|' + _seqText);
+      _assignedPair = assignSinglePair(_allSpans, _instanceKey, seed).pair;
+
+      // Restore previously saved state from Potato server-side input value
+      var savedInput = document.getElementById('event_sequencing_input');
+      var savedRaw = (savedInput && savedInput.value) ? savedInput.value.trim() : '';
+      if (savedRaw) {
+        var saved = safeParseJSON(savedRaw);
+        saved.forEach(function(item) {
+          if (!item.span1 || !item.span2) return;
+          if (item.span1.idx != null && typeof item.span1_is_event === 'boolean') {
+            _spanIsEventByIdx[item.span1.idx] = item.span1_is_event;
+          }
+          if (item.span2.idx != null && typeof item.span2_is_event === 'boolean') {
+            _spanIsEventByIdx[item.span2.idx] = item.span2_is_event;
+          }
+          if (item.temporal_order === 'too_hard_to_tell') {
+            _orderingDecision = 'too_hard';
+            _ratedPairs.push({ span1Idx: item.span1.idx, span2Idx: item.span2.idx, seqRating: null, causRating: null });
+          } else if (item.temporal_order === 'span1_first') {
+            _orderingDecision = 'decided';
+          }
+          if (item.sequencing_rating != null && item.causality_rating != null) {
+            _ratedPairs.push({
+              span1Idx:  item.span1.idx,
+              span2Idx:  item.span2.idx,
+              seqRating: parseInt(item.sequencing_rating, 10),
+              causRating: parseInt(item.causality_rating, 10)
+            });
+          }
+        });
+        if (_ratedPairs.length > 0) {
+          _ratedPairs = [_ratedPairs[_ratedPairs.length - 1]];
+          if (_ratedPairs[0].seqRating != null) {
+            _pendingSeqRating  = _ratedPairs[0].seqRating;
+            _pendingCausRating = _ratedPairs[0].causRating;
+          }
+        }
+      }
+
+      if (_allSpans.length === 0 || !_assignedPair) {
+        _skipAnnotationRequired = true;
+        document.getElementById('seq-empty').style.display        = 'block';
+        document.getElementById('seq-instructions').style.display = 'none';
+      } else {
+        setAssignedPair(_assignedPair[0], _assignedPair[1]);
+        if (_ratedPairs.length > 0) {
+          var savedPair = _ratedPairs[0];
+          var idx1 = parseInt(savedPair.span1Idx, 10);
+          var idx2 = parseInt(savedPair.span2Idx, 10);
+          if (!isNaN(idx1) && !isNaN(idx2) &&
+              idx1 >= 0 && idx2 >= 0 &&
+              idx1 < _allSpans.length && idx2 < _allSpans.length) {
+            _selectedSpans = [savedPair.span1Idx, savedPair.span2Idx];
+            if (savedPair.seqRating != null) {
+              _pendingSeqRating  = parseInt(savedPair.seqRating, 10);
+              _pendingCausRating = parseInt(savedPair.causRating, 10);
+            }
+          }
+        }
+        injectLegend();
+        updateHighlights();
+        updateSelectionPanel();
+        updateProgress();
+      }
+    } else {
+      _skipAnnotationRequired = true;
+      document.getElementById('seq-empty').style.display        = 'block';
+      document.getElementById('seq-instructions').style.display = 'none';
+    }
+
+    buildTwoColumns();
+    renameNextButton();
+    updateNextButtonState();
+  });
+</script>
+
+<!-- ═══════════════════════════════════════════════════════
+     Annotation panel (right column)
+════════════════════════════════════════════════════════ -->
+<div class="annotation_schema">
+
+  <input type="hidden"
+         id="event_sequencing_input"
+         class="event_sequencing annotation-input"
+         name="event_sequencing"
+         label_name="event_sequencing"
+         schema="event_sequencing"
+         value="">
+
+  <div id="event-seq-panel">
+
+    <!-- Header -->
+    <div class="seq-top-row">
+      <p class="seq-title">Event Annotation</p>
+      <span id="seq-progress">0 pairs rated</span>
+    </div>
+
+    <!-- Event helper (collapsible, closed by default) -->
+    <details class="event-helper-details" id="event-helper-details">
+      <summary>
+        <span id="event-helper-title">What counts as an event?</span>
+        <span class="helper-chevron">&#9654;</span>
+      </summary>
+      <p class="event-helper-body" id="event-helper-body"></p>
+    </details>
+
+    <!-- No spans fallback -->
+    <p class="seq-empty" id="seq-empty" style="display:none;">
+      No event or verb spans found for this text.
+    </p>
+
+    <!-- Instructions -->
+    <div class="seq-instructions" id="seq-instructions">
+      A single pair is automatically assigned per text. Mark each span as an event or not, then indicate which event comes first.
+    </div>
+
+    <!-- Rating UI (2 spans selected) -->
+    <div id="seq-rating-ui" style="display:none;">
+
+      <div id="selected-spans-display"></div>
+
+      <p class="event-check-hint" id="likert-gate-message" style="display:none;"></p>
+
+      <div id="likert-section">
+        <div class="likert-question-block">
+          <p class="likert-title" id="seq-title">Event Sequentiality</p>
+          <p class="likert-question" id="seq-question-text">How strongly are these events sequentially connected?</p>
+          <details class="likert-description-details">
+            <summary><span class="desc-chevron">&#9654;</span> More info</summary>
+            <p class="likert-description" id="seq-description"></p>
+          </details>
+        </div>
+        <div class="likert-group">
+          <div class="likert-row">
+            <button class="likert-btn seq-likert-btn" data-val="1" onclick="handleSeqClick(1)">1</button>
+            <button class="likert-btn seq-likert-btn" data-val="2" onclick="handleSeqClick(2)">2</button>
+            <button class="likert-btn seq-likert-btn" data-val="3" onclick="handleSeqClick(3)">3</button>
+            <button class="likert-btn seq-likert-btn" data-val="4" onclick="handleSeqClick(4)">4</button>
+            <button class="likert-btn seq-likert-btn" data-val="5" onclick="handleSeqClick(5)">5</button>
+          </div>
+          <div class="likert-labels">
+            <span id="seq-label-left">No clear sequence</span>
+            <span id="seq-label-right">Very strong sequence</span>
+          </div>
+        </div>
+
+        <hr class="likert-divider">
+
+        <div class="likert-question-block">
+          <p class="likert-title" id="caus-title">Event Causality</p>
+          <p class="likert-question" id="caus-question-text">How strongly is a causal relationship supported by the text?</p>
+          <details class="likert-description-details">
+            <summary><span class="desc-chevron">&#9654;</span> More info</summary>
+            <p class="likert-description" id="caus-description"></p>
+          </details>
+        </div>
+        <div class="likert-group">
+          <div class="likert-row">
+            <button class="likert-btn caus-likert-btn" data-val="1" onclick="handleCausClick(1)">1</button>
+            <button class="likert-btn caus-likert-btn" data-val="2" onclick="handleCausClick(2)">2</button>
+            <button class="likert-btn caus-likert-btn" data-val="3" onclick="handleCausClick(3)">3</button>
+            <button class="likert-btn caus-likert-btn" data-val="4" onclick="handleCausClick(4)">4</button>
+            <button class="likert-btn caus-likert-btn" data-val="5" onclick="handleCausClick(5)">5</button>
+          </div>
+          <div class="likert-labels">
+            <span id="caus-label-left">No causal link</span>
+            <span id="caus-label-right">Very strong causality</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- #seq-rating-ui -->
+
+  </div><!-- #event-seq-panel -->
+
+</div><!-- .annotation_schema -->
