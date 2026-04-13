@@ -1189,7 +1189,25 @@
 
       _instanceKey = String(fields.safe_instance_id || fields.id || _seqText.slice(0, 120));
       var seed = simpleHash(_instanceKey + '|' + _seqText);
-      _assignedPair = assignSinglePair(_allSpans, _instanceKey, seed).pair;
+
+      // Use the pre-computed pair columns from the CSV so every annotator
+      // always sees the same two highlighted spans (assigned_span1/2 are
+      // written by precompute_span_pairs.py).  Fall back to dynamic
+      // assignment only if the columns are absent.
+      var _preSpan1 = safeParseJSON(fields.assigned_span1);
+      var _preSpan2 = safeParseJSON(fields.assigned_span2);
+      if (_preSpan1 && _preSpan2) {
+        var _pi1 = -1, _pi2 = -1;
+        _allSpans.forEach(function(s, i) {
+          if (s.start === _preSpan1[0] && s.end === _preSpan1[1]) _pi1 = i;
+          if (s.start === _preSpan2[0] && s.end === _preSpan2[1]) _pi2 = i;
+        });
+        _assignedPair = (_pi1 >= 0 && _pi2 >= 0)
+          ? [_pi1, _pi2]
+          : assignSinglePair(_allSpans, _instanceKey, seed).pair;
+      } else {
+        _assignedPair = assignSinglePair(_allSpans, _instanceKey, seed).pair;
+      }
 
       // Restore previously saved state from Potato server-side input value
       var savedInput = document.getElementById('event_sequencing_input');

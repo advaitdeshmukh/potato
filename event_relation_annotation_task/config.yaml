@@ -17,7 +17,7 @@ output_annotation_format: csv
 annotation_codebook_url: ""
 
 data_files:
-  - data/dolma_combined_final_sample_600_with_llm_summary_safeid_with_spans.csv
+  - data/dolma_combined_final_sample_700_with_llm_summary_safeid_with_spans.csv
 
 item_properties:
   id_key: safe_instance_id
