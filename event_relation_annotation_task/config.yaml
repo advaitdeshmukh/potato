@@ -108,7 +108,7 @@ instance_display:
   fields:
     - key: id
       type: text
-    - key: source
+    - key: folder
       type: text
     - key: topic_classification
       type: text

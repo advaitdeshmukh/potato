@@ -71,6 +71,36 @@
     font-size: 1rem; color: #111827; line-height: 1.75;
   }
 
+  /* ── LLM summary tooltip ─────────────────────────────────── */
+  .meta-label-row {
+    display: flex; align-items: center; gap: 4px;
+  }
+  .meta-tooltip-anchor {
+    position: relative; display: inline-flex; align-items: center;
+  }
+  .meta-tooltip-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 13px; height: 13px; border-radius: 50%;
+    background: #d1d5db; color: #4b5563;
+    font-size: 0.55rem; font-weight: 700; line-height: 1;
+    cursor: default; flex-shrink: 0;
+  }
+  .meta-tooltip-box {
+    display: none;
+    position: absolute; bottom: calc(100% + 6px); left: 0;
+    width: 260px; padding: 8px 10px;
+    background: #1f2937; color: #f9fafb;
+    font-size: 0.72rem; font-weight: 400; line-height: 1.45;
+    border-radius: 6px; text-transform: none; letter-spacing: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    pointer-events: none; z-index: 100;
+  }
+  .meta-tooltip-box::after {
+    content: ''; position: absolute; top: 100%; left: 6px;
+    border: 5px solid transparent; border-top-color: #1f2937;
+  }
+  .meta-tooltip-anchor:hover .meta-tooltip-box { display: block; }
+
   /* ── Span highlights ─────────────────────────────────────── */
   mark {
     background: none; padding: 0 1px; border-radius: 2px;
@@ -392,7 +422,7 @@
 
   /* EVENT_HELPER_START */
   var _eventHelperFromConfig = {
-  "description": "Events are singular, bounded occurrences where something happens at a particular point in time.  The highlighted spans are event triggers. Event triggers are the smallest units that can be identified as events.  When considering whether a span qualifies as an event, try to determine the full event indicated by the highlighted span. A span qualifies as an event if you can identify what happened AND  who or what it happened to from the surrounding text. DO NOT consider hypothetical or future events that are not clearly indicated as having occurred in the text.\n",
+  "description": "Events are singular, bounded occurrences where something happens at a particular point in time.  A span qualifies as an event if you can identify what happened AND  who or what it happened to from the surrounding text.\n",
   "title": "What counts as an event?"
 };
   /* EVENT_HELPER_END */
@@ -691,12 +721,9 @@
   }
 
   function updateHighlights() {
-    var container = document.querySelector('.instance-display-container');
-    if (!container) return;
-    var blocks = container.querySelectorAll('.text-display-content');
-    var mainIdx = blocks.length - 1;
-    if (mainIdx >= 0 && blocks[mainIdx]) {
-      blocks[mainIdx].innerHTML = buildHighlightedHTML(_seqText, _allSpans, _selectedSpans);
+    var mainBlock = document.querySelector('.potato-main-text-block .text-display-content');
+    if (mainBlock) {
+      mainBlock.innerHTML = buildHighlightedHTML(_seqText, _allSpans, _selectedSpans);
     }
   }
 
@@ -1030,49 +1057,88 @@
   function labelFields() {
     var container = document.querySelector('.instance-display-container');
     if (!container) return;
-    var fields = Array.from(container.children);
-    if (fields.length === 0) return;
 
-    var metaLabels = ['ID', 'Source', 'Topic', 'LLM Summary'];
-    var metaCard = document.createElement('div');
-    metaCard.className = 'potato-meta-card';
-    container.insertBefore(metaCard, fields[0]);
-
-    for (var i = 0; i < 4 && fields[i]; i++) {
-      var row = document.createElement('div');
-      row.className = 'potato-meta-row';
-      var label = document.createElement('p');
-      label.className = 'potato-meta-label';
-      label.textContent = metaLabels[i];
-      row.appendChild(label);
-      row.appendChild(fields[i]);
-      metaCard.appendChild(row);
+    function getField(key) {
+      return container.querySelector('[data-field-key="' + key + '"]');
     }
 
-    if (fields[4]) {
+    // Move sampled_text to top, labelled clearly
+    var sampledTextField = getField('sampled_text');
+    if (sampledTextField) {
       var mainWrap = document.createElement('div');
       mainWrap.className = 'potato-main-text-block';
       var mainLabel = document.createElement('p');
       mainLabel.className = 'potato-meta-label';
-      mainLabel.textContent = 'Text to Annotate';
-      container.insertBefore(mainWrap, fields[4]);
+      mainLabel.textContent = 'Sampled text to annotate';
+      container.insertBefore(mainWrap, container.firstChild);
       mainWrap.appendChild(mainLabel);
-      mainWrap.appendChild(fields[4]);
+      mainWrap.appendChild(sampledTextField);
     }
+
+    // Build metadata card with the remaining fields
+    var metaDefs = [
+      {
+        key: 'id',
+        label: 'ID',
+        tooltip: 'Unique identifier assigned to each web page, taken directly from the Dolma dataset. For pages sourced from Common Crawl, this ID is the original URL.'
+      },
+      {
+        key: 'folder',
+        label: 'Shard',
+        tooltip: 'Dolma shard this text was pulled from. Shards span Common Crawl, C4, Gutenberg, Reddit, and other sources in the Dolma corpus.'
+      },
+      {
+        key: 'topic_classification',
+        label: 'Topic',
+        tooltip: 'Topic category assigned by the WebOrganizer classifier (Wettig et al., 2025).'
+      },
+      {
+        key: 'llm_summary',
+        label: 'LLM summary of the full text',
+        tooltip: 'This summary was generated by passing the full page text into LLaMA 8B with a prompt requesting a short, concise summary. It is provided to give annotators broader context beyond the sampled excerpt.'
+      },
+    ];
+
+    var metaCard = document.createElement('div');
+    metaCard.className = 'potato-meta-card';
+    container.appendChild(metaCard);
+
+    metaDefs.forEach(function(def) {
+      var field = getField(def.key);
+      if (!field) return;
+      var row = document.createElement('div');
+      row.className = 'potato-meta-row';
+      var labelWrap = document.createElement('p');
+      labelWrap.className = 'potato-meta-label meta-label-row';
+      labelWrap.appendChild(document.createTextNode(def.label));
+      if (def.tooltip) {
+        var anchor = document.createElement('span');
+        anchor.className = 'meta-tooltip-anchor';
+        var icon = document.createElement('span');
+        icon.className = 'meta-tooltip-icon';
+        icon.textContent = '?';
+        var tip = document.createElement('span');
+        tip.className = 'meta-tooltip-box';
+        tip.textContent = def.tooltip;
+        anchor.appendChild(icon);
+        anchor.appendChild(tip);
+        labelWrap.appendChild(anchor);
+      }
+      row.appendChild(labelWrap);
+      row.appendChild(field);
+      metaCard.appendChild(row);
+    });
   }
 
   function injectLegend() {
-    var container = document.querySelector('.instance-display-container');
-    if (!container) return;
-    var blocks = container.querySelectorAll('.text-display-content');
-    var mainIdx = blocks.length - 1;
-    if (mainIdx < 0 || !blocks[mainIdx]) return;
+    var mainBlock = document.querySelector('.potato-main-text-block .text-display-content');
+    if (!mainBlock) return;
     var legend = document.createElement('div');
     legend.className = 'span-legend';
     legend.innerHTML =
       '<span class="span-legend-item"><span class="swatch swatch-verb"></span>spaCy non-stative non-helper verb</span>' +
       '<span class="span-legend-item"><span class="swatch swatch-event"></span>Event span</span>';
-    blocks[mainIdx].parentNode.insertBefore(legend, blocks[mainIdx]);
+    mainBlock.parentNode.insertBefore(legend, mainBlock);
   }
 
   function buildTwoColumns() {
