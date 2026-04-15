@@ -28,7 +28,7 @@ from pathlib import Path
 
 import yaml
 
-DEFAULT_CSV = Path("data/dolma_combined_final_sample_600_with_llm_summary_safeid_with_spans.csv")
+DEFAULT_CSV = Path("data/dolma_combined_final_sample_700_with_llm_summary_safeid_with_spans.csv")
 DEFAULT_CONFIG = Path("config.yaml")
 
 
