@@ -11,7 +11,7 @@ annotation_task_name: Agency Annotation
 task_dir: .
 
 data_files:
-  - data/dolma_combined_final_sample_with_llm_summary_safeid_with_spans.csv
+  - data/dolma_combined_final_sample_700_with_llm_summary_safeid_with_spans.csv
 output_annotation_dir: annotation_output/results/
 output_annotation_format: json
 annotation_codebook_url: ""
@@ -22,6 +22,9 @@ item_properties:
   kwargs:
     - source
     - llm_summary
+    - id
+    - folder
+    - topic_classification
 
 user_config:
   allow_all_users: true
@@ -36,82 +39,61 @@ alert_time_each_instance: 100000
 annotation_schemes:
   - annotation_type: likert
     name: agency_focalization
-    description: "Is the text focused on the lived experiences of a specific character(s)?"
+    description: "How central is a specific agent's perspective to the way the narrative presents events?"
+    extended_description: "A higher score reflects a narrative in which events are primarily presented through a specific agent's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects a narrative that reports events from the outside, describing what is observable without granting access to any character's internal experience. For example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: agency_emotion
-    description: "Does the text include explicit emotional details of a specific character(s)? (He felt sad, she likes, etc.)"
+    description: "How central are a character's emotional states to the text?"
+    extended_description: "A higher score reflects text in which a character's emotional experience is a prominent feature. Feelings are foregrounded rather than incidental. A lower score reflects text with little or no reference to how a character feels. For example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: agency_cognition
-    description: "Does the text include explicit cognitive details of a specific character(s)? (I think, she believes, etc.)"
+    description: "How central are a character's thoughts and reasoning to the text?"
+    extended_description: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, or mental reflections are a prominent feature. These are foregrounded rather than incidental. A lower score reflects text with little or no reference to what a character thinks or knows. For example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" scores higher than \"she sat at her desk.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: agency_motivation
-    description: "Does the text include explicit motivational details of a specific character(s)? (I want, she desires, etc.)"
+    description: "How central are a character's motivations, desires, or intentions to the text?"
+    extended_description: "A higher score reflects text in which a character wants, hopes, or aspirations are a prominent feature. A lower score reflects text with little or no reference to a character's goals or desires. For example, \"he was determined to finish the job before anyone found out\" scores higher than \"he worked through the night.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
-    label_requirement:
-      required: false
-
-  - annotation_type: likert
-    name: agency_direct_speech
-    description: "Does the text include explicit direct speech details of a specific character(s)? (Direct quotes, \"I like this new iPhone.\")"
-    size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
-    label_requirement:
-      required: false
-
-  - annotation_type: likert
-    name: agency_indirect_speech
-    description: "Does the text include explicit indirect speech details of a specific character(s)? (He said, she told me, etc.)"
-    size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
-    label_requirement:
-      required: false
-
-  - annotation_type: likert
-    name: agency_message_exchange
-    description: "Does the text seem to be from some kind of message board or forum? (Reddit posts, comments, FAQ forums, etc.)"
-    size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: agency_change_of_state
-    description: "Does the text include explicit change of state details of a specific character(s)? (He got sad, she won the lottery, etc.)"
+    description: "How central is a change in an agent's condition to the text?"
+    extended_description: "A higher score reflects text in which a change in an agent's condition is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. For example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: agency_conflict
-    description: "Does the text include explicit conflict details of a specific character(s)? (He argued, the storm destroyed the house, the computer is broken, etc.)"
+    description: "How central is conflict to the text?"
+    extended_description: "A higher score reflects text in which conflict is a dominant or organizing feature. Characters struggle against each other, against themselves, or against external forces or circumstances. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including interpersonal tension between characters, internal psychological struggle, or opposition to institutions, environments, or social forces. For example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
