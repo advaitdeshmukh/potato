@@ -1,0 +1,857 @@
+<!-- CONFIG_HASH: custom_agency_layout_v2 -->
+<!-- Custom two-column agency annotation layout with embedded schema forms -->
+
+<style>
+  /* Hide default top instance block from base template; custom layout renders this content. */
+  #main-content > .mb-4 {
+    display: none !important;
+  }
+
+  .agency-shell {
+    width: min(1500px, 98vw);
+    margin: 0 auto;
+  }
+
+  /* ── Metadata block (below main text) ───────────────────── */
+  .agency-meta-below {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 12px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .agency-meta-row {
+    border-bottom: 1px solid #f3f4f6;
+    padding: 4px 0;
+  }
+
+  .agency-meta-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .agency-meta-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9ca3af;
+    margin: 0 0 2px 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .agency-meta-value {
+    font-size: 0.8rem;
+    color: #6b7280;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+  }
+
+  /* ── Tooltip icons ───────────────────────────────────────── */
+  .meta-tooltip-anchor {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .meta-tooltip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #d1d5db;
+    color: #4b5563;
+    font-size: 0.55rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: default;
+    flex-shrink: 0;
+  }
+
+  .meta-tooltip-box {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 0;
+    width: 260px;
+    padding: 8px 10px;
+    background: #1f2937;
+    color: #f9fafb;
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: 1.45;
+    border-radius: 6px;
+    text-transform: none;
+    letter-spacing: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  .meta-tooltip-box::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 6px;
+    border: 5px solid transparent;
+    border-top-color: #1f2937;
+  }
+
+  .meta-tooltip-anchor:hover .meta-tooltip-box { display: block; }
+
+  .agency-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .agency-card {
+    border: 1px solid #d7dbe3;
+    border-radius: 10px;
+    background: #fff;
+    padding: 14px;
+  }
+
+  .agency-text-column .agency-card {
+    position: sticky;
+    top: 12px;
+  }
+
+  .agency-features-column .agency-card {
+    max-height: calc(100vh - 170px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .agency-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .agency-text {
+    line-height: 1.55;
+    color: #0f172a;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 1.03rem;
+  }
+
+  .annotation_schema {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .annotation_schema .annotation-form {
+    width: 100%;
+  }
+
+  .annotation_schema fieldset {
+    margin: 0;
+  }
+
+  /* ── Expandable description (More info) ─────────────────── */
+  .likert-description-details {
+    margin-top: 4px;
+  }
+  .likert-description-details summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    color: #9ca3af;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .likert-description-details summary::-webkit-details-marker { display: none; }
+  .likert-description-details summary .desc-chevron {
+    font-size: 0.65rem;
+    transition: transform 0.15s ease;
+  }
+  .likert-description-details[open] summary .desc-chevron { transform: rotate(90deg); }
+  .likert-description {
+    font-size: 0.75rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 6px 0 0;
+    padding: 8px 10px;
+    background: #f9fafb;
+    border-left: 3px solid #e5e7eb;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media (max-width: 980px) {
+    .agency-main {
+      grid-template-columns: 1fr;
+    }
+
+    .agency-text-column .agency-card {
+      position: static;
+    }
+
+    .agency-features-column .agency-card {
+      max-height: none;
+      overflow: visible;
+    }
+  }
+</style>
+
+<div class="agency-shell">
+  <section class="agency-main">
+    <div class="agency-text-column">
+      <div class="agency-card">
+        <h3>Text To Annotate</h3>
+        <div id="agency-instance-text" class="agency-text">
+          {{ instance | sanitize_html }}
+        </div>
+
+        <div class="agency-meta-below">
+
+          <div class="agency-meta-row">
+            <p class="agency-meta-label">
+              LLM Summary of Full Text
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">This summary was generated by passing the full page text into LLaMA 8B with a prompt requesting a short, concise summary. It is provided to give annotators broader context beyond the sampled excerpt.</span>
+              </span>
+            </p>
+            <p class="agency-meta-value">{{ llm_summary if llm_summary is defined else '' }}</p>
+          </div>
+
+          <div class="agency-meta-row">
+            <p class="agency-meta-label">
+              ID
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">Unique identifier assigned to each web page, taken directly from the Dolma dataset. For pages sourced from Common Crawl, this ID is the original URL.</span>
+              </span>
+            </p>
+            <p class="agency-meta-value">{{ id if id is defined else '' }}</p>
+          </div>
+
+          <div class="agency-meta-row">
+            <p class="agency-meta-label">
+              Shard
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">Dolma shard this text was pulled from. Shards span Common Crawl, C4, Gutenberg, Reddit, and other sources in the Dolma corpus.</span>
+              </span>
+            </p>
+            <p class="agency-meta-value">{{ folder if folder is defined else '' }}</p>
+          </div>
+
+          <div class="agency-meta-row">
+            <p class="agency-meta-label">
+              Topic
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">Topic category assigned by the WebOrganizer classifier (Wettig et al., 2025).</span>
+              </span>
+            </p>
+            <p class="agency-meta-value">{{ topic_classification if topic_classification is defined else '' }}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="agency-features-column">
+      <div class="agency-card">
+      <h3>Agency Features</h3>
+      <div class="annotation_schema">
+<!-- SCHEMA:agency_focalization -->
+<form id="agency_focalization" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="0" data-annotation-type="likert" data-schema-name="agency_focalization" data-grid-columns="1">
+        
+        <fieldset schema="agency_focalization">
+            <legend class="shadcn-likert-title">How central is a specific agent's perspective to the way the narrative presents events?</legend>
+            <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
+                <div class="shadcn-likert-endpoint">Not at all</div>
+                <div class="shadcn-likert-options">
+                    <div class="shadcn-likert-track"></div>
+    
+                    <div class="shadcn-likert-option">
+                        <input class="agency_focalization shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_focalization_1_radio"
+                               name="agency_focalization"
+                               value="1"
+                               schema="agency_focalization"
+                               label_name="1"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_focalization_1_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_focalization shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_focalization_2_radio"
+                               name="agency_focalization"
+                               value="2"
+                               schema="agency_focalization"
+                               label_name="2"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_focalization_2_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_focalization shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_focalization_3_radio"
+                               name="agency_focalization"
+                               value="3"
+                               schema="agency_focalization"
+                               label_name="3"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_focalization_3_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_focalization shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_focalization_4_radio"
+                               name="agency_focalization"
+                               value="4"
+                               schema="agency_focalization"
+                               label_name="4"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_focalization_4_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_focalization shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_focalization_5_radio"
+                               name="agency_focalization"
+                               value="5"
+                               schema="agency_focalization"
+                               label_name="5"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_focalization_5_radio"></label>
+                        
+                    </div>
+        
+                </div>
+                <div class="shadcn-likert-endpoint">Extremely</div>
+            </div>
+    
+        </fieldset></form>
+
+<!-- SCHEMA:agency_emotion -->
+<form id="agency_emotion" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="1" data-annotation-type="likert" data-schema-name="agency_emotion" data-grid-columns="1">
+        
+        <fieldset schema="agency_emotion">
+            <legend class="shadcn-likert-title">How central are a character's emotional states to the text?</legend>
+            <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
+                <div class="shadcn-likert-endpoint">Not at all</div>
+                <div class="shadcn-likert-options">
+                    <div class="shadcn-likert-track"></div>
+    
+                    <div class="shadcn-likert-option">
+                        <input class="agency_emotion shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_emotion_1_radio"
+                               name="agency_emotion"
+                               value="1"
+                               schema="agency_emotion"
+                               label_name="1"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_emotion_1_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_emotion shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_emotion_2_radio"
+                               name="agency_emotion"
+                               value="2"
+                               schema="agency_emotion"
+                               label_name="2"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_emotion_2_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_emotion shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_emotion_3_radio"
+                               name="agency_emotion"
+                               value="3"
+                               schema="agency_emotion"
+                               label_name="3"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_emotion_3_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_emotion shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_emotion_4_radio"
+                               name="agency_emotion"
+                               value="4"
+                               schema="agency_emotion"
+                               label_name="4"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_emotion_4_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_emotion shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_emotion_5_radio"
+                               name="agency_emotion"
+                               value="5"
+                               schema="agency_emotion"
+                               label_name="5"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_emotion_5_radio"></label>
+                        
+                    </div>
+        
+                </div>
+                <div class="shadcn-likert-endpoint">Extremely</div>
+            </div>
+    
+        </fieldset></form>
+
+<!-- SCHEMA:agency_cognition -->
+<form id="agency_cognition" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="2" data-annotation-type="likert" data-schema-name="agency_cognition" data-grid-columns="1">
+        
+        <fieldset schema="agency_cognition">
+            <legend class="shadcn-likert-title">How central are a character's thoughts and reasoning to the text?</legend>
+            <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
+                <div class="shadcn-likert-endpoint">Not at all</div>
+                <div class="shadcn-likert-options">
+                    <div class="shadcn-likert-track"></div>
+    
+                    <div class="shadcn-likert-option">
+                        <input class="agency_cognition shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_cognition_1_radio"
+                               name="agency_cognition"
+                               value="1"
+                               schema="agency_cognition"
+                               label_name="1"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_cognition_1_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_cognition shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_cognition_2_radio"
+                               name="agency_cognition"
+                               value="2"
+                               schema="agency_cognition"
+                               label_name="2"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_cognition_2_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_cognition shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_cognition_3_radio"
+                               name="agency_cognition"
+                               value="3"
+                               schema="agency_cognition"
+                               label_name="3"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_cognition_3_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_cognition shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_cognition_4_radio"
+                               name="agency_cognition"
+                               value="4"
+                               schema="agency_cognition"
+                               label_name="4"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_cognition_4_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_cognition shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_cognition_5_radio"
+                               name="agency_cognition"
+                               value="5"
+                               schema="agency_cognition"
+                               label_name="5"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_cognition_5_radio"></label>
+                        
+                    </div>
+        
+                </div>
+                <div class="shadcn-likert-endpoint">Extremely</div>
+            </div>
+    
+        </fieldset></form>
+
+<!-- SCHEMA:agency_motivation -->
+<form id="agency_motivation" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="3" data-annotation-type="likert" data-schema-name="agency_motivation" data-grid-columns="1">
+        
+        <fieldset schema="agency_motivation">
+            <legend class="shadcn-likert-title">How central are a character's motivations, desires, or intentions to the text?</legend>
+            <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
+                <div class="shadcn-likert-endpoint">Not at all</div>
+                <div class="shadcn-likert-options">
+                    <div class="shadcn-likert-track"></div>
+    
+                    <div class="shadcn-likert-option">
+                        <input class="agency_motivation shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_motivation_1_radio"
+                               name="agency_motivation"
+                               value="1"
+                               schema="agency_motivation"
+                               label_name="1"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_motivation_1_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_motivation shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_motivation_2_radio"
+                               name="agency_motivation"
+                               value="2"
+                               schema="agency_motivation"
+                               label_name="2"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_motivation_2_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_motivation shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_motivation_3_radio"
+                               name="agency_motivation"
+                               value="3"
+                               schema="agency_motivation"
+                               label_name="3"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_motivation_3_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_motivation shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_motivation_4_radio"
+                               name="agency_motivation"
+                               value="4"
+                               schema="agency_motivation"
+                               label_name="4"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_motivation_4_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_motivation shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_motivation_5_radio"
+                               name="agency_motivation"
+                               value="5"
+                               schema="agency_motivation"
+                               label_name="5"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_motivation_5_radio"></label>
+                        
+                    </div>
+        
+                </div>
+                <div class="shadcn-likert-endpoint">Extremely</div>
+            </div>
+    
+        </fieldset></form>
+
+<!-- SCHEMA:agency_change_of_state -->
+<form id="agency_change_of_state" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="4" data-annotation-type="likert" data-schema-name="agency_change_of_state" data-grid-columns="1">
+        
+        <fieldset schema="agency_change_of_state">
+            <legend class="shadcn-likert-title">How central is a change in an agent's condition to the text?</legend>
+            <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
+                <div class="shadcn-likert-endpoint">Not at all</div>
+                <div class="shadcn-likert-options">
+                    <div class="shadcn-likert-track"></div>
+    
+                    <div class="shadcn-likert-option">
+                        <input class="agency_change_of_state shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_change_of_state_1_radio"
+                               name="agency_change_of_state"
+                               value="1"
+                               schema="agency_change_of_state"
+                               label_name="1"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_change_of_state_1_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_change_of_state shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_change_of_state_2_radio"
+                               name="agency_change_of_state"
+                               value="2"
+                               schema="agency_change_of_state"
+                               label_name="2"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_change_of_state_2_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_change_of_state shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_change_of_state_3_radio"
+                               name="agency_change_of_state"
+                               value="3"
+                               schema="agency_change_of_state"
+                               label_name="3"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_change_of_state_3_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_change_of_state shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_change_of_state_4_radio"
+                               name="agency_change_of_state"
+                               value="4"
+                               schema="agency_change_of_state"
+                               label_name="4"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_change_of_state_4_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_change_of_state shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_change_of_state_5_radio"
+                               name="agency_change_of_state"
+                               value="5"
+                               schema="agency_change_of_state"
+                               label_name="5"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_change_of_state_5_radio"></label>
+                        
+                    </div>
+        
+                </div>
+                <div class="shadcn-likert-endpoint">Extremely</div>
+            </div>
+    
+        </fieldset></form>
+
+<!-- SCHEMA:agency_conflict -->
+<form id="agency_conflict" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="5" data-annotation-type="likert" data-schema-name="agency_conflict" data-grid-columns="1">
+        
+        <fieldset schema="agency_conflict">
+            <legend class="shadcn-likert-title">How central is conflict to the text?</legend>
+            <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
+                <div class="shadcn-likert-endpoint">Not at all</div>
+                <div class="shadcn-likert-options">
+                    <div class="shadcn-likert-track"></div>
+    
+                    <div class="shadcn-likert-option">
+                        <input class="agency_conflict shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_conflict_1_radio"
+                               name="agency_conflict"
+                               value="1"
+                               schema="agency_conflict"
+                               label_name="1"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_conflict_1_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_conflict shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_conflict_2_radio"
+                               name="agency_conflict"
+                               value="2"
+                               schema="agency_conflict"
+                               label_name="2"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_conflict_2_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_conflict shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_conflict_3_radio"
+                               name="agency_conflict"
+                               value="3"
+                               schema="agency_conflict"
+                               label_name="3"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_conflict_3_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_conflict shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_conflict_4_radio"
+                               name="agency_conflict"
+                               value="4"
+                               schema="agency_conflict"
+                               label_name="4"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_conflict_4_radio"></label>
+                        
+                    </div>
+        
+                    <div class="shadcn-likert-option">
+                        <input class="agency_conflict shadcn-likert-input annotation-input"
+                               type="radio"
+                               id="agency_conflict_5_radio"
+                               name="agency_conflict"
+                               value="5"
+                               schema="agency_conflict"
+                               label_name="5"
+                               selection_constraint="single"
+                               validation=""
+                               onclick="onlyOne(this);registerAnnotation(this);">
+                        <label class="shadcn-likert-button" for="agency_conflict_5_radio"></label>
+                        
+                    </div>
+        
+                </div>
+                <div class="shadcn-likert-endpoint">Extremely</div>
+            </div>
+    
+        </fieldset></form>
+    </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  var _agencyExtendedDescriptions = {
+    agency_focalization: "A higher score reflects a narrative in which events are primarily presented through a specific agent's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects a narrative that reports events from the outside, describing what is observable without granting access to any character's internal experience. For example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\"",
+    agency_emotion: "A higher score reflects text in which a character's emotional experience is a prominent feature. Feelings are foregrounded rather than incidental. A lower score reflects text with little or no reference to how a character feels. For example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\"",
+    agency_cognition: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, or mental reflections are a prominent feature. These are foregrounded rather than incidental. A lower score reflects text with little or no reference to what a character thinks or knows. For example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" scores higher than \"she sat at her desk.\"",
+    agency_motivation: "A higher score reflects text in which a character wants, hopes, or aspirations are a prominent feature. A lower score reflects text with little or no reference to a character's goals or desires. For example, \"he was determined to finish the job before anyone found out\" scores higher than \"he worked through the night.\"",
+    agency_change_of_state: "A higher score reflects text in which a change in an agent's condition is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. For example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\"",
+    agency_conflict: "A higher score reflects text in which conflict is a dominant or organizing feature. Characters struggle against each other, against themselves, or against external forces or circumstances. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including interpersonal tension between characters, internal psychological struggle, or opposition to institutions, environments, or social forces. For example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\""
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    Object.keys(_agencyExtendedDescriptions).forEach(function(schemaName) {
+      var form = document.getElementById(schemaName);
+      if (!form) return;
+      var legend = form.querySelector('legend.shadcn-likert-title');
+      if (!legend) return;
+      var details = document.createElement('details');
+      details.className = 'likert-description-details';
+      var summary = document.createElement('summary');
+      summary.innerHTML = '<span class="desc-chevron">&#9654;</span> More info';
+      var body = document.createElement('p');
+      body.className = 'likert-description';
+      body.textContent = _agencyExtendedDescriptions[schemaName];
+      details.appendChild(summary);
+      details.appendChild(body);
+      legend.insertAdjacentElement('afterend', details);
+    });
+  });
+</script>

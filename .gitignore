@@ -123,7 +123,6 @@ potato/archive/
 # Example projects (optional, user-created)
 example-projects/
 example-tasks/
-layouts/
 !examples/classification/pairwise-comparison/layouts/
 !examples/classification/pairwise-comparison/layouts/task_layout.html
 !examples/classification/pairwise-edit-description/layouts/
