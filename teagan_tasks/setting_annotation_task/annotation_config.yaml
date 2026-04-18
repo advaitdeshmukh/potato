@@ -1,0 +1,128 @@
+server:
+  host: 0.0.0.0
+  port: 4098
+  base_path: /tejo9855/setting
+  workers: 2
+  timeout: 120
+
+server_name: potato annotator
+annotation_task_name: Setting Annotation
+
+task_dir: .
+
+data_files:
+  - data/dolma_combined_final_sample_700_with_llm_summary_safeid_with_spans.csv
+output_annotation_dir: annotation_output/results/
+output_annotation_format: json
+annotation_codebook_url: ""
+
+item_properties:
+  id_key: safe_instance_id
+  text_key: sampled_text
+  kwargs:
+    - source
+    - llm_summary
+    - id
+    - folder
+    - topic_classification
+
+user_config:
+  allow_all_users: true
+  users: []
+
+list_as_text:
+  text_list_prefix_type: none
+  horizontal: true
+
+alert_time_each_instance: 100000
+
+annotation_schemes:
+  - annotation_type: likert
+    name: setting_concreteness
+    description: "Is the text concrete, in the sense that it describes specific, tangible details?"
+    extended_description: "[PLACEHOLDER: Extended description for setting_concreteness.]"
+    size: 5
+    min_label: "Strongly Disagree"
+    max_label: "Strongly Agree"
+    label_requirement:
+      required: false
+
+  - annotation_type: likert
+    name: setting_temporal_grounding
+    description: "Does the text include explicit temporal details of a specific character(s)? (He felt sad, she likes, etc.)"
+    extended_description: "[PLACEHOLDER: Extended description for setting_temporal_grounding.]"
+    size: 5
+    min_label: "Strongly Disagree"
+    max_label: "Strongly Agree"
+    label_requirement:
+      required: false
+
+  - annotation_type: likert
+    name: setting_spatial_grounding
+    description: "Does the text include explicit spatial details of a specific character(s)? (He is here, she sat on the bench in the park, she rode the taxi around 4th street in New York City, etc.)"
+    extended_description: "[PLACEHOLDER: Extended description for setting_spatial_grounding.]"
+    size: 5
+    min_label: "Strongly Disagree"
+    max_label: "Strongly Agree"
+    label_requirement:
+      required: false
+
+  - annotation_type: likert
+    name: setting_sensory
+    description: "Does the text include explicit sensory details of a specific character(s)? (Sight, sound, smell, taste, touch details. He smelled the flowers, she heard the music, etc.)"
+    extended_description: "[PLACEHOLDER: Extended description for setting_sensory.]"
+    size: 5
+    min_label: "Strongly Disagree"
+    max_label: "Strongly Agree"
+    label_requirement:
+      required: false
+
+  - annotation_type: multiselect
+    name: setting_POV
+    description: "Which perspective is this text written from? (Select all that apply)"
+    extended_description: "[PLACEHOLDER: Extended description for setting_POV.]"
+    labels:
+      - First Person (I, we, etc.)
+      - Second Person (you, etc.)
+      - Third Person (he, she, they, etc.)
+    label_requirement:
+      required: false
+
+  - annotation_type: likert
+    name: setting_indirect_speech
+    description: "Does the text include explicit indirect speech details of a specific character(s)? (He said, she told me, etc.)"
+    extended_description: "[PLACEHOLDER: Extended description for setting_indirect_speech.]"
+    size: 5
+    min_label: "Strongly Disagree"
+    max_label: "Strongly Agree"
+    label_requirement:
+      required: false
+
+  - annotation_type: likert
+    name: setting_fictionality
+    description: "Would you consider this text to be fictional? (As opposed to factual, real-world, etc.)"
+    extended_description: "[PLACEHOLDER: Extended description for setting_fictionality.]"
+    size: 5
+    min_label: "Strongly Disagree"
+    max_label: "Strongly Agree"
+    label_requirement:
+      required: false
+
+ui:
+  show_progress: true
+  show_instructions: true
+  allow_navigation: true
+  allow_editing: true
+
+instance_display:
+  resizable: false
+  fields:
+    - key: source
+      type: text
+    - key: llm_summary
+      type: text
+    - key: sampled_text
+      type: text
+
+task_layout: layouts/task_layout_custom.html
+site_dir: custom_templates

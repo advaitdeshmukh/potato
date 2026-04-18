@@ -1,0 +1,397 @@
+<!-- CONFIG_HASH: custom_setting_layout_v1 -->
+<!-- Config-driven setting annotation layout rendered from annotation_schemes -->
+
+<style>
+  /* Hide default top instance block from base template; custom layout renders this content. */
+  #main-content > .mb-4 {
+    display: none !important;
+  }
+
+  .setting-shell {
+    width: min(1500px, 98vw);
+    margin: 0 auto;
+  }
+
+  /* ── Metadata block (below main text) ───────────────────── */
+  .setting-meta-below {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 12px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .setting-meta-row {
+    border-bottom: 1px solid #f3f4f6;
+    padding: 4px 0;
+  }
+
+  .setting-meta-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .setting-meta-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9ca3af;
+    margin: 0 0 2px 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .setting-meta-value {
+    font-size: 0.8rem;
+    color: #6b7280;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+  }
+
+  /* ── Tooltip icons ───────────────────────────────────────── */
+  .meta-tooltip-anchor {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .meta-tooltip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #d1d5db;
+    color: #4b5563;
+    font-size: 0.55rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: default;
+    flex-shrink: 0;
+  }
+
+  .meta-tooltip-box {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 0;
+    width: 260px;
+    padding: 8px 10px;
+    background: #1f2937;
+    color: #f9fafb;
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: 1.45;
+    border-radius: 6px;
+    text-transform: none;
+    letter-spacing: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  .meta-tooltip-box::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 6px;
+    border: 5px solid transparent;
+    border-top-color: #1f2937;
+  }
+
+  .meta-tooltip-anchor:hover .meta-tooltip-box { display: block; }
+
+  .setting-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .setting-card {
+    border: 1px solid #d7dbe3;
+    border-radius: 10px;
+    background: #fff;
+    padding: 14px;
+  }
+
+  .setting-text-column .setting-card {
+    position: sticky;
+    top: 12px;
+  }
+
+  .setting-features-column .setting-card {
+    max-height: calc(100vh - 170px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .setting-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .setting-text {
+    line-height: 1.55;
+    color: #0f172a;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 1.03rem;
+  }
+
+  .annotation_schema {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .annotation_schema .annotation-form {
+    width: 100%;
+  }
+
+  .annotation_schema fieldset {
+    margin: 0;
+  }
+
+  .setting-multiselect-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .setting-multiselect-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: #111827;
+  }
+
+  .setting-multiselect-option input[type="checkbox"] {
+    margin-top: 0.15rem;
+  }
+
+  .setting-empty {
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  /* ── Expandable description (More info) ─────────────────── */
+  .likert-description-details {
+    margin-top: 4px;
+  }
+  .likert-description-details summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    color: #9ca3af;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .likert-description-details summary::-webkit-details-marker { display: none; }
+  .likert-description-details summary .desc-chevron {
+    font-size: 0.65rem;
+    transition: transform 0.15s ease;
+  }
+  .likert-description-details[open] summary .desc-chevron { transform: rotate(90deg); }
+  .likert-description {
+    font-size: 0.75rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 6px 0 0;
+    padding: 8px 10px;
+    background: #f9fafb;
+    border-left: 3px solid #e5e7eb;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media (max-width: 980px) {
+    .setting-main {
+      grid-template-columns: 1fr;
+    }
+
+    .setting-text-column .setting-card {
+      position: static;
+    }
+
+    .setting-features-column .setting-card {
+      max-height: none;
+      overflow: visible;
+    }
+  }
+</style>
+
+<div class="setting-shell">
+  <section class="setting-main">
+    <div class="setting-text-column">
+      <div class="setting-card">
+        <h3>Text To Annotate</h3>
+        <div id="setting-instance-text" class="setting-text">
+          {{ instance | sanitize_html }}
+        </div>
+
+        <div class="setting-meta-below">
+
+          <div class="setting-meta-row">
+            <p class="setting-meta-label">
+              LLM Summary
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">This summary was generated by passing the full page text into LLaMA 8B with a prompt requesting a short, concise summary. It is provided to give annotators broader context beyond the sampled excerpt.</span>
+              </span>
+            </p>
+            <p class="setting-meta-value">{{ llm_summary if llm_summary is defined else '' }}</p>
+          </div>
+
+          <div class="setting-meta-row">
+            <p class="setting-meta-label">
+              ID
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">Unique identifier assigned to each web page, taken directly from the Dolma dataset. For pages sourced from Common Crawl, this ID is the original URL.</span>
+              </span>
+            </p>
+            <p class="setting-meta-value">{{ id if id is defined else '' }}</p>
+          </div>
+
+          <div class="setting-meta-row">
+            <p class="setting-meta-label">
+              Shard
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">Dolma shard this text was pulled from. Shards span Common Crawl, C4, Gutenberg, Reddit, and other sources in the Dolma corpus.</span>
+              </span>
+            </p>
+            <p class="setting-meta-value">{{ folder if folder is defined else '' }}</p>
+          </div>
+
+          <div class="setting-meta-row">
+            <p class="setting-meta-label">
+              Topic
+              <span class="meta-tooltip-anchor">
+                <span class="meta-tooltip-icon">?</span>
+                <span class="meta-tooltip-box">Topic category assigned by the WebOrganizer classifier (Wettig et al., 2025).</span>
+              </span>
+            </p>
+            <p class="setting-meta-value">{{ topic_classification if topic_classification is defined else '' }}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="setting-features-column">
+      <div class="setting-card">
+        <h3>Setting Features</h3>
+        <div class="annotation_schema">
+          {% if annotation_schemes is defined and annotation_schemes %}
+            {% for scheme in annotation_schemes %}
+              {% if scheme.annotation_type == "likert" %}
+                <form id="{{ scheme.name }}" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="{{ loop.index0 }}" data-annotation-type="likert" data-schema-name="{{ scheme.name }}" data-grid-columns="1">
+                  <fieldset schema="{{ scheme.name }}">
+                    <legend class="shadcn-likert-title">{{ scheme.description }}</legend>
+                    {% set likert_size = scheme.size if scheme.size is defined else 5 %}
+                    {% set min_label = scheme.min_label if scheme.min_label is defined else "Strongly Disagree" %}
+                    {% set max_label = scheme.max_label if scheme.max_label is defined else "Strongly Agree" %}
+                    <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + {{ likert_size }} * 40px + 250px));">
+                      <div class="shadcn-likert-endpoint">{{ min_label }}</div>
+                      <div class="shadcn-likert-options">
+                        <div class="shadcn-likert-track"></div>
+                        {% for value in range(1, likert_size + 1) %}
+                          <div class="shadcn-likert-option">
+                            <input class="{{ scheme.name }} shadcn-likert-input annotation-input"
+                                   type="radio"
+                                   id="{{ scheme.name }}_{{ value }}_radio"
+                                   name="{{ scheme.name }}"
+                                   value="{{ value }}"
+                                   schema="{{ scheme.name }}"
+                                   label_name="{{ value }}"
+                                   selection_constraint="single"
+                                   validation=""
+                                   onclick="onlyOne(this);registerAnnotation(this);">
+                            <label class="shadcn-likert-button" for="{{ scheme.name }}_{{ value }}_radio"></label>
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <div class="shadcn-likert-endpoint">{{ max_label }}</div>
+                    </div>
+                  </fieldset>
+                </form>
+              {% elif scheme.annotation_type == "multiselect" %}
+                <form id="{{ scheme.name }}" class="annotation-form multiselect" action="/action_page.php" data-annotation-id="{{ loop.index0 }}" data-annotation-type="multiselect" data-schema-name="{{ scheme.name }}" data-grid-columns="1">
+                  <fieldset schema="{{ scheme.name }}">
+                    <legend class="shadcn-likert-title">{{ scheme.description }}</legend>
+                    <div class="setting-multiselect-group">
+                      {% for label in scheme.labels %}
+                        <label class="setting-multiselect-option" for="{{ scheme.name }}_{{ loop.index }}_checkbox">
+                          <input class="{{ scheme.name }} annotation-input"
+                                 type="checkbox"
+                                 id="{{ scheme.name }}_{{ loop.index }}_checkbox"
+                                 name="{{ scheme.name }}"
+                                 value="{{ label }}"
+                                 schema="{{ scheme.name }}"
+                                 label_name="{{ label }}"
+                                 selection_constraint="multiple"
+                                 validation=""
+                                 onclick="registerAnnotation(this);">
+                          <span>{{ label }}</span>
+                        </label>
+                      {% endfor %}
+                    </div>
+                  </fieldset>
+                </form>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <div class="setting-empty">No annotation schemes found in config.</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  var _settingExtendedDescriptions = {
+    {% if annotation_schemes is defined and annotation_schemes %}
+      {% for scheme in annotation_schemes %}
+        {% if scheme.extended_description is defined and scheme.extended_description %}
+          "{{ scheme.name }}": {{ scheme.extended_description | tojson }}{% if not loop.last %},{% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    Object.keys(_settingExtendedDescriptions).forEach(function(schemaName) {
+      var form = document.getElementById(schemaName);
+      if (!form) return;
+      var legend = form.querySelector('legend.shadcn-likert-title');
+      if (!legend) return;
+      var details = document.createElement('details');
+      details.className = 'likert-description-details';
+      var summary = document.createElement('summary');
+      summary.innerHTML = '<span class="desc-chevron">&#9654;</span> More info';
+      var body = document.createElement('p');
+      body.className = 'likert-description';
+      body.textContent = _settingExtendedDescriptions[schemaName];
+      details.appendChild(summary);
+      details.appendChild(body);
+      legend.insertAdjacentElement('afterend', details);
+    });
+  });
+</script>
