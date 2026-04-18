@@ -39,72 +39,41 @@ alert_time_each_instance: 100000
 annotation_schemes:
   - annotation_type: likert
     name: setting_concreteness
-    description: "Is the text concrete, in the sense that it describes specific, tangible details?"
-    extended_description: "[PLACEHOLDER: Extended description for setting_concreteness.]"
+    description: "How concrete and specific is the text, as opposed to abstract or general? (e.g., references to particular objects, places, or physical details rather than abstract ideas)"
+    extended_description: "A higher score reflects text that is predominantly grounded in specific, tangible details: the world of the text feels particular and material rather than abstract or general. A lower score reflects text that deals primarily in abstract ideas, generalizations, or concepts without grounding them in concrete particulars. For example, \"the chipped blue mug sat on the edge of the sink, handle cracked from years of use\" scores higher than \"people often form attachments to everyday objects.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: setting_temporal_grounding
-    description: "Does the text include explicit temporal details of a specific character(s)? (He felt sad, she likes, etc.)"
-    extended_description: "[PLACEHOLDER: Extended description for setting_temporal_grounding.]"
+    description: "How strongly does the text create a sense of being anchored in a particular time? (e.g., references to specific dates or periods, but also atmosphere, tone, or detail that evokes a strong sense of when events are taking place)"
+    extended_description: "A higher score reflects text that creates a vivid sense of temporal location: the reader feels situated in a particular moment, era, or duration, whether through explicit markers or evocative detail. A lower score reflects text that feels temporally unanchored, as if events could be taking place at any time. For example, \"the streets were still empty, that particular quiet of early Sunday morning before the city remembered itself\" scores higher than \"he walked outside.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: setting_spatial_grounding
-    description: "Does the text include explicit spatial details of a specific character(s)? (He is here, she sat on the bench in the park, she rode the taxi around 4th street in New York City, etc.)"
-    extended_description: "[PLACEHOLDER: Extended description for setting_spatial_grounding.]"
+    description: "How strongly does the text create a sense of being anchored in a particular place? (e.g., named locations, but also atmosphere, tone, or detail that evokes a strong sense of where events are taking place)"
+    extended_description: "A higher score reflects text that creates a vivid sense of physical location: the reader feels situated in a particular environment or setting, whether through explicit description or evocative detail. A lower score reflects text that feels spatially unanchored, as if events could be taking place anywhere. For example, \"the alley smelled of wet concrete and something burned, neon from the bar across the street bleeding red into the puddles\" scores higher than \"he stepped outside.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
   - annotation_type: likert
     name: setting_sensory
-    description: "Does the text include explicit sensory details of a specific character(s)? (Sight, sound, smell, taste, touch details. He smelled the flowers, she heard the music, etc.)"
-    extended_description: "[PLACEHOLDER: Extended description for setting_sensory.]"
+    description: "How central are sensory details to the text? (e.g., descriptions involving sight, sound, smell, taste, or touch)"
+    extended_description: "A higher score reflects text in which sensory experience is a prominent and sustained feature: the reader is consistently given information about how the world looks, sounds, smells, feels, or tastes. A lower score reflects text with little or no sensory content, where events and ideas are conveyed without appeal to the senses. For example, \"the bread was still warm, its crust crackling under her fingers, the whole kitchen thick with the smell of it\" scores higher than \"she made breakfast.\""
     size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
-    label_requirement:
-      required: false
-
-  - annotation_type: multiselect
-    name: setting_POV
-    description: "Which perspective is this text written from? (Select all that apply)"
-    extended_description: "[PLACEHOLDER: Extended description for setting_POV.]"
-    labels:
-      - First Person (I, we, etc.)
-      - Second Person (you, etc.)
-      - Third Person (he, she, they, etc.)
-    label_requirement:
-      required: false
-
-  - annotation_type: likert
-    name: setting_indirect_speech
-    description: "Does the text include explicit indirect speech details of a specific character(s)? (He said, she told me, etc.)"
-    extended_description: "[PLACEHOLDER: Extended description for setting_indirect_speech.]"
-    size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
-    label_requirement:
-      required: false
-
-  - annotation_type: likert
-    name: setting_fictionality
-    description: "Would you consider this text to be fictional? (As opposed to factual, real-world, etc.)"
-    extended_description: "[PLACEHOLDER: Extended description for setting_fictionality.]"
-    size: 5
-    min_label: "Strongly Disagree"
-    max_label: "Strongly Agree"
+    min_label: "Not at all"
+    max_label: "Extremely"
     label_requirement:
       required: false
 
