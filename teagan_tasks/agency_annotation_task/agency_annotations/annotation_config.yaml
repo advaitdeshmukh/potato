@@ -40,7 +40,7 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_focalization
     description: "How central is a specific character's perspective to the text?"
-    extended_description: "A higher score reflects text in which the text is primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. For example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\""
+    extended_description: "A higher score reflects text in which the details and events are primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. \n\nFor example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\" because the first text emphasizes the character's perspective and internal experience, while the second simply describes an action without reference to how the character perceives or experiences it."
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -50,7 +50,7 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_emotion
     description: "How central are a character's emotional states to the text?"
-    extended_description: "A higher score reflects text in which a character's emotional experience is a prominent feature. A lower score reflects text with little or no reference to how a character feels. For example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\""
+    extended_description: "A higher score reflects text in which a character's emotional experience is a prominent feature. Feelings are foregrounded rather than incidental. A lower score reflects text with little or no reference to how a character feels. \n\nFor example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\" because the first text emphasizes the character's emotional experience, while the second simply describes an action without reference to feelings."
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -60,7 +60,7 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_cognition
     description: "How central are a character's thoughts and reasoning to the text?"
-    extended_description: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, or mental reflections are a prominent feature. A lower score reflects text with little or no reference to what a character thinks or knows. For example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" scores higher than \"she sat at her desk.\""
+    extended_description: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, or mental reflections are a prominent feature. A lower score reflects text with little or no reference to what a character thinks or knows. \n\nFor example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" scores higher than \"she sat at her desk.\" because the first text emphasizes the character's cognitive experience, while the second simply describes an action without reference to thoughts or mental processes."
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -70,7 +70,7 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_motivation
     description: "How central are a character's motivations, desires, or intentions to the text?"
-    extended_description: "A higher score reflects text in which a character wants, hopes, or aspirations are a prominent feature. A lower score reflects text with little or no reference to a character's goals or desires. For example, \"he was determined to finish the job before anyone found out\" scores higher than \"he worked through the night.\""
+    extended_description: "A higher score reflects text in which a character wants, hopes, or aspirations are a prominent feature. A lower score reflects text with little or no reference to a character's goals or desires. \n\nFor example, \"he was determined to finish the job before anyone found out\" scores higher than \"he worked through the night.\" because the first text emphasizes the character's motivation, while the second simply describes an action without reference to goals or desires."
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -79,8 +79,8 @@ annotation_schemes:
 
   - annotation_type: likert
     name: agency_change_of_state
-    description: "How central is a change in an character's condition or state to the text?"
-    extended_description: "A higher score reflects text in which a change in an character's condition/state is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. For example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\""
+    description: "How central is a change in a character's condition or state to the text?"
+    extended_description: "A higher score reflects text in which a change in a character's condition/state is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. \n\nFor example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\" because the first text emphasizes the character's change of state, while the second simply describes an action without reference to any transformation."
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -90,7 +90,7 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_conflict
     description: "How central is conflict involving characters to the text?"
-    extended_description: "A higher score reflects text in which conflict is a dominant or organizing feature. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including tension between characters, internal psychological struggle, or opposition to institutions, environments, inanimate objects like technology, or social forces. For example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\""
+    extended_description: "A higher score reflects text in which conflict is a dominant or organizing feature. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including tension between characters, internal psychological struggle, or opposition to institutions, environments, inanimate objects like technology, or social forces. \n\nFor example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\" because the first text emphasizes the conflict between characters, while the second simply describes an action without reference to any disagreement."
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
