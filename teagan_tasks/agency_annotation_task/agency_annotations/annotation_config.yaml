@@ -40,7 +40,7 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_focalization
     description: "How central is a specific character's perspective to the text?"
-    extended_description: "A higher score reflects a narrative in which the text is primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects a narrative that reports the text from the outside, describing what is observable without granting access to any character's internal experience. For example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\""
+    extended_description: "A higher score reflects text in which the text is primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. For example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\""
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"

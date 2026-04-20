@@ -279,7 +279,7 @@
 <form id="agency_focalization" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="0" data-annotation-type="likert" data-schema-name="agency_focalization" data-grid-columns="1">
         
         <fieldset schema="agency_focalization">
-            <legend class="shadcn-likert-title">How central is a specific agent's perspective to the way the narrative presents events?</legend>
+            <legend class="shadcn-likert-title">How central is a specific character's perspective to the text?</legend>
             <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
                 <div class="shadcn-likert-endpoint">Not at all</div>
                 <div class="shadcn-likert-options">
@@ -643,7 +643,7 @@
 <form id="agency_change_of_state" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="4" data-annotation-type="likert" data-schema-name="agency_change_of_state" data-grid-columns="1">
         
         <fieldset schema="agency_change_of_state">
-            <legend class="shadcn-likert-title">How central is a change in an agent's condition to the text?</legend>
+            <legend class="shadcn-likert-title">How central is a change in a character's condition or state to the text?</legend>
             <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
                 <div class="shadcn-likert-endpoint">Not at all</div>
                 <div class="shadcn-likert-options">
@@ -734,7 +734,7 @@
 <form id="agency_conflict" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="5" data-annotation-type="likert" data-schema-name="agency_conflict" data-grid-columns="1">
         
         <fieldset schema="agency_conflict">
-            <legend class="shadcn-likert-title">How central is conflict to the text?</legend>
+            <legend class="shadcn-likert-title">How central is conflict involving characters to the text?</legend>
             <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
                 <div class="shadcn-likert-endpoint">Not at all</div>
                 <div class="shadcn-likert-options">
@@ -828,12 +828,12 @@
 
 <script>
   var _agencyExtendedDescriptions = {
-    agency_focalization: "A higher score reflects a narrative in which events are primarily presented through a specific agent's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects a narrative that reports events from the outside, describing what is observable without granting access to any character's internal experience. For example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\"",
+    agency_focalization: "A higher score reflects text in which the details and events are primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. For example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\"",
     agency_emotion: "A higher score reflects text in which a character's emotional experience is a prominent feature. Feelings are foregrounded rather than incidental. A lower score reflects text with little or no reference to how a character feels. For example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\"",
     agency_cognition: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, or mental reflections are a prominent feature. These are foregrounded rather than incidental. A lower score reflects text with little or no reference to what a character thinks or knows. For example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" scores higher than \"she sat at her desk.\"",
     agency_motivation: "A higher score reflects text in which a character wants, hopes, or aspirations are a prominent feature. A lower score reflects text with little or no reference to a character's goals or desires. For example, \"he was determined to finish the job before anyone found out\" scores higher than \"he worked through the night.\"",
-    agency_change_of_state: "A higher score reflects text in which a change in an agent's condition is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. For example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\"",
-    agency_conflict: "A higher score reflects text in which conflict is a dominant or organizing feature. Characters struggle against each other, against themselves, or against external forces or circumstances. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including interpersonal tension between characters, internal psychological struggle, or opposition to institutions, environments, or social forces. For example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\""
+    agency_change_of_state: "A higher score reflects text in which a change in a character's condition/state is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. For example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\"",
+    agency_conflict: "A higher score reflects text in which conflict is a dominant or organizing feature. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including tension between characters, internal psychological struggle, or opposition to institutions, environments, inanimate objects like technology, or social forces. For example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\""
   };
 
   document.addEventListener('DOMContentLoaded', function() {
