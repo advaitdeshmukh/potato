@@ -78,7 +78,7 @@ package.json
 package-lock.json
 
 # Annotation output directories
-annotation_output/
+# annotation_output/
 output/
 tests/output/
 tests/server/output/
