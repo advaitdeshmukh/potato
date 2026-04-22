@@ -2064,20 +2064,13 @@
       [
         {
           "schema": "setting_temporal_grounding",
-          "name": "1"
-        },
-        "1"
-      ],
-      [
-        {
-          "schema": "setting_concreteness",
           "name": "3"
         },
         "3"
       ],
       [
         {
-          "schema": "setting_temporal_grounding",
+          "schema": "setting_concreteness",
           "name": "3"
         },
         "3"
@@ -2091,20 +2084,6 @@
       ]
     ],
     "inst_cb7b7cc8610afc27_1": [
-      [
-        {
-          "schema": "setting_concreteness",
-          "name": "3"
-        },
-        "3"
-      ],
-      [
-        {
-          "schema": "setting_concreteness",
-          "name": "2"
-        },
-        "2"
-      ],
       [
         {
           "schema": "setting_concreteness",

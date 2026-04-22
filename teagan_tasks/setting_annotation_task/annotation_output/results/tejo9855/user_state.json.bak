@@ -12139,9 +12139,16 @@
       [
         {
           "schema": "setting_concreteness",
-          "name": "3"
+          "name": "5"
         },
-        "3"
+        "5"
+      ],
+      [
+        {
+          "schema": "setting_concreteness",
+          "name": "4"
+        },
+        "4"
       ],
       [
         {
@@ -12152,10 +12159,24 @@
       ],
       [
         {
+          "schema": "setting_concreteness",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
           "schema": "setting_spatial_grounding",
           "name": "3"
         },
         "3"
+      ],
+      [
+        {
+          "schema": "setting_sensory",
+          "name": "1"
+        },
+        "1"
       ],
       [
         {
@@ -12169,6 +12190,13 @@
       [
         {
           "schema": "setting_concreteness",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
           "name": "3"
         },
         "3"
@@ -12189,6 +12217,13 @@
       ],
       [
         {
+          "schema": "setting_concreteness",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
           "schema": "setting_sensory",
           "name": "1"
         },
@@ -12199,6 +12234,20 @@
       [
         {
           "schema": "setting_concreteness",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "setting_concreteness",
           "name": "2"
         },
         "2"
@@ -12206,6 +12255,13 @@
       [
         {
           "schema": "setting_temporal_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_spatial_grounding",
           "name": "2"
         },
         "2"
@@ -12243,9 +12299,9 @@
       [
         {
           "schema": "setting_spatial_grounding",
-          "name": "5"
+          "name": "4"
         },
-        "5"
+        "4"
       ],
       [
         {
@@ -12253,9 +12309,23 @@
           "name": "2"
         },
         "2"
+      ],
+      [
+        {
+          "schema": "setting_spatial_grounding",
+          "name": "5"
+        },
+        "5"
       ]
     ],
     "inst_289b4547308edda7_4": [
+      [
+        {
+          "schema": "setting_concreteness",
+          "name": "3"
+        },
+        "3"
+      ],
       [
         {
           "schema": "setting_concreteness",
@@ -12273,13 +12343,20 @@
       [
         {
           "schema": "setting_temporal_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_sensory",
           "name": "1"
         },
         "1"
       ],
       [
         {
-          "schema": "setting_sensory",
+          "schema": "setting_temporal_grounding",
           "name": "1"
         },
         "1"
@@ -12292,6 +12369,13 @@
           "name": "2"
         },
         "2"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "3"
+        },
+        "3"
       ],
       [
         {
@@ -12319,6 +12403,13 @@
       [
         {
           "schema": "setting_spatial_grounding",
+          "name": "4"
+        },
+        "4"
+      ],
+      [
+        {
+          "schema": "setting_spatial_grounding",
           "name": "5"
         },
         "5"
@@ -12340,12 +12431,26 @@
       [
         {
           "schema": "setting_sensory",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_sensory",
           "name": "2"
         },
         "2"
       ]
     ],
     "inst_914f0e14c64e6c76_7": [
+      [
+        {
+          "schema": "setting_concreteness",
+          "name": "4"
+        },
+        "4"
+      ],
       [
         {
           "schema": "setting_concreteness",
@@ -12366,6 +12471,13 @@
           "name": "5"
         },
         "5"
+      ],
+      [
+        {
+          "schema": "setting_sensory",
+          "name": "3"
+        },
+        "3"
       ],
       [
         {
@@ -12386,6 +12498,13 @@
       [
         {
           "schema": "setting_concreteness",
+          "name": "4"
+        },
+        "4"
+      ],
+      [
+        {
+          "schema": "setting_concreteness",
           "name": "5"
         },
         "5"
@@ -12400,12 +12519,54 @@
       [
         {
           "schema": "setting_sensory",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_sensory",
           "name": "2"
         },
         "2"
       ]
     ],
     "inst_24c673570e4ee7d9_9": [
+      [
+        {
+          "schema": "setting_concreteness",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_spatial_grounding",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "setting_spatial_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
       [
         {
           "schema": "setting_concreteness",
@@ -12422,13 +12583,6 @@
       ],
       [
         {
-          "schema": "setting_spatial_grounding",
-          "name": "2"
-        },
-        "2"
-      ],
-      [
-        {
           "schema": "setting_sensory",
           "name": "1"
         },
@@ -12436,6 +12590,20 @@
       ]
     ],
     "inst_76a799c4a7372d4a_10": [
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "setting_concreteness",
+          "name": "2"
+        },
+        "2"
+      ],
       [
         {
           "schema": "setting_temporal_grounding",
@@ -12469,13 +12637,27 @@
       [
         {
           "schema": "setting_concreteness",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_concreteness",
           "name": "3"
         },
         "3"
       ],
       [
         {
-          "schema": "setting_temporal_grounding",
+          "schema": "setting_spatial_grounding",
           "name": "2"
         },
         "2"
@@ -12496,6 +12678,13 @@
       ]
     ],
     "inst_ebc5f9ecf7812496_12": [
+      [
+        {
+          "schema": "setting_concreteness",
+          "name": "2"
+        },
+        "2"
+      ],
       [
         {
           "schema": "setting_concreteness",
@@ -12573,6 +12762,13 @@
       [
         {
           "schema": "setting_spatial_grounding",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_spatial_grounding",
           "name": "2"
         },
         "2"
@@ -12589,13 +12785,27 @@
       [
         {
           "schema": "setting_concreteness",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
           "name": "2"
         },
         "2"
       ],
       [
         {
-          "schema": "setting_temporal_grounding",
+          "schema": "setting_concreteness",
           "name": "2"
         },
         "2"
@@ -12616,6 +12826,13 @@
       ]
     ],
     "inst_41c4100b437f957e_16": [
+      [
+        {
+          "schema": "setting_concreteness",
+          "name": "1"
+        },
+        "1"
+      ],
       [
         {
           "schema": "setting_concreteness",
@@ -12656,6 +12873,20 @@
       [
         {
           "schema": "setting_temporal_grounding",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
           "name": "3"
         },
         "3"
@@ -12686,6 +12917,13 @@
       [
         {
           "schema": "setting_temporal_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_temporal_grounding",
           "name": "3"
         },
         "3"
@@ -12693,9 +12931,23 @@
       [
         {
           "schema": "setting_spatial_grounding",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "setting_spatial_grounding",
           "name": "1"
         },
         "1"
+      ],
+      [
+        {
+          "schema": "setting_sensory",
+          "name": "2"
+        },
+        "2"
       ],
       [
         {

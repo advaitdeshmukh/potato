@@ -3626,6 +3626,14 @@ def update_instance():
             "request_size": len(request.get_data()) if request.get_data() else 0
         }
 
+        # Build a schema-name → annotation_type lookup used by both format paths below.
+        # Single-select types must have stale labels cleared on every update so that
+        # changing a selection removes the previously stored option.
+        _single_select_types = {'radio', 'multiselect', 'likert'}
+        _schema_type_cache = {}
+        for scheme in config.get('annotation_schemes', []):
+            _schema_type_cache[scheme.get('name')] = scheme.get('annotation_type')
+
         # Check if this is the frontend format (annotations, span_annotations, link_annotations, event_annotations)
         if "annotations" in request.json or "span_annotations" in request.json or "link_annotations" in request.json or "event_annotations" in request.json:
             logger.debug("Processing frontend format (annotations, span_annotations)")
@@ -3637,10 +3645,7 @@ def update_instance():
             # The client always sends the COMPLETE current state, so any label
             # not in the incoming set should be removed. Without this, deselected
             # radio options or unchecked checkboxes persist as stale data.
-            _exclusive_types = {'radio', 'multiselect'}
-            _schema_type_cache = {}
-            for scheme in config.get('annotation_schemes', []):
-                _schema_type_cache[scheme.get('name')] = scheme.get('annotation_type')
+            _exclusive_types = _single_select_types
 
             # Collect which schemas appear in the incoming annotations
             _incoming_schemas = set()
@@ -3946,6 +3951,19 @@ def update_instance():
                         user_state.add_span_annotation(instance_id, span, value)
                         logger.debug(f"Added span annotation: {span} with value: {value}")
             elif annotation_type == "label":
+                # For single-select schemas (likert, radio), remove all previously stored
+                # labels for this schema before writing the new state. Without this, each
+                # click on a different option adds a new Label key rather than replacing
+                # the old one, producing a spurious edit-log in the stored data.
+                if _schema_type_cache.get(schema_name) in _single_select_types:
+                    if instance_id in user_state.instance_id_to_label_to_value:
+                        stale = [
+                            lbl for lbl in user_state.instance_id_to_label_to_value[instance_id]
+                            if isinstance(lbl, Label) and lbl.get_schema() == schema_name
+                        ]
+                        for lbl in stale:
+                            del user_state.instance_id_to_label_to_value[instance_id][lbl]
+
                 for sv in schema_state:
                     label = Label(schema_name, sv["name"])
                     value = sv["value"]
