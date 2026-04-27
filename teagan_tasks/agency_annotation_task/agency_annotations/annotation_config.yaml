@@ -14,7 +14,7 @@ data_files:
   - data/dolma_combined_final_sample_700_with_llm_summary_safeid_with_spans.csv
 output_annotation_dir: annotation_output/results/
 output_annotation_format: json
-annotation_codebook_url: ""
+annotation_codebook_url: "https://docs.google.com/document/d/1gFhirrtkVxULWeZeEXqL_9aptCoO5QlJzsspeLxvt-g/edit?usp=sharing"
 
 item_properties:
   id_key: safe_instance_id
