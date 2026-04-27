@@ -681,7 +681,7 @@
     "inst_3647d545a82ce0a5_677",
     "inst_4d8f211b19729bca_678"
   ],
-  "current_instance_index": 0,
+  "current_instance_index": 1,
   "current_phase_and_page": [
     "annotation",
     "annotation"
@@ -1055,6 +1055,47 @@
             "new_value": "1",
             "source": "user"
           }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1777307997.567,
+          "target": "instance_load",
+          "instance_id": "inst_5267439fd5e6fa9c_0",
+          "client_timestamp": 1777307997567,
+          "metadata": {
+            "instance_id": "inst_5267439fd5e6fa9c_0",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1777308373.009,
+          "target": "instance_load",
+          "instance_id": "inst_5267439fd5e6fa9c_0",
+          "client_timestamp": 1777308373009,
+          "metadata": {
+            "instance_id": "inst_5267439fd5e6fa9c_0",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1777308378.8,
+          "target": "next",
+          "instance_id": "inst_5267439fd5e6fa9c_0",
+          "client_timestamp": 1777308378800,
+          "metadata": {
+            "from_instance": "inst_5267439fd5e6fa9c_0",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1777308378.8,
+          "target": "instance:inst_5267439fd5e6fa9c_0",
+          "instance_id": "inst_5267439fd5e6fa9c_0",
+          "client_timestamp": 1777308378800,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -1116,6 +1157,14 @@
     "inst_5267439fd5e6fa9c_0": {
       "highlights": [],
       "seed": 3056398716,
+      "settings": {
+        "keyword_probability": 1.0,
+        "random_word_probability": 0.0
+      }
+    },
+    "inst_cb7b7cc8610afc27_1": {
+      "highlights": [],
+      "seed": 2525314743,
       "settings": {
         "keyword_probability": 1.0,
         "random_word_probability": 0.0
