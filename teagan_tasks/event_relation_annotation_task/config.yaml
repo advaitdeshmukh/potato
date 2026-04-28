@@ -17,7 +17,7 @@ output_annotation_format: csv
 annotation_codebook_url: ""
 
 data_files:
-  - data/dolma_combined_final_sample_700_with_llm_summary_safeid_with_spans.csv
+  - data/dolma_final_sample_s67_n1000_t0.5_llm_summary_safeid_with_spans.csv
 
 item_properties:
   id_key: safe_instance_id
@@ -31,7 +31,7 @@ pair_assignment_policy:
   #   - { mode: spacy, weight: 1 }
   schedule:
     - mode: sim
-      weight: 2
+      weight: 4
     - mode: mix
       weight: 1
 
