@@ -65,13 +65,11 @@ pair_question_text:
   sequencing_left_label: "No clear sequence"
   sequencing_right_label: "Very strong sequence"
   causality_title: "Event Causality"
-  causality_question: "Is Event 1 necessary for Event 2 to occur?"
+  causality_question: "How are events 1 and 2 causally related?"
   causality_description: >
-    Consider two types of causality that count as causality: direct causality and enablement. Direct causality is when Event 1 directly causes Event 2 (e.g. "He tripped on the rock, causing him to fall"). 
+    Consider two types of causality: direct causality and enablement. Direct causality is when Event 1 directly causes Event 2 (e.g. "He tripped on the rock, causing him to fall").
     \n\nEnablement is when Event 1 sets the stage for Event 2 but does not directly cause it (e.g. "She bought a ticket. She boarded the train.").
     \n\nUse your world knowledge. There will be implicit cases that require you to infer causality based on what you know about how the world works (e.g. "She bought a ticket. She boarded the train." implies that buying the ticket enabled her to board the train, even though it doesn't explicitly say that).
-  causality_left_label: "No causal link"
-  causality_right_label: "Very strong, explicit causality"
 
 user_config:
   allow_all_users: true

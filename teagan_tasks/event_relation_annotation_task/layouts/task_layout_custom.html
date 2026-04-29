@@ -8,7 +8,7 @@
   /* ── Two-column layout ───────────────────────────────────── */
   #two-col-wrapper  { display: flex; gap: 1.5rem; align-items: start; }
   #two-col-left     { flex: 1; min-width: 0; }
-  #two-col-right    { flex: 0 0 520px; width: 520px; min-width: 520px; max-width: 520px; overflow: hidden; }
+  #two-col-right    { flex: 0 0 620px; width: 620px; min-width: 620px; max-width: 620px; overflow: hidden; }
 
   /* ── Collapse instance-display gap ──────────────────────── */
   .instance-display-container { gap: 0 !important; }
@@ -153,6 +153,7 @@
   #event-seq-panel {
     background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
     padding: 20px; display: flex; flex-direction: column; gap: 16px;
+    min-width: 580px;
   }
 
   .seq-top-row { display: flex; justify-content: space-between; align-items: center; }
@@ -219,14 +220,16 @@
     padding: 12px; margin-top: 8px; display: flex; flex-direction: column; gap: 10px;
   }
   .ordering-question-title {
-    font-size: 0.8rem; font-weight: 700; color: #374151; margin: 0;
+    font-size: 0.8rem; font-weight: 700; color: #374151; margin: 0 0 3px;
+  }
+  .ordering-question-subtitle {
+    font-size: 0.72rem; color: #6b7280; margin: 0 0 6px; font-style: italic;
   }
   .ordering-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
   .ordering-btn {
-    flex: 1; padding: 8px 10px; border: 1.5px solid #6366f1; border-radius: 6px;
+    flex: 1; min-width: max-content; padding: 8px 10px; border: 1.5px solid #6366f1; border-radius: 6px;
     background: #fff; color: #4338ca; font-size: 0.8rem; font-weight: 600;
     cursor: pointer; transition: all 0.12s ease;
-    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .ordering-btn:hover { background: #eef2ff; }
   .ordering-btn-hard {
@@ -253,6 +256,14 @@
     border-color: #fde047; background: #fef9c3; color: #854d0e;
   }
   .ordering-confirmed.too-hard .ordering-change-btn:hover { background: #fef08a; }
+  .ordering-confirmed.simultaneous {
+    background: #fefce8; border-color: #fde047;
+  }
+  .ordering-confirmed.simultaneous .ordering-confirmed-label { color: #854d0e; }
+  .ordering-confirmed.simultaneous .ordering-change-btn {
+    border-color: #fde047; background: #fef9c3; color: #854d0e;
+  }
+  .ordering-confirmed.simultaneous .ordering-change-btn:hover { background: #fef08a; }
 
   .likert-divider { border: none; border-top: 1px solid #f3f4f6; margin: 0; }
   .event-check-panel {
@@ -317,9 +328,9 @@
     font-size: 1rem; font-weight: 500; color: #111827; line-height: 1.4; margin: 0;
   }
   .likert-group  { display: flex; flex-direction: column; gap: 5px; }
-  .likert-row    { display: flex; gap: 6px; }
+  .likert-row    { display: flex; gap: 6px; flex-wrap: wrap; }
   .likert-btn {
-    flex: 1; padding: 10px 0; border: 1.5px solid #d1d5db; border-radius: 7px;
+    flex: 1; min-width: max-content; padding: 10px 8px; border: 1.5px solid #d1d5db; border-radius: 7px;
     background: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 600;
     color: #6b7280; transition: all 0.12s ease;
   }
@@ -422,16 +433,16 @@
 
   /* EVENT_HELPER_START */
   var _eventHelperFromConfig = {
-  "description": "Events are singular, bounded occurrences where something happens at a particular point in time. \\n\\nThe highlighted spans are event triggers. Event triggers are the smallest units that can be identified as events. \\n\\nWhen considering whether a span qualifies as an event, try to determine the full event indicated by the highlighted span. \\n\\nA span qualifies as an event if you can identify what happened AND who or what it happened to from the surrounding text. \\n\\nDO NOT consider hypothetical or future events that are not clearly indicated as having occurred in the text.",
+  "description": "Events are singular, bounded occurrences where something happens at a particular point in time. \\n\\nThe highlighted spans are event triggers. Event triggers are the smallest units that can be identified as events. \\n\\nWhen considering whether a span qualifies as an event, try to determine the full event indicated by the highlighted span. \\n\\nA span qualifies as an event if you can identify what happened AND who or what it happened to from the surrounding text. \\n\\nDO NOT consider hypothetical, negated, or future events that are not clearly indicated as having occurred in the text.",
   "title": "What counts as an event?"
 };
   /* EVENT_HELPER_END */
 
   /* QUESTION_TEXT_START */
   var _questionTextFromConfig = {
-  "causality_description": "Consider two types of causality that count as causality: direct causality and enablement. Direct causality is when Event 1 directly causes Event 2 (e.g. \"He tripped on the rock, causing him to fall\"). \\n\\nEnablement is when Event 1 sets the stage for Event 2 but does not directly cause it (e.g. \"She bought a ticket. She boarded the train.\"). \\n\\nUse your world knowledge. There will be implicit cases that require you to infer causality based on what you know about how the world works (e.g. \"She bought a ticket. She boarded the train.\" implies that buying the ticket enabled her to board the train, even though it doesn't explicitly say that).",
+  "causality_description": "Consider two types of causality that count as causality: direct causality and enablement. Direct causality is when Event 1 directly causes Event 2 (e.g. \"He tripped on the rock, causing him to fall\"). \\n\\nEnablement is when Event 1 sets the stage for Event 2 but does not directly cause it (e.g. \"She bought a ticket. She boarded the train.\"). \\n\\nUse your world knowledge. There will be implicit cases that require you to infer causality based on what you know about how the world works (e.g. \"She bought a ticket. She boarded the train.\" implies that buying the ticket enabled her to board the train, even though it doesn't explicitly say that, therefore this would be an enablement relationship).",
   "causality_left_label": "No causal link",
-  "causality_question": "Is Event 1 necessary for Event 2 to occur?",
+  "causality_question": "How are events 1 and 2 causally related?",
   "causality_right_label": "Very strong, explicit causality",
   "causality_title": "Event Causality",
   "sequencing_description": "Events can be sequential (Event 1 happens before Event 2) or non-sequential (Event 1 and Event 2 are simultaneous, unordered, or temporally ambiguous). \\n\\nThe sequentiality can be explicit (e.g. \"Event 1 happened, then Event 2\") or implicit (e.g. \"He bought ice cream. She topped the ice cream with sprinkles.\").",
@@ -750,7 +761,12 @@
       _orderingDecision  = 'too_hard';
       _pendingSeqRating  = null;
       _pendingCausRating = null;
-      _ratedPairs = [{ span1Idx: _selectedSpans[0], span2Idx: _selectedSpans[1], seqRating: null, causRating: null }];
+      _ratedPairs = [{ span1Idx: _selectedSpans[0], span2Idx: _selectedSpans[1], causRating: null }];
+    } else if (posOrTooHard === 'simultaneous') {
+      _orderingDecision  = 'simultaneous';
+      _pendingSeqRating  = null;
+      _pendingCausRating = null;
+      _ratedPairs        = [];
     } else {
       var pos = parseInt(posOrTooHard, 10);
       if (pos === 1) {
@@ -824,17 +840,37 @@
   function addPair() {
     if (_selectedSpans.length !== 2) return;
     if (!bothSpansMarkedEvent()) return;
-    if (_orderingDecision !== 'decided') return;
-    if (_pendingSeqRating === null || _pendingCausRating === null) return;
+    if (_orderingDecision !== 'decided' && _orderingDecision !== 'simultaneous') return;
+    if (_pendingCausRating === null) return;
     _ratedPairs = [{
       span1Idx:   _selectedSpans[0],
       span2Idx:   _selectedSpans[1],
-      seqRating:  _pendingSeqRating,
       causRating: _pendingCausRating
     }];
     updateSelectionPanel();
     updateProgress();
     saveAnnotation();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Dynamic causality labels (span tokens instead of "1"/"2")
+  ═══════════════════════════════════════════════════════════ */
+  function updateCausalityLabels() {
+    if (_selectedSpans.length !== 2) return;
+    var s1 = _allSpans[_selectedSpans[0]];
+    var s2 = _allSpans[_selectedSpans[1]];
+    if (!s1 || !s2) return;
+    var t1 = esc(s1.token);
+    var t2 = esc(s2.token);
+
+    var qEl = document.getElementById('caus-question-text');
+    if (qEl) qEl.innerHTML = 'How are ‘' + t1 + '’ and ‘' + t2 + '’ causally related?';
+
+    document.querySelectorAll('.caus-likert-btn').forEach(function(btn) {
+      if      (btn.dataset.val === 'direct_cause') btn.textContent = '‘' + t1 + '’ directly causes ‘' + t2 + '’';
+      else if (btn.dataset.val === 'enables')      btn.textContent = '‘' + t1 + '’ enables ‘' + t2 + '’';
+      else if (btn.dataset.val === 'not_related')  btn.textContent = '‘' + t1 + '’ is not causally related to ‘' + t2 + '’';
+    });
   }
 
   /* ═══════════════════════════════════════════════════════════
@@ -867,9 +903,11 @@
           orderingHTML =
             '<div class="ordering-question-panel">' +
               '<p class="ordering-question-title">Which event comes first?</p>' +
+              '<p class="ordering-question-subtitle">Event ordering here is determined by each events\' start point. NOT their duration or end points.</p>' +
               '<div class="ordering-btn-row">' +
                 '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(0)">' + esc(s1.token) + '</button>' +
                 '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(1)">' + esc(s2.token) + '</button>' +
+                '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(\'simultaneous\')">Simultaneous</button>' +
                 '<button class="ordering-btn ordering-btn-hard" type="button" onclick="handleOrderingDecision(\'too_hard\')">Too hard to tell</button>' +
               '</div>' +
             '</div>';
@@ -877,6 +915,12 @@
           orderingHTML =
             '<div class="ordering-confirmed">' +
               '<p class="ordering-confirmed-label"><strong>' + esc(s1.token) + '</strong> &rarr; <strong>' + esc(s2.token) + '</strong></p>' +
+              '<button class="ordering-change-btn" type="button" onclick="resetOrderingDecision()">Change</button>' +
+            '</div>';
+        } else if (_orderingDecision === 'simultaneous') {
+          orderingHTML =
+            '<div class="ordering-confirmed simultaneous">' +
+              '<p class="ordering-confirmed-label">Simultaneous</p>' +
               '<button class="ordering-change-btn" type="button" onclick="resetOrderingDecision()">Change</button>' +
             '</div>';
         } else if (_orderingDecision === 'too_hard') {
@@ -934,7 +978,7 @@
       }
 
       if (likertEl) {
-        likertEl.classList.toggle('hidden', !(bothSpansMarkedEvent() && _orderingDecision === 'decided'));
+        likertEl.classList.toggle('hidden', !(bothSpansMarkedEvent() && (_orderingDecision === 'decided' || _orderingDecision === 'simultaneous')));
       }
 
       document.querySelectorAll('.seq-likert-btn').forEach(function(btn) {
@@ -943,6 +987,7 @@
       document.querySelectorAll('.caus-likert-btn').forEach(function(btn) {
         btn.classList.toggle('selected', btn.dataset.val === _pendingCausRating);
       });
+      updateCausalityLabels();
     } else {
       instrEl.style.display  = '';
       ratingEl.style.display = 'none';
@@ -966,8 +1011,11 @@
       // Both events: need ordering answer first
       if (_orderingDecision === null) return false;
       if (_orderingDecision === 'too_hard') return true;
-      // Ordering decided: need Likert ratings
-      return _pendingSeqRating !== null && _pendingCausRating !== null;
+      // Ordering decided or simultaneous: need causality rating
+      if (_orderingDecision === 'decided' || _orderingDecision === 'simultaneous') {
+        return _pendingCausRating !== null;
+      }
+      return false;
     }
     return true; // at least one span is not an event
   }
@@ -1014,15 +1062,15 @@
         var bothEvent   = d1 === true && d2 === true;
         var isComplete  = false;
         if (bothEvent) {
-          item.temporal_order = _orderingDecision === 'too_hard' ? 'too_hard_to_tell'
-                              : _orderingDecision === 'decided'  ? 'span1_first'
+          item.temporal_order = _orderingDecision === 'too_hard'    ? 'too_hard_to_tell'
+                              : _orderingDecision === 'simultaneous' ? 'simultaneous'
+                              : _orderingDecision === 'decided'      ? 'span1_first'
                               : null;
           if (_orderingDecision === 'too_hard') {
             isComplete = true;
-          } else if (_orderingDecision === 'decided' &&
-                     _pendingSeqRating !== null && _pendingCausRating !== null) {
-            item.sequencing_rating = _pendingSeqRating;
-            item.causality_rating  = _pendingCausRating;
+          } else if ((_orderingDecision === 'decided' || _orderingDecision === 'simultaneous') &&
+                     _pendingCausRating !== null) {
+            item.causality_rating = _pendingCausRating;
             isComplete = true;
           }
         } else {
@@ -1142,7 +1190,7 @@
     legend.className = 'span-legend';
     legend.innerHTML =
       '<span class="span-legend-item"><span class="swatch swatch-verb"></span>spaCy non-stative non-helper verb</span>' +
-      '<span class="span-legend-item"><span class="swatch swatch-event"></span>Event span</span>';
+      '<span class="span-legend-item"><span class="swatch swatch-event"></span>Event span from LitBank</span>';
     mainBlock.parentNode.insertBefore(legend, mainBlock);
   }
 
@@ -1229,23 +1277,23 @@
           }
           if (item.temporal_order === 'too_hard_to_tell') {
             _orderingDecision = 'too_hard';
-            _ratedPairs.push({ span1Idx: item.span1.idx, span2Idx: item.span2.idx, seqRating: null, causRating: null });
+            _ratedPairs.push({ span1Idx: item.span1.idx, span2Idx: item.span2.idx, causRating: null });
           } else if (item.temporal_order === 'span1_first') {
             _orderingDecision = 'decided';
+          } else if (item.temporal_order === 'simultaneous') {
+            _orderingDecision = 'simultaneous';
           }
-          if (item.sequencing_rating != null && item.causality_rating != null) {
+          if (item.causality_rating != null) {
             _ratedPairs.push({
               span1Idx:  item.span1.idx,
               span2Idx:  item.span2.idx,
-              seqRating: item.sequencing_rating,
               causRating: item.causality_rating
             });
           }
         });
         if (_ratedPairs.length > 0) {
           _ratedPairs = [_ratedPairs[_ratedPairs.length - 1]];
-          if (_ratedPairs[0].seqRating != null) {
-            _pendingSeqRating  = _ratedPairs[0].seqRating;
+          if (_ratedPairs[0].causRating != null) {
             _pendingCausRating = _ratedPairs[0].causRating;
           }
         }
@@ -1265,9 +1313,8 @@
               idx1 >= 0 && idx2 >= 0 &&
               idx1 < _allSpans.length && idx2 < _allSpans.length) {
             _selectedSpans = [savedPair.span1Idx, savedPair.span2Idx];
-            if (savedPair.seqRating != null) {
-              _pendingSeqRating  = parseInt(savedPair.seqRating, 10);
-              _pendingCausRating = parseInt(savedPair.causRating, 10);
+            if (savedPair.causRating != null) {
+              _pendingCausRating = savedPair.causRating;
             }
           }
         }
@@ -1337,25 +1384,8 @@
 
       <div id="likert-section">
         <div class="likert-question-block">
-          <p class="likert-title" id="seq-title">Event Sequentiality</p>
-          <p class="likert-question" id="seq-question-text">How strongly are these events sequentially connected?</p>
-          <details class="likert-description-details">
-            <summary><span class="desc-chevron">&#9654;</span> More info</summary>
-            <p class="likert-description" id="seq-description"></p>
-          </details>
-        </div>
-        <div class="likert-group">
-          <div class="likert-row">
-            <button class="likert-btn seq-likert-btn" data-val="yes" onclick="handleSeqClick('yes')">Yes</button>
-            <button class="likert-btn seq-likert-btn" data-val="no" onclick="handleSeqClick('no')">No</button>
-          </div>
-        </div>
-
-        <hr class="likert-divider">
-
-        <div class="likert-question-block">
           <p class="likert-title" id="caus-title">Event Causality</p>
-          <p class="likert-question" id="caus-question-text">How strongly is a causal relationship supported by the text?</p>
+          <p class="likert-question" id="caus-question-text">How are events 1 and 2 causally related?</p>
           <details class="likert-description-details">
             <summary><span class="desc-chevron">&#9654;</span> More info</summary>
             <p class="likert-description" id="caus-description"></p>
@@ -1363,9 +1393,9 @@
         </div>
         <div class="likert-group">
           <div class="likert-row">
-            <button class="likert-btn caus-likert-btn" data-val="yes" onclick="handleCausClick('yes')">Yes</button>
-            <button class="likert-btn caus-likert-btn" data-val="no" onclick="handleCausClick('no')">No</button>
-            <button class="likert-btn caus-likert-btn" data-val="unclear" onclick="handleCausClick('unclear')">Unclear</button>
+            <button class="likert-btn caus-likert-btn" data-val="direct_cause" onclick="handleCausClick('direct_cause')">1 directly causes 2</button>
+            <button class="likert-btn caus-likert-btn" data-val="enables" onclick="handleCausClick('enables')">1 enables 2</button>
+            <button class="likert-btn caus-likert-btn" data-val="not_related" onclick="handleCausClick('not_related')">1 is not causally related to 2</button>
           </div>
         </div>
       </div>
