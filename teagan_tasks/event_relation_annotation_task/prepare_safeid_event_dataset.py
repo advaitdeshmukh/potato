@@ -16,8 +16,8 @@ import sys
 from pathlib import Path
 
 
-DEFAULT_INPUT = Path("data/dolma_final_sample_s67_n1000_t0.5_llm_summary.csv")
-DEFAULT_OUTPUT = Path("data/dolma_final_sample_s67_n1000_t0.5_llm_summary_safeid_with_spans.csv")
+DEFAULT_INPUT = Path("data/dolma_final_sample_s55_n1000_t0.5_llm_summary.csv")
+DEFAULT_OUTPUT = Path("data/dolma_final_sample_s55_n1000_t0.5_llm_summary_safeid_with_spans.csv")
 
 
 def build_safe_instance_id(raw_id: str, row_index: int) -> str:

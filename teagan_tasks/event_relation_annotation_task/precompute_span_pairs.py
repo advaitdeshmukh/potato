@@ -28,7 +28,7 @@ from pathlib import Path
 
 import yaml
 
-DEFAULT_CSV = Path("data/dolma_final_sample_s67_n1000_t0.5_llm_summary_safeid_with_spans.csv")
+DEFAULT_CSV = Path("data/dolma_final_sample_s55_n1000_t0.5_llm_summary_safeid_with_spans.csv")
 DEFAULT_CONFIG = Path("config.yaml")
 
 
@@ -178,8 +178,8 @@ def main() -> None:
             row["assigned_span2"] = json.dumps([s2["start"], s2["end"], s2["token"], s2["type"]])
             n_assigned += 1
         else:
-            row["assigned_span1"] = ""
-            row["assigned_span2"] = ""
+            row["assigned_span1"] = "null"
+            row["assigned_span2"] = "null"
             n_empty += 1
 
     output_path = args.output or args.csv
