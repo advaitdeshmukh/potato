@@ -286,7 +286,7 @@
 <form id="agency_focalization" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="0" data-annotation-type="likert" data-schema-name="agency_focalization" data-grid-columns="1">
         
         <fieldset schema="agency_focalization">
-            <legend class="shadcn-likert-title">How central is a specific character's perspective to the text?</legend>
+            <legend class="shadcn-likert-title">How central is a specific character's/narrator's perspective to the text?</legend>
             <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
                 <div class="shadcn-likert-endpoint">Not at all</div>
                 <div class="shadcn-likert-options">
@@ -468,7 +468,7 @@
 <form id="agency_cognition" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="2" data-annotation-type="likert" data-schema-name="agency_cognition" data-grid-columns="1">
         
         <fieldset schema="agency_cognition">
-            <legend class="shadcn-likert-title">How central are a character's thoughts and reasoning to the text?</legend>
+            <legend class="shadcn-likert-title">How central are a character's thoughts, reasoning, or motivations to the text?</legend>
             <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
                 <div class="shadcn-likert-endpoint">Not at all</div>
                 <div class="shadcn-likert-options">
@@ -555,99 +555,8 @@
     
         </fieldset></form>
 
-<!-- SCHEMA:agency_motivation -->
-<form id="agency_motivation" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="3" data-annotation-type="likert" data-schema-name="agency_motivation" data-grid-columns="1">
-        
-        <fieldset schema="agency_motivation">
-            <legend class="shadcn-likert-title">How central are a character's motivations, desires, or intentions to the text?</legend>
-            <div class="shadcn-likert-scale" style="max-width: min(100%, calc(300px + 5 * 40px + 250px));">
-                <div class="shadcn-likert-endpoint">Not at all</div>
-                <div class="shadcn-likert-options">
-                    <div class="shadcn-likert-track"></div>
-    
-                    <div class="shadcn-likert-option">
-                        <input class="agency_motivation shadcn-likert-input annotation-input"
-                               type="radio"
-                               id="agency_motivation_1_radio"
-                               name="agency_motivation"
-                               value="1"
-                               schema="agency_motivation"
-                               label_name="1"
-                               selection_constraint="single"
-                               validation=""
-                               onclick="onlyOne(this);registerAnnotation(this);">
-                        <label class="shadcn-likert-button" for="agency_motivation_1_radio"></label>
-                        
-                    </div>
-        
-                    <div class="shadcn-likert-option">
-                        <input class="agency_motivation shadcn-likert-input annotation-input"
-                               type="radio"
-                               id="agency_motivation_2_radio"
-                               name="agency_motivation"
-                               value="2"
-                               schema="agency_motivation"
-                               label_name="2"
-                               selection_constraint="single"
-                               validation=""
-                               onclick="onlyOne(this);registerAnnotation(this);">
-                        <label class="shadcn-likert-button" for="agency_motivation_2_radio"></label>
-                        
-                    </div>
-        
-                    <div class="shadcn-likert-option">
-                        <input class="agency_motivation shadcn-likert-input annotation-input"
-                               type="radio"
-                               id="agency_motivation_3_radio"
-                               name="agency_motivation"
-                               value="3"
-                               schema="agency_motivation"
-                               label_name="3"
-                               selection_constraint="single"
-                               validation=""
-                               onclick="onlyOne(this);registerAnnotation(this);">
-                        <label class="shadcn-likert-button" for="agency_motivation_3_radio"></label>
-                        
-                    </div>
-        
-                    <div class="shadcn-likert-option">
-                        <input class="agency_motivation shadcn-likert-input annotation-input"
-                               type="radio"
-                               id="agency_motivation_4_radio"
-                               name="agency_motivation"
-                               value="4"
-                               schema="agency_motivation"
-                               label_name="4"
-                               selection_constraint="single"
-                               validation=""
-                               onclick="onlyOne(this);registerAnnotation(this);">
-                        <label class="shadcn-likert-button" for="agency_motivation_4_radio"></label>
-                        
-                    </div>
-        
-                    <div class="shadcn-likert-option">
-                        <input class="agency_motivation shadcn-likert-input annotation-input"
-                               type="radio"
-                               id="agency_motivation_5_radio"
-                               name="agency_motivation"
-                               value="5"
-                               schema="agency_motivation"
-                               label_name="5"
-                               selection_constraint="single"
-                               validation=""
-                               onclick="onlyOne(this);registerAnnotation(this);">
-                        <label class="shadcn-likert-button" for="agency_motivation_5_radio"></label>
-                        
-                    </div>
-        
-                </div>
-                <div class="shadcn-likert-endpoint">Extremely</div>
-            </div>
-    
-        </fieldset></form>
-
 <!-- SCHEMA:agency_change_of_state -->
-<form id="agency_change_of_state" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="4" data-annotation-type="likert" data-schema-name="agency_change_of_state" data-grid-columns="1">
+<form id="agency_change_of_state" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="3" data-annotation-type="likert" data-schema-name="agency_change_of_state" data-grid-columns="1">
         
         <fieldset schema="agency_change_of_state">
             <legend class="shadcn-likert-title">How central is a change in a character's condition or state to the text?</legend>
@@ -738,7 +647,7 @@
         </fieldset></form>
 
 <!-- SCHEMA:agency_conflict -->
-<form id="agency_conflict" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="5" data-annotation-type="likert" data-schema-name="agency_conflict" data-grid-columns="1">
+<form id="agency_conflict" class="annotation-form likert shadcn-likert-container" action="/action_page.php" data-annotation-id="4" data-annotation-type="likert" data-schema-name="agency_conflict" data-grid-columns="1">
         
         <fieldset schema="agency_conflict">
             <legend class="shadcn-likert-title">How central is conflict involving characters to the text?</legend>
@@ -837,8 +746,7 @@
   var _agencyExtendedDescriptions = {
     agency_focalization: "A higher score reflects text in which the details and events are primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. \n\nFor example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\" because the first text emphasizes the character's perspective and internal experience, while the second simply describes an action without reference to how the character perceives or experiences it.",
     agency_emotion: "A higher score reflects text in which a character's emotional experience is a prominent feature. Feelings are foregrounded rather than incidental. A lower score reflects text with little or no reference to how a character feels. \n\nFor example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\" because the first text emphasizes the character's emotional experience, while the second simply describes an action without reference to feelings.",
-    agency_cognition: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, or mental reflections are a prominent feature. A lower score reflects text with little or no reference to what a character thinks or knows. \n\nFor example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" scores higher than \"she sat at her desk.\" because the first text emphasizes the character's cognitive experience, while the second simply describes an action without reference to thoughts or mental processes.",
-    agency_motivation: "A higher score reflects text in which a character wants, hopes, or aspirations are a prominent feature. A lower score reflects text with little or no reference to a character's goals or desires. \n\nFor example, \"he was determined to finish the job before anyone found out\" scores higher than \"he worked through the night.\" because the first text emphasizes the character's motivation, while the second simply describes an action without reference to goals or desires.",
+    agency_cognition: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, goals, or desires are a prominent feature. A lower score reflects text with little or no reference to what a character thinks, intends, or wants. \n\nFor example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" or \"he was determined to finish the job before anyone found out\" score higher than \"she sat at her desk\" or \"he worked through the night\" because the first texts foreground the character's inner mental life — their reasoning or their drive — while the second simply describe actions without reference to thoughts or motivations.",
     agency_change_of_state: "A higher score reflects text in which a change in a character's condition/state is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. \n\nFor example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\" because the first text emphasizes the character's change of state, while the second simply describes an action without reference to any transformation.",
     agency_conflict: "A higher score reflects text in which conflict is a dominant or organizing feature. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including tension between characters, internal psychological struggle, or opposition to institutions, environments, inanimate objects like technology, or social forces. \n\nFor example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\" because the first text emphasizes the conflict between characters, while the second simply describes an action without reference to any disagreement."
   };

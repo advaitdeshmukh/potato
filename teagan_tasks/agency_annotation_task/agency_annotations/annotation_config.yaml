@@ -39,7 +39,7 @@ alert_time_each_instance: 100000
 annotation_schemes:
   - annotation_type: likert
     name: agency_focalization
-    description: "How central is a specific character's perspective to the text?"
+    description: "How central is a specific character's/narrator's perspective to the text?"
     extended_description: "A higher score reflects text in which the details and events are primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. \n\nFor example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\" because the first text emphasizes the character's perspective and internal experience, while the second simply describes an action without reference to how the character perceives or experiences it."
     size: 5
     min_label: "Not at all"
@@ -59,18 +59,8 @@ annotation_schemes:
 
   - annotation_type: likert
     name: agency_cognition
-    description: "How central are a character's thoughts and reasoning to the text?"
-    extended_description: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, or mental reflections are a prominent feature. A lower score reflects text with little or no reference to what a character thinks or knows. \n\nFor example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" scores higher than \"she sat at her desk.\" because the first text emphasizes the character's cognitive experience, while the second simply describes an action without reference to thoughts or mental processes."
-    size: 5
-    min_label: "Not at all"
-    max_label: "Extremely"
-    label_requirement:
-      required: false
-
-  - annotation_type: likert
-    name: agency_motivation
-    description: "How central are a character's motivations, desires, or intentions to the text?"
-    extended_description: "A higher score reflects text in which a character wants, hopes, or aspirations are a prominent feature. A lower score reflects text with little or no reference to a character's goals or desires. \n\nFor example, \"he was determined to finish the job before anyone found out\" scores higher than \"he worked through the night.\" because the first text emphasizes the character's motivation, while the second simply describes an action without reference to goals or desires."
+    description: "How central are a character's thoughts, reasoning, or motivations to the text?"
+    extended_description: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, goals, or desires are a prominent feature. A lower score reflects text with little or no reference to what a character thinks, intends, or wants. \n\nFor example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" or \"he was determined to finish the job before anyone found out\" score higher than \"she sat at her desk\" or \"he worked through the night\" because the first texts foreground the character's inner mental life — their reasoning or their drive — while the second simply describe actions without reference to thoughts or motivations."
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
