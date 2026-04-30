@@ -11,7 +11,7 @@ annotation_task_name: Setting Annotation
 task_dir: .
 
 data_files:
-  - data/dolma_final_sample_s55_n1000_t0.5_llm_summary_safeid_with_spans.csv
+  - data/dolma_final_sample_s42_n1250_t0.5_llm_summary_safeid_with_spans.csv
 output_annotation_dir: annotation_output/results/
 output_annotation_format: json
 annotation_codebook_url: "https://docs.google.com/document/d/1JSABU6YoxlWyzOmb4KBM1CwSG-xu9ofAihqXzsFTTUE/edit?usp=sharing"
