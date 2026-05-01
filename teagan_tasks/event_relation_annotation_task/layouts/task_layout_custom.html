@@ -440,7 +440,7 @@
 
   /* QUESTION_TEXT_START */
   var _questionTextFromConfig = {
-  "causality_description": "Consider two types of causality that count as causality: direct causality and enablement. Direct causality is when Event 1 directly causes Event 2 (e.g. \"He tripped on the rock, causing him to fall\"). \\n\\nEnablement is when Event 1 sets the stage for Event 2 but does not directly cause it (e.g. \"She bought a ticket. She boarded the train.\"). \\n\\nUse your world knowledge. There will be implicit cases that require you to infer causality based on what you know about how the world works (e.g. \"She bought a ticket. She boarded the train.\" implies that buying the ticket enabled her to board the train, even though it doesn't explicitly say that, therefore this would be an enablement relationship).",
+  "causality_description": "Consider two types of causality: **direct causality** and **enablement**.\\n\\n**Direct causality** is when Event 1 is sufficient to produce Event 2: given E1, E2 was bound to happen. Direct causality is most recognizable in physical chains but it also occurs in more abstract contexts where E2 could be an involuntary reaction rather than a decision.\\n-**Physical**: \"She dropped her phone. The screen cracked.\" Here, the drop is sufficient to cause the crack. Nothing else needed to happen.\\n-**Abstract**: \"He read the message. His stomach dropped.\" Here, the involuntary physical reaction follows directly from reading. He did not choose to feel that way.\\n\\n**Enablement** is when Event 1 opens up the conditions for Event 2, but something else still needs to occur before E2 can happen. This could be a decision, an action, or an intervening circumstance. E1 makes E2 possible or likely, but does not produce it on its own.\\n-**Physical context**: \"She dropped her phone. She filed an insurance claim.\" Here, the drop creates the circumstances for a claim, but filing requires a separate decision on her part.\\n-**Abstract context**: \"He read the message. He called his lawyer.\" Here, reading the message may have prompted the call, but calling is a deliberate action he chose to take.\\n\\nDistinguishing **direct causality** from **enablement** is difficult. Especially when E2 involves a behavioral response that feels automatic or instinctive. To navigate this, ask yourself: **given E1, was E2 bound to happen on its own?** If yes, label it direct causality. If something else (a decision, an action, or an additional circumstance) needed to occur first, label it enablement.",
   "causality_left_label": "No causal link",
   "causality_question": "How are events 1 and 2 causally related?",
   "causality_right_label": "Very strong, explicit causality",
@@ -553,7 +553,7 @@
 
   function setHtmlById(id, text) {
     var el = document.getElementById(id);
-    if (el) el.innerHTML = esc(text).replace(/\\n/g, '<br>');
+    if (el) el.innerHTML = esc(text).replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\\n/g, '<br>');
   }
 
   function applyQuestionText() {
