@@ -1074,7 +1074,7 @@
     "inst_9b1707488a31a6a2_1070",
     "inst_59c49a5891d8c49c_1071"
   ],
-  "current_instance_index": 101,
+  "current_instance_index": 33,
   "current_phase_and_page": [
     "annotation",
     "annotation"
@@ -17672,6 +17672,97 @@
           "instance_id": "inst_a7705f957cb898b6_32",
           "client_timestamp": 1778015006828,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187266.466,
+          "target": "instance_load",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187266466,
+          "metadata": {
+            "instance_id": "inst_a7705f957cb898b6_32",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1778187279.738,
+          "target": "schema:setting_spatial_grounding",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187279738,
+          "metadata": {
+            "x": 1323,
+            "y": 579
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1778187279.739,
+          "target": "label:setting_spatial_grounding:3",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187279739,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1778187279.739,
+          "target": "label:setting_spatial_grounding:3",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187279739,
+          "metadata": {
+            "x": 1323,
+            "y": 579
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778187279.739,
+          "target": "schema:setting_spatial_grounding",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187279739,
+          "metadata": {
+            "label": "3",
+            "action": "select",
+            "new_value": "3",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187280.24,
+          "target": "instance:inst_a7705f957cb898b6_32",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187280240,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1778187286.3,
+          "target": "label:setting_spatial_grounding:3",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187286300,
+          "metadata": {
+            "duration_ms": 6561
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187286.485,
+          "target": "next",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187286485,
+          "metadata": {
+            "from_instance": "inst_a7705f957cb898b6_32",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187286.485,
+          "target": "instance:inst_a7705f957cb898b6_32",
+          "instance_id": "inst_a7705f957cb898b6_32",
+          "client_timestamp": 1778187286485,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -17720,6 +17811,15 @@
           "old_value": null,
           "new_value": "1",
           "source": "user"
+        },
+        {
+          "timestamp": 1778187279.8483505,
+          "schema_name": "setting_spatial_grounding",
+          "label_name": "3",
+          "action": "select",
+          "old_value": null,
+          "new_value": "3",
+          "source": "user"
         }
       ],
       "navigation_history": [],
@@ -17728,7 +17828,8 @@
         "label:setting_concreteness:2": 6366,
         "label:setting_temporal_grounding:2": 8341,
         "label:setting_spatial_grounding:4": 4175,
-        "label:setting_sensory:1": 2800
+        "label:setting_sensory:1": 2800,
+        "label:setting_spatial_grounding:3": 6561
       },
       "scroll_depth_max": 0.0,
       "keyword_highlights_shown": [],
@@ -18028,6 +18129,17 @@
           "instance_id": "inst_303b0f72dacfe493_33",
           "client_timestamp": 1778015045191,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187286.962,
+          "target": "instance_load",
+          "instance_id": "inst_303b0f72dacfe493_33",
+          "client_timestamp": 1778187286962,
+          "metadata": {
+            "instance_id": "inst_303b0f72dacfe493_33",
+            "from_instance": null
+          }
         }
       ],
       "ai_usage": [],
@@ -18434,6 +18546,49 @@
           "target": "instance:inst_b89ca2dd443ee660_34",
           "instance_id": "inst_b89ca2dd443ee660_34",
           "client_timestamp": 1778015101761,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187246.61,
+          "target": "instance_load",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1778187246610,
+          "metadata": {
+            "instance_id": "inst_b89ca2dd443ee660_34",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187264.536,
+          "target": "key:3",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1778187264536,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187264.73,
+          "target": "key:3",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1778187264730,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187265.448,
+          "target": "instance:inst_b89ca2dd443ee660_34",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1778187265448,
           "metadata": {}
         }
       ],
@@ -19949,6 +20104,97 @@
           "instance_id": "inst_ed50cc9193dd4ada_38",
           "client_timestamp": 1778016391042,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187194.908,
+          "target": "instance_load",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187194908,
+          "metadata": {
+            "instance_id": "inst_ed50cc9193dd4ada_38",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1778187224.599,
+          "target": "schema:setting_temporal_grounding",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187224599,
+          "metadata": {
+            "x": 1209,
+            "y": 413
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1778187224.599,
+          "target": "label:setting_temporal_grounding:2",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187224599,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1778187224.6,
+          "target": "label:setting_temporal_grounding:2",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187224600,
+          "metadata": {
+            "x": 1209,
+            "y": 413
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778187224.6,
+          "target": "schema:setting_temporal_grounding",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187224600,
+          "metadata": {
+            "label": "2",
+            "action": "select",
+            "new_value": "2",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187225.102,
+          "target": "instance:inst_ed50cc9193dd4ada_38",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187225102,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1778187225.795,
+          "target": "label:setting_temporal_grounding:2",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187225795,
+          "metadata": {
+            "duration_ms": 1196
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187225.873,
+          "target": "next",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187225873,
+          "metadata": {
+            "from_instance": "inst_ed50cc9193dd4ada_38",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187225.873,
+          "target": "instance:inst_ed50cc9193dd4ada_38",
+          "instance_id": "inst_ed50cc9193dd4ada_38",
+          "client_timestamp": 1778187225873,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -19988,6 +20234,15 @@
           "old_value": null,
           "new_value": "1",
           "source": "user"
+        },
+        {
+          "timestamp": 1778187224.6764112,
+          "schema_name": "setting_temporal_grounding",
+          "label_name": "2",
+          "action": "select",
+          "old_value": null,
+          "new_value": "2",
+          "source": "user"
         }
       ],
       "navigation_history": [],
@@ -19995,7 +20250,8 @@
         "label:setting_concreteness:1": 3646,
         "label:setting_temporal_grounding:1": 2259,
         "label:setting_spatial_grounding:4": 10246,
-        "label:setting_sensory:1": 6601
+        "label:setting_sensory:1": 6601,
+        "label:setting_temporal_grounding:2": 1196
       },
       "scroll_depth_max": 0.0,
       "keyword_highlights_shown": [],
@@ -20344,6 +20600,92 @@
           "target": "instance:inst_c363ce1bc3e40d22_39",
           "instance_id": "inst_c363ce1bc3e40d22_39",
           "client_timestamp": 1778016422278,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187226.336,
+          "target": "instance_load",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187226336,
+          "metadata": {
+            "instance_id": "inst_c363ce1bc3e40d22_39",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187230.878,
+          "target": "key:4",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187230878,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187231.055,
+          "target": "key:0",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187231055,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187232.004,
+          "target": "instance:inst_c363ce1bc3e40d22_39",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187232004,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187232.322,
+          "target": "instance_load",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187232322,
+          "metadata": {
+            "instance_id": "inst_c363ce1bc3e40d22_39",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187245.306,
+          "target": "key:3",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187245306,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187245.456,
+          "target": "key:5",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187245456,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187246.291,
+          "target": "instance:inst_c363ce1bc3e40d22_39",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1778187246291,
           "metadata": {}
         }
       ],
@@ -49687,6 +50029,76 @@
       "scroll_depth_max": 0.0,
       "keyword_highlights_shown": [],
       "chat_history": []
+    },
+    "inst_bbcfad3a302a6a47_101": {
+      "instance_id": "inst_bbcfad3a302a6a47_101",
+      "session_start": 1778182863.1613061,
+      "session_end": null,
+      "total_time_ms": 0,
+      "interactions": [
+        {
+          "event_type": "navigation",
+          "timestamp": 1778182857.25,
+          "target": "instance_load",
+          "instance_id": "inst_bbcfad3a302a6a47_101",
+          "client_timestamp": 1778182857250,
+          "metadata": {
+            "instance_id": "inst_bbcfad3a302a6a47_101",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187191.845,
+          "target": "key:3",
+          "instance_id": "inst_bbcfad3a302a6a47_101",
+          "client_timestamp": 1778187191845,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187192.054,
+          "target": "key:8",
+          "instance_id": "inst_bbcfad3a302a6a47_101",
+          "client_timestamp": 1778187192054,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187193.286,
+          "target": "key:9",
+          "instance_id": "inst_bbcfad3a302a6a47_101",
+          "client_timestamp": 1778187193286,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187194.573,
+          "target": "instance:inst_bbcfad3a302a6a47_101",
+          "instance_id": "inst_bbcfad3a302a6a47_101",
+          "client_timestamp": 1778187194573,
+          "metadata": {}
+        }
+      ],
+      "ai_usage": [],
+      "annotation_changes": [],
+      "navigation_history": [],
+      "focus_time_by_element": {},
+      "scroll_depth_max": 0.0,
+      "keyword_highlights_shown": [],
+      "chat_history": []
     }
   },
   "instance_id_to_label_to_value": {
@@ -50668,9 +51080,9 @@
       [
         {
           "schema": "setting_spatial_grounding",
-          "name": "4"
+          "name": "3"
         },
-        "4"
+        "3"
       ],
       [
         {
@@ -50841,9 +51253,9 @@
       [
         {
           "schema": "setting_temporal_grounding",
-          "name": "1"
+          "name": "2"
         },
-        "1"
+        "2"
       ],
       [
         {
@@ -53522,6 +53934,14 @@
     "inst_f92843cbf2890959_100": {
       "highlights": [],
       "seed": 3205800208,
+      "settings": {
+        "keyword_probability": 1.0,
+        "random_word_probability": 0.0
+      }
+    },
+    "inst_bbcfad3a302a6a47_101": {
+      "highlights": [],
+      "seed": 64727815,
       "settings": {
         "keyword_probability": 1.0,
         "random_word_probability": 0.0
