@@ -9475,6 +9475,50 @@
             "new_value": "[{\"span1\":{\"idx\":0,\"start\":10,\"end\":15,\"token\":\"plans\",\"type\":\"event\"},\"span2\":{\"idx\":1,\"start\":19,\"end\":23,\"token\":\"send\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
             "source": "user"
           }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168297.351,
+          "target": "instance_load",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1778168297351,
+          "metadata": {
+            "instance_id": "inst_722f3f9c46054e51_51",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168298.588,
+          "target": "next",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1778168298588,
+          "metadata": {
+            "from_instance": "inst_722f3f9c46054e51_51",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168298.588,
+          "target": "instance:inst_722f3f9c46054e51_51",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1778168298588,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168298.588,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1778168298588,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "update",
+            "old_value": "[{\"span1\":{\"idx\":0,\"start\":10,\"end\":15,\"token\":\"plans\",\"type\":\"event\"},\"span2\":{\"idx\":1,\"start\":19,\"end\":23,\"token\":\"send\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "new_value": "[{\"span1\":{\"idx\":0,\"start\":10,\"end\":15,\"token\":\"plans\",\"type\":\"event\"},\"span2\":{\"idx\":1,\"start\":19,\"end\":23,\"token\":\"send\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "source": "user"
+          }
         }
       ],
       "ai_usage": [],
@@ -9508,6 +9552,15 @@
         },
         {
           "timestamp": 1778039308.5572102,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "update",
+          "old_value": "[{\"span1\":{\"idx\":0,\"start\":10,\"end\":15,\"token\":\"plans\",\"type\":\"event\"},\"span2\":{\"idx\":1,\"start\":19,\"end\":23,\"token\":\"send\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+          "new_value": "[{\"span1\":{\"idx\":0,\"start\":10,\"end\":15,\"token\":\"plans\",\"type\":\"event\"},\"span2\":{\"idx\":1,\"start\":19,\"end\":23,\"token\":\"send\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168298.6319857,
           "schema_name": "event_sequencing",
           "label_name": "event_sequencing",
           "action": "update",
@@ -9552,6 +9605,149 @@
             "new_value": null,
             "source": "user"
           }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778039313.936,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778039313936,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "update",
+            "old_value": "",
+            "new_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778039314.437,
+          "target": "instance:inst_3cae718d83f79c4a_52",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778039314437,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778039314.661,
+          "target": "next",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778039314661,
+          "metadata": {
+            "from_instance": "inst_3cae718d83f79c4a_52",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778039314.661,
+          "target": "instance:inst_3cae718d83f79c4a_52",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778039314661,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778039314.662,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778039314662,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "update",
+            "old_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "new_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168295.417,
+          "target": "instance_load",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168295417,
+          "metadata": {
+            "instance_id": "inst_3cae718d83f79c4a_52",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168296.845,
+          "target": "prev",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168296845,
+          "metadata": {
+            "from_instance": "inst_3cae718d83f79c4a_52",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168296.845,
+          "target": "instance:inst_3cae718d83f79c4a_52",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168296845,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168296.847,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168296847,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "update",
+            "old_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "new_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168299.081,
+          "target": "instance_load",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168299081,
+          "metadata": {
+            "instance_id": "inst_3cae718d83f79c4a_52",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168300.29,
+          "target": "next",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168300290,
+          "metadata": {
+            "from_instance": "inst_3cae718d83f79c4a_52",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168300.29,
+          "target": "instance:inst_3cae718d83f79c4a_52",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168300290,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168300.291,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_3cae718d83f79c4a_52",
+          "client_timestamp": 1778168300291,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "update",
+            "old_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "new_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+            "source": "user"
+          }
         }
       ],
       "ai_usage": [],
@@ -9581,6 +9777,988 @@
           "action": "update",
           "old_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
           "new_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168296.896416,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "update",
+          "old_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+          "new_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168300.334329,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "update",
+          "old_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+          "new_value": "[{\"span1\":{\"idx\":4,\"start\":174,\"end\":180,\"token\":\"slides\",\"type\":\"verb\"},\"span2\":{\"idx\":5,\"start\":215,\"end\":219,\"token\":\"Take\",\"type\":\"verb\"},\"span1_is_event\":false,\"span2_is_event\":false}]",
+          "source": "user"
+        }
+      ],
+      "navigation_history": [],
+      "focus_time_by_element": {},
+      "scroll_depth_max": 0.0,
+      "keyword_highlights_shown": [],
+      "chat_history": []
+    },
+    "inst_82f12452e80ca494_53": {
+      "instance_id": "inst_82f12452e80ca494_53",
+      "session_start": 1778039320.4003613,
+      "session_end": null,
+      "total_time_ms": 0,
+      "interactions": [
+        {
+          "event_type": "navigation",
+          "timestamp": 1778039315.189,
+          "target": "instance_load",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778039315189,
+          "metadata": {
+            "instance_id": "inst_82f12452e80ca494_53",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778081939.146,
+          "target": "instance_load",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778081939146,
+          "metadata": {
+            "instance_id": "inst_82f12452e80ca494_53",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168294.197,
+          "target": "prev",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168294197,
+          "metadata": {
+            "from_instance": "inst_82f12452e80ca494_53",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168294.197,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168294197,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168294.199,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168294199,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": null,
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778168300.793,
+          "target": "instance_load",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168300793,
+          "metadata": {
+            "instance_id": "inst_82f12452e80ca494_53",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168495.699,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168495699,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": null,
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168495.997,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168495997,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168496.499,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168496499,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168496.64,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168496640,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168497.142,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168497142,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168499.898,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168499898,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168500.399,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168500399,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168501.633,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168501633,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168502.134,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168502134,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168503.69,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168503690,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168504.192,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168504192,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168505.937,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168505937,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168506.438,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168506438,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168512.128,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168512128,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168512.628,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168512628,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168544.792,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168544792,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168545.294,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168545294,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778168547.355,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168547355,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778168547.857,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778168547857,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169150.188,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169150188,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169150.689,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169150689,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169151.912,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169151912,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169152.413,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169152413,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169155.612,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169155612,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169156.114,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169156114,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169157.412,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169157412,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169157.913,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169157913,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169162.303,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169162303,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169162.805,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169162805,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169172.566,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169172566,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169173.067,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169173067,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169174.063,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169174063,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169174.564,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169174564,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169177.528,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169177528,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169178.029,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169178029,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169178.712,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169178712,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169179.213,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169179213,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169179.544,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169179544,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169180.047,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169180047,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169240.326,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169240326,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169240.827,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169240827,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169244.815,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169244815,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169245.316,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169245316,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778169589.058,
+          "target": "instance_load",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169589058,
+          "metadata": {
+            "instance_id": "inst_82f12452e80ca494_53",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169590.619,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169590619,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": null,
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169590.98,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169590980,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169591.482,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169591482,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169595.065,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169595065,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169595.566,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169595566,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169597.089,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169597089,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169597.522,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169597522,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169598.024,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169598024,
+          "metadata": {}
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1778169598.526,
+          "target": "schema:event_sequencing",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169598526,
+          "metadata": {
+            "label": "event_sequencing",
+            "action": "deselect",
+            "old_value": "",
+            "new_value": null,
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778169599.027,
+          "target": "instance:inst_82f12452e80ca494_53",
+          "instance_id": "inst_82f12452e80ca494_53",
+          "client_timestamp": 1778169599027,
+          "metadata": {}
+        }
+      ],
+      "ai_usage": [],
+      "annotation_changes": [
+        {
+          "timestamp": 1778168294.4170303,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": null,
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168495.894122,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": null,
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168496.0631652,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168496.7587485,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168499.933633,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168501.670537,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168503.7525039,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168505.98688,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168512.2868185,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168544.9207869,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778168547.4908817,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169150.351847,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169152.0445771,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169155.7577114,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169157.555118,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169162.4991522,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169172.706534,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169174.2017431,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169177.7381554,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169178.9140177,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169179.7992134,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169240.469216,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169244.9550998,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169590.7322266,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": null,
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169591.0912676,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169595.176772,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169597.2041228,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169597.6401472,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169598.6425908,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169599.7107213,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
+          "source": "user"
+        },
+        {
+          "timestamp": 1778169601.2993324,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "deselect",
+          "old_value": "",
+          "new_value": null,
           "source": "user"
         }
       ],
@@ -10460,6 +11638,14 @@
     "inst_3cae718d83f79c4a_52": {
       "highlights": [],
       "seed": 2035172412,
+      "settings": {
+        "keyword_probability": 1.0,
+        "random_word_probability": 0.0
+      }
+    },
+    "inst_82f12452e80ca494_53": {
+      "highlights": [],
+      "seed": 3463499507,
       "settings": {
         "keyword_probability": 1.0,
         "random_word_probability": 0.0
