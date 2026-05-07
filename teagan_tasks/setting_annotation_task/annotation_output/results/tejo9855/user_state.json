@@ -1074,7 +1074,7 @@
     "inst_9b1707488a31a6a2_1070",
     "inst_59c49a5891d8c49c_1071"
   ],
-  "current_instance_index": 33,
+  "current_instance_index": 100,
   "current_phase_and_page": [
     "annotation",
     "annotation"
@@ -18140,6 +18140,38 @@
             "instance_id": "inst_303b0f72dacfe493_33",
             "from_instance": null
           }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187292.57,
+          "target": "key:4",
+          "instance_id": "inst_303b0f72dacfe493_33",
+          "client_timestamp": 1778187292570,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187292.812,
+          "target": "key:1",
+          "instance_id": "inst_303b0f72dacfe493_33",
+          "client_timestamp": 1778187292812,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187293.466,
+          "target": "instance:inst_303b0f72dacfe493_33",
+          "instance_id": "inst_303b0f72dacfe493_33",
+          "client_timestamp": 1778187293466,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -21031,6 +21063,61 @@
           "target": "instance:inst_6acaa958ea22f71b_40",
           "instance_id": "inst_6acaa958ea22f71b_40",
           "client_timestamp": 1778016469463,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1778187294.509,
+          "target": "instance_load",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1778187294509,
+          "metadata": {
+            "instance_id": "inst_6acaa958ea22f71b_40",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187409.125,
+          "target": "key:1",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1778187409125,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187409.316,
+          "target": "key:0",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1778187409316,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1778187409.423,
+          "target": "key:1",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1778187409423,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1778187410.591,
+          "target": "instance:inst_6acaa958ea22f71b_40",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1778187410591,
           "metadata": {}
         }
       ],
