@@ -35,7 +35,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 # ── Paths (relative to this script's directory) ───────────────────────────────
 SCRIPT_DIR = Path(__file__).parent
 DATA_CSV   = SCRIPT_DIR.parent / 'event_relation_annotation_task' / 'data' / \
-             'dolma_combined_final_sample_700_with_llm_summary_safeid_with_spans.csv'
+             'dolma_final_sample_s42_n1250_t0.5_llm_summary_safeid_with_spans.csv'
 CONCRETENESS_XLSX = SCRIPT_DIR / 'concreteness' / 'concreteness_lexicon.xlsx'
 OUTPUT_CSV = SCRIPT_DIR / 'features.csv'
 

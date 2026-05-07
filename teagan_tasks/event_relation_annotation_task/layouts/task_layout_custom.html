@@ -264,6 +264,14 @@
     border-color: #fde047; background: #fef9c3; color: #854d0e;
   }
   .ordering-confirmed.simultaneous .ordering-change-btn:hover { background: #fef08a; }
+  .ordering-confirmed.same-event {
+    background: #fefce8; border-color: #fde047;
+  }
+  .ordering-confirmed.same-event .ordering-confirmed-label { color: #854d0e; }
+  .ordering-confirmed.same-event .ordering-change-btn {
+    border-color: #fde047; background: #fef9c3; color: #854d0e;
+  }
+  .ordering-confirmed.same-event .ordering-change-btn:hover { background: #fef08a; }
 
   .likert-divider { border: none; border-top: 1px solid #f3f4f6; margin: 0; }
   .event-check-panel {
@@ -329,6 +337,13 @@
   }
   .likert-group  { display: flex; flex-direction: column; gap: 5px; }
   .likert-row    { display: flex; gap: 6px; flex-wrap: wrap; }
+  #causality-swap-row { margin-bottom: 6px; }
+  .causality-swap-btn {
+    padding: 5px 10px; border: 1.5px solid #d1d5db; border-radius: 6px;
+    background: #f9fafb; cursor: pointer; font-size: 0.8rem; color: #6b7280;
+    transition: all 0.12s ease;
+  }
+  .causality-swap-btn:hover { border-color: #9ca3af; color: #374151; background: #f3f4f6; }
   .likert-btn {
     flex: 1; min-width: max-content; padding: 10px 8px; border: 1.5px solid #d1d5db; border-radius: 7px;
     background: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 600;
@@ -460,7 +475,7 @@
   var _allSpans          = [];
   var _selectedSpans     = [];       // fixed assigned pair: [first, second]
   var _spanIsEventByIdx  = {};       // { [spanIdx]: true|false }
-  var _orderingDecision  = null;     // null | 'decided' | 'too_hard'
+  var _orderingDecision  = null;     // null | 'decided' | 'simultaneous' | 'too_hard' | 'same_event'
   var _pendingSeqRating  = null;
   var _pendingCausRating = null;
   var _ratedPairs               = [];    // exactly one item when rated
@@ -767,6 +782,11 @@
       _pendingSeqRating  = null;
       _pendingCausRating = null;
       _ratedPairs        = [];
+    } else if (posOrTooHard === 'same_event') {
+      _orderingDecision  = 'same_event';
+      _pendingSeqRating  = null;
+      _pendingCausRating = null;
+      _ratedPairs = [{ span1Idx: _selectedSpans[0], span2Idx: _selectedSpans[1], causRating: null }];
     } else {
       var pos = parseInt(posOrTooHard, 10);
       if (pos === 1) {
@@ -789,6 +809,17 @@
     _pendingSeqRating  = null;
     _pendingCausRating = null;
     _ratedPairs        = [];
+    updateSelectionPanel();
+    updateProgress();
+    saveAnnotation();
+  }
+
+  function handleSimultaneousSwap() {
+    if (_orderingDecision !== 'simultaneous') return;
+    _selectedSpans = [_selectedSpans[1], _selectedSpans[0]];
+    _pendingCausRating = null;
+    _ratedPairs = [];
+    updateHighlights();
     updateSelectionPanel();
     updateProgress();
     saveAnnotation();
@@ -908,6 +939,7 @@
                 '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(0)">' + esc(s1.token) + '</button>' +
                 '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(1)">' + esc(s2.token) + '</button>' +
                 '<button class="ordering-btn" type="button" onclick="handleOrderingDecision(\'simultaneous\')">Simultaneous</button>' +
+                '<button class="ordering-btn ordering-btn-hard" type="button" onclick="handleOrderingDecision(\'same_event\')">These are the same event</button>' +
                 '<button class="ordering-btn ordering-btn-hard" type="button" onclick="handleOrderingDecision(\'too_hard\')">Too hard to tell</button>' +
               '</div>' +
             '</div>';
@@ -921,6 +953,12 @@
           orderingHTML =
             '<div class="ordering-confirmed simultaneous">' +
               '<p class="ordering-confirmed-label">Simultaneous</p>' +
+              '<button class="ordering-change-btn" type="button" onclick="resetOrderingDecision()">Change</button>' +
+            '</div>';
+        } else if (_orderingDecision === 'same_event') {
+          orderingHTML =
+            '<div class="ordering-confirmed same-event">' +
+              '<p class="ordering-confirmed-label">Same event</p>' +
               '<button class="ordering-change-btn" type="button" onclick="resetOrderingDecision()">Change</button>' +
             '</div>';
         } else if (_orderingDecision === 'too_hard') {
@@ -980,6 +1018,8 @@
       if (likertEl) {
         likertEl.classList.toggle('hidden', !(bothSpansMarkedEvent() && (_orderingDecision === 'decided' || _orderingDecision === 'simultaneous')));
       }
+      var swapRowEl = document.getElementById('causality-swap-row');
+      if (swapRowEl) swapRowEl.style.display = (_orderingDecision === 'simultaneous') ? '' : 'none';
 
       document.querySelectorAll('.seq-likert-btn').forEach(function(btn) {
         btn.classList.toggle('selected', btn.dataset.val === _pendingSeqRating);
@@ -1010,7 +1050,7 @@
     if (d1 === true && d2 === true) {
       // Both events: need ordering answer first
       if (_orderingDecision === null) return false;
-      if (_orderingDecision === 'too_hard') return true;
+      if (_orderingDecision === 'too_hard' || _orderingDecision === 'same_event') return true;
       // Ordering decided or simultaneous: need causality rating
       if (_orderingDecision === 'decided' || _orderingDecision === 'simultaneous') {
         return _pendingCausRating !== null;
@@ -1063,10 +1103,11 @@
         var isComplete  = false;
         if (bothEvent) {
           item.temporal_order = _orderingDecision === 'too_hard'    ? 'too_hard_to_tell'
+                              : _orderingDecision === 'same_event'  ? 'same_event'
                               : _orderingDecision === 'simultaneous' ? 'simultaneous'
                               : _orderingDecision === 'decided'      ? 'span1_first'
                               : null;
-          if (_orderingDecision === 'too_hard') {
+          if (_orderingDecision === 'too_hard' || _orderingDecision === 'same_event') {
             isComplete = true;
           } else if ((_orderingDecision === 'decided' || _orderingDecision === 'simultaneous') &&
                      _pendingCausRating !== null) {
@@ -1278,6 +1319,9 @@
           if (item.temporal_order === 'too_hard_to_tell') {
             _orderingDecision = 'too_hard';
             _ratedPairs.push({ span1Idx: item.span1.idx, span2Idx: item.span2.idx, causRating: null });
+          } else if (item.temporal_order === 'same_event') {
+            _orderingDecision = 'same_event';
+            _ratedPairs.push({ span1Idx: item.span1.idx, span2Idx: item.span2.idx, causRating: null });
           } else if (item.temporal_order === 'span1_first') {
             _orderingDecision = 'decided';
           } else if (item.temporal_order === 'simultaneous') {
@@ -1390,6 +1434,9 @@
             <summary><span class="desc-chevron">&#9654;</span> More info</summary>
             <p class="likert-description" id="caus-description"></p>
           </details>
+        </div>
+        <div id="causality-swap-row" style="display:none;">
+          <button type="button" class="causality-swap-btn" onclick="handleSimultaneousSwap()">&#8646; Swap direction</button>
         </div>
         <div class="likert-group">
           <div class="likert-row">
