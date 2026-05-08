@@ -1,0 +1,98 @@
+<style>
+  #main-content {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  #main-content > .mb-4 {
+    flex: 4;
+    min-width: 0;
+  }
+
+  #annotation-forms {
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+    position: sticky;
+    top: 16px;
+    margin-left: auto;
+  }
+
+  .definition-toggle {
+    font-size: 12px;
+    color: #888;
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 8px;
+  }
+
+  .definition-text {
+    display: none;
+    font-size: 13px;
+    color: #555;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f9f9f9;
+    border-left: 3px solid #ccc;
+    border-radius: 4px;
+    min-width: 320px;
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  fieldset {
+    position: relative;
+  }
+</style>
+
+<div class="annotation_schema">
+  <form id="is_story_prompt" class="annotation-form radio shadcn-radio-container" action="/action_page.php" data-annotation-id="0" data-annotation-type="radio" data-schema-name="is_story_prompt" data-grid-columns="1">
+    <fieldset schema="is_story_prompt">
+      <legend class="shadcn-radio-title">
+        Is this a story prompt?
+        <button class="definition-toggle" onclick="var d=document.getElementById('story-def');d.style.display=d.style.display==='block'?'none':'block';this.textContent=d.style.display==='block'?'hide definition':'show definition';return false;">show definition</button>
+        <div class="definition-text" id="story-def">
+          Mark <strong>True</strong> if the prompt asks the model to generate stories — inventing characters, events, dialogue, or scenes. Includes short stories, scenes, novel excerpts, fan fiction, narratives from a character's perspective, or creative fictional events.<br><br>
+          Mark <strong>False</strong> for factual summaries, essays, reports, analysis, jokes, roleplaying, character descriptions, or other non-story content.
+        </div>
+      </legend>
+      <div class="shadcn-radio-options">
+        <div class="shadcn-radio-option">
+          <input class="is_story_prompt shadcn-radio-input annotation-input"
+                 type="radio"
+                 id="is_story_prompt_True_radio"
+                 name="is_story_prompt"
+                 value="True"
+                 selection_constraint="single"
+                 schema="is_story_prompt"
+                 label_name="True"
+                 onclick="onlyOne(this);registerAnnotation(this);"
+                 validation="required"
+                 data-key="1">
+          <label for="is_story_prompt_True_radio" class="shadcn-radio-label" data-toggle="tooltip" data-html="true" data-placement="top" title="The prompt asks the model to generate a story, scene, fan fiction, narrative, or fictional events.">True <span class="keybinding-badge">1</span></label>
+        </div>
+        <div class="shadcn-radio-option">
+          <input class="is_story_prompt shadcn-radio-input annotation-input"
+                 type="radio"
+                 id="is_story_prompt_False_radio"
+                 name="is_story_prompt"
+                 value="False"
+                 selection_constraint="single"
+                 schema="is_story_prompt"
+                 label_name="False"
+                 onclick="onlyOne(this);registerAnnotation(this);"
+                 validation="required"
+                 data-key="2">
+          <label for="is_story_prompt_False_radio" class="shadcn-radio-label" data-toggle="tooltip" data-html="true" data-placement="top" title="The prompt asks for non-story content, such as facts, analysis, instructions, jokes, roleplay setup, or character description.">False <span class="keybinding-badge">2</span></label>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
