@@ -106,7 +106,24 @@ def parse_likert(results_dir, annotator, dimensions):
     return pd.DataFrame(rows)
 
 
-def parse_event_relation(results_dir, annotator):
+def _load_span_lookup():
+    """Return {safe_instance_id: (span1_start, span2_start)} from the data CSV."""
+    lookup = {}
+    csv.field_size_limit(10 ** 7)
+    with open(DATA_CSV) as f:
+        for row in csv.DictReader(f):
+            raw1 = row.get('assigned_span1') or ''
+            raw2 = row.get('assigned_span2') or ''
+            if not raw1 or not raw2:
+                continue
+            try:
+                lookup[row['safe_instance_id']] = (json.loads(raw1)[0], json.loads(raw2)[0])
+            except (json.JSONDecodeError, IndexError, TypeError):
+                pass
+    return lookup
+
+
+def parse_event_relation(results_dir, annotator, span_lookup):
     dims = ['span1_is_event', 'span2_is_event', 'temporal_order', 'causality_rating']
     state = _load_user_state(results_dir, annotator)
     if state is None:
@@ -126,8 +143,18 @@ def parse_event_relation(results_dir, annotator):
                 p = pairs[0]
                 row['span1_is_event']   = p.get('span1_is_event')
                 row['span2_is_event']   = p.get('span2_is_event')
-                row['temporal_order']   = p.get('temporal_order')
                 row['causality_rating'] = p.get('causality_rating')
+
+                temporal_order = p.get('temporal_order')
+                # The UI always writes 'span1_first' but may have swapped the
+                # spans first, so check which original assigned span ended up
+                # in the span1 slot to get the correct label.
+                if temporal_order == 'span1_first' and inst_id in span_lookup:
+                    orig_s1_start, orig_s2_start = span_lookup[inst_id]
+                    ann_span1_start = p.get('span1', {}).get('start')
+                    if ann_span1_start == orig_s2_start:
+                        temporal_order = 'span2_first'
+                row['temporal_order'] = temporal_order
         rows.append(row)
     return pd.DataFrame(rows)
 
@@ -149,11 +176,13 @@ def build_task_df(task_key, cfg, meta):
     dims = cfg['dimensions']
     ann_dfs = []
 
+    span_lookup = _load_span_lookup() if cfg['format'] == 'event_relation' else None
+
     for ann in cfg['annotators']:
         if cfg['format'] == 'likert':
             ann_df = parse_likert(cfg['results_dir'], ann, dims)
         else:
-            ann_df = parse_event_relation(cfg['results_dir'], ann)
+            ann_df = parse_event_relation(cfg['results_dir'], ann, span_lookup)
 
         if ann_df.empty:
             continue
