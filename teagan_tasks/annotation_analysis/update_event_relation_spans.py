@@ -1,12 +1,14 @@
 """
 update_event_relation_spans.py
 
-For rows AFTER index 270 in the event-relation annotation CSV:
-  - If the row has >= 2 LitBank event spans: randomly choose 2, assign as span pair.
-  - Otherwise, if the row has >= 2 spaCy verb spans: randomly choose 2, assign as span pair.
+For rows AFTER index 310 in the event-relation annotation CSV:
+  - If the row has >= 2 LitBank event spans: randomly choose a consecutive
+    neighboring pair (index i and i+1 in the sorted list).
+  - Otherwise, if the row has >= 2 spaCy verb spans: same consecutive logic.
   - If neither condition holds: leave assigned_span1 / assigned_span2 as null.
 
-Span ordering: assigned_span1 always has the lower start offset.
+Span ordering: assigned_span1 always has the lower start offset (guaranteed by
+consecutive selection since spans are sorted by start position).
 Random seed: 42 (matches the original corpus sampling seed).
 
 Run:
@@ -24,7 +26,7 @@ DATA_PATH = (
 )
 
 RANDOM_SEED   = 42
-CUTOFF_INDEX  = 270   # rows with index <= CUTOFF_INDEX are left unchanged
+CUTOFF_INDEX  = 310   # rows with index <= CUTOFF_INDEX are left unchanged
 
 random.seed(RANDOM_SEED)
 
@@ -52,11 +54,13 @@ for i, row in enumerate(rows):
         verb_spans = []
 
     if len(event_spans) >= 2:
-        chosen    = random.sample(event_spans, 2)
+        i = random.randrange(len(event_spans) - 1)
+        chosen    = [event_spans[i], event_spans[i + 1]]
         span_type = 'event'
         stats['event'] += 1
     elif len(verb_spans) >= 2:
-        chosen    = random.sample(verb_spans, 2)
+        i = random.randrange(len(verb_spans) - 1)
+        chosen    = [verb_spans[i], verb_spans[i + 1]]
         span_type = 'verb'
         stats['verb'] += 1
     else:
@@ -65,8 +69,7 @@ for i, row in enumerate(rows):
         stats['null'] += 1
         continue
 
-    # Sort so span1 always precedes span2 in the text
-    chosen.sort(key=lambda s: s[0])
+    # Consecutive spans are already sorted by start position
     row['assigned_span1'] = json.dumps(chosen[0][:3] + [span_type])
     row['assigned_span2'] = json.dumps(chosen[1][:3] + [span_type])
 
@@ -76,7 +79,7 @@ with open(DATA_PATH, 'w', newline='') as f:
     writer.writerows(rows)
 
 print('Done.')
-print(f"  Skipped (index ≤ {CUTOFF_INDEX}): {stats['skipped']}")
+print(f"  Skipped (index ≤ {CUTOFF_INDEX}):  {stats['skipped']}")
 print(f"  Updated via LitBank events:       {stats['event']}")
 print(f"  Updated via verb fallback:        {stats['verb']}")
 print(f"  Left as null (not enough spans):  {stats['null']}")
