@@ -1074,7 +1074,7 @@
     "inst_9b1707488a31a6a2_1070",
     "inst_59c49a5891d8c49c_1071"
   ],
-  "current_instance_index": 1,
+  "current_instance_index": 66,
   "current_phase_and_page": [
     "annotation",
     "annotation"
@@ -3072,6 +3072,26 @@
             "instance_id": "inst_07674afaf6952f79_1",
             "from_instance": null
           }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779154963.422,
+          "target": "key:3",
+          "instance_id": "inst_07674afaf6952f79_1",
+          "client_timestamp": 1779154963422,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779154963.648,
+          "target": "instance:inst_07674afaf6952f79_1",
+          "instance_id": "inst_07674afaf6952f79_1",
+          "client_timestamp": 1779154963648,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -4065,6 +4085,92 @@
           "target": "instance:inst_bb2995f1272965ff_2",
           "instance_id": "inst_bb2995f1272965ff_2",
           "client_timestamp": 1779154898126,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779154964.635,
+          "target": "instance_load",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779154964635,
+          "metadata": {
+            "instance_id": "inst_bb2995f1272965ff_2",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155322.239,
+          "target": "key:4",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779155322240,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155322.678,
+          "target": "key:0",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779155322679,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155322.956,
+          "target": "instance:inst_bb2995f1272965ff_2",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779155322956,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155343.368,
+          "target": "instance_load",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779155343368,
+          "metadata": {
+            "instance_id": "inst_bb2995f1272965ff_2",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155354.275,
+          "target": "key:3",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779155354275,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155354.595,
+          "target": "key:5",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779155354595,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155355.087,
+          "target": "instance:inst_bb2995f1272965ff_2",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779155355087,
           "metadata": {}
         }
       ],
@@ -6973,6 +7079,49 @@
           "target": "instance:inst_33c156d5be8355a3_6",
           "instance_id": "inst_33c156d5be8355a3_6",
           "client_timestamp": 1778964224700,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155424.905,
+          "target": "instance_load",
+          "instance_id": "inst_33c156d5be8355a3_6",
+          "client_timestamp": 1779155424905,
+          "metadata": {
+            "instance_id": "inst_33c156d5be8355a3_6",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155447.919,
+          "target": "key:6",
+          "instance_id": "inst_33c156d5be8355a3_6",
+          "client_timestamp": 1779155447919,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155447.96,
+          "target": "key:6",
+          "instance_id": "inst_33c156d5be8355a3_6",
+          "client_timestamp": 1779155447960,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155448.415,
+          "target": "instance:inst_33c156d5be8355a3_6",
+          "instance_id": "inst_33c156d5be8355a3_6",
+          "client_timestamp": 1779155448415,
           "metadata": {}
         }
       ],
@@ -19429,6 +19578,48 @@
           "instance_id": "inst_416c8d85ac918fa0_25",
           "client_timestamp": 1778964771758,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155367.074,
+          "target": "instance_load",
+          "instance_id": "inst_416c8d85ac918fa0_25",
+          "client_timestamp": 1779155367074,
+          "metadata": {
+            "instance_id": "inst_416c8d85ac918fa0_25",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1779155418.621,
+          "target": "schema:setting_temporal_grounding",
+          "instance_id": "inst_416c8d85ac918fa0_25",
+          "client_timestamp": 1779155418621,
+          "metadata": {
+            "x": 1009,
+            "y": 310
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155423.733,
+          "target": "key:7",
+          "instance_id": "inst_416c8d85ac918fa0_25",
+          "client_timestamp": 1779155423733,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155424.064,
+          "target": "instance:inst_416c8d85ac918fa0_25",
+          "instance_id": "inst_416c8d85ac918fa0_25",
+          "client_timestamp": 1779155424064,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -25968,6 +26159,49 @@
           "instance_id": "inst_b89ca2dd443ee660_34",
           "client_timestamp": 1778965072603,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155356.09,
+          "target": "instance_load",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1779155356090,
+          "metadata": {
+            "instance_id": "inst_b89ca2dd443ee660_34",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155364.407,
+          "target": "key:2",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1779155364407,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155364.822,
+          "target": "key:6",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1779155364822,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155365.363,
+          "target": "instance:inst_b89ca2dd443ee660_34",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1779155365363,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -29364,6 +29598,97 @@
           "instance_id": "inst_c363ce1bc3e40d22_39",
           "client_timestamp": 1778965184030,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155324.55,
+          "target": "instance_load",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155324550,
+          "metadata": {
+            "instance_id": "inst_c363ce1bc3e40d22_39",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1779155335.619,
+          "target": "schema:setting_concreteness",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155335619,
+          "metadata": {
+            "x": 1031,
+            "y": 221
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1779155335.62,
+          "target": "label:setting_concreteness:3",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155335620,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1779155335.621,
+          "target": "label:setting_concreteness:3",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155335621,
+          "metadata": {
+            "x": 1031,
+            "y": 221
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1779155335.621,
+          "target": "schema:setting_concreteness",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155335621,
+          "metadata": {
+            "label": "3",
+            "action": "select",
+            "new_value": "3",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155336.123,
+          "target": "instance:inst_c363ce1bc3e40d22_39",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155336123,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1779155336.463,
+          "target": "label:setting_concreteness:3",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155336463,
+          "metadata": {
+            "duration_ms": 843
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155336.545,
+          "target": "next",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155336545,
+          "metadata": {
+            "from_instance": "inst_c363ce1bc3e40d22_39",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155336.545,
+          "target": "instance:inst_c363ce1bc3e40d22_39",
+          "instance_id": "inst_c363ce1bc3e40d22_39",
+          "client_timestamp": 1779155336545,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -29421,11 +29746,20 @@
           "old_value": null,
           "new_value": "2",
           "source": "user"
+        },
+        {
+          "timestamp": 1779155335.6928988,
+          "schema_name": "setting_concreteness",
+          "label_name": "3",
+          "action": "select",
+          "old_value": null,
+          "new_value": "3",
+          "source": "user"
         }
       ],
       "navigation_history": [],
       "focus_time_by_element": {
-        "label:setting_concreteness:3": 7231,
+        "label:setting_concreteness:3": 8074,
         "label:setting_concreteness:2": 5901,
         "label:setting_temporal_grounding:1": 1800,
         "label:setting_spatial_grounding:1": 1509,
@@ -29864,6 +30198,37 @@
           "target": "instance:inst_6acaa958ea22f71b_40",
           "instance_id": "inst_6acaa958ea22f71b_40",
           "client_timestamp": 1778965209404,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155338.624,
+          "target": "instance_load",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1779155338624,
+          "metadata": {
+            "instance_id": "inst_6acaa958ea22f71b_40",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779155341.86,
+          "target": "key:3",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1779155341860,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155342.544,
+          "target": "instance:inst_6acaa958ea22f71b_40",
+          "instance_id": "inst_6acaa958ea22f71b_40",
+          "client_timestamp": 1779155342544,
           "metadata": {}
         }
       ],
@@ -48170,6 +48535,68 @@
           "instance_id": "inst_1ef8d286c841365e_65",
           "client_timestamp": 1778965950515,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155449.214,
+          "target": "instance_load",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155449214,
+          "metadata": {
+            "instance_id": "inst_1ef8d286c841365e_65",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1779155463.577,
+          "target": "schema:setting_concreteness",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155463577,
+          "metadata": {
+            "x": 983,
+            "y": 233
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1779155463.577,
+          "target": "label:setting_concreteness:2",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155463577,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1779155463.578,
+          "target": "label:setting_concreteness:2",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155463578,
+          "metadata": {
+            "x": 983,
+            "y": 233
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1779155463.579,
+          "target": "schema:setting_concreteness",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155463579,
+          "metadata": {
+            "label": "2",
+            "action": "select",
+            "new_value": "2",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155464.08,
+          "target": "instance:inst_1ef8d286c841365e_65",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155464080,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -48236,6 +48663,15 @@
           "old_value": null,
           "new_value": "3",
           "source": "user"
+        },
+        {
+          "timestamp": 1779155463.6560383,
+          "schema_name": "setting_concreteness",
+          "label_name": "2",
+          "action": "select",
+          "old_value": null,
+          "new_value": "2",
+          "source": "user"
         }
       ],
       "navigation_history": [],
@@ -48245,7 +48681,8 @@
         "label:setting_concreteness:4": 8562,
         "label:setting_temporal_grounding:2": 15645,
         "label:setting_sensory:3": 5872,
-        "label:setting_spatial_grounding:2": 2286
+        "label:setting_spatial_grounding:2": 2286,
+        "label:setting_concreteness:2": 1176
       },
       "scroll_depth_max": 0.0,
       "keyword_highlights_shown": [],
@@ -223852,9 +224289,9 @@
       [
         {
           "schema": "setting_concreteness",
-          "name": "2"
+          "name": "3"
         },
-        "2"
+        "3"
       ],
       [
         {
@@ -224632,9 +225069,9 @@
       [
         {
           "schema": "setting_concreteness",
-          "name": "3"
+          "name": "2"
         },
-        "3"
+        "2"
       ],
       [
         {
