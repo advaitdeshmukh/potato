@@ -12,7 +12,7 @@ task_layout: layouts/task_layout.html
 
 
 data_files:
-  - data/story-prompt-validation-input.jsonl
+  - data/story-prompt-validation-qwen35-hosted-input.jsonl
 
 item_properties:
   id_key: id
