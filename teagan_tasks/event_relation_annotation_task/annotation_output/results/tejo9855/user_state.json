@@ -85059,6 +85059,28 @@
             "new_value": "[{\"span1\":{\"idx\":0,\"start\":34,\"end\":38,\"token\":\"born\",\"type\":\"verb\"},\"span2\":{\"idx\":1,\"start\":85,\"end\":91,\"token\":\"worked\",\"type\":\"verb\"},\"span1_is_event\":true,\"span2_is_event\":true,\"temporal_order\":\"span1_first\",\"causality_rating\":\"enables\"}]",
             "source": "user"
           }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779074446.45,
+          "target": "instance_load",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1779074446450,
+          "metadata": {
+            "instance_id": "inst_232634a18c209f82_402",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779126903.227,
+          "target": "instance_load",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1779126903227,
+          "metadata": {
+            "instance_id": "inst_232634a18c209f82_402",
+            "from_instance": null
+          }
         }
       ],
       "ai_usage": [],
