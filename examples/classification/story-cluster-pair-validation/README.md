@@ -21,14 +21,15 @@ For quick debugging:
 python potato/flask_server.py start examples/classification/story-cluster-pair-validation/config.yaml --debug --debug-phase annotation
 ```
 
-The task data in `data/story-cluster-pair-validation-input.jsonl` was copied
-from the blind validation JSONL at:
+The task data in
+`data/story-cluster-pair-validation-qwen35-hosted-input.jsonl` was generated
+from the validation answer-key CSV at:
 
 ```text
-/Users/advaitdeshmukh/ForkingPrompts/Wildchat/data/wildchat_4p8m_cluster_first/09_story_prompt_exact_clusters_roberta_seed28/10_human_cluster_validation/story_cluster_pair_validation.n-400.same-200.different-200.block-50.seed-42.blind.jsonl
+/Users/advaitdeshmukh/Downloads/story_cluster_pair_validation.n-400.same-200.different-200.block-50.seed-42.answer_key.csv
 ```
 
-The source folder also contains CSV metadata and an answer key, but this task
-uses the blind JSONL so annotators only see prompt pairs. The pairwise decision
-is saved under `cluster_match.selection` as `same_cluster`,
+The hosted input keeps `id`, block indices, and `text` prompt pairs, but strips
+gold labels and source identifiers so annotators only see prompt pairs. The
+pairwise decision is saved under `cluster_match.selection` as `same_cluster`,
 `different_cluster`, or `tie`.

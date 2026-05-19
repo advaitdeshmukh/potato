@@ -17,7 +17,7 @@ output_annotation_format: jsonl
 annotation_codebook_url: ""
 
 data_files:
-  - data/story-cluster-pair-validation-input.jsonl
+  - data/story-cluster-pair-validation-qwen35-hosted-input.jsonl
 
 item_properties:
   id_key: id
