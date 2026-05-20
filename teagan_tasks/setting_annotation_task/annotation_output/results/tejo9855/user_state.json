@@ -1074,7 +1074,7 @@
     "inst_9b1707488a31a6a2_1070",
     "inst_59c49a5891d8c49c_1071"
   ],
-  "current_instance_index": 66,
+  "current_instance_index": 34,
   "current_phase_and_page": [
     "annotation",
     "annotation"
@@ -4171,6 +4171,49 @@
           "target": "instance:inst_bb2995f1272965ff_2",
           "instance_id": "inst_bb2995f1272965ff_2",
           "client_timestamp": 1779155355087,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779156129.749,
+          "target": "instance_load",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779156129749,
+          "metadata": {
+            "instance_id": "inst_bb2995f1272965ff_2",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779156172.147,
+          "target": "key:3",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779156172147,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779156172.455,
+          "target": "key:5",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779156172455,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779156172.725,
+          "target": "instance:inst_bb2995f1272965ff_2",
+          "instance_id": "inst_bb2995f1272965ff_2",
+          "client_timestamp": 1779156172725,
           "metadata": {}
         }
       ],
@@ -26202,6 +26245,17 @@
           "instance_id": "inst_b89ca2dd443ee660_34",
           "client_timestamp": 1779155365363,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779156173.555,
+          "target": "instance_load",
+          "instance_id": "inst_b89ca2dd443ee660_34",
+          "client_timestamp": 1779156173555,
+          "metadata": {
+            "instance_id": "inst_b89ca2dd443ee660_34",
+            "from_instance": null
+          }
         }
       ],
       "ai_usage": [],
@@ -48597,6 +48651,35 @@
           "instance_id": "inst_1ef8d286c841365e_65",
           "client_timestamp": 1779155464080,
           "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1779155464.753,
+          "target": "label:setting_concreteness:2",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155464753,
+          "metadata": {
+            "duration_ms": 1176
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155464.836,
+          "target": "next",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155464836,
+          "metadata": {
+            "from_instance": "inst_1ef8d286c841365e_65",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779155464.836,
+          "target": "instance:inst_1ef8d286c841365e_65",
+          "instance_id": "inst_1ef8d286c841365e_65",
+          "client_timestamp": 1779155464836,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -49396,6 +49479,37 @@
           "target": "instance:inst_d6064889d091c004_66",
           "instance_id": "inst_d6064889d091c004_66",
           "client_timestamp": 1778965966290,
+          "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779155465.843,
+          "target": "instance_load",
+          "instance_id": "inst_d6064889d091c004_66",
+          "client_timestamp": 1779155465843,
+          "metadata": {
+            "instance_id": "inst_d6064889d091c004_66",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779156128.44,
+          "target": "key:3",
+          "instance_id": "inst_d6064889d091c004_66",
+          "client_timestamp": 1779156128440,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779156128.696,
+          "target": "instance:inst_d6064889d091c004_66",
+          "instance_id": "inst_d6064889d091c004_66",
+          "client_timestamp": 1779156128696,
           "metadata": {}
         }
       ],
