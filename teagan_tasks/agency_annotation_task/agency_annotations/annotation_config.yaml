@@ -40,7 +40,16 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_focalization
     description: "How central is a specific character's/narrator's perspective to the text?"
-    extended_description: "A higher score reflects text in which the details and events are primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. \n\nFor example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\" because the first text emphasizes the character's perspective and internal experience, while the second simply describes an action without reference to how the character perceives or experiences it."
+    # definition + examples are mirrored verbatim in layouts/task_layout_custom.html
+    # (_agencyFeatureInfo). Keep the two in sync. Scores 5/3/1 are from the paper's
+    # agency prompt (Fig. A22); scores 2/4 are authored from rubric tables A9-A13.
+    definition: "Whether the reader experiences events through a specific perceiving consciousness's inner life, regardless of the formal mechanism: first-person interiority, close third person, free indirect discourse, or direct quotation of inner experience. Instructional or legal \"you\" scores low; an immersive second-person perspective can score high."
+    examples:
+      - { score: 5, text: "she scanned the faces in the crowd, certain that someone was watching her", why: "fully organized around her perception and inner certainty" }
+      - { score: 4, text: "He gathered his things, replaying the interviewer's last question, certain he'd fumbled it.", why: "events predominantly filtered through his inner life, with only occasional external description" }
+      - { score: 3, text: "He wasn't sure the meeting had gone well. He gathered his things and headed for the door.", why: "a perspective is present but external action and inner access are roughly balanced" }
+      - { score: 2, text: "She left the office, shoulders tight, and caught the last train home.", why: "a perspective is faintly implied through behavior but does not shape how events are told" }
+      - { score: 1, text: "she walked through the crowd.", why: "a purely external vantage with no access to any inner experience" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -50,7 +59,13 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_emotion
     description: "How central are a character's emotional states to the text?"
-    extended_description: "A higher score reflects text in which a character's emotional experience is a prominent feature. Feelings are foregrounded rather than incidental. A lower score reflects text with little or no reference to how a character feels. \n\nFor example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\" because the first text emphasizes the character's emotional experience, while the second simply describes an action without reference to feelings."
+    definition: "Centrality of a character's emotional states. Descriptions of emotional behavior can contribute to the score, but internal access to how a character feels raises it further."
+    examples:
+      - { score: 5, text: "Completely paralyzed with fear, he was all of a sudden flooded with relief when he heard her voice", why: "emotional experience dominates, with sustained, direct access to feeling" }
+      - { score: 4, text: "Her chest tightened as she opened the letter; by the last line she was blinking back tears.", why: "emotion is prominent and shapes the passage, with meaningful access to how she feels" }
+      - { score: 3, text: "She was nervous about the presentation. She went into the interview room.", why: "an emotional state is present and noticeable but not the organizing feature" }
+      - { score: 2, text: "He tapped his pen against the desk and cleared his throat before answering.", why: "emotion is faintly implied through a gesture, not elaborated or sustained" }
+      - { score: 1, text: "he answered the phone.", why: "no reference to how any character feels" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -60,7 +75,13 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_cognition
     description: "How central are a character's thoughts, reasoning, or motivations to the text?"
-    extended_description: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, goals, or desires are a prominent feature. A lower score reflects text with little or no reference to what a character thinks, intends, or wants. \n\nFor example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" or \"he was determined to finish the job before anyone found out\" score higher than \"she sat at her desk\" or \"he worked through the night\" because the first texts foreground the character's inner mental life — their reasoning or their drive — while the second simply describe actions without reference to thoughts or motivations."
+    definition: "Centrality of a character's thoughts, reasoning, and motivations. This targets cognitive and reasoning interiority (beliefs, deliberation, goals, desires) rather than perceptual or emotional interiority."
+    examples:
+      - { score: 5, text: "she kept turning the problem over in her mind, convinced there was something she had missed. Was it because they were so quiet in the meeting? Or their body language? She couldn't tell.", why: "the passage is dominated by her reasoning and deliberation" }
+      - { score: 4, text: "He weighed the two offers again, telling himself the safer one was smarter even as he leaned toward the other.", why: "his reasoning and motivations are prominent and shape the passage" }
+      - { score: 3, text: "She read the email twice. It wasn't entirely clear what they were asking for, but she thought she understood the gist. She drafted a reply.", why: "thoughts and reasoning are present and contribute but are not the dominant feature" }
+      - { score: 2, text: "He glanced at the map, then chose the left fork.", why: "a mental decision is faintly implied but incidental, not elaborated" }
+      - { score: 1, text: "she sat at her desk", why: "no reference to what any character thinks, intends, or wants" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -70,7 +91,13 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_change_of_state
     description: "How central is a change in a character's condition or state to the text?"
-    extended_description: "A higher score reflects text in which a change in a character's condition/state is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. \n\nFor example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\" because the first text emphasizes the character's change of state, while the second simply describes an action without reference to any transformation."
+    definition: "Centrality of a change in a character's condition (physical, psychological, relational, or existential). In-progress or partially implied changes count, and a world event that necessarily entails a change (a company going bankrupt, a death) counts even if the internal response isn't elaborated. Rate the presence and centrality of the change itself, independent of how vividly it is rendered."
+    examples:
+      - { score: 5, text: "by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in", why: "the transformation is what the passage is fundamentally about" }
+      - { score: 4, text: "The bankruptcy notice arrived on Tuesday; by Friday the shop that had been his whole life was empty.", why: "a consequential change in his condition is prominent and organizes the passage" }
+      - { score: 3, text: "By the end of the conversation he felt somewhat better about the situation. It wasn't resolved, but it seemed more manageable than it had before.", why: "a change in condition is present and meaningful but not dominant" }
+      - { score: 2, text: "She finished the last box, glanced around the emptier room, and kept unpacking.", why: "a minor or incidental change is implied but is not an organizing feature" }
+      - { score: 1, text: "she sat at her desk.", why: "the character remains essentially unchanged; no change present or implied" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -80,7 +107,13 @@ annotation_schemes:
   - annotation_type: likert
     name: agency_conflict
     description: "How central is conflict involving characters to the text?"
-    extended_description: "A higher score reflects text in which conflict is a dominant or organizing feature. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including tension between characters, internal psychological struggle, or opposition to institutions, environments, inanimate objects like technology, or social forces. \n\nFor example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\" because the first text emphasizes the conflict between characters, while the second simply describes an action without reference to any disagreement."
+    definition: "Centrality of opposition or tension. Conflict can be interpersonal (character vs. character), internal (character vs. self), or against institutions, environments, objects, social forces, or physical events."
+    examples:
+      - { score: 5, text: "they had been arguing for hours, neither willing to give ground. The people around them started to stare. They were so caught up in the fight that they didn't even notice.", why: "opposition dominates and is sustained throughout" }
+      - { score: 4, text: "She kept pushing back against the new policy, emailing managers who never replied, refusing to let it go.", why: "conflict (here against an institution) is prominent and shapes the passage" }
+      - { score: 3, text: "They disagreed about the route. They took the highway and didn't talk much for the first hour.", why: "conflict is present and noticeable but not the dominant feature" }
+      - { score: 2, text: "He bit back a reply and went along with the plan.", why: "a hint of tension is present but stays in the background" }
+      - { score: 1, text: "they sat across from each other at the table.", why: "no conflict of any kind is present or implied" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"

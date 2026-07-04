@@ -197,6 +197,29 @@
     white-space: pre-wrap;
   }
 
+  /* ── Definition / Examples disclosures ───────────────────── */
+  .feature-info-details + .feature-info-details { margin-top: 2px; }
+  .likert-examples-list {
+    font-size: 0.75rem; color: #6b7280; line-height: 1.45;
+    margin: 6px 0 0; padding: 8px 10px;
+    background: #f9fafb; border-left: 3px solid #e5e7eb; border-radius: 0 4px 4px 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .example-row { display: flex; align-items: flex-start; gap: 8px; }
+  .example-score-chip {
+    flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.68rem; font-weight: 700; color: #fff;
+  }
+  .example-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .example-text { margin: 0; font-style: italic; color: #374151; }
+  .example-why { margin: 0; font-size: 0.7rem; color: #9ca3af; }
+  .chip-1 { background: #cbd5e1; }
+  .chip-2 { background: #c4b5fd; }
+  .chip-3 { background: #a78bfa; }
+  .chip-4 { background: #8b5cf6; }
+  .chip-5 { background: #6d28d9; }
+
   @media (max-width: 980px) {
     .agency-main {
       grid-template-columns: 1fr;
@@ -743,30 +766,90 @@
 </div>
 
 <script>
-  var _agencyExtendedDescriptions = {
-    agency_focalization: "A higher score reflects text in which the details and events are primarily presented through a specific character's perspective: their perceptions, thoughts, and feelings shape how the story is told. A lower score reflects text that reports details and events from the outside, describing what is observable without granting access to any character's internal experience. \n\nFor example, \"she scanned the faces in the crowd, certain that someone was watching her\" scores higher than \"she walked through the crowd.\" because the first text emphasizes the character's perspective and internal experience, while the second simply describes an action without reference to how the character perceives or experiences it.",
-    agency_emotion: "A higher score reflects text in which a character's emotional experience is a prominent feature. Feelings are foregrounded rather than incidental. A lower score reflects text with little or no reference to how a character feels. \n\nFor example, \"he was flooded with relief when he heard her voice\" scores higher than \"he answered the phone.\" because the first text emphasizes the character's emotional experience, while the second simply describes an action without reference to feelings.",
-    agency_cognition: "A higher score reflects text in which a character's thoughts, beliefs, reasoning, goals, or desires are a prominent feature. A lower score reflects text with little or no reference to what a character thinks, intends, or wants. \n\nFor example, \"she kept turning the problem over in her mind, convinced there was something she had missed\" or \"he was determined to finish the job before anyone found out\" score higher than \"she sat at her desk\" or \"he worked through the night\" because the first texts foreground the character's inner mental life — their reasoning or their drive — while the second simply describe actions without reference to thoughts or motivations.",
-    agency_change_of_state: "A higher score reflects text in which a change in a character's condition/state is a prominent or organizing feature of the passage. A lower score reflects text where characters remain essentially unchanged, or where any change is only faintly implied. Note that the change does not need to be completed within the passage, an in-progress or partially implied change still counts. \n\nFor example, \"by the time she reached the door, something in her had shifted. She wasn't the same person who had walked in\" scores higher than \"she left the building.\" because the first text emphasizes the character's change of state, while the second simply describes an action without reference to any transformation.",
-    agency_conflict: "A higher score reflects text in which conflict is a dominant or organizing feature. A lower score reflects text in which conflict is absent or only incidentally present. Conflict can take many forms, including tension between characters, internal psychological struggle, or opposition to institutions, environments, inanimate objects like technology, or social forces. \n\nFor example, \"they had been arguing for hours, neither willing to give ground\" scores higher than \"they sat across from each other at the table.\" because the first text emphasizes the conflict between characters, while the second simply describes an action without reference to any disagreement."
+  // Structured feature info rendered straight from the config schemes: a trimmed,
+  // theory-aligned definition plus a full 1-5 example list. Scores 5/3/1 are from the
+  // paper's agency prompt (Fig. A22); scores 2/4 are authored from rubric tables A9-A13.
+  // Edit annotation_config.yaml (definition / examples) and restart to update the UI.
+  var _agencyFeatureInfo = {
+    {% if annotation_schemes is defined and annotation_schemes %}
+      {% for scheme in annotation_schemes %}
+        {% if scheme.definition is defined and scheme.definition %}
+          "{{ scheme.name }}": { "definition": {{ scheme.definition | tojson }}, "examples": {{ (scheme.examples if scheme.examples is defined else []) | tojson }} }{% if not loop.last %},{% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   };
 
+  // Labels for the three intermediate scale points (endpoints keep "Not at all" / "Extremely").
+  var _agencyPointLabels = { 2: "Slightly", 3: "Moderately", 4: "Considerably" };
+
+  function _makeDisclosure(summaryText, bodyEl) {
+    var details = document.createElement('details');
+    details.className = 'likert-description-details feature-info-details';
+    var summary = document.createElement('summary');
+    summary.innerHTML = '<span class="desc-chevron">&#9654;</span> ' + summaryText;
+    details.appendChild(summary);
+    details.appendChild(bodyEl);
+    return details;
+  }
+
+  function _makeDefinitionBody(text) {
+    var p = document.createElement('p');
+    p.className = 'likert-description';
+    p.textContent = text;
+    return p;
+  }
+
+  function _makeExamplesBody(examples) {
+    var wrap = document.createElement('div');
+    wrap.className = 'likert-examples-list';
+    (examples || []).forEach(function(ex) {
+      var row = document.createElement('div');
+      row.className = 'example-row';
+      var chip = document.createElement('span');
+      chip.className = 'example-score-chip chip-' + ex.score;
+      chip.textContent = ex.score;
+      var body = document.createElement('div');
+      body.className = 'example-body';
+      var txt = document.createElement('p');
+      txt.className = 'example-text';
+      txt.textContent = '“' + ex.text + '”';
+      var why = document.createElement('p');
+      why.className = 'example-why';
+      why.textContent = ex.why;
+      body.appendChild(txt);
+      body.appendChild(why);
+      row.appendChild(chip);
+      row.appendChild(body);
+      wrap.appendChild(row);
+    });
+    return wrap;
+  }
+
+  function _injectPointLabels(form) {
+    Object.keys(_agencyPointLabels).forEach(function(val) {
+      var input = form.querySelector('#' + form.id + '_' + val + '_radio');
+      if (!input) return;
+      var option = input.closest('.shadcn-likert-option');
+      if (!option || option.querySelector('.shadcn-likert-label')) return;
+      var span = document.createElement('span');
+      span.className = 'shadcn-likert-label';
+      span.textContent = _agencyPointLabels[val];
+      option.appendChild(span);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
-    Object.keys(_agencyExtendedDescriptions).forEach(function(schemaName) {
+    Object.keys(_agencyFeatureInfo).forEach(function(schemaName) {
       var form = document.getElementById(schemaName);
       if (!form) return;
+      _injectPointLabels(form);
       var legend = form.querySelector('legend.shadcn-likert-title');
       if (!legend) return;
-      var details = document.createElement('details');
-      details.className = 'likert-description-details';
-      var summary = document.createElement('summary');
-      summary.innerHTML = '<span class="desc-chevron">&#9654;</span> More info';
-      var body = document.createElement('p');
-      body.className = 'likert-description';
-      body.textContent = _agencyExtendedDescriptions[schemaName];
-      details.appendChild(summary);
-      details.appendChild(body);
-      legend.insertAdjacentElement('afterend', details);
+      var info = _agencyFeatureInfo[schemaName];
+      // Insert Examples first, then Definition before it, so order is Definition → Examples.
+      legend.insertAdjacentElement('afterend', _makeDisclosure('Examples', _makeExamplesBody(info.examples)));
+      legend.insertAdjacentElement('afterend', _makeDisclosure('Definition', _makeDefinitionBody(info.definition)));
     });
   });
 </script>

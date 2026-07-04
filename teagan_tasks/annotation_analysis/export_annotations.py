@@ -2,7 +2,7 @@
 export_annotations.py
 
 Converts Potato annotation results for each task to wide-format parquet files.
-One row per annotated instance; one column per annotator per dimension.
+One row per annotated instance; one column per gold label per dimension.
 
 Gold label columns ({dim}_gold) copy the specified annotator's values.
 Configure GOLD_ANNOTATORS and OUT_DIR below, then run:
@@ -13,6 +13,7 @@ Output files:
     setting_annotations.parquet
     agency_annotations.parquet
     event_relation_annotations.parquet
+    all_annotations.parquet          ← outer join of all three tasks
 """
 
 import csv
@@ -75,9 +76,8 @@ TASKS = {
     },
 }
 
-DATA_CSV     = (f'{BASE}/setting_annotation_task/data/'
-                'dolma_final_sample_s42_n1250_t0.5_llm_summary_safeid_with_spans.csv')
-FEATURES_CSV = f'{BASE}/automatic_features/features.csv'
+DATA_CSV = (f'{BASE}/event_relation_annotation_task/data/'
+            'dolma_final_sample_s42_n1250_t0.5_llm_summary_safeid_with_spans.csv')
 
 # ── Parsers ────────────────────────────────────────────────────────────────────
 
@@ -158,21 +158,26 @@ def parse_event_relation(results_dir, annotator, span_lookup):
         rows.append(row)
     return pd.DataFrame(rows)
 
-# ── Metadata + features ────────────────────────────────────────────────────────
+# ── Metadata ───────────────────────────────────────────────────────────────────
 
 def load_metadata():
     csv.field_size_limit(10 ** 7)
     with open(DATA_CSV) as f:
         meta = pd.DataFrame(list(csv.DictReader(f)))
+    meta = meta.rename(columns={
+        'id':     'dolma_id',
+        'shard':  'dolma_shard',
+        'source': 'dolma_source',
+    })
     for col in ['narrative_confidence', 'topic_confidence', 'event_count', 'verb_count']:
         meta[col] = pd.to_numeric(meta[col], errors='coerce')
     meta['is_noise'] = meta['is_noise'].map({'True': True, 'False': False})
-    feat = pd.read_csv(FEATURES_CSV)
-    return meta.merge(feat, on='safe_instance_id', how='left')
+    return meta
 
 # ── Task builder ───────────────────────────────────────────────────────────────
 
-def build_task_df(task_key, cfg, meta):
+def build_task_gold_df(task_key, cfg):
+    """Return a df with safe_instance_id + {dim}_gold columns only."""
     dims = cfg['dimensions']
     ann_dfs = []
 
@@ -187,7 +192,6 @@ def build_task_df(task_key, cfg, meta):
         if ann_df.empty:
             continue
 
-        # suffix every dimension column with the annotator name
         ann_df = ann_df.rename(columns={d: f'{d}_{ann}' for d in dims})
         ann_dfs.append(ann_df)
         print(f'    {ann}: {len(ann_df)} instances')
@@ -196,13 +200,12 @@ def build_task_df(task_key, cfg, meta):
         print('    no annotation data found')
         return None
 
-    # outer-join all annotators so every annotated instance is included
     df = ann_dfs[0]
     for other in ann_dfs[1:]:
         df = df.merge(other, on='safe_instance_id', how='outer')
 
-    # gold label columns
     gold_ann = GOLD_ANNOTATORS.get(task_key)
+    gold_cols = []
     if gold_ann is not None:
         if gold_ann not in cfg['annotators']:
             print(f'    [warn] gold annotator "{gold_ann}" not in annotators list — skipping gold columns')
@@ -211,38 +214,50 @@ def build_task_df(task_key, cfg, meta):
                 src = f'{dim}_{gold_ann}'
                 if src in df.columns:
                     df[f'{dim}_gold'] = df[src]
+                    gold_cols.append(f'{dim}_gold')
             print(f'    gold annotator: {gold_ann}')
 
-    # attach metadata + features (left join; keeps only annotated instances)
-    annotation_cols = [c for c in df.columns if c != 'safe_instance_id']
-    df = meta.merge(df, on='safe_instance_id', how='right')
-
-    # column order: safe_instance_id | metadata | features | annotations | gold
-    meta_cols    = [c for c in meta.columns if c != 'safe_instance_id']
-    gold_cols    = [c for c in df.columns if c.endswith('_gold')]
-    ann_cols     = [c for c in annotation_cols if not c.endswith('_gold')]
-    ordered_cols = ['safe_instance_id'] + meta_cols + ann_cols + gold_cols
-    df = df[[c for c in ordered_cols if c in df.columns]]
-
-    return df
+    return df[['safe_instance_id'] + gold_cols]
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
-    print('Loading metadata + features ...')
+    print('Loading metadata ...')
     meta = load_metadata()
+    meta_cols = [c for c in meta.columns if c != 'safe_instance_id']
     print(f'  {len(meta)} instances, {len(meta.columns)} columns\n')
+
+    gold_dfs = {}
 
     for task_key, cfg in TASKS.items():
         print(f'[{task_key}]')
-        df = build_task_df(task_key, cfg, meta)
-        if df is None:
+        gold_df = build_task_gold_df(task_key, cfg)
+        if gold_df is None:
             continue
+        gold_dfs[task_key] = gold_df
+
+        gold_cols = [c for c in gold_df.columns if c != 'safe_instance_id']
+        df = meta.merge(gold_df, on='safe_instance_id', how='right')
+        df = df[['safe_instance_id'] + meta_cols + gold_cols]
         out_path = os.path.join(OUT_DIR, f'{task_key}_annotations.parquet')
         df.to_parquet(out_path, index=False)
         print(f'  → {out_path}')
         print(f'     {len(df)} rows × {len(df.columns)} columns\n')
+
+    # Combined parquet: outer join all tasks, then attach metadata
+    if gold_dfs:
+        print('[all_annotations]')
+        combined = list(gold_dfs.values())[0]
+        for other in list(gold_dfs.values())[1:]:
+            combined = combined.merge(other, on='safe_instance_id', how='outer')
+        all_gold_cols = [c for c in combined.columns if c != 'safe_instance_id']
+        combined = meta.merge(combined, on='safe_instance_id', how='right')
+        combined = combined[['safe_instance_id'] + meta_cols + all_gold_cols]
+        out_path = os.path.join(OUT_DIR, 'all_annotations.parquet')
+        combined.to_parquet(out_path, index=False)
+        print(f'  → {out_path}')
+        print(f'     {len(combined)} rows × {len(combined.columns)} columns\n')
 
 
 if __name__ == '__main__':

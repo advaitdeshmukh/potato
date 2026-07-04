@@ -220,6 +220,29 @@
     white-space: pre-wrap;
   }
 
+  /* ── Definition / Examples disclosures ───────────────────── */
+  .feature-info-details + .feature-info-details { margin-top: 2px; }
+  .likert-examples-list {
+    font-size: 0.75rem; color: #6b7280; line-height: 1.45;
+    margin: 6px 0 0; padding: 8px 10px;
+    background: #f9fafb; border-left: 3px solid #e5e7eb; border-radius: 0 4px 4px 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .example-row { display: flex; align-items: flex-start; gap: 8px; }
+  .example-score-chip {
+    flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.68rem; font-weight: 700; color: #fff;
+  }
+  .example-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .example-text { margin: 0; font-style: italic; color: #374151; }
+  .example-why { margin: 0; font-size: 0.7rem; color: #9ca3af; }
+  .chip-1 { background: #cbd5e1; }
+  .chip-2 { background: #c4b5fd; }
+  .chip-3 { background: #a78bfa; }
+  .chip-4 { background: #8b5cf6; }
+  .chip-5 { background: #6d28d9; }
+
   @media (max-width: 980px) {
     .setting-main {
       grid-template-columns: 1fr;
@@ -318,6 +341,7 @@
                       <div class="shadcn-likert-endpoint">{{ min_label }}</div>
                       <div class="shadcn-likert-options">
                         <div class="shadcn-likert-track"></div>
+                        {% set point_labels = {2: "Slightly", 3: "Moderately", 4: "Considerably"} %}
                         {% for value in range(1, likert_size + 1) %}
                           <div class="shadcn-likert-option">
                             <input class="{{ scheme.name }} shadcn-likert-input annotation-input"
@@ -331,6 +355,7 @@
                                    validation=""
                                    onclick="onlyOne(this);registerAnnotation(this);">
                             <label class="shadcn-likert-button" for="{{ scheme.name }}_{{ value }}_radio"></label>
+                            {% if value in point_labels %}<span class="shadcn-likert-label">{{ point_labels[value] }}</span>{% endif %}
                           </div>
                         {% endfor %}
                       </div>
@@ -373,32 +398,72 @@
 </div>
 
 <script>
-  var _settingExtendedDescriptions = {
+  // Structured feature info rendered straight from the config schemes: a trimmed,
+  // theory-aligned definition plus a full 1–5 example list. Scores 5/3/1 are from the
+  // paper's setting prompt (Fig. A23); scores 2/4 are authored from rubric tables A14–A17.
+  var _settingFeatureInfo = {
     {% if annotation_schemes is defined and annotation_schemes %}
       {% for scheme in annotation_schemes %}
-        {% if scheme.extended_description is defined and scheme.extended_description %}
-          "{{ scheme.name }}": {{ scheme.extended_description | tojson }}{% if not loop.last %},{% endif %}
+        {% if scheme.definition is defined and scheme.definition %}
+          "{{ scheme.name }}": { "definition": {{ scheme.definition | tojson }}, "examples": {{ (scheme.examples if scheme.examples is defined else []) | tojson }} }{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}
     {% endif %}
   };
 
+  function _makeDisclosure(summaryText, bodyEl) {
+    var details = document.createElement('details');
+    details.className = 'likert-description-details feature-info-details';
+    var summary = document.createElement('summary');
+    summary.innerHTML = '<span class="desc-chevron">&#9654;</span> ' + summaryText;
+    details.appendChild(summary);
+    details.appendChild(bodyEl);
+    return details;
+  }
+
+  function _makeDefinitionBody(text) {
+    var p = document.createElement('p');
+    p.className = 'likert-description';
+    p.textContent = text;
+    return p;
+  }
+
+  function _makeExamplesBody(examples) {
+    var wrap = document.createElement('div');
+    wrap.className = 'likert-examples-list';
+    (examples || []).forEach(function(ex) {
+      var row = document.createElement('div');
+      row.className = 'example-row';
+      var chip = document.createElement('span');
+      chip.className = 'example-score-chip chip-' + ex.score;
+      chip.textContent = ex.score;
+      var body = document.createElement('div');
+      body.className = 'example-body';
+      var txt = document.createElement('p');
+      txt.className = 'example-text';
+      txt.textContent = '“' + ex.text + '”';
+      var why = document.createElement('p');
+      why.className = 'example-why';
+      why.textContent = ex.why;
+      body.appendChild(txt);
+      body.appendChild(why);
+      row.appendChild(chip);
+      row.appendChild(body);
+      wrap.appendChild(row);
+    });
+    return wrap;
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
-    Object.keys(_settingExtendedDescriptions).forEach(function(schemaName) {
+    Object.keys(_settingFeatureInfo).forEach(function(schemaName) {
       var form = document.getElementById(schemaName);
       if (!form) return;
       var legend = form.querySelector('legend.shadcn-likert-title');
       if (!legend) return;
-      var details = document.createElement('details');
-      details.className = 'likert-description-details';
-      var summary = document.createElement('summary');
-      summary.innerHTML = '<span class="desc-chevron">&#9654;</span> More info';
-      var body = document.createElement('p');
-      body.className = 'likert-description';
-      body.textContent = _settingExtendedDescriptions[schemaName];
-      details.appendChild(summary);
-      details.appendChild(body);
-      legend.insertAdjacentElement('afterend', details);
+      var info = _settingFeatureInfo[schemaName];
+      // Insert Examples first, then Definition before it, so order is Definition → Examples.
+      legend.insertAdjacentElement('afterend', _makeDisclosure('Examples', _makeExamplesBody(info.examples)));
+      legend.insertAdjacentElement('afterend', _makeDisclosure('Definition', _makeDefinitionBody(info.definition)));
     });
   });
 </script>

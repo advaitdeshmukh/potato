@@ -40,7 +40,16 @@ annotation_schemes:
   - annotation_type: likert
     name: setting_concreteness
     description: "How concrete is the language of the text?"
-    extended_description: "That is, how much does the text refer to things that can be directly experienced through the senses or through action, as opposed to things whose meaning depends on other words? \n\nSome text refers to things and actions in reality that can be experienced directly through the five senses or through physical action. We call this concrete language. Other text refers to meanings that cannot be experienced directly, but which we understand because they can be defined or explained using other words. We call this abstract language. A higher score reflects text in which most content could be explained by pointing, demonstrating, or showing (objects, physical states, bodily actions, perceptual qualities). A lower score reflects text in which most content can only be explained using other words (categories, principles, relationships, institutions, ideas). \n\nAsk yourself: could the main content of this passage be explained to someone by showing them something, or does it require verbal definition? \n\nHigh: the chipped blue mug sat on the edge of the sink, handle cracked from years of use (you could point to the mug, the crack, the sink). \nLow: people often form attachments to everyday objects (there is nothing to point to; the meaning depends entirely on understanding 'attachment', 'form', 'everyday'). \n\nNote: named entities (people, places, organizations) do not automatically raise the score. What matters is whether the text renders something perceptually present, not just nominally specific."
+    # definition + examples are rendered directly by layouts/task_layout_custom.html.
+    # Scores 5/3/1 are from the paper's setting prompt (Fig. A23); scores 2/4 are
+    # authored from rubric tables A14-A17.
+    definition: "How tangible and non-abstract the language is: could the content be explained by pointing, demonstrating, or showing (objects, physical states, bodily actions, perceptual qualities), or only by verbal definition (categories, principles, institutions, ideas)? Concreteness is not the same as specificity. Naming entities does not by itself raise the score unless they are rendered perceptually."
+    examples:
+      - { score: 5, text: "the chipped blue mug sat on the edge of the sink, handle cracked from years of use", why: "physical referents richly rendered; dense with perceptual particulars" }
+      - { score: 4, text: "Rain streaked the workshop window above a bench cluttered with clamps, curls of pine shaving, and a half-sanded chair leg.", why: "tangible things rendered with clear perceptual detail; the scene is picturable" }
+      - { score: 3, text: "She had been commuting to the same office for six years. The building was on a corner downtown, glass and steel, indistinguishable from the ones on either side of it.", why: "physical referents present with some rendering, but perceptual detail is thin" }
+      - { score: 2, text: "The company moved its headquarters and hired two hundred staff.", why: "physical entities are named but not rendered, with no shape, color, or texture" }
+      - { score: 1, text: "people often form attachments to everyday objects", why: "entirely abstract; nothing could be explained by pointing" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -50,7 +59,13 @@ annotation_schemes:
   - annotation_type: likert
     name: setting_temporal_grounding
     description: "How strongly does the text create a sense of being anchored in a particular time?"
-    extended_description: "A higher score reflects text that creates a vivid sense of temporal location: the reader feels situated in a particular moment, era, or duration, whether through explicit markers or evocative detail. A lower score reflects text that feels temporally unanchored, as if events could be taking place at any time. \n\nFor example, \"the streets were still empty, that particular quiet of early Sunday morning before the city remembered itself\" scores higher than \"he walked outside.\" because the first text evokes a specific temporal atmosphere, while the second text could be happening at any time. \n\nKeep in mind, this is not just about explicit mentions of dates or time periods, but about whether the text creates a strong sense of time through description and atmosphere."
+    definition: "How strongly the text anchors the reader in a particular time. Two types contribute: historical grounding, a specific, unrepeatable moment (a year, an era, a named event), which has a high ceiling even when the language is sparse; and cyclical grounding, a recurring temporal structure (a season, a time of day), which on its own typically reaches only the middle of the scale. This is about a felt sense of time through description and atmosphere, not just explicit dates."
+    examples:
+      - { score: 5, text: "It was the summer of 2015 at 9:02am, before the world changed forever.", why: "historical and cyclical grounding work together for vivid temporal immersion" }
+      - { score: 4, text: "In the winter of 1943, the depot ran day and night.", why: "historical grounding: a specific year/era anchors an identifiable moment" }
+      - { score: 3, text: "This unique summer school gives teenagers the opportunity to work with tutors and musicians.", why: "cyclical grounding (a season) gives a felt sense of when; cyclical-only tends to cap here" }
+      - { score: 2, text: "A few years ago, before all this, she had taken the same road every morning.", why: "relative markers order events but do not locate the reader in a particular time" }
+      - { score: 1, text: "he walked outside.", why: "no markers of time; it could be happening at any point" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -60,7 +75,13 @@ annotation_schemes:
   - annotation_type: likert
     name: setting_spatial_grounding
     description: "How strongly does the text create a sense of being anchored in a particular place?"
-    extended_description: "A higher score reflects text that creates a vivid sense of physical location: you (the reader) feel like you can envision yourself in a particular location or setting, whether through explicit description or evocative detail. A lower score reflects text that feels spatially unanchored, as if events could be taking place anywhere. \n\nFor example, \"the alley smelled of wet concrete and something burned, neon from the bar across the street bleeding red into the puddles\" scores higher than \"he stepped outside.\"\n\nKeep in mind, this is not just about nominal mentions of places or locations, but about whether the text creates a strong sense of place through description and atmosphere."
+    definition: "How strongly the text anchors the reader in a particular place. Two types contribute: geographic grounding, a country, city, or named landmark, which can reach the top of the scale on its own; and proximate grounding, an immediate physical environment (a room, a building, a street), which needs rendering to score high, so vivid proximate grounding without geographic grounding caps just below the top. This is about a felt sense of place, not just nominal mentions of locations."
+    examples:
+      - { score: 5, text: "In the narrow streets of Naples, the apartment's tiled floors kept cool even in August heat.", why: "geographic and proximate grounding combine with rich rendering" }
+      - { score: 4, text: "The workshop smelled of sawdust and hot metal, tools hung in careful rows along the far wall.", why: "a proximate environment rendered vividly enough to feel present (no geographic anchor, so it caps here)" }
+      - { score: 3, text: "She worked at an office in London.", why: "a named geographic location places the reader on the globe without evoking it" }
+      - { score: 2, text: "She sat in the kitchen.", why: "a bare proximate location with no rendering, only that a space exists" }
+      - { score: 1, text: "She decided to quit her job.", why: "no markers of place; it could be happening anywhere" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
@@ -70,7 +91,13 @@ annotation_schemes:
   - annotation_type: likert
     name: setting_sensory
     description: "How central are sensory details to the text?"
-    extended_description: "A higher score reflects text in which sensory experience is a prominent and sustained feature. You are consistently given information about how the world looks, sounds, smells, feels, or tastes. A lower score reflects text with little or no sensory content, where events and ideas are conveyed without appeal to the senses. \n\nFor example, \"the bread was still warm, its crust crackling under her fingers, the whole kitchen thick with the smell of it\" scores higher than \"she made breakfast which consisted of bread and eggs.\" because the first text is clearly invoking your sense of smell."
+    definition: "Centrality of sensory experience across modalities: how the world looks, sounds, smells, feels, or tastes. This is distinct from concreteness: a passage can be concrete without foregrounding any particular sense. What matters is whether a sense modality is central to how the passage is organized, and how vividly it is rendered."
+    examples:
+      - { score: 5, text: "the bread was still warm, its crust crackling under her fingers, the whole kitchen thick with the smell of it", why: "organized around sensory experience across modalities, richly rendered" }
+      - { score: 4, text: "The whole train car reeked of wet wool and diesel, and she breathed through her mouth the entire ride.", why: "a sense (smell) is prominent and clearly organizes the passage, even if not richly detailed" }
+      - { score: 3, text: "The bread was still warm when she pulled it from the oven. She set it on the rack and went to wash her hands.", why: "a sense modality contributes meaningfully but is not the organizing feature" }
+      - { score: 2, text: "The office was quiet as she typed up the report.", why: "a sense is implied but peripheral; removing it would not change the passage" }
+      - { score: 1, text: "she made breakfast which consisted of bread and eggs.", why: "no appeal to the senses; no modality invoked" }
     size: 5
     min_label: "Not at all"
     max_label: "Extremely"
