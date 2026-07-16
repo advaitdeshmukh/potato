@@ -1137,7 +1137,8 @@
       "navigation_history": [],
       "focus_time_by_element": {},
       "scroll_depth_max": 0.0,
-      "keyword_highlights_shown": []
+      "keyword_highlights_shown": [],
+      "chat_history": []
     },
     "inst_c6c4d485162e761d_9": {
       "instance_id": "inst_c6c4d485162e761d_9",
@@ -1194,7 +1195,34 @@
       "navigation_history": [],
       "focus_time_by_element": {},
       "scroll_depth_max": 0.0,
-      "keyword_highlights_shown": []
+      "keyword_highlights_shown": [],
+      "chat_history": []
+    },
+    "inst_2f5f05c0a25d1ca5_10": {
+      "instance_id": "inst_2f5f05c0a25d1ca5_10",
+      "session_start": 1781711263.0336263,
+      "session_end": null,
+      "total_time_ms": 0,
+      "interactions": [
+        {
+          "event_type": "navigation",
+          "timestamp": 1781711257.915,
+          "target": "instance_load",
+          "instance_id": "inst_2f5f05c0a25d1ca5_10",
+          "client_timestamp": 1781711257915,
+          "metadata": {
+            "instance_id": "inst_2f5f05c0a25d1ca5_10",
+            "from_instance": null
+          }
+        }
+      ],
+      "ai_usage": [],
+      "annotation_changes": [],
+      "navigation_history": [],
+      "focus_time_by_element": {},
+      "scroll_depth_max": 0.0,
+      "keyword_highlights_shown": [],
+      "chat_history": []
     }
   },
   "instance_id_to_label_to_value": {},

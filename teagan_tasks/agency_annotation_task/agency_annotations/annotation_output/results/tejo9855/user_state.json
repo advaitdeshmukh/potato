@@ -1074,7 +1074,7 @@
     "inst_9b1707488a31a6a2_1070",
     "inst_59c49a5891d8c49c_1071"
   ],
-  "current_instance_index": 51,
+  "current_instance_index": 404,
   "current_phase_and_page": [
     "annotation",
     "annotation"
@@ -31431,6 +31431,232 @@
           "instance_id": "inst_722f3f9c46054e51_51",
           "client_timestamp": 1778105924163,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783142462.535,
+          "target": "instance_load",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142462535,
+          "metadata": {
+            "instance_id": "inst_722f3f9c46054e51_51",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783142464.49,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142464490,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783142464.582,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142464582,
+          "metadata": {
+            "x": 928,
+            "y": 229
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783142465.256,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142465256,
+          "metadata": {
+            "x": 928,
+            "y": 229
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783142465.597,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142465597,
+          "metadata": {
+            "duration_ms": 1107
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783142465.597,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142465597,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783142465.672,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142465672,
+          "metadata": {
+            "x": 929,
+            "y": 207
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783142466.989,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783142466989,
+          "metadata": {
+            "x": 930,
+            "y": 207
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783181165.076,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783181165076,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783181165.735,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783181165735,
+          "metadata": {
+            "duration_ms": 659
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783181167.86,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783181167860,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783181169.157,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783181169157,
+          "metadata": {
+            "duration_ms": 1297
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783181358.511,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783181358511,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783181358.58,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783181358580,
+          "metadata": {
+            "duration_ms": 69
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783183020.665,
+          "target": "instance_load",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783183020665,
+          "metadata": {
+            "instance_id": "inst_722f3f9c46054e51_51",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783285579.865,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783285579865,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783285581.274,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783285581274,
+          "metadata": {
+            "duration_ms": 1409
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312625.686,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783312625686,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312628.611,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783312628611,
+          "metadata": {
+            "duration_ms": 2924
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1783312629.79,
+          "target": "key:4",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783312629790,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1783312630.115,
+          "target": "key:0",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783312630115,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1783312630.352,
+          "target": "key:1",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783312630352,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312631.27,
+          "target": "instance:inst_722f3f9c46054e51_51",
+          "instance_id": "inst_722f3f9c46054e51_51",
+          "client_timestamp": 1783312631270,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -31507,7 +31733,8 @@
         "label:agency_conflict:1": 2183,
         "label:agency_conflict:2": 11440,
         "label:agency_emotion:1": 21624,
-        "label:agency_emotion:2": 816
+        "label:agency_emotion:2": 816,
+        "schema:agency_focalization": 7465
       },
       "scroll_depth_max": 0.0,
       "keyword_highlights_shown": [],
@@ -231522,12 +231749,3695 @@
           "instance_id": "inst_76a46b75d189d2de_400",
           "client_timestamp": 1779684693968,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783312633.212,
+          "target": "instance_load",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312633212,
+          "metadata": {
+            "instance_id": "inst_76a46b75d189d2de_400",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312654.961,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312654961,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312655.057,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312655057,
+          "metadata": {
+            "x": 756,
+            "y": 222
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312656.228,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312656228,
+          "metadata": {
+            "x": 763,
+            "y": 228
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312682.607,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312682607,
+          "metadata": {
+            "duration_ms": 27646
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312683.544,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312683544,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312687.027,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312687027,
+          "metadata": {
+            "duration_ms": 3483
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312693.461,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312693461,
+          "metadata": {
+            "x": 834,
+            "y": 277
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312693.462,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312693462,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312693.462,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312693462,
+          "metadata": {
+            "x": 834,
+            "y": 277
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783312693.463,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312693463,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312693.965,
+          "target": "instance:inst_76a46b75d189d2de_400",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312693965,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312710.952,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312710952,
+          "metadata": {
+            "duration_ms": 17490
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312710.953,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312710953,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312711.051,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312711051,
+          "metadata": {
+            "x": 782,
+            "y": 237
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312743.96,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312743960,
+          "metadata": {
+            "duration_ms": 33007
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312743.96,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312743960,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312744.068,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312744068,
+          "metadata": {
+            "x": 773,
+            "y": 342
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312748.609,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312748609,
+          "metadata": {
+            "x": 791,
+            "y": 284
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312749.026,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312749026,
+          "metadata": {
+            "x": 791,
+            "y": 284
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312752.259,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312752259,
+          "metadata": {
+            "x": 757,
+            "y": 365
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312753.252,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312753252,
+          "metadata": {
+            "duration_ms": 9292
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312753.334,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312753334,
+          "metadata": {
+            "x": 778,
+            "y": 198
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312753.476,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312753476,
+          "metadata": {
+            "x": 778,
+            "y": 198
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312753.618,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312753618,
+          "metadata": {
+            "x": 778,
+            "y": 198
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312754.017,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312754017,
+          "metadata": {
+            "x": 839,
+            "y": 196
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312812.942,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312812942,
+          "metadata": {
+            "x": 780,
+            "y": 277
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312813.125,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312813125,
+          "metadata": {
+            "x": 780,
+            "y": 277
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312813.359,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312813359,
+          "metadata": {
+            "x": 780,
+            "y": 277
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312813.751,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312813751,
+          "metadata": {
+            "x": 809,
+            "y": 290
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312831.342,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312831342,
+          "metadata": {
+            "x": 834,
+            "y": 325
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312831.343,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312831343,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312831.343,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312831343,
+          "metadata": {
+            "x": 834,
+            "y": 325
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783312831.344,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312831344,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312831.846,
+          "target": "instance:inst_76a46b75d189d2de_400",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312831846,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312832.859,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312832859,
+          "metadata": {
+            "duration_ms": 1516
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312832.942,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312832942,
+          "metadata": {
+            "x": 835,
+            "y": 330
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312832.942,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312832942,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312832.943,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312832943,
+          "metadata": {
+            "x": 835,
+            "y": 330
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312833.334,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312833334,
+          "metadata": {
+            "duration_ms": 392
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312833.509,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312833509,
+          "metadata": {
+            "x": 853,
+            "y": 347
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312839.825,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312839825,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312839.958,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312839958,
+          "metadata": {
+            "x": 783,
+            "y": 140
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312844.788,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312844788,
+          "metadata": {
+            "duration_ms": 4963
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312844.871,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312844871,
+          "metadata": {
+            "x": 842,
+            "y": 395
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312845.038,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312845038,
+          "metadata": {
+            "x": 842,
+            "y": 395
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312845.221,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312845221,
+          "metadata": {
+            "x": 842,
+            "y": 395
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312845.725,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312845725,
+          "metadata": {
+            "x": 883,
+            "y": 376
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312854.442,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312854442,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312854.575,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312854575,
+          "metadata": {
+            "x": 784,
+            "y": 241
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312871.713,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312871713,
+          "metadata": {
+            "duration_ms": 17271
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312871.788,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312871788,
+          "metadata": {
+            "x": 839,
+            "y": 211
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312871.788,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312871788,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312871.789,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312871789,
+          "metadata": {
+            "x": 839,
+            "y": 211
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783312871.789,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312871789,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312872.291,
+          "target": "instance:inst_76a46b75d189d2de_400",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312872291,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312885.509,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312885509,
+          "metadata": {
+            "duration_ms": 13721
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312885.509,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312885509,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312885.592,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312885592,
+          "metadata": {
+            "x": 778,
+            "y": 278
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312902.742,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312902742,
+          "metadata": {
+            "x": 784,
+            "y": 269
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312903.351,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312903351,
+          "metadata": {
+            "duration_ms": 17842
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312903.351,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312903351,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312903.416,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312903416,
+          "metadata": {
+            "x": 783,
+            "y": 236
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312926.151,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312926151,
+          "metadata": {
+            "x": 789,
+            "y": 242
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312926.721,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312926721,
+          "metadata": {
+            "duration_ms": 23370
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312926.721,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312926721,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312926.82,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312926820,
+          "metadata": {
+            "x": 787,
+            "y": 261
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312929.329,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312929329,
+          "metadata": {
+            "x": 787,
+            "y": 262
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312930.251,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312930251,
+          "metadata": {
+            "duration_ms": 3530
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312930.367,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312930367,
+          "metadata": {
+            "x": 917,
+            "y": 293
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312930.367,
+          "target": "label:agency_change_of_state:2",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312930367,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312930.367,
+          "target": "label:agency_change_of_state:2",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312930367,
+          "metadata": {
+            "x": 917,
+            "y": 293
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783312930.368,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312930368,
+          "metadata": {
+            "label": "2",
+            "action": "select",
+            "old_value": null,
+            "new_value": "2",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312930.869,
+          "target": "instance:inst_76a46b75d189d2de_400",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312930869,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312934.417,
+          "target": "label:agency_change_of_state:2",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312934417,
+          "metadata": {
+            "duration_ms": 4050
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312934.417,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312934417,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312934.508,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312934508,
+          "metadata": {
+            "x": 796,
+            "y": 424
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312944.301,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312944301,
+          "metadata": {
+            "x": 784,
+            "y": 258
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312950.688,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312950688,
+          "metadata": {
+            "duration_ms": 16271
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312950.812,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312950812,
+          "metadata": {
+            "x": 822,
+            "y": 432
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312951.171,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312951171,
+          "metadata": {
+            "x": 826,
+            "y": 428
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312951.171,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312951171,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312951.172,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312951172,
+          "metadata": {
+            "x": 826,
+            "y": 428
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783312951.172,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312951172,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312951.673,
+          "target": "instance:inst_76a46b75d189d2de_400",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312951673,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312951.947,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312951947,
+          "metadata": {
+            "duration_ms": 776
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783312952.064,
+          "target": "next",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312952064,
+          "metadata": {
+            "from_instance": "inst_76a46b75d189d2de_400",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312952.064,
+          "target": "instance:inst_76a46b75d189d2de_400",
+          "instance_id": "inst_76a46b75d189d2de_400",
+          "client_timestamp": 1783312952064,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
-      "annotation_changes": [],
+      "annotation_changes": [
+        {
+          "timestamp": 1783312693.521321,
+          "schema_name": "agency_focalization",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783312831.4027796,
+          "schema_name": "agency_emotion",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783312871.8611965,
+          "schema_name": "agency_cognition",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783312930.423548,
+          "schema_name": "agency_change_of_state",
+          "label_name": "2",
+          "action": "select",
+          "old_value": null,
+          "new_value": "2",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783312951.2296946,
+          "schema_name": "agency_conflict",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        }
+      ],
       "navigation_history": [],
-      "focus_time_by_element": {},
+      "focus_time_by_element": {
+        "schema:agency_focalization": 73428,
+        "label:agency_focalization:1": 17490,
+        "label:agency_emotion:1": 1908,
+        "schema:agency_emotion": 22234,
+        "label:agency_cognition:1": 13721,
+        "schema:agency_change_of_state": 44742,
+        "label:agency_change_of_state:2": 4050,
+        "schema:agency_conflict": 16271,
+        "label:agency_conflict:1": 776
+      },
+      "scroll_depth_max": 0.0,
+      "keyword_highlights_shown": [],
+      "chat_history": []
+    },
+    "inst_96e52852548dffba_401": {
+      "instance_id": "inst_96e52852548dffba_401",
+      "session_start": 1783312958.8595505,
+      "session_end": null,
+      "total_time_ms": 0,
+      "interactions": [
+        {
+          "event_type": "navigation",
+          "timestamp": 1783312953.749,
+          "target": "instance_load",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312953749,
+          "metadata": {
+            "instance_id": "inst_96e52852548dffba_401",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312956.609,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312956609,
+          "metadata": {
+            "x": 898,
+            "y": 306
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312956.766,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312956766,
+          "metadata": {
+            "x": 898,
+            "y": 306
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312957.175,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312957175,
+          "metadata": {
+            "x": 905,
+            "y": 318
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312970.396,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312970396,
+          "metadata": {
+            "x": 833,
+            "y": 280
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312970.396,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312970396,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312970.397,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312970397,
+          "metadata": {
+            "x": 833,
+            "y": 280
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783312970.397,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312970397,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783312970.898,
+          "target": "instance:inst_96e52852548dffba_401",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312970898,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783312999.437,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312999437,
+          "metadata": {
+            "duration_ms": 29041
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312999.662,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312999662,
+          "metadata": {
+            "x": 836,
+            "y": 217
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783312999.662,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312999662,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783312999.663,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312999663,
+          "metadata": {
+            "x": 836,
+            "y": 217
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783312999.663,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783312999663,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313000.165,
+          "target": "instance:inst_96e52852548dffba_401",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313000165,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313004.901,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313004901,
+          "metadata": {
+            "duration_ms": 5239
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313005.091,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313005091,
+          "metadata": {
+            "x": 835,
+            "y": 364
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313005.7,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313005700,
+          "metadata": {
+            "x": 837,
+            "y": 373
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313005.701,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313005701,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313005.701,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313005701,
+          "metadata": {
+            "x": 837,
+            "y": 373
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313005.702,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313005702,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313006.203,
+          "target": "instance:inst_96e52852548dffba_401",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313006203,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313071.033,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313071033,
+          "metadata": {
+            "duration_ms": 65332
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313071.033,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313071033,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313071.157,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313071157,
+          "metadata": {
+            "x": 791,
+            "y": 201
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313074.907,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313074907,
+          "metadata": {
+            "duration_ms": 3874
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313075.007,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313075007,
+          "metadata": {
+            "x": 764,
+            "y": 370
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313075.215,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313075215,
+          "metadata": {
+            "x": 764,
+            "y": 370
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313075.407,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313075407,
+          "metadata": {
+            "x": 764,
+            "y": 370
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313075.874,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313075874,
+          "metadata": {
+            "x": 805,
+            "y": 371
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313076.082,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313076082,
+          "metadata": {
+            "x": 805,
+            "y": 371
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313076.257,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313076257,
+          "metadata": {
+            "x": 805,
+            "y": 371
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313076.457,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313076457,
+          "metadata": {
+            "x": 805,
+            "y": 371
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313077.082,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313077082,
+          "metadata": {
+            "x": 799,
+            "y": 396
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313077.274,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313077274,
+          "metadata": {
+            "x": 799,
+            "y": 396
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313077.457,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313077457,
+          "metadata": {
+            "x": 799,
+            "y": 396
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313078.09,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313078090,
+          "metadata": {
+            "x": 770,
+            "y": 373
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313078.267,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313078267,
+          "metadata": {
+            "x": 770,
+            "y": 373
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313078.532,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313078532,
+          "metadata": {
+            "x": 770,
+            "y": 373
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313078.657,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313078657,
+          "metadata": {
+            "x": 770,
+            "y": 373
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313079.157,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313079157,
+          "metadata": {
+            "x": 784,
+            "y": 378
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313146.241,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313146241,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313146.332,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313146332,
+          "metadata": {
+            "x": 788,
+            "y": 107
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313149.932,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313149932,
+          "metadata": {
+            "duration_ms": 3691
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313149.932,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313149932,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313150.024,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313150024,
+          "metadata": {
+            "x": 770,
+            "y": 342
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313187.349,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313187349,
+          "metadata": {
+            "duration_ms": 37417
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313187.49,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313187490,
+          "metadata": {
+            "x": 1005,
+            "y": 374
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313187.491,
+          "target": "label:agency_change_of_state:3",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313187491,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313187.491,
+          "target": "label:agency_change_of_state:3",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313187491,
+          "metadata": {
+            "x": 1005,
+            "y": 374
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313187.492,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313187492,
+          "metadata": {
+            "label": "3",
+            "action": "select",
+            "old_value": null,
+            "new_value": "3",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313187.993,
+          "target": "instance:inst_96e52852548dffba_401",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313187993,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313192.282,
+          "target": "label:agency_change_of_state:3",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313192282,
+          "metadata": {
+            "duration_ms": 4791
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313192.282,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313192282,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313192.373,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313192373,
+          "metadata": {
+            "x": 797,
+            "y": 222
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313193.073,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313193073,
+          "metadata": {
+            "duration_ms": 791
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313193.073,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313193073,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313193.156,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313193156,
+          "metadata": {
+            "x": 791,
+            "y": 250
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313222.665,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313222665,
+          "metadata": {
+            "x": 793,
+            "y": 128
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313231.207,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313231207,
+          "metadata": {
+            "duration_ms": 38134
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313231.323,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313231323,
+          "metadata": {
+            "x": 837,
+            "y": 429
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313231.324,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313231324,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313231.324,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313231324,
+          "metadata": {
+            "x": 837,
+            "y": 429
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313231.325,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313231325,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313231.827,
+          "target": "instance:inst_96e52852548dffba_401",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313231827,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313235.703,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313235703,
+          "metadata": {
+            "duration_ms": 4379
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783313236.237,
+          "target": "next",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313236237,
+          "metadata": {
+            "from_instance": "inst_96e52852548dffba_401",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313236.237,
+          "target": "instance:inst_96e52852548dffba_401",
+          "instance_id": "inst_96e52852548dffba_401",
+          "client_timestamp": 1783313236237,
+          "metadata": {}
+        }
+      ],
+      "ai_usage": [],
+      "annotation_changes": [
+        {
+          "timestamp": 1783312970.4588137,
+          "schema_name": "agency_focalization",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783312999.7246473,
+          "schema_name": "agency_emotion",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313005.7646825,
+          "schema_name": "agency_cognition",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313187.5521677,
+          "schema_name": "agency_change_of_state",
+          "label_name": "3",
+          "action": "select",
+          "old_value": null,
+          "new_value": "3",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313231.3794787,
+          "schema_name": "agency_conflict",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        }
+      ],
+      "navigation_history": [],
+      "focus_time_by_element": {
+        "label:agency_focalization:1": 29041,
+        "label:agency_emotion:1": 5239,
+        "label:agency_cognition:1": 65332,
+        "schema:agency_change_of_state": 83907,
+        "label:agency_change_of_state:3": 4791,
+        "label:agency_conflict:1": 4379
+      },
+      "scroll_depth_max": 0.0,
+      "keyword_highlights_shown": [],
+      "chat_history": []
+    },
+    "inst_232634a18c209f82_402": {
+      "instance_id": "inst_232634a18c209f82_402",
+      "session_start": 1783313243.1277077,
+      "session_end": null,
+      "total_time_ms": 0,
+      "interactions": [
+        {
+          "event_type": "navigation",
+          "timestamp": 1783313237.959,
+          "target": "instance_load",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313237959,
+          "metadata": {
+            "instance_id": "inst_232634a18c209f82_402",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313241.648,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313241648,
+          "metadata": {
+            "x": 819,
+            "y": 200
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313241.807,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313241807,
+          "metadata": {
+            "x": 819,
+            "y": 200
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313241.964,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313241964,
+          "metadata": {
+            "x": 819,
+            "y": 200
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313242.414,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313242414,
+          "metadata": {
+            "x": 840,
+            "y": 192
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313255.64,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313255640,
+          "metadata": {
+            "x": 831,
+            "y": 270
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313255.64,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313255640,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313255.641,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313255641,
+          "metadata": {
+            "x": 831,
+            "y": 270
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313255.641,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313255641,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313256.142,
+          "target": "instance:inst_232634a18c209f82_402",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313256142,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313258.357,
+          "target": "label:agency_focalization:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313258357,
+          "metadata": {
+            "duration_ms": 2717
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313258.456,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313258456,
+          "metadata": {
+            "x": 827,
+            "y": 418
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313258.456,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313258457,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313258.457,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313258457,
+          "metadata": {
+            "x": 827,
+            "y": 418
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313258.457,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313258457,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313258.958,
+          "target": "instance:inst_232634a18c209f82_402",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313258958,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313259.765,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313259765,
+          "metadata": {
+            "duration_ms": 1309
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313259.939,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313259939,
+          "metadata": {
+            "x": 839,
+            "y": 474
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313259.94,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313259940,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313259.94,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313259940,
+          "metadata": {
+            "x": 839,
+            "y": 474
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313259.941,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313259941,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313260.442,
+          "target": "instance:inst_232634a18c209f82_402",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313260442,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313269.581,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313269581,
+          "metadata": {
+            "duration_ms": 9641
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313269.582,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313269582,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313269.667,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313269667,
+          "metadata": {
+            "x": 791,
+            "y": 245
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313292.312,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313292312,
+          "metadata": {
+            "x": 775,
+            "y": 223
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313293.194,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313293194,
+          "metadata": {
+            "duration_ms": 23613
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313293.268,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313293268,
+          "metadata": {
+            "x": 922,
+            "y": 272
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313293.827,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313293827,
+          "metadata": {
+            "x": 918,
+            "y": 272
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313293.827,
+          "target": "label:agency_change_of_state:2",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313293827,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313293.828,
+          "target": "label:agency_change_of_state:2",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313293828,
+          "metadata": {
+            "x": 918,
+            "y": 272
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313293.828,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313293828,
+          "metadata": {
+            "label": "2",
+            "action": "select",
+            "old_value": null,
+            "new_value": "2",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313294.33,
+          "target": "instance:inst_232634a18c209f82_402",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313294330,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313304.097,
+          "target": "label:agency_change_of_state:2",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313304097,
+          "metadata": {
+            "duration_ms": 10270
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313304.236,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313304236,
+          "metadata": {
+            "x": 828,
+            "y": 428
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313304.236,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313304236,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313304.236,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313304236,
+          "metadata": {
+            "x": 828,
+            "y": 428
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313304.237,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313304237,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313304.738,
+          "target": "instance:inst_232634a18c209f82_402",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313304738,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313305.023,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313305023,
+          "metadata": {
+            "duration_ms": 787
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783313305.137,
+          "target": "next",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313305137,
+          "metadata": {
+            "from_instance": "inst_232634a18c209f82_402",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313305.137,
+          "target": "instance:inst_232634a18c209f82_402",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1783313305137,
+          "metadata": {}
+        }
+      ],
+      "ai_usage": [],
+      "annotation_changes": [
+        {
+          "timestamp": 1783313255.7013412,
+          "schema_name": "agency_focalization",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313258.5100188,
+          "schema_name": "agency_emotion",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313259.9944882,
+          "schema_name": "agency_cognition",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313293.882352,
+          "schema_name": "agency_change_of_state",
+          "label_name": "2",
+          "action": "select",
+          "old_value": null,
+          "new_value": "2",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313304.3585775,
+          "schema_name": "agency_conflict",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        }
+      ],
+      "navigation_history": [],
+      "focus_time_by_element": {
+        "label:agency_focalization:1": 2717,
+        "label:agency_emotion:1": 1309,
+        "label:agency_cognition:1": 9641,
+        "schema:agency_change_of_state": 23613,
+        "label:agency_change_of_state:2": 10270,
+        "label:agency_conflict:1": 787
+      },
+      "scroll_depth_max": 0.0,
+      "keyword_highlights_shown": [],
+      "chat_history": []
+    },
+    "inst_de47311560b6f33b_403": {
+      "instance_id": "inst_de47311560b6f33b_403",
+      "session_start": 1783313312.0080476,
+      "session_end": null,
+      "total_time_ms": 0,
+      "interactions": [
+        {
+          "event_type": "navigation",
+          "timestamp": 1783313306.952,
+          "target": "instance_load",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313306952,
+          "metadata": {
+            "instance_id": "inst_de47311560b6f33b_403",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313314.311,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313314311,
+          "metadata": {
+            "x": 906,
+            "y": 278
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313314.312,
+          "target": "label:agency_focalization:2",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313314312,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313314.312,
+          "target": "label:agency_focalization:2",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313314312,
+          "metadata": {
+            "x": 906,
+            "y": 278
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313314.313,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313314313,
+          "metadata": {
+            "label": "2",
+            "action": "select",
+            "old_value": null,
+            "new_value": "2",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313314.815,
+          "target": "instance:inst_de47311560b6f33b_403",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313314815,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313320.152,
+          "target": "label:agency_focalization:2",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313320152,
+          "metadata": {
+            "duration_ms": 5840
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313320.22,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313320220,
+          "metadata": {
+            "x": 834,
+            "y": 360
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313320.22,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313320220,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313320.221,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313320221,
+          "metadata": {
+            "x": 834,
+            "y": 360
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313320.221,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313320221,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313320.722,
+          "target": "instance:inst_de47311560b6f33b_403",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313320722,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313321.302,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313321302,
+          "metadata": {
+            "duration_ms": 1082
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313321.451,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313321451,
+          "metadata": {
+            "x": 829,
+            "y": 427
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313321.451,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313321451,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313321.452,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313321452,
+          "metadata": {
+            "x": 829,
+            "y": 427
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313321.452,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313321452,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313321.954,
+          "target": "instance:inst_de47311560b6f33b_403",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313321954,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313327.319,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313327319,
+          "metadata": {
+            "duration_ms": 5868
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313327.411,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313327411,
+          "metadata": {
+            "x": 838,
+            "y": 319
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313327.411,
+          "target": "label:agency_change_of_state:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313327411,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313327.412,
+          "target": "label:agency_change_of_state:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313327412,
+          "metadata": {
+            "x": 838,
+            "y": 319
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313327.412,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313327412,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313327.913,
+          "target": "instance:inst_de47311560b6f33b_403",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313327913,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313330.181,
+          "target": "label:agency_change_of_state:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313330181,
+          "metadata": {
+            "duration_ms": 2770
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313330.322,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313330322,
+          "metadata": {
+            "x": 818,
+            "y": 440
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313330.744,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313330744,
+          "metadata": {
+            "x": 830,
+            "y": 434
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313330.744,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313330744,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313330.745,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313330745,
+          "metadata": {
+            "x": 830,
+            "y": 434
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313330.745,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313330745,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313331.246,
+          "target": "instance:inst_de47311560b6f33b_403",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313331246,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313331.59,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313331590,
+          "metadata": {
+            "duration_ms": 846
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783313331.691,
+          "target": "next",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313331691,
+          "metadata": {
+            "from_instance": "inst_de47311560b6f33b_403",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313331.691,
+          "target": "instance:inst_de47311560b6f33b_403",
+          "instance_id": "inst_de47311560b6f33b_403",
+          "client_timestamp": 1783313331691,
+          "metadata": {}
+        }
+      ],
+      "ai_usage": [],
+      "annotation_changes": [
+        {
+          "timestamp": 1783313314.3677237,
+          "schema_name": "agency_focalization",
+          "label_name": "2",
+          "action": "select",
+          "old_value": null,
+          "new_value": "2",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313320.275587,
+          "schema_name": "agency_emotion",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313321.5057192,
+          "schema_name": "agency_cognition",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313327.4736104,
+          "schema_name": "agency_change_of_state",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313330.802877,
+          "schema_name": "agency_conflict",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        }
+      ],
+      "navigation_history": [],
+      "focus_time_by_element": {
+        "label:agency_focalization:2": 5840,
+        "label:agency_emotion:1": 1082,
+        "label:agency_cognition:1": 5868,
+        "label:agency_change_of_state:1": 2770,
+        "label:agency_conflict:1": 846
+      },
+      "scroll_depth_max": 0.0,
+      "keyword_highlights_shown": [],
+      "chat_history": []
+    },
+    "inst_d5a9ea16b854faa0_404": {
+      "instance_id": "inst_d5a9ea16b854faa0_404",
+      "session_start": 1783313339.3802378,
+      "session_end": null,
+      "total_time_ms": 0,
+      "interactions": [
+        {
+          "event_type": "navigation",
+          "timestamp": 1783313334.32,
+          "target": "instance_load",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313334320,
+          "metadata": {
+            "instance_id": "inst_d5a9ea16b854faa0_404",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313359.311,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313359311,
+          "metadata": {
+            "x": 1016,
+            "y": 278
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313359.312,
+          "target": "label:agency_focalization:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313359312,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313359.312,
+          "target": "label:agency_focalization:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313359312,
+          "metadata": {
+            "x": 1016,
+            "y": 278
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313359.312,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313359312,
+          "metadata": {
+            "label": "3",
+            "action": "select",
+            "old_value": null,
+            "new_value": "3",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313359.814,
+          "target": "instance:inst_d5a9ea16b854faa0_404",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313359814,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313388.785,
+          "target": "label:agency_focalization:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313388785,
+          "metadata": {
+            "duration_ms": 29473
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313388.902,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313388902,
+          "metadata": {
+            "x": 834,
+            "y": 302
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313388.902,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313388902,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313388.903,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313388903,
+          "metadata": {
+            "x": 834,
+            "y": 302
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313388.903,
+          "target": "schema:agency_emotion",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313388903,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313389.405,
+          "target": "instance:inst_d5a9ea16b854faa0_404",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313389405,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313407.118,
+          "target": "label:agency_emotion:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313407118,
+          "metadata": {
+            "duration_ms": 18216
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313407.328,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313407328,
+          "metadata": {
+            "x": 835,
+            "y": 213
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313407.328,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313407328,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313407.329,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313407329,
+          "metadata": {
+            "x": 835,
+            "y": 213
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313407.33,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313407330,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313407.831,
+          "target": "instance:inst_d5a9ea16b854faa0_404",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313407831,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313409.817,
+          "target": "label:agency_cognition:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313409817,
+          "metadata": {
+            "duration_ms": 2489
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313409.926,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313409926,
+          "metadata": {
+            "x": 852,
+            "y": 163
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313414.68,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313414680,
+          "metadata": {
+            "x": 850,
+            "y": 131
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313414.834,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313414834,
+          "metadata": {
+            "x": 850,
+            "y": 131
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313415.001,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313415001,
+          "metadata": {
+            "x": 850,
+            "y": 131
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313415.409,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313415409,
+          "metadata": {
+            "x": 872,
+            "y": 132
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313415.734,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313415734,
+          "metadata": {
+            "x": 857,
+            "y": 159
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313415.901,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313415901,
+          "metadata": {
+            "x": 857,
+            "y": 159
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313416.043,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313416043,
+          "metadata": {
+            "x": 857,
+            "y": 159
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313416.663,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313416663,
+          "metadata": {
+            "x": 845,
+            "y": 164
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313416.805,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313416805,
+          "metadata": {
+            "x": 845,
+            "y": 164
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313417.138,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313417138,
+          "metadata": {
+            "x": 845,
+            "y": 164
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313417.476,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313417476,
+          "metadata": {
+            "x": 861,
+            "y": 135
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313417.634,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313417634,
+          "metadata": {
+            "x": 861,
+            "y": 135
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313417.826,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313417826,
+          "metadata": {
+            "x": 861,
+            "y": 135
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313418.343,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313418343,
+          "metadata": {
+            "x": 861,
+            "y": 140
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313426.534,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313426534,
+          "metadata": {
+            "x": 897,
+            "y": 203
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313426.943,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313426943,
+          "metadata": {
+            "x": 907,
+            "y": 204
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313426.943,
+          "target": "label:agency_cognition:2",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313426943,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313426.944,
+          "target": "label:agency_cognition:2",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313426944,
+          "metadata": {
+            "x": 907,
+            "y": 204
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313426.944,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313426944,
+          "metadata": {
+            "label": "2",
+            "action": "select",
+            "new_value": "2",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313427.445,
+          "target": "instance:inst_d5a9ea16b854faa0_404",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313427445,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313432.826,
+          "target": "label:agency_cognition:2",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313432826,
+          "metadata": {
+            "duration_ms": 5883
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313455.866,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313455866,
+          "metadata": {
+            "x": 892,
+            "y": 300
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313576.08,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313576080,
+          "metadata": {
+            "x": 1006,
+            "y": 209
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313576.08,
+          "target": "label:agency_cognition:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313576080,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313576.081,
+          "target": "label:agency_cognition:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313576081,
+          "metadata": {
+            "x": 1006,
+            "y": 209
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313576.081,
+          "target": "schema:agency_cognition",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313576081,
+          "metadata": {
+            "label": "3",
+            "action": "select",
+            "new_value": "3",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313576.583,
+          "target": "instance:inst_d5a9ea16b854faa0_404",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313576583,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313645.471,
+          "target": "label:agency_cognition:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313645471,
+          "metadata": {
+            "duration_ms": 69391
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313656.387,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313656387,
+          "metadata": {
+            "x": 1006,
+            "y": 228
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313656.388,
+          "target": "label:agency_change_of_state:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313656388,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313656.388,
+          "target": "label:agency_change_of_state:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313656388,
+          "metadata": {
+            "x": 1006,
+            "y": 228
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313656.389,
+          "target": "schema:agency_change_of_state",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313656389,
+          "metadata": {
+            "label": "3",
+            "action": "select",
+            "old_value": null,
+            "new_value": "3",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313656.89,
+          "target": "instance:inst_d5a9ea16b854faa0_404",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313656890,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313658.215,
+          "target": "label:agency_change_of_state:3",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313658215,
+          "metadata": {
+            "duration_ms": 1827
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313658.358,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313658358,
+          "metadata": {
+            "x": 826,
+            "y": 433
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783313658.359,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313658359,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313658.359,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313658359,
+          "metadata": {
+            "x": 826,
+            "y": 433
+          }
+        },
+        {
+          "event_type": "annotation_change",
+          "timestamp": 1783313658.359,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313658359,
+          "metadata": {
+            "label": "1",
+            "action": "select",
+            "old_value": null,
+            "new_value": "1",
+            "source": "user"
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1783313658.861,
+          "target": "instance:inst_d5a9ea16b854faa0_404",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313658861,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783313670.387,
+          "target": "label:agency_conflict:1",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313670387,
+          "metadata": {
+            "duration_ms": 12028
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313670.458,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313670458,
+          "metadata": {
+            "x": 834,
+            "y": 354
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313670.62,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313670620,
+          "metadata": {
+            "x": 834,
+            "y": 354
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313670.728,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313670728,
+          "metadata": {
+            "x": 834,
+            "y": 354
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313671.145,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313671145,
+          "metadata": {
+            "x": 906,
+            "y": 344
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313671.637,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313671637,
+          "metadata": {
+            "x": 906,
+            "y": 344
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313671.787,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313671787,
+          "metadata": {
+            "x": 906,
+            "y": 344
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313672.25,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313672250,
+          "metadata": {
+            "x": 929,
+            "y": 343
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313672.4,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313672400,
+          "metadata": {
+            "x": 929,
+            "y": 343
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313672.516,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313672516,
+          "metadata": {
+            "x": 929,
+            "y": 343
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313672.908,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313672908,
+          "metadata": {
+            "x": 1000,
+            "y": 370
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313673.024,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313673024,
+          "metadata": {
+            "x": 1000,
+            "y": 370
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313673.166,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313673166,
+          "metadata": {
+            "x": 1000,
+            "y": 370
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313673.682,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313673682,
+          "metadata": {
+            "x": 1000,
+            "y": 357
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313673.808,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313673808,
+          "metadata": {
+            "x": 1000,
+            "y": 357
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313673.92,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313673920,
+          "metadata": {
+            "x": 1000,
+            "y": 357
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313674.062,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313674062,
+          "metadata": {
+            "x": 1000,
+            "y": 357
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783313674.431,
+          "target": "schema:agency_conflict",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783313674431,
+          "metadata": {
+            "x": 1000,
+            "y": 328
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783625421.216,
+          "target": "instance_load",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783625421216,
+          "metadata": {
+            "instance_id": "inst_d5a9ea16b854faa0_404",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783649414.715,
+          "target": "instance_load",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649414715,
+          "metadata": {
+            "instance_id": "inst_d5a9ea16b854faa0_404",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783649453.213,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649453213,
+          "metadata": {
+            "x": 964,
+            "y": 219
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783649453.59,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649453590,
+          "metadata": {}
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783649453.681,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649453681,
+          "metadata": {
+            "x": 957,
+            "y": 208
+          }
+        },
+        {
+          "event_type": "click",
+          "timestamp": 1783649456.267,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649456267,
+          "metadata": {
+            "x": 957,
+            "y": 208
+          }
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783649465.769,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649465769,
+          "metadata": {
+            "duration_ms": 12179
+          }
+        },
+        {
+          "event_type": "focus_in",
+          "timestamp": 1783649561.712,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649561712,
+          "metadata": {}
+        },
+        {
+          "event_type": "focus_out",
+          "timestamp": 1783649563.087,
+          "target": "schema:agency_focalization",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649563087,
+          "metadata": {
+            "duration_ms": 1375
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1783649563.929,
+          "target": "key:2",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649563929,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1783649564.27,
+          "target": "key:0",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649564270,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1783649564.37,
+          "target": "key:0",
+          "instance_id": "inst_d5a9ea16b854faa0_404",
+          "client_timestamp": 1783649564370,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        }
+      ],
+      "ai_usage": [],
+      "annotation_changes": [
+        {
+          "timestamp": 1783313359.3705769,
+          "schema_name": "agency_focalization",
+          "label_name": "3",
+          "action": "select",
+          "old_value": null,
+          "new_value": "3",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313388.9593909,
+          "schema_name": "agency_emotion",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313407.4407854,
+          "schema_name": "agency_cognition",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313427.0009117,
+          "schema_name": "agency_cognition",
+          "label_name": "2",
+          "action": "select",
+          "old_value": null,
+          "new_value": "2",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313576.2065408,
+          "schema_name": "agency_cognition",
+          "label_name": "3",
+          "action": "select",
+          "old_value": null,
+          "new_value": "3",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313656.4431863,
+          "schema_name": "agency_change_of_state",
+          "label_name": "3",
+          "action": "select",
+          "old_value": null,
+          "new_value": "3",
+          "source": "user"
+        },
+        {
+          "timestamp": 1783313658.414768,
+          "schema_name": "agency_conflict",
+          "label_name": "1",
+          "action": "select",
+          "old_value": null,
+          "new_value": "1",
+          "source": "user"
+        }
+      ],
+      "navigation_history": [],
+      "focus_time_by_element": {
+        "label:agency_focalization:3": 29473,
+        "label:agency_emotion:1": 18216,
+        "label:agency_cognition:1": 2489,
+        "label:agency_cognition:2": 5883,
+        "label:agency_cognition:3": 69391,
+        "label:agency_change_of_state:3": 1827,
+        "label:agency_conflict:1": 12028,
+        "schema:agency_focalization": 13554
+      },
       "scroll_depth_max": 0.0,
       "keyword_highlights_shown": [],
       "chat_history": []
@@ -246333,6 +250243,191 @@
         },
         "2"
       ]
+    ],
+    "inst_76a46b75d189d2de_400": [
+      [
+        {
+          "schema": "agency_focalization",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_emotion",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_cognition",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_change_of_state",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "agency_conflict",
+          "name": "1"
+        },
+        "1"
+      ]
+    ],
+    "inst_96e52852548dffba_401": [
+      [
+        {
+          "schema": "agency_focalization",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_emotion",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_cognition",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_change_of_state",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "agency_conflict",
+          "name": "1"
+        },
+        "1"
+      ]
+    ],
+    "inst_232634a18c209f82_402": [
+      [
+        {
+          "schema": "agency_focalization",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_emotion",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_cognition",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_change_of_state",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "agency_conflict",
+          "name": "1"
+        },
+        "1"
+      ]
+    ],
+    "inst_de47311560b6f33b_403": [
+      [
+        {
+          "schema": "agency_focalization",
+          "name": "2"
+        },
+        "2"
+      ],
+      [
+        {
+          "schema": "agency_emotion",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_cognition",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_change_of_state",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_conflict",
+          "name": "1"
+        },
+        "1"
+      ]
+    ],
+    "inst_d5a9ea16b854faa0_404": [
+      [
+        {
+          "schema": "agency_focalization",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "agency_emotion",
+          "name": "1"
+        },
+        "1"
+      ],
+      [
+        {
+          "schema": "agency_cognition",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "agency_change_of_state",
+          "name": "3"
+        },
+        "3"
+      ],
+      [
+        {
+          "schema": "agency_conflict",
+          "name": "1"
+        },
+        "1"
+      ]
     ]
   },
   "instance_id_to_span_to_value": {},
@@ -249424,6 +253519,38 @@
     "inst_42ee6e32571de9f4_399": {
       "highlights": [],
       "seed": 3912444362,
+      "settings": {
+        "keyword_probability": 1.0,
+        "random_word_probability": 0.0
+      }
+    },
+    "inst_96e52852548dffba_401": {
+      "highlights": [],
+      "seed": 3781024229,
+      "settings": {
+        "keyword_probability": 1.0,
+        "random_word_probability": 0.0
+      }
+    },
+    "inst_232634a18c209f82_402": {
+      "highlights": [],
+      "seed": 3504310346,
+      "settings": {
+        "keyword_probability": 1.0,
+        "random_word_probability": 0.0
+      }
+    },
+    "inst_de47311560b6f33b_403": {
+      "highlights": [],
+      "seed": 758184795,
+      "settings": {
+        "keyword_probability": 1.0,
+        "random_word_probability": 0.0
+      }
+    },
+    "inst_d5a9ea16b854faa0_404": {
+      "highlights": [],
+      "seed": 3809862896,
       "settings": {
         "keyword_probability": 1.0,
         "random_word_probability": 0.0
