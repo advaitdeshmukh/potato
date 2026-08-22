@@ -7,14 +7,19 @@ Reads the raw Potato annotation output (annotation_output/results/<annotator>/
 user_state.json) plus the source corpus CSV, and writes wide-format parquet
 files to one or more destinations.
 
-    python export_annotations.py                      # write to default destinations
-    python export_annotations.py --out-dir /some/path # override (repeatable)
-    python export_annotations.py --dry-run            # build, report, write nothing
+    python export_annotations.py                       # write to default destinations
+    python export_annotations.py --dry-run             # build, report, write nothing
+    python export_annotations.py --out-dir /some/path  # override (repeatable)
+    python export_annotations.py --out-dir /path:tasks # ... with only the task files
 
 Column conventions follow narradolma-catalog/SCHEMA.md:
 
-    {group}_{dim}_gold          adjudicated label (from GOLD_ANNOTATOR)
-    {group}_{dim}_{annotator}   individual annotator's label
+    {dim}_gold                    adjudicated label (see GOLD_ANNOTATORS)
+    {dim}_{annotator}             each individual annotator's label
+    annotation_order_{annotator}  queue position, for drift analysis
+
+Annotators are discovered from the results directories, so a new one is picked
+up automatically; EXCLUDE_ANNOTATORS is the only deny-list.
 
 Outputs (all keyed on safe_instance_id):
 

@@ -25,8 +25,10 @@ precompute_span_pairs.py          (event-relation task only)
 potato serves it  ──►  annotation_output/results/<annotator>/user_state.json
       │
       ▼
-../export_annotations.py          parquet for the analysis repo
+../export_annotations.py          parquet for the downstream repos
 ```
+
+See `../README.md` for the tasks, the output schema, and where the parquets go.
 
 `sync_pair_policy_to_layout.py` is separate: it pushes `pair_assignment_policy`,
 `pair_question_text`, and `event_helper` from `config.yaml` into the JS in
@@ -57,8 +59,13 @@ to be re-derived; it is not recoverable from the CSV alone.
 ## Data files
 
 The three task directories each hold their own copy of
-`dolma_final_sample_s42_n1250_t0.5_llm_summary_safeid_with_spans.csv`. They are
-identical apart from `assigned_span1` / `assigned_span2`, which only the
-event-relation task reads. They could be collapsed to one shared copy, but that
-means repointing `data_files` in all three configs — worth doing once annotation
-is finished, not while the server may resume.
+`dolma_final_sample_s42_n1250_t0.5_llm_summary_safeid_with_spans.csv` (1072 rows,
+~25MB). They are identical apart from `assigned_span1` / `assigned_span2`, which
+only the event-relation task reads. They could be collapsed to one shared copy,
+but that means repointing `data_files` in all three configs — worth doing once
+annotation is finished, not while the server may resume.
+
+The upstream input (`…_llm_summary.csv`, without `safeid`) is produced by
+`dolma-sampling` and is not committed here, so `prepare_safeid_event_dataset.py`
+only runs when that file is present. The other seeds (s55/s67/s99) were removed
+in 2026-08 — nothing referenced them.
