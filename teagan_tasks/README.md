@@ -35,9 +35,25 @@ python export_annotations.py --dry-run  # preview, write nothing
 python export_annotations.py --out-dir /somewhere/else
 ```
 
-Destinations default to `../../narradolma-human-annotation/data/` and
-`../../llm-narrative-annotations/annotated_data/`, and can be overridden with
-`--out-dir` (repeatable) or the `NARR_ANNOTATION_OUT` environment variable.
+Two default destinations, which get different file sets because they consume
+different things:
+
+| Destination | Set | Files | Why |
+|---|---|---|---|
+| `narradolma-human-annotation/data/` | `full` | all five | agreement and drift need per-annotator columns; `corpus.parquet` covers all 1072 passages, which feature extraction needs |
+| `llm-narrative-annotations/annotated_data/` | `tasks` | the three task parquets | reads only `*_gold` columns, for LLM-vs-human agreement and NarraBERT training |
+
+`all_annotations.parquet` is unused by the second repo, and `corpus.parquet`
+would collide with what that repo already calls corpus.parquet — the full corpus
+for scale inference — so neither is sent there.
+
+Override with `--out-dir` (repeatable) or `NARR_ANNOTATION_OUT`. Both default to
+the full set; append `:tasks` for the three-file set:
+
+```bash
+python export_annotations.py --out-dir /some/path         # full
+python export_annotations.py --out-dir /some/path:tasks   # three task parquets
+```
 
 Annotators are discovered from the `annotation_output/results/` directories, so
 a new annotator is exported automatically. Test accounts are excluded via

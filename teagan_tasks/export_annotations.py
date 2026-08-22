@@ -23,6 +23,13 @@ Outputs (all keyed on safe_instance_id):
     event_relation_annotations.parquet
     all_annotations.parquet          <- outer join of the three tasks
     corpus.parquet                   <- every source row, for feature extraction
+
+Destinations get different subsets, because they consume different things:
+
+    narradolma-human-annotation/data/      all five ('full')
+    llm-narrative-annotations/annotated_data/   the three task files ('tasks')
+
+See FILE_SETS below.
 """
 
 import argparse
@@ -52,9 +59,27 @@ GOLD_ANNOTATORS = {
 # instead of being silently dropped until someone remembers to edit a list.
 EXCLUDE_ANNOTATORS = {'1'}
 
-DEFAULT_OUT_DIRS = [
-    os.path.join(REPOS, 'narradolma-human-annotation', 'data'),
-    os.path.join(REPOS, 'llm-narrative-annotations', 'annotated_data'),
+# Named sets of output files. Destinations differ in what they actually consume,
+# so they are not sent the same thing.
+TASK_FILES = ['setting_annotations', 'agency_annotations', 'event_relation_annotations']
+
+FILE_SETS = {
+    # Everything: per-annotator labels and annotation_order for agreement and
+    # drift work, plus corpus.parquet, which feature extraction needs because it
+    # covers all sampled passages rather than only the annotated ones.
+    'full':  TASK_FILES + ['all_annotations', 'corpus'],
+
+    # Just the three task parquets. llm-narrative-annotations reads only the
+    # *_gold columns from these (LLM-vs-human agreement, NarraBERT training).
+    # It does not use all_annotations, and it already means something different
+    # by "corpus.parquet" -- the full corpus for scale inference -- so sending
+    # one here would invite pointing an inference job at the wrong file.
+    'tasks': TASK_FILES,
+}
+
+DEFAULT_DESTINATIONS = [
+    (os.path.join(REPOS, 'narradolma-human-annotation', 'data'),      'full'),
+    (os.path.join(REPOS, 'llm-narrative-annotations', 'annotated_data'), 'tasks'),
 ]
 
 # -- Task definitions ----------------------------------------------------------
@@ -295,16 +320,19 @@ def build_task_df(task_key, cfg):
 
 # -- Main ----------------------------------------------------------------------
 
-def write_all(frames, out_dirs, dry_run):
-    """Write every {name: df} in frames into each destination directory."""
-    for out_dir in out_dirs:
-        print(f'\n[{out_dir}]')
+def write_all(frames, destinations, dry_run):
+    """Write each destination's file set. destinations is [(out_dir, set_name)]."""
+    for out_dir, set_name in destinations:
+        wanted = [n for n in FILE_SETS[set_name] if n in frames]
+        print(f'\n[{out_dir}]  ({set_name}: {len(wanted)} files)')
         if dry_run:
-            for name, df in frames.items():
+            for name in wanted:
+                df = frames[name]
                 print(f'  (dry run) {name}.parquet  {len(df)} rows x {len(df.columns)} cols')
             continue
         os.makedirs(out_dir, exist_ok=True)
-        for name, df in frames.items():
+        for name in wanted:
+            df = frames[name]
             path = os.path.join(out_dir, f'{name}.parquet')
             df.to_parquet(path, index=False)
             size = os.path.getsize(path) / 1e6
@@ -316,17 +344,27 @@ def main():
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--out-dir', action='append', default=None,
                         help='Destination directory (repeatable). Overrides the '
-                             'defaults and NARR_ANNOTATION_OUT.')
+                             'defaults and NARR_ANNOTATION_OUT. Append ":tasks" '
+                             'to send only the three task parquets, e.g. '
+                             '--out-dir /some/path:tasks. Defaults to the full set.')
     parser.add_argument('--dry-run', action='store_true',
                         help='Build everything and report, but write no files.')
     args = parser.parse_args()
 
+    def parse_dest(raw):
+        """'path' or 'path:set_name' -> (path, set_name)."""
+        for name in FILE_SETS:
+            if raw.endswith(f':{name}'):
+                return raw[:-(len(name) + 1)], name
+        return raw, 'full'
+
     if args.out_dir:
-        out_dirs = args.out_dir
+        destinations = [parse_dest(p) for p in args.out_dir]
     elif os.environ.get('NARR_ANNOTATION_OUT'):
-        out_dirs = [p for p in os.environ['NARR_ANNOTATION_OUT'].split(os.pathsep) if p]
+        destinations = [parse_dest(p)
+                        for p in os.environ['NARR_ANNOTATION_OUT'].split(os.pathsep) if p]
     else:
-        out_dirs = DEFAULT_OUT_DIRS
+        destinations = DEFAULT_DESTINATIONS
 
     print('Loading metadata ...')
     meta = load_metadata()
@@ -357,7 +395,7 @@ def main():
         combined = meta.merge(combined, on='safe_instance_id', how='right')
         frames['all_annotations'] = combined[['safe_instance_id'] + meta_cols + all_label_cols]
 
-    write_all(frames, out_dirs, args.dry_run)
+    write_all(frames, destinations, args.dry_run)
 
 
 if __name__ == '__main__':
