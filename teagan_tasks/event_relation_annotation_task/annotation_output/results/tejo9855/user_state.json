@@ -1074,7 +1074,7 @@
     "inst_9b1707488a31a6a2_1070",
     "inst_59c49a5891d8c49c_1071"
   ],
-  "current_instance_index": 402,
+  "current_instance_index": 440,
   "current_phase_and_page": [
     "annotation",
     "annotation"
@@ -20980,6 +20980,91 @@
           "instance_id": "inst_0901f51c5397ac4a_58",
           "client_timestamp": 1778617935487,
           "metadata": {}
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1779154840.24,
+          "target": "instance_load",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1779154840240,
+          "metadata": {
+            "instance_id": "inst_0901f51c5397ac4a_58",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1781711251.297,
+          "target": "instance_load",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1781711251297,
+          "metadata": {
+            "instance_id": "inst_0901f51c5397ac4a_58",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783127381.924,
+          "target": "instance_load",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1783127381924,
+          "metadata": {
+            "instance_id": "inst_0901f51c5397ac4a_58",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783183052.181,
+          "target": "instance_load",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1783183052181,
+          "metadata": {
+            "instance_id": "inst_0901f51c5397ac4a_58",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1783649088.712,
+          "target": "instance_load",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1783649088712,
+          "metadata": {
+            "instance_id": "inst_0901f51c5397ac4a_58",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1787535069.768,
+          "target": "instance_load",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1787535069768,
+          "metadata": {
+            "instance_id": "inst_0901f51c5397ac4a_58",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1787535072.119,
+          "target": "jump_to_unannotated",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1787535072119,
+          "metadata": {
+            "from_instance": "inst_0901f51c5397ac4a_58",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1787535072.119,
+          "target": "instance:inst_0901f51c5397ac4a_58",
+          "instance_id": "inst_0901f51c5397ac4a_58",
+          "client_timestamp": 1787535072119,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -32614,6 +32699,36 @@
             "new_value": null,
             "source": "user"
           }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1787535072.675,
+          "target": "instance_load",
+          "instance_id": "inst_5c8e9854b68010df_114",
+          "client_timestamp": 1787535072675,
+          "metadata": {
+            "instance_id": "inst_5c8e9854b68010df_114",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1787535075.22,
+          "target": "jump_to_unannotated",
+          "instance_id": "inst_5c8e9854b68010df_114",
+          "client_timestamp": 1787535075220,
+          "metadata": {
+            "from_instance": "inst_5c8e9854b68010df_114",
+            "to_instance": null
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1787535075.22,
+          "target": "instance:inst_5c8e9854b68010df_114",
+          "instance_id": "inst_5c8e9854b68010df_114",
+          "client_timestamp": 1787535075220,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -39628,6 +39743,61 @@
             "new_value": null,
             "source": "user"
           }
+        },
+        {
+          "event_type": "navigation",
+          "timestamp": 1787535075.883,
+          "target": "instance_load",
+          "instance_id": "inst_57209f61c01cac55_149",
+          "client_timestamp": 1787535075883,
+          "metadata": {
+            "instance_id": "inst_57209f61c01cac55_149",
+            "from_instance": null
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1787535077.678,
+          "target": "key:4",
+          "instance_id": "inst_57209f61c01cac55_149",
+          "client_timestamp": 1787535077678,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1787535077.878,
+          "target": "key:4",
+          "instance_id": "inst_57209f61c01cac55_149",
+          "client_timestamp": 1787535077878,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1787535078.026,
+          "target": "key:0",
+          "instance_id": "inst_57209f61c01cac55_149",
+          "client_timestamp": 1787535078026,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1787535078.37,
+          "target": "instance:inst_57209f61c01cac55_149",
+          "instance_id": "inst_57209f61c01cac55_149",
+          "client_timestamp": 1787535078370,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -85081,6 +85251,38 @@
             "instance_id": "inst_232634a18c209f82_402",
             "from_instance": null
           }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779154838.65,
+          "target": "key:5",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1779154838650,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "keypress",
+          "timestamp": 1779154839.128,
+          "target": "key:9",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1779154839128,
+          "metadata": {
+            "ctrl": false,
+            "alt": false,
+            "shift": false
+          }
+        },
+        {
+          "event_type": "save",
+          "timestamp": 1779154839.62,
+          "target": "instance:inst_232634a18c209f82_402",
+          "instance_id": "inst_232634a18c209f82_402",
+          "client_timestamp": 1779154839620,
+          "metadata": {}
         }
       ],
       "ai_usage": [],
@@ -92144,6 +92346,15 @@
         },
         {
           "timestamp": 1778822253.9640896,
+          "schema_name": "event_sequencing",
+          "label_name": "event_sequencing",
+          "action": "update",
+          "old_value": "[{\"span1\":{\"idx\":4,\"start\":271,\"end\":277,\"token\":\"rotted\",\"type\":\"event\"},\"span2\":{\"idx\":2,\"start\":227,\"end\":231,\"token\":\"woke\",\"type\":\"event\"},\"span1_is_event\":true,\"span2_is_event\":true,\"temporal_order\":\"span1_first\",\"causality_rating\":\"not_related\"}]",
+          "new_value": "[{\"span1\":{\"idx\":4,\"start\":271,\"end\":277,\"token\":\"rotted\",\"type\":\"event\"},\"span2\":{\"idx\":2,\"start\":227,\"end\":231,\"token\":\"woke\",\"type\":\"event\"},\"span1_is_event\":true,\"span2_is_event\":true,\"temporal_order\":\"span1_first\",\"causality_rating\":\"not_related\"}]",
+          "source": "user"
+        },
+        {
+          "timestamp": 1787535081.1151981,
           "schema_name": "event_sequencing",
           "label_name": "event_sequencing",
           "action": "update",
